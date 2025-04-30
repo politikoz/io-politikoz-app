@@ -1,0 +1,708 @@
+{
+	"Header": {
+		"connect": "Connect",
+		"connected": "Connected",
+		"disconnect": "Disconnect",
+		"documentation": "Documentation",
+		"downloadWallet": "Download Wallet",
+		"explore": "Explore",
+    "play": "Play",
+		"home": "Home"
+	},
+"Common": {
+    "balance": "Balance:",
+    "disconnect": "Disconnect",
+    "downloadWallet": "Download Wallet...",    
+    "noAddressFound": "No address found",    
+    "rewardAddress": "Reward Address:",
+	"poweredBy": "Powered By",
+	"months": {
+        "january": "January",
+        "february": "February",
+        "march": "March",
+        "april": "April",
+        "may": "May",
+        "june": "June",
+        "july": "July",
+        "august": "August",
+        "september": "September",
+        "october": "October",
+        "november": "November",
+        "december": "December"
+    }       
+},
+"NextElectionCountdown": {
+    "days": "days",
+	"hours": "hours",
+	"minutes": "minutes",
+	"seconds": "seconds",
+	"electionSignText": "THE<br />ELECTION<br />IS<br />NEAR!",
+	"prizesSignText": "{ADA} ADA<br />IN<br />PRIZES"
+},
+"LastElectionLeaderboard": {
+	"electionOf": "Election of",	
+    "leaderboard": "Leaderboard",
+	"otherWinners": "Other {remainingWinnersCount} winners",
+    "place": "Place",
+    "prize": "Prize",
+	"user": "User"   
+},
+"InfoSection": {
+"cardData": {
+    "prizes": {
+      "title": "+{amount} ADA MONTHLY",
+      "text": "Regular Prizes"
+    },
+    "freeEntries": {
+      "title": "FREE ENTRIES",
+      "text": "Join with No Cost"
+    },
+    "auditable": {
+      "title": "100% AUDITABLE",
+      "text": "Verifiable for Everyone"
+    },
+    "treasury": {
+      "title": "+{treasury} ADA TREASURY",
+      "text": "Always Growing"
+    }
+  },
+  "learnMore": "Learn More on Gitbook"
+},
+"JoinPolitikozPaths": {
+    "buyPolitikoz": {
+      "header": "Secure Your Spot: Buy Now!",
+      "title": "Buy a Politikoz",
+      "description": "By buying a Politikoz, you secure your participation in the monthly draws forever, with the opportunity to win amazing rewards.",
+      "step1Title": "Buy a Politikoz",
+      "step1Text": "Purchase one or more Politikoz.",
+      "step2Title": "Create Your Party",
+      "step2Text": "Register your political party for auto entry.",
+      "step3Title": "Increase Your Chances",
+      "step3Text": "More Politikoz means more chances to win.",
+      "button": "Buy Now"
+    },
+    "buyKoz": {
+      "header": "Get Your KOZ Tokens: Swap Now!",
+      "title": "Get KOZ Token",
+      "description": "KOZ tokens give you access to platform utility and voting power in our future DAO, shaping the platform's future.",
+      "step1Title": "Connect Your Wallet",
+      "step1Text": "Connect your wallet to start.",
+      "step2Title": "Swap ADA for KOZ",
+      "step2Text": "Swap ADA for KOZ tokens.",
+      "step3Title": "Get Tickets",
+      "step3Text": "Use KOZ to get entries for the election draws.",
+      "button": "Swap Now"
+    },
+    "engageAndEarn": {
+      "header": "No Cost, No Risk: Join for Free!",
+      "title": "Engage and Earn",
+      "description": "Engage with our community to earn KOZ Tokens and exchange them for entries to the monthly election draws at no cost.",
+      "step1Title": "Link Your Socials",
+      "step1Text": "Link your X and Discord to our platform.",
+      "step2Title": "Earn KOZ Tokens",
+      "step2Text": "Engage to earn KOZ Tokens as rewards.",
+      "step3Title": "Exchange for Entries",
+      "step3Text": "Use KOZ Tokens to enter the monthly election draw.",
+      "button": "Engage Now"
+    },
+    "stakeAndWin": {
+      "header": "No Cost, No Risk: Join for Free!",
+      "title": "Stake and Win",
+      "description": "Stake your ADA with us and earn tickets for the monthly draws while still earning your regular ADA rewards.",
+      "step1Title": "Connect Your Wallet",
+      "step1Text": "Start by connecting your wallet to our platform.",
+      "step2Title": "Stake ADA",
+      "step2Text": "Stake your ADA in our PLKOZ stake pool.",
+      "step3Title": "Win Free Entries",
+      "step3Text": "More ADA staked means more free entries for draws.",
+      "button": "Stake Now"
+    },
+    "topBanner": {
+      "text": "JOIN THE WORLD OF KOZ NOW. COLLECT, TRADE AND EARN ADA."
+    }
+  },
+  "Footer": {
+    "links": {
+      "home": "Home",
+    "team": "Team",
+    "stake": "Stake with Us",
+    "treasury": "Treasury",
+    "terms": "Terms of Use",
+    "privacy": "Privacy Policy"
+    },
+    "joinCommunity": "Join our community!",
+	"copyright": "Copyright © {year}. All rights reserved."
+  },
+  "Support": {
+    "formTitle": "Support",
+    "nameLabel": "Your Name",
+    "namePlaceholder": "Enter your name",
+    "emailLabel": "Email Address",
+    "emailPlaceholder": "Enter your email",
+    "messageLabel": "Message",
+    "messagePlaceholder": "How can we help you?",
+    "attachmentsLabel": "Attachments",
+    "sending": "Sending...",
+    "send": "Send",
+    "successMessage": "Your message has been sent successfully!",
+    "errorMessage": "Failed to send the message. Please try again.",
+    "unexpectedError": "An unexpected error occurred."
+  },
+"Explore": {
+  "ActiveListing": {
+    "title": "For Sale",
+    "price": "Price: {price}"
+  },
+  "BuyPolitikoz": {
+    "title": "Put a Politikoz into your pocket!",
+    "description": "For every Politikoz you purchase, you'll receive <highlight>10 FREE tickets</highlight> to boost your chances in future prize draws!",
+    "cta": "Buy on JPG.Store"
+  },
+  "ExploreIntro": {
+    "title": "Discover Politikoz",
+    "text1": "A collection of 10,000 unique NFTs across 8 political classes. Each Politikoz holds a unique identifier, serving as your eternal entry into our monthly prize draws.",
+    "text2": "Don’t miss your chance to join the fun, own a Politikoz, and win amazing prizes!",
+    "floor": "Floor Price: {price}",
+    "cta": "Buy on JPG.Store"
+  },
+  "GrowingCommunity": {
+    "title": "Growing Community",
+    "total": "Join our growing community of {total} Politikoz holders!",
+    "social": "With {x} followers on X and {discord} Discord members, the community continues to thrive—become a part of it today and earn KOZ tokens as you engage!",
+    "chartTitle": "Holder Distribution"
+  },
+  "Trades": {
+    "title": "Recent Trades",
+    "price": "Price: {price}",
+    "buyer": "Buyer",
+    "seller": "Seller"
+  }
+},
+"ConnectToKoz": {
+  "connectTo": "Connect to<br />World of KOZ",
+  "continueWith": "or continue with",
+  "backTo": "Back to {page}",
+  "connect": "Connect",
+
+  "LogoutModal": {
+    "title": "Confirm Logout",
+    "message": "Are you sure you want to disconnect?",
+    "cancel": "Cancel",
+    "disconnect": "Disconnect",
+    "wait": "Wait {seconds}s"
+  },
+
+  "connectError": "Failed to connect to {wallet}. Please try again.",
+  "disconnect": "Disconnect",
+  "downloadWallet": "Download Wallet",
+  "wallet": "Wallet",
+  "noAddress": "No Address Found",
+
+  "agreeToTerms": "By continuing, you agree to our <termsLink>Terms of Use</termsLink> and our <privacyLink>Privacy Policy</privacyLink>."
+},
+"AutoLink": {
+  "Config": {
+    "title": "Auto Link Configuration",
+    "description": "The Auto Link feature allows you to automatically distribute your tickets based on predefined settings before each election. This ensures your tickets are allocated efficiently without manual intervention. Adjust the distribution according to your strategy and let the system handle the allocation for you.",
+    "linkToSpecificPolitikoz": "Link to a Specific Politikoz",
+    "distributeToRandomPolitikoz": "Distribute to Random Politikoz",
+    "linkToMyParty": "Link to My Party",
+    "distributeAmongParties": "Distribute Among Parties",
+    "configuredAutoLinks": "Configured Auto Links"
+  },
+  "Distribution": {
+    "otherConfigs": "Other configs",
+    "thisConfig": "This config",
+    "available": "Available"
+  },
+  "List": {
+    "empty": "No configurations added.",
+    "politikozLabel": "Politikoz #{id}",
+    "partyLabel": "Party {id}",
+    "randomLabel": "Random",
+    "delete": "Delete"
+  },
+  "ModalParties": {
+    "title": "Distribute Among Parties",
+    "selectPlaceholder": "Select a Party",
+    "selectedTitle": "Selected Parties",
+    "cancel": "Cancel",
+    "save": "Save"
+  },
+  "Modal": {
+      "title": "Configure Automatic Distribution",
+      "randomTitle": "Configure Random Distribution",
+      "description": "Set up the percentage distribution for each ticket type to specific targets.",
+      "randomDescription": "Configure the percentage of tickets that will be automatically distributed to random Politikoz before each election. This ensures your unassigned tickets are always put to use, even if you haven't manually allocated them.",
+      "save": "Save",
+      "cancel": "Cancel"
+    },
+  "ModalPolitikoz": {
+      "title": "Link to Specific Politikoz",
+      "description": "Configure percentage distribution for specific Politikoz. The selected percentage will be equally distributed among all selected Politikoz. You can only add percentages - to reduce, delete the configuration.",
+      "selectedTitle": "Selected Politikoz",
+      "noneSelected": "No Politikoz selected.",
+      "save": "Save",
+      "cancel": "Cancel"
+    },
+  "Progress": {
+    "title": "Total Allocated Percentage"
+  }
+},
+"Calendar": {
+  "upcomingEvents": "Upcoming Events",
+  "months": {
+    "january": "January",
+    "february": "February",
+    "march": "March",
+    "april": "April",
+    "may": "May",
+    "june": "June",
+    "july": "July",
+    "august": "August",
+    "september": "September",
+    "october": "October",
+    "november": "November",
+    "december": "December"
+  }
+},
+"ClaimKoz": {
+  "title": "Claim KOZ Rewards",
+  "description": "Claim your available KOZ tokens accumulated through platform activities.",
+  "totalAvailable": "Total Available to Claim",
+  "claimNow": "Claim Now",
+  "availableRewards": "Available Rewards",
+  "claimHistory": "Claim History",
+  "claimSummary": "Claim Summary",
+  "totalClaim": "Total Claim",
+  "fee": "Fee",
+  "destination": "Destination Address",
+  "cancel": "Cancel",
+  "confirm": "Confirm Claim"
+},
+  "ElectionInfo": {
+    "title": "Election Overview",
+    "prizeTitle": "Election Prize",
+    "totalPrize": "Total Prize",
+    "politikoz": "Politikoz",
+    "tickets": "Tickets",
+    "politikozBreakdown": "Politikoz Prize Breakdown",
+    "ticketsBreakdown": "Tickets Prize Breakdown",
+    "roadmapTitle": "Election Waves - Roadmap",
+    "drawTitle": "Wave Draw Results",
+    "waveLabel": "Wave {number}",
+    "modalTitle": "Wave {number} Details",
+    "modalDate": "Date",
+    "modalClose": "Close",
+    "elected": "elected",
+    "winner": "winner",
+    "winners": "winners",
+    "prizePerWinner": "Prize per winner",
+    "totalForRole": "Total for role",
+    "totalForType": "Total for type"
+  },
+"ElectionResult": {
+    "map": "Electoral Map",
+    "candidates": "User Candidates",
+    "grid": "Grid View",
+    "table": "Table View",
+    "tree": "Winners Tree",
+    "senate": "Senate Chamber",
+
+    "earningsEstimate": "Earnings Estimate",
+    "legend": "Legend",
+
+    "tableTitle": "Politikoz & Tickets Table",
+    "filterAllRoles": "All Roles",
+    "filterWinning": "🏆 Winning",
+    "filterNoStamina": "⚡ No Stamina",
+    "filterUserOwned": "👤 User Owned",
+    "status": "Status",
+    "politikoz": "Politikoz",
+    "role": "Role",
+    "place": "Place",
+    "earnings": "Earnings",
+    "prev": "◀ Prev",
+    "next": "Next ▶",
+    "page": "Page {current} of {total}",
+
+    "politikozOverview": "Politikoz Overview",
+    "groupWinning": "🏆 Winning Position (if election ended now)",
+    "groupOutOfStamina": "⚠️ Winning Position (if election ended now) - Out of Stamina for Next Wave",
+    "groupLosing": "❌ Losing Position",
+    "earningsDisplay": "Earnings: ${amount}",
+    "noPoliticians": "No politicians in this category",
+
+    "senateTitle": "Election Winners - Senate",
+
+    "title": "Election Results",
+    "legendWinning": "Winning Position (if maintained)",
+    "legendLosing": "Losing Position",
+    "legendPositionsToVictory": "Positions to victory",
+    "noData": "No data available.",
+    "candidateVotes": "Votes",
+    "candidateLabel": "Candidate {index} / {total}",
+    "btnBack": "Back",
+    "btnNext": "Next"
+  } ,
+  "GovernanceSettings": {
+    "title": "Governance Settings",
+    "loading": "Loading rules...",
+
+    "votingPowerTitle": "Voting Power Summary",
+    "votingPowerDescription": "Your voting power is based on the amount of KOZ tokens you hold. In future updates, this power will be used to vote on changes to the governance settings.",
+    "votingPowerTotal": "Total Voting Power",
+    "votingPowerUsed": "Used",
+    "votingPowerRemaining": "Remaining",
+    "votingPowerUsedFormatted": "{used} ({percent}%)",
+    "votingPowerRemainingFormatted": "{remaining} ({percent}%)",
+
+    "potShareTitle": "Election Pot Share per Election",
+    "potShareDescription": "This setting defines the portion of the election pot that will be distributed in each election round.",
+    "potShareTotal": "Total ADA distributed per election:",
+    "potShareTreasury": "Current Treasury Balance:",
+
+    "electionPotTitle": "Election Pot Distribution",
+    "electionPotDescription": "This section defines how the Election Pot is distributed among the elected positions and ticket roles. Each category receives a percentage of the total pot, which corresponds to a specific ADA value per election.",
+
+
+    "ticketLimitsTitle": "Ticket Limits",
+    "ticketLimitsDescription": "These limits define the minimum and maximum ADA range that the balancing engine can work within to determine how much stake is needed to earn 1 ticket of each type. Based on staking conditions, the engine picks a value within this range. For example, if the engine picks 2000 ADA for Corrupt, a delegator with 5000 ADA gets 2 Corrupt tickets. Remaining stake is passed to the next type: Lobbyist → Briber → Launderer, continuing until no ticket can be assigned.",
+    "ticketLimitsNextRebalance": "Next rebalance at epoch: {epoch}",
+    "ticketLimitsMin": "Min value: {amount} ADA",
+    "ticketLimitsMax": "Max value : {amount} ADA",
+    "ticketLimitsCurrent": "Current value selected by engine: {amount} ADA",
+
+    "otherSettingsTitle": "Other Election Settings",
+    "intervalTitle": "Election Interval",
+    "intervalDescription": "Defines the interval needed for the next election. If set to 1, an election will occur every epoch.",
+    "intervalEvery": "Every {epochs} epoch(s)",
+    "luckTitle": "Luck Number Precision",
+    "luckDescription": "Determines the number of digits a user must choose as the lucky number assigned to each Politikoz.",
+    "luckDigits": "{count} digit(s)",
+    "jailTitle": "Jail Number Precision",
+    "jailDescription": "Defines the percentage chance of a Politikoz being sent to jail after being elected.",
+    "jailChance": "{percent}% chance",
+    "bailTitle": "Bail per Epoch",
+    "bailDescription": "Defines the cost (in KOZ) to pay per sentenced epoch in order to leave jail before the random sentence period ends.",
+    "bailValue": "{amount} KOZ per epoch",
+    "bestDayTitle": "Best Day to Start",
+    "bestDayDescription": "Defines the preferred day of the week to start a new election cycle.",
+
+    "waveSettingsTitle": "Election Waves",
+    "waveSettingsDescription": "Each wave represents a stage in the election process with specific rules like number precision, bonuses, stamina requirements, and timing intervals before execution.",
+    "numbersToBeDrawn": "Numbers to be Drawn",
+    "numbersDrawnPrecision": "Number Precision",
+    "numberFeePrecision": "Fee Precision",
+    "percentBonusTicket": "Ticket Bonus (%)",
+    "percentBonusTopRanking": "Top Ranking Bonus (%)",
+    "decreaseInStamina": "Stamina Decrease",
+    "minimumStamina": "Minimum Stamina Required",
+    "waitInMinutesBeforeExecute": "Wait Time Before Execution (minutes)",
+
+    "politikozTitle": "Politikoz Elected",
+    "politikozDescription": "Defines how many Politikoz of each role will be elected in each election and calculates the ADA share per elected role based on the distribution settings.",
+    "electedLabel": "Elected: {count}",
+    "perElectedLabel": "ADA per elected: {amount} ADA",
+
+    "ticketTitle": "Ticket Elected",
+    "ticketDescription": "Defines the number of ticket-based roles that will be elected in each election and calculates the ADA share per elected ticket based on the distribution settings.",
+    "ticketElectedLabel": "Elected: {count}",
+    "ticketAdaLabel": "ADA per ticket: {amount} ADA"
+
+  } ,
+  "HallView": {
+  "tour": "Take a tour",
+  "tokenomics": "Tokenomics",
+  "treasury": "Treasury Pot",
+  "team": "Team",
+  "exit": "Exit",
+  "backToHall": "← Back to Hall"
+},
+"IncomeOutcome": {
+  "title": "Income & Outcome",
+  "incomeTitle": "Income",
+  "outcomeTitle": "Outcome",
+  "monthIncomeTitle": "This Month - Income",
+  "monthOutcomeTitle": "This Month - Outcome",
+  "yearIncomeTitle": "Last 12 Months - Income",
+  "yearOutcomeTitle": "Last 12 Months - Outcome",
+  "noIncome": "No income this month",
+  "noOutcome": "No outcome this month",
+  "summaryTitle": "Summary (Last 12 Months)",
+  "incomeSummary": "Income: {amount} KOZ",
+  "outcomeSummary": "Outcome: {amount} KOZ",
+  "months": [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ]
+},
+"InsideBuilding": {
+  "hall": "HALL",
+  "office": "OFFICE",
+  "laundry": "LAUNDRY",
+  "party": "PARTY",
+  "arcade": "ARCADE ROOM",
+  "news": "NEWS"
+},
+"LaundryView": {
+  "stakeWithPlkoz": "Stake with PLKOZ",
+  "ticketCalculator": "Ticket Calculator",
+  "claimKoz": "Claim KOZ",
+  "exit": "Exit",
+  "backToLaundry": "← Back to Laundry",
+  "connectWalletFirst": "Please connect your wallet first"
+},
+"NewsView": {
+  "joinDiscord": "Join us on Discord",
+  "followX": "Follow us on X",
+  "socialTasks": "Social Tasks",
+  "discordRank": "My Discord Rank",
+  "distributionPolicy": "Distribution Policy",
+  "claimKoz": "Claim KOZ",
+  "exit": "Exit",
+  "comingSoon": "Coming Soon",
+  "backToNews": "← Back to News"
+},
+"OfficeView": {
+  "incomeOutcome": "Income/Outcome",
+  "myTickets": "My Tickets",
+  "calendar": "Calendar",
+  "prizeInfo": "Prize Info",
+  "waveInfo": "Wave Info",
+  "electionResults": "Election Results",
+  "buyKoz": "Buy KOZ",
+  "exit": "Exit",
+  "backToOffice": "← Back to Office"
+},
+  "PartyView": {
+    "backToParty": "← Back to Party",
+    "buttons": {
+      "myParty": "My Party",
+      "myPolitikoz": "My Politikoz",
+      "campaignGame": "Campaign Game",
+      "governanceSettings": "Governance Settings",
+      "exit": "Exit",
+      "comingSoon": "Coming Soon"
+    },
+    "create": {
+      "title": "Create Party",
+      "siglaLabel": "Party Acronym",
+      "nameLabel": "Party Name",
+      "placeholderSigla": "XXXX",
+      "placeholderName": "Party Name",
+      "createButton": "Create Party"
+    },
+    "flag": {
+      "tryAgain": "Try Again"
+    }
+  },
+
+  "PolitikozProfile": {
+    "history": "History",
+    "distribution": "DISTRIBUTION",
+    "ticketsForJuly": "TICKETS FOR ELECTION OF JULY",
+    "linkTickets": "Link Tickets",
+    "editLuckyNumber": "Edit Lucky Number",
+    "edit": "Edit",
+    "editForAll": "Edit for all Politikoz",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "release": "Release",
+    "releaseTitle": "Prisoner Release",
+    "releaseConfirmStart": "Do you want to release",
+    "releaseConfirmMiddle": "for",
+    "releaseConfirmAllStart": "Do you want to release all",
+    "releaseConfirmAllMiddle": "prisoners for",
+    "keepImprisoned": "Keep Imprisoned",
+    "confirmBribe": "Yes, Pay Bribe",
+    "releaseAllCheckbox": "Release all imprisoned",
+    "details": "DETAILS",
+    "tickets": "TICKETS",
+    "stamina": "Stamina",
+    "noPolitikozAvailable": "No Politikoz available",
+    "noPolitikozForCategory": "No Politikoz available for this category",
+    "previous": "Previous",
+    "next": "Next",
+    "restartList": "Restart List",
+    "searchPlaceholder": "Search Politikoz...",
+    "power": "POWER",
+    "dirtyMoney": "Dirty Money",
+    "influence": "Influence",
+    "cleanMoney": "Clean Money",
+    "bribePower": "Bribe Power",
+    "scapegoats": "Scapegoats",
+    "addTickets": "ADD TICKETS",
+    "corruptDesc": "Corrupt politicians bend the rules for personal gain.",
+    "lobbyistDesc": "Lobbyists influence policies behind closed doors.",
+    "laundererDesc": "Money launderers clean dirty money for the system.",
+    "briberDesc": "Bribers use money to get what they want.",
+    "frontmenDesc": "Frontman take the fall while real leaders hide.",
+    "close": "Close"
+  },
+  "Stake": {
+    "stakeTitle": "Stake with Politikoz",
+    "stakeDescription": "Stake your ADA with our pool to earn rewards and support the Politikoz ecosystem.",
+    "stakeNow": "Stake Now",
+    "connectFirst": "Connect Wallet First",
+    "stakeSuccess": "Stake delegation successful!",
+    "stakeError": "Error during stake delegation"
+  },
+  "Swap": {
+    "title": "Swap ADA → KOZ",
+    "rate": "Fixed rate:",
+    "available": "KOZ Available:",
+    "amountLabel": "Amount in KOZ",
+    "costLabel": "Cost:",
+    "swapButton": "Swap Now",
+    "historyTitle": "Swap History"
+  },
+  "Team": {
+  "title": "Meet the Team",
+  "description": "Our passionate and focused team may be small, but we are deeply rooted in the Cardano Blockchain ecosystem. As ADA investors since 2019 and founders of the Politikoz NFT project in 2021, our vision goes far beyond NFTs — we aim to deliver long-term value to our community.",
+  "uxui": "UX/UI & Pixel Art",
+  "uxuiDesc": "Pixel Art Design, UI/UX, User Testing.",
+  "fullstack": "Fullstack Developer",
+  "fullstackDesc": "Backend (Java), Frontend (Next.js), PostgreSQL Database, AWS Developer.",
+  "infra": "Infrastructure & Operations",
+  "infraDesc": "Server Management, Stake Pool Operator, Infrastructure, System Testing."
+},
+"TicketPolicy": {
+  "calculatorTitle": "Ticket Calculator",
+  "calculatorDescription": "Enter your staking amount to simulate how many tickets you would receive per tier and see your bonus reward in KOZ.",
+  "adaAmount": "Staking Amount (ADA):",
+  "calculate": "Calculate",
+  "resultsTitle": "Simulated Ticket Results",
+  "tickets": "tickets",
+  "bonusTitle": "Bonus Reward",
+  "bonusMessage": "You will receive a bonus of {amount} KOZ, claimable monthly.",
+  "stakeNow": "Stake Now",
+  "monthly": "monthly",
+  "ticketRule": "Rule: 1 ticket every {amount} ADA",
+  "exampleTitle": "Example of Ticket Distribution",
+  "exampleIntro": "Suppose a delegator has 12,000 ADA staked:",
+  "exampleLine1": "Earns 2 Corrupt tickets (2 × 5000 = 10,000 ADA used)",
+  "exampleLine2": "Remaining: 2,000 ADA → Not enough for 1 Lobbyist (requires 3,000 ADA)",
+  "exampleLine3": "Move to next tier: 2 Briber tickets (2 × 1000)",
+  "exampleLine4": "Remaining: 0 ADA → No Launderer ticket awarded",
+  "exampleNote": "The system always follows the order: Corrupt → Lobbyist → Briber → Launderer and rolls down remaining ADA.",
+  "policyExplanation": "This policy defines how much ADA is needed to earn one ticket of each type. The distribution engine works in a tiered order starting from",
+  "policyRollover": " When a delegator’s stake is not enough for the current tier, the remaining ADA is carried over to the next one.",
+  "nextRebalance": "Next Ticket Policy Rebalance at epoch",
+  "titlePolicyView": "Ticket Distribution Policy",
+  "loading": "Loading ticket policy...",
+  "ticketsLabel": "Tickets"
+},
+"TicketProfile": {
+  "paymentMethod": "Payment Method",
+  "yourBalance": "Your Balance: {balance} {currency}",
+  "tickets": "Tickets",
+  "amountInCurrency": "Amount in {currency}",
+  "pricePerTicket": "Price per Ticket: {price} {currency}",
+  "buyButton": "Buy Tickets",
+  "purchaseHistory": "Purchase History",
+  "ticketDescription": "Provides a {boostPercentage}% boost in votes for the linked Politikoz and has a chance to earn {adaReward} ADA if elected.",
+  "alert": "You bought {count} Frontman tickets for {amount} {currency}!",
+  "linkTicketsTitle": "LINK TICKETS",
+  "linkTicketsDescription": "Select a ticket to link with your account.",
+  "linkTicketsClose": "CLOSE",
+  "previous": "Previous",
+  "next": "Next",
+  "dynamicTicket": "Provides a {boostPercentage}% boost in votes for the linked Politikoz and has a chance to earn {adaReward} ADA if elected.",
+  "next-race": "One or more tickets are ready for the next election and have already been linked to a Politikoz.",
+  "on-the-race": "One or more tickets are currently participating in an election. If they win, they will generate ADA rewards.",
+  "auto-link": "This setting automatically links your available tickets to a Politikoz every election cycle.",
+  "selectAll": "Select All",
+  "deselectAll": "Deselect All",
+  "On the Race": "On the Race",
+  "Next Race": "Ready for Next One",
+  "Auto Link": "Auto Link",
+  "distribution": "DISTRIBUTION",
+  "changePolitikoz": "Change Politikoz Linked",
+  "linkTicket": "Link Ticket for Next Race",
+  "changeLuckyNumber": "Change Lucky Number",
+  "luckyNumberChangeError": "Failed to change lucky number. Please try again.",
+  "luckyNumberChangeSuccess": "Lucky number changed successfully!",
+  "selectedTickets": "Selected Tickets",
+  "cancel": "Cancel",
+  "confirm": "Confirm",
+  "myTickets": "My Tickets",
+  "buyTickets": "Buy Tickets",
+  "noTickets": "No Tickets Available",
+  "select": "Select",
+  "role": "Role",
+  "ticket": "Ticket",
+  "linkedPolitikoz": "Politikoz Linked",
+  "estimatedEarnings": "Estimated Earnings",
+  "singleUse": "Single Use",
+  "yes": "Yes",
+  "no": "No",
+  "notAvailable": "N/A"
+},
+"Tokenomics": {
+  "title": "Meet $KOZ",
+  "subtitle": "A Utility Coin for Politikoz.io",
+  "overview": "The world of Koz will have a utility token with the sole purpose of boosting its internal economy, allowing the purchase of items such as political parties and party coalitions, bets for or against a Politikoz, and similar functions to be announced in due course.",  
+  "description": "$KOZ is the utility token of the Politikoz.io ecosystem, created to drive the internal dynamics of the platform. It serves as a functional asset for engaging with governance systems, accessing exclusive features, and participating in in-game mechanisms, with its utility continuously evolving as new features are introduced.",  
+  "policyIdLabel": "Policy ID: ",
+  "totalSupplyLabel": "Total Supply: ",
+  "transactionHistory": "Transaction History",
+  "mintBurnType": "Type",
+  "amount": "Amount",
+  "transactionId": "Transaction ID",
+  "mint": "Mint",
+  "burn": "Burn",
+  "mintBurnHistory": "Mint/Burn History",
+  "currentAllocationLabel": "Current Token Distribution",
+  "initialAllocationLabel": "Initial Token Allocation",
+  "walletAddressesTitle": "KOZ Token Addresses",
+  "tableHeaders": {
+    "category": "Category",
+    "amount": "Amount",
+    "notes": "Notes",
+    "walletAddress": "Wallet Address"
+  },
+  "categories": {
+    "politikozHolderDrop": "Politikoz Holder Drop",
+    "socialClaimTreasury": "Social Claim Treasury",
+    "liquidityReserve": "Liquidity Reserve",
+    "coinMachine": "Coin Machine",
+    "coreTeam": "Core Team",
+    "advisors": "Advisors",
+    "politikozHolders": "Politikoz Holders",
+    "liquidityForDex": "Liquidity for DEX",
+    "projectTreasury": "Project Treasury",
+    "stakingRewards": "Staking Rewards",
+    "inCirculation": "In Circulation",
+    "muesliSwapDist": "MuesliSwap Distribution",
+    "vyfiDist": "VyFi Distribution",
+    "dripDropz": "DripDropz"
+  },
+  "notes": {
+    "holderDrop": "One-time distribution for NFT holders",
+    "socialClaims": "For future airdrop campaigns via X (Twitter), Discord, etc.",
+    "liquidity": "For DEX pairs and liquidity support",
+    "coinMachine": "Token claim/sale mechanism",
+    "projectTreasury": "Governance, grants, ecosystem development",
+    "coreTeam": "Reserved, not yet distributed",
+    "advisors": "Reserved for future advisor allocation"
+  }
+},
+"Treasury": {
+  "growthTitle": "Treasury Growth",
+
+  "historyTitle": "Treasury History",
+  "date": "Date",
+  "description": "Description",
+  "amount": "Amount",
+  "prev": "Prev",
+  "next": "Next",
+  "page": "Page",
+  "of": "of",
+  "overviewTitle": "Election Treasury",
+  "overviewDescription": "The Treasury is the core fund of the Politikoz project, used to reward election winners and support ecosystem initiatives. It is primarily accumulated through the rewards generated by our PLKOZ Stake Pool (Fixed Cost + Margin), which are 100% donated to the community. Additional income sources will be integrated into the platform in the future."
+
+}
+
+
+}

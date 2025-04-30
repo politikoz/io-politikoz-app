@@ -1,0 +1,155 @@
+{
+
+    
+    "Header": {
+      "connect": "Ikonekta",
+      "connected": "Nakakonekta",
+      "disconnect": "Idiskonekta",
+      "documentation": "Dokumentasyon",
+      "downloadWallet": "I-download ang Wallet",
+      "explore": "Galugarin",
+      "play": "Maglaro",
+      "home": "Home"
+    },
+    "Common": {
+      "balance": "Balanse:",
+      "disconnect": "Idiskonekta",
+      "downloadWallet": "I-download ang Wallet...",
+      "noAddressFound": "Walang nakitang address",
+      "rewardAddress": "Reward Address:",
+      "poweredBy": "Pinapagana ng",
+      "months": {
+        "january": "Enero",
+        "february": "Pebrero",
+        "march": "Marso",
+        "april": "Abril",
+        "may": "Mayo",
+        "june": "Hunyo",
+        "july": "Hulyo",
+        "august": "Agosto",
+        "september": "Setyembre",
+        "october": "Oktubre",
+        "november": "Nobyembre",
+        "december": "Disyembre"
+      }
+    },
+    "NextElectionCountdown": {
+      "days": "araw",
+      "hours": "oras",
+      "minutes": "minuto",
+      "seconds": "segundo",
+      "electionSignText": "ANG<br />HALALAN<br />AY<br />PAPALAPIT NA!",
+      "prizesSignText": "{ADA} ADA<br />SA<br />PREMYO"
+    },
+    "LastElectionLeaderboard": {
+      "electionOf": "Halalan ng",
+      "leaderboard": "Leaderboard",
+      "otherWinners": "Iba pang {remainingWinnersCount} nanalo",
+      "place": "Lugar",
+      "prize": "Premyo",
+      "user": "Gumagamit"
+    },
+    "InfoSection": {
+      "cardData": {
+        "prizes": {
+          "title": "+{amount} ADA BAWAT BUWAN",
+          "text": "Mga Regular na Premyo"
+        },
+        "freeEntries": {
+          "title": "LIBRENG ENTRIES",
+          "text": "Sumali nang walang bayad"
+        },
+        "auditable": {
+          "title": "100% MAAARING I-AUDIT",
+          "text": "Maaari para sa lahat"
+        },
+        "treasury": {
+          "title": "+{treasury} ADA TREASURY",
+          "text": "Palaging Lumalaki"
+        }
+      },
+      "learnMore": "Alamin pa sa Gitbook"
+    },
+    "JoinPolitikozPaths": {
+  "buyPolitikoz": {
+    "header": "Siguraduhin ang Iyong Pwesto: Bumili Ngayon!",
+    "title": "Bumili ng Politikoz",
+    "description": "Sa pagbili ng Politikoz, sinisigurado mo ang iyong pagsali sa buwanang raffle magpakailanman, at may pagkakataon kang manalo ng magagandang premyo.",
+    "step1Title": "Bumili ng Politikoz",
+    "step1Text": "Bumili ng isa o higit pang Politikoz.",
+    "step2Title": "Gumawa ng Iyong Partido",
+    "step2Text": "Irehistro ang iyong political party para sa awtomatikong pagsali.",
+    "step3Title": "Dagdagan ang Iyong Tsansa",
+    "step3Text": "Mas maraming Politikoz, mas mataas ang tsansa mong manalo.",
+    "button": "Bumili Ngayon"
+  },
+  "buyKoz": {
+    "header": "Kunin ang Iyong KOZ Tokens: Palitan Ngayon!",
+    "title": "Kumuha ng KOZ Token",
+    "description": "Ang mga KOZ token ay nagbibigay sa iyo ng access sa mga feature ng platform at karapatang bumoto sa aming darating na DAO, na huhubog sa kinabukasan ng platform.",
+    "step1Title": "Ikonekta ang Iyong Wallet",
+    "step1Text": "Ikonekta ang iyong wallet upang magsimula.",
+    "step2Title": "Palitan ang ADA para sa KOZ",
+    "step2Text": "Palitan ang ADA para sa mga KOZ token.",
+    "step3Title": "Kumuha ng Mga Ticket",
+    "step3Text": "Gamitin ang KOZ para sumali sa mga raffle ng halalan.",
+    "button": "Palitan Ngayon"
+  },
+  "engageAndEarn": {
+    "header": "Walang Gastos, Walang Panganib: Sumali nang Libre!",
+    "title": "Makilahok at Kumita",
+    "description": "Sumali sa aming komunidad upang kumita ng KOZ Tokens at ipagpalit ang mga ito para sa libreng pagsali sa buwanang raffle.",
+    "step1Title": "I-link ang Iyong Mga Socials",
+    "step1Text": "I-link ang iyong X at Discord sa aming platform.",
+    "step2Title": "Kumita ng KOZ Tokens",
+    "step2Text": "Makilahok upang kumita ng KOZ Tokens bilang gantimpala.",
+    "step3Title": "Ipagpalit para sa Pagsali",
+    "step3Text": "Gamitin ang KOZ Tokens upang sumali sa buwanang raffle.",
+    "button": "Sumali Ngayon"
+  },
+  "stakeAndWin": {
+    "header": "Walang Gastos, Walang Panganib: Sumali nang Libre!",
+    "title": "Stake at Manalo",
+    "description": "I-stake ang iyong ADA sa amin at makakuha ng mga ticket para sa buwanang raffle habang patuloy na kumikita ng iyong karaniwang ADA rewards.",
+    "step1Title": "Ikonekta ang Iyong Wallet",
+    "step1Text": "Simulan sa pagkonekta ng iyong wallet sa aming platform.",
+    "step2Title": "Stake ADA",
+    "step2Text": "I-stake ang iyong ADA sa aming PLKOZ stake pool.",
+    "step3Title": "Kumuha ng Libreng Pagsali",
+    "step3Text": "Mas maraming ADA ang i-stake, mas maraming libreng pagsali ang makukuha mo.",
+    "button": "I-stake Ngayon"
+  },
+  "topBanner": {
+    "text": "SUMALI NA SA MUNDO NG KOZ. MANGOLEKTA, MAKIPAGPALITAN, AT KUMITA NG ADA."
+  }
+}
+,
+    "Footer": {
+      "links": {
+        "home": "Home",
+    "team": "Koponan",
+    "stake": "Stake kasama namin",
+    "treasury": "Ingatan",
+    "terms": "Mga Tuntunin ng Paggamit",
+    "privacy": "Patakaran sa Privacy"
+      },
+      "joinCommunity": "Sumali sa aming komunidad!",
+      "copyright": "Copyright © {year}. Lahat ng karapatan ay nakalaan."
+    },
+    "Support": {
+      "formTitle": "Suporta",
+      "nameLabel": "Ang iyong Pangalan",
+      "namePlaceholder": "Ilagay ang iyong pangalan",
+      "emailLabel": "Email Address",
+      "emailPlaceholder": "Ilagay ang iyong email",
+      "messageLabel": "Mensahe",
+      "messagePlaceholder": "Paano ka namin matutulungan?",
+      "attachmentsLabel": "Mga Attachment",
+      "sending": "Nagpapadala...",
+      "send": "Ipadala",
+      "successMessage": "Matagumpay na naipadala ang iyong mensahe!",
+      "errorMessage": "Nabigo ang pagpapadala ng mensahe. Pakisubukang muli.",
+      "unexpectedError": "Nagkaroon ng di-inaasahang error."
+    }
+  }
+  

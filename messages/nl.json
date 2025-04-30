@@ -1,0 +1,154 @@
+{
+
+    "Header": {
+      "connect": "Verbinden",
+      "connected": "Verbonden",
+      "disconnect": "Ontkoppelen",
+      "documentation": "Documentatie",
+      "downloadWallet": "Download Portemonnee",
+      "explore": "Verkennen",
+      "play": "Spelen",
+      "home": "Home"
+    },
+    "Common": {
+      "balance": "Saldo:",
+      "disconnect": "Ontkoppelen",
+      "downloadWallet": "Download Portemonnee...",
+      "noAddressFound": "Geen adres gevonden",
+      "rewardAddress": "Beloningsadres:",
+      "poweredBy": "Aangedreven door",
+      "months": {
+        "january": "Januari",
+        "february": "Februari",
+        "march": "Maart",
+        "april": "April",
+        "may": "Mei",
+        "june": "Juni",
+        "july": "Juli",
+        "august": "Augustus",
+        "september": "September",
+        "october": "Oktober",
+        "november": "November",
+        "december": "December"
+      }
+    },
+    "NextElectionCountdown": {
+      "days": "dagen",
+      "hours": "uren",
+      "minutes": "minuten",
+      "seconds": "seconden",
+      "electionSignText": "DE<br />VERKIEZINGEN<br />KOMEN<br />ERAAN!",
+      "prizesSignText": "{ADA} ADA<br />IN<br />PRIJZEN"
+    },
+    "LastElectionLeaderboard": {
+      "electionOf": "Verkiezing van",
+      "leaderboard": "Ranglijst",
+      "otherWinners": "Andere {remainingWinnersCount} winnaars",
+      "place": "Plaats",
+      "prize": "Prijs",
+      "user": "Gebruiker"
+    },
+    "InfoSection": {
+      "cardData": {
+        "prizes": {
+          "title": "+{amount} ADA MAANDELIJKS",
+          "text": "Reguliere prijzen"
+        },
+        "freeEntries": {
+          "title": "GRATIS TOEGANGEN",
+          "text": "Doe mee zonder kosten"
+        },
+        "auditable": {
+          "title": "100% AUDITEERBAAR",
+          "text": "Voor iedereen verifieerbaar"
+        },
+        "treasury": {
+          "title": "+{treasury} ADA SCHATKAMER",
+          "text": "Altijd groeiend"
+        }
+      },
+      "learnMore": "Lees meer op Gitbook"
+    },
+    "JoinPolitikozPaths": {
+  "buyPolitikoz": {
+    "header": "Zeker je plek: Koop nu!",
+    "title": "Koop een Politikoz",
+    "description": "Door een Politikoz te kopen, verzeker je jouw deelname aan de maandelijkse lotingen voor altijd, met de kans om geweldige prijzen te winnen.",
+    "step1Title": "Koop een Politikoz",
+    "step1Text": "Koop één of meer Politikoz.",
+    "step2Title": "Creëer jouw partij",
+    "step2Text": "Registreer jouw politieke partij voor automatische deelname.",
+    "step3Title": "Vergroot je kansen",
+    "step3Text": "Meer Politikoz betekent meer kans om te winnen.",
+    "button": "Koop nu"
+  },
+  "buyKoz": {
+    "header": "Krijg je KOZ-tokens: Wissel nu!",
+    "title": "Verkrijg KOZ-tokens",
+    "description": "KOZ-tokens geven je toegang tot platformfuncties en stemrecht in onze toekomstige DAO, die de toekomst van het platform vormgeeft.",
+    "step1Title": "Verbind je wallet",
+    "step1Text": "Verbind je wallet om te beginnen.",
+    "step2Title": "Wissel ADA voor KOZ",
+    "step2Text": "Wissel ADA in voor KOZ-tokens.",
+    "step3Title": "Verkrijg tickets",
+    "step3Text": "Gebruik KOZ-tokens om deel te nemen aan de verkiezingsloten.",
+    "button": "Wissel nu"
+  },
+  "engageAndEarn": {
+    "header": "Geen kosten, geen risico: Doe gratis mee!",
+    "title": "Doe mee en verdien",
+    "description": "Doe mee aan onze community om KOZ-tokens te verdienen en ruil ze in voor gratis deelname aan de maandelijkse lotingen.",
+    "step1Title": "Koppel je socials",
+    "step1Text": "Koppel X en Discord aan ons platform.",
+    "step2Title": "Verdien KOZ-tokens",
+    "step2Text": "Neem deel om KOZ-tokens te verdienen als beloning.",
+    "step3Title": "Ruil voor deelname",
+    "step3Text": "Gebruik KOZ-tokens om deel te nemen aan de maandelijkse lotingen.",
+    "button": "Doe mee"
+  },
+  "stakeAndWin": {
+    "header": "Geen kosten, geen risico: Doe gratis mee!",
+    "title": "Stake en Win",
+    "description": "Stake je ADA bij ons en verdien tickets voor de maandelijkse lotingen terwijl je je reguliere ADA-beloningen blijft ontvangen.",
+    "step1Title": "Verbind je wallet",
+    "step1Text": "Begin met het verbinden van je wallet aan ons platform.",
+    "step2Title": "Stake ADA",
+    "step2Text": "Stake je ADA in onze PLKOZ stake-pool.",
+    "step3Title": "Krijg gratis deelname",
+    "step3Text": "Meer ADA staken betekent meer gratis deelname aan de lotingen.",
+    "button": "Stake nu"
+  },
+  "topBanner": {
+    "text": "DOE NU MEE AAN DE WERELD VAN KOZ. VERZAMEL, RUIL EN VERDIEN ADA."
+  }
+}
+,
+    "Footer": {
+      "links": {
+        "home": "Startpagina",
+    "team": "Team",
+    "stake": "Stake met ons",
+    "treasury": "Schatkamer",
+    "terms": "Gebruiksvoorwaarden",
+    "privacy": "Privacybeleid"
+      },
+      "joinCommunity": "Doe mee met onze community!",
+      "copyright": "Copyright © {year}. Alle rechten voorbehouden."
+    },
+    "Support": {
+      "formTitle": "Ondersteuning",
+      "nameLabel": "Uw Naam",
+      "namePlaceholder": "Voer uw naam in",
+      "emailLabel": "E-mailadres",
+      "emailPlaceholder": "Voer uw e-mailadres in",
+      "messageLabel": "Bericht",
+      "messagePlaceholder": "Hoe kunnen we u helpen?",
+      "attachmentsLabel": "Bijlagen",
+      "sending": "Verzenden...",
+      "send": "Versturen",
+      "successMessage": "Uw bericht is succesvol verzonden!",
+      "errorMessage": "Fout bij het verzenden van het bericht. Probeer het opnieuw.",
+      "unexpectedError": "Er is een onverwachte fout opgetreden."
+    }
+  }
+  

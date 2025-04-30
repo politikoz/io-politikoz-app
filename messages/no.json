@@ -1,0 +1,154 @@
+{
+
+    "Header": {
+      "connect": "Koble til",
+      "connected": "Tilkoblet",
+      "disconnect": "Koble fra",
+      "documentation": "Dokumentasjon",
+      "downloadWallet": "Last ned lommebok",
+      "explore": "Utforsk",
+      "play": "Spill",
+      "home": "Hjem"
+    },
+    "Common": {
+      "balance": "Saldo:",
+      "disconnect": "Koble fra",
+      "downloadWallet": "Last ned lommebok...",
+      "noAddressFound": "Ingen adresse funnet",
+      "rewardAddress": "Belønningsadresse:",
+      "poweredBy": "Drevet av",
+      "months": {
+        "january": "Januar",
+        "february": "Februar",
+        "march": "Mars",
+        "april": "April",
+        "may": "Mai",
+        "june": "Juni",
+        "july": "Juli",
+        "august": "August",
+        "september": "September",
+        "october": "Oktober",
+        "november": "November",
+        "december": "Desember"
+      }
+    },
+    "NextElectionCountdown": {
+      "days": "dager",
+      "hours": "timer",
+      "minutes": "minutter",
+      "seconds": "sekunder",
+      "electionSignText": "VALGET<br />ER<br />NÆRT!",
+      "prizesSignText": "{ADA} ADA<br />I<br />PREMIER"
+    },
+    "LastElectionLeaderboard": {
+      "electionOf": "Valg av",
+      "leaderboard": "Rangering",
+      "otherWinners": "Andre {remainingWinnersCount} vinnere",
+      "place": "Plassering",
+      "prize": "Premie",
+      "user": "Bruker"
+    },
+    "InfoSection": {
+      "cardData": {
+        "prizes": {
+          "title": "+{amount} ADA MÅNEDLIG",
+          "text": "Regelmessige premier"
+        },
+        "freeEntries": {
+          "title": "GRATIS INNGANGER",
+          "text": "Bli med uten kostnad"
+        },
+        "auditable": {
+          "title": "100% REVISJONSBAR",
+          "text": "Verifiserbart for alle"
+        },
+        "treasury": {
+          "title": "+{treasury} ADA SKATTKAMMER",
+          "text": "Vokser stadig"
+        }
+      },
+      "learnMore": "Lær mer på Gitbook"
+    },
+    "JoinPolitikozPaths": {
+  "buyPolitikoz": {
+    "header": "Sikre din plass: Kjøp nå!",
+    "title": "Kjøp en Politikoz",
+    "description": "Ved å kjøpe en Politikoz sikrer du din deltakelse i de månedlige trekningene for alltid, med muligheten til å vinne fantastiske premier.",
+    "step1Title": "Kjøp en Politikoz",
+    "step1Text": "Kjøp én eller flere Politikoz.",
+    "step2Title": "Opprett ditt parti",
+    "step2Text": "Registrer ditt politiske parti for automatisk deltakelse.",
+    "step3Title": "Øk sjansene dine",
+    "step3Text": "Jo flere Politikoz du har, desto større er sjansen for å vinne.",
+    "button": "Kjøp nå"
+  },
+  "buyKoz": {
+    "header": "Få dine KOZ-tokens: Bytt nå!",
+    "title": "Få KOZ-tokens",
+    "description": "KOZ-tokens gir deg tilgang til plattformfunksjoner og stemmerett i vår fremtidige DAO, som former plattformens fremtid.",
+    "step1Title": "Koble til lommeboken din",
+    "step1Text": "Koble til lommeboken din for å starte.",
+    "step2Title": "Bytt ADA mot KOZ",
+    "step2Text": "Bytt ADA mot KOZ-tokens.",
+    "step3Title": "Få billetter",
+    "step3Text": "Bruk KOZ-tokens for å delta i valgtrekningene.",
+    "button": "Bytt nå"
+  },
+  "engageAndEarn": {
+    "header": "Ingen kostnad, ingen risiko: Bli med gratis!",
+    "title": "Delta og tjen",
+    "description": "Bli med i vårt fellesskap for å tjene KOZ-tokens og bytte dem mot gratis deltakelser i de månedlige trekningene.",
+    "step1Title": "Koble til dine sosiale medier",
+    "step1Text": "Koble X og Discord til plattformen vår.",
+    "step2Title": "Tjen KOZ-tokens",
+    "step2Text": "Delta aktivt for å tjene KOZ-tokens som belønning.",
+    "step3Title": "Bytt til deltakelser",
+    "step3Text": "Bruk KOZ-tokens for å delta i de månedlige trekningene.",
+    "button": "Bli med nå"
+  },
+  "stakeAndWin": {
+    "header": "Ingen kostnad, ingen risiko: Bli med gratis!",
+    "title": "Stake og Vinn",
+    "description": "Stake ADA hos oss og få billetter til de månedlige trekningene samtidig som du fortsatt mottar dine vanlige ADA-belønninger.",
+    "step1Title": "Koble til lommeboken din",
+    "step1Text": "Begynn med å koble til lommeboken din til vår plattform.",
+    "step2Title": "Stake ADA",
+    "step2Text": "Stake din ADA i vår PLKOZ stake-pool.",
+    "step3Title": "Få gratis deltakelser",
+    "step3Text": "Jo mer ADA du staker, desto flere gratis deltakelser får du.",
+    "button": "Stake nå"
+  },
+  "topBanner": {
+    "text": "BLI MED I VERDEN AV KOZ NÅ. SAMLE, BYTT OG TJEN ADA."
+  }
+}
+,
+    "Footer": {
+      "links": {
+        "home": "Hjem",
+    "team": "Team",
+    "stake": "Stake med oss",
+    "treasury": "Skattkammer",
+    "terms": "Bruksvilkår",
+    "privacy": "Personvernregler"
+      },
+      "joinCommunity": "Bli med i vårt fellesskap!",
+      "copyright": "Copyright © {year}. Alle rettigheter forbeholdt."
+    },
+    "Support": {
+      "formTitle": "Støtte",
+      "nameLabel": "Ditt Navn",
+      "namePlaceholder": "Skriv inn ditt navn",
+      "emailLabel": "E-postadresse",
+      "emailPlaceholder": "Skriv inn din e-post",
+      "messageLabel": "Melding",
+      "messagePlaceholder": "Hvordan kan vi hjelpe deg?",
+      "attachmentsLabel": "Vedlegg",
+      "sending": "Sender...",
+      "send": "Send",
+      "successMessage": "Meldingen din ble sendt vellykket!",
+      "errorMessage": "Feil ved sending av melding. Vennligst prøv igjen.",
+      "unexpectedError": "En uventet feil oppsto."
+    }
+  }
+  

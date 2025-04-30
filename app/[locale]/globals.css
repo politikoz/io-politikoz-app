@@ -1,0 +1,107 @@
+
+/* Importações do Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+
+/* Adicionando a fonte Press Start 2P */
+@font-face {
+  font-family: 'Press Start 2P';
+  src: url('/fonts/PressStart2P-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Adicionando a fonte Delicious Handrawn */
+@font-face {
+  font-family: 'Delicious Handrawn';
+  src: url('/fonts/DeliciousHandrawn-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Variáveis de Tema */
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --project-red: #FF3E00; /* Cor padrão vermelho */
+}
+
+html {
+  margin: 0;
+  padding: 0 !important; /* Garante que nenhum padding seja aplicado */
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden; /* Evita rolagem horizontal */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #111827; /* Fundo uniforme */
+  color: #ffffff; /* Texto padrão */
+  overflow-x: hidden; /* Impede rolagem horizontal */
+  overflow-y: auto;   /* Permite rolagem vertical */
+}
+
+/* Fonte Pixel */
+.font-pixel {
+  font-family: 'Press Start 2P', cursive;
+}
+
+/* Estilo para Links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Estilo para Botões */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: rgba(var(--foreground-rgb), 0.1);
+}
+
+/* Sombra Pixel */
+.shadow-pixel {
+  box-shadow: 4px 4px 0px rgba(var(--foreground-rgb), 0.8);
+}
+
+/* Ajustes de Transições */
+.transition-colors {
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.custom-dot-spacing {
+  margin-left: -0.30rem; /* Ajuste fino para a esquerda */
+  margin-right: -0.50rem; /* Ajuste fino para a direita */
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 2s ease-out forwards;
+}

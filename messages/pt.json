@@ -1,0 +1,152 @@
+{
+ 
+  "Header": {
+    "connect": "Conectar",
+    "connected": "Conectado",
+    "disconnect": "Desconectar",
+    "documentation": "Documentação",
+    "downloadWallet": "Baixar Carteira",
+    "explore": "Explorar",
+    "play": "Jogar",
+    "home": "Início"
+  },
+  "Common": {
+    "balance": "Saldo:",
+    "disconnect": "Desconectar",
+    "downloadWallet": "Baixar Carteira...",
+    "noAddressFound": "Endereço não encontrado",
+    "rewardAddress": "Endereço de Recompensa:",
+    "poweredBy": "Desenvolvido com",
+    "months": {
+      "january": "Janeiro",
+      "february": "Fevereiro",
+      "march": "Março",
+      "april": "Abril",
+      "may": "Maio",
+      "june": "Junho",
+      "july": "Julho",
+      "august": "Agosto",
+      "september": "Setembro",
+      "october": "Outubro",
+      "november": "Novembro",
+      "december": "Dezembro"
+    }
+  },
+  "NextElectionCountdown": {
+    "days": "dias",
+    "hours": "horas",
+    "minutes": "minutos",
+    "seconds": "segundos",
+    "electionSignText": "A<br />ELEIÇÃO<br />ESTÁ<br />PRÓXIMA!",
+    "prizesSignText": "{ADA} ADA<br />EM<br />PRÊMIOS"
+  },
+  "LastElectionLeaderboard": {
+    "electionOf": "Eleição de",
+    "leaderboard": "Tabela de Classificação",
+    "otherWinners": "Outros {remainingWinnersCount} vencedores",
+    "place": "Lugar",
+    "prize": "Prêmio",
+    "user": "Usuário"
+  },
+  "InfoSection": {
+    "cardData": {
+      "prizes": {
+        "title": "+{amount} ADA MENSALMENTE",
+        "text": "Prêmios Regulares"
+      },
+      "freeEntries": {
+        "title": "ENTRADAS GRATUITAS",
+        "text": "Participe Sem Custo"
+      },
+      "auditable": {
+        "title": "100% AUDITÁVEL",
+        "text": "Verificável por Todos"
+      },
+      "treasury": {
+        "title": "+{treasury} ADA TESOURARIA",
+        "text": "Sempre Crescendo"
+      }
+    },
+    "learnMore": "Saiba Mais no Gitbook"
+  },
+  "JoinPolitikozPaths": {
+    "buyPolitikoz": {
+      "header": "Garanta Seu Lugar: Compre Agora!",
+      "title": "Compre um Politikoz",
+      "description": "Ao comprar um Politikoz, você garante sua participação nos sorteios mensais para sempre, com a oportunidade de ganhar recompensas incríveis.",
+      "step1Title": "Compre um Politikoz",
+      "step1Text": "Compre um ou mais Politikoz.",
+      "step2Title": "Crie Seu Partido",
+      "step2Text": "Registre seu partido político para entrada automática.",
+      "step3Title": "Aumente Suas Chances",
+      "step3Text": "Mais Politikoz significa mais chances de ganhar.",
+      "button": "Compre Agora"
+    },
+    "buyKoz": {
+      "header": "Obtenha Seus Tokens KOZ: Troque Agora!",
+      "title": "Obtenha o Token KOZ",
+      "description": "Os tokens KOZ dão acesso à utilidade da plataforma e poder de voto em nosso futuro DAO, moldando o futuro da plataforma.",
+      "step1Title": "Conecte Sua Carteira",
+      "step1Text": "Conecte sua carteira para começar.",
+      "step2Title": "Troque ADA por KOZ",
+      "step2Text": "Troque ADA por tokens KOZ.",
+      "step3Title": "Obtenha Ingressos",
+      "step3Text": "Use KOZ para obter entradas para os sorteios de eleição.",
+      "button": "Troque Agora"
+    },
+    "engageAndEarn": {
+      "header": "Sem Custo, Sem Risco: Participe Gratuitamente!",
+      "title": "Interaja e Ganhe",
+      "description": "Interaja com nossa comunidade para ganhar Tokens KOZ e trocá-los por entradas nos sorteios mensais sem custo.",
+      "step1Title": "Conecte Suas Redes Sociais",
+      "step1Text": "Conecte seu X e Discord à nossa plataforma.",
+      "step2Title": "Ganhe Tokens KOZ",
+      "step2Text": "Interaja para ganhar Tokens KOZ como recompensa.",
+      "step3Title": "Troque por Entradas",
+      "step3Text": "Use Tokens KOZ para entrar no sorteio mensal.",
+      "button": "Participe Agora"
+    },
+    "stakeAndWin": {
+      "header": "Sem Custo, Sem Risco: Participe Gratuitamente!",
+    "title": "Faça Stake e Ganhe",
+    "description": "Faça stake com sua ADA conosco e ganhe tickets para os sorteios mensais, enquanto continua a receber suas recompensas regulares de ADA.",
+    "step1Title": "Conecte Sua Carteira",
+    "step1Text": "Comece conectando sua carteira à nossa plataforma.",
+    "step2Title": "Faça Stake com ADA",
+    "step2Text": "Faça stake com sua ADA no nosso pool de stake PLKOZ.",
+    "step3Title": "Ganhe Entradas Gratuitas",
+    "step3Text": "Quanto mais ADA em stake, mais entradas gratuitas para os sorteios você ganha.",
+    "button": "Faça Stake Agora"
+    },
+    "topBanner": {
+      "text": "ENTRE NO MUNDO DE KOZ AGORA. COLETE, TROQUE E GANHE ADA."
+    }
+  },
+  "Footer": {
+    "links": {
+      "home": "Início",
+    "team": "Equipe",
+    "stake": "Faça Stake Conosco",
+    "treasury": "Tesouraria",
+    "terms": "Termos de Uso",
+    "privacy": "Política de Privacidade"
+    },
+    "joinCommunity": "Junte-se à nossa comunidade!",
+    "copyright": "Copyright © {year}. Todos os direitos reservados."
+  },
+  "Support": {
+    "formTitle": "Suporte",
+    "nameLabel": "Seu Nome",
+    "namePlaceholder": "Digite seu nome",
+    "emailLabel": "Endereço de Email",
+    "emailPlaceholder": "Digite seu email",
+    "messageLabel": "Mensagem",
+    "messagePlaceholder": "Como podemos ajudá-lo?",
+    "attachmentsLabel": "Anexos",
+    "sending": "Enviando...",
+    "send": "Enviar",
+    "successMessage": "Sua mensagem foi enviada com sucesso!",
+    "errorMessage": "Falha ao enviar a mensagem. Por favor, tente novamente.",
+    "unexpectedError": "Ocorreu um erro inesperado."
+  }
+}
