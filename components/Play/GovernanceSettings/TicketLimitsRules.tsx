@@ -9,11 +9,11 @@ interface TicketLimitsRulesProps {
 }
 
 const ticketColors: Record<string, string> = {
+  FRONTMAN: "#C0C0C0",
   CORRUPT: "#6EAA5E",
   LOBBYIST: "#977BD0",
   BRIBER: "#88CEFA",
-  LAUNDERER: "#FFFBCC",
-  FRONTMAN: "#C0C0C0"
+  LAUNDERER: "#FFFBCC"  
 };
 
 const formatTicket = (ticket: string) => {

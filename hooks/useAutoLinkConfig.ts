@@ -1,15 +1,18 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import api from '@/app/lib/api';
 import { AutoLinkAPIResponse, INITIAL_AUTOLINK_CONFIG } from '@/types/AutoLinkConfigData';
+import { getDecryptedStakeAddress } from '@/utils/encryption';
 
 export function useAutoLinkConfig() {
   const queryClient = useQueryClient();
-  const stakeAddress = 'stake1u9v8mxtwpadza445n4n2xahzd3ds3vsf097s29202hxs9kcpu6zcl'
+  const mockStakeAddress = process.env.NEXT_PUBLIC_STAKE_ADDRESS_MOCK;
+  const stakeAddress = mockStakeAddress || getDecryptedStakeAddress();
 
   const query = useQuery({
     queryKey: ['autoLinkConfig', stakeAddress],
     queryFn: async () => {
       if (!stakeAddress) throw new Error('No stake address found');
+      
       const response = await api.get<AutoLinkAPIResponse>(
         `/api/v1/office/tickets/config?stakeAddress=${stakeAddress}`
       );

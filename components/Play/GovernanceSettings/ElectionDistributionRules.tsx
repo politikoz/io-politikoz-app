@@ -17,11 +17,12 @@ const roleColors: Record<string, string> = {
   STATE_DEPUTY: "#FFD991",
   MAYOR: "#DEB0F7",
   COUNCILOR: "#C0C0C0",
+  FRONTMAN: "#C0C0C0",
   CORRUPT: "#6EAA5E",
   LOBBYIST: "#977BD0",
   BRIBER: "#88CEFA",
   LAUNDERER: "#FFFBCC",
-  FRONTMAN: "#C0C0C0"
+  
 };
 
 const readableLabels: Record<string, string> = {
@@ -33,11 +34,12 @@ const readableLabels: Record<string, string> = {
   STATE_DEPUTY: "State Deputy",
   MAYOR: "Mayor",
   COUNCILOR: "Councilor",
+  FRONTMAN: "Frontman",
   CORRUPT: "Corrupt",
   LOBBYIST: "Lobbyist",
   BRIBER: "Briber",
   LAUNDERER: "Launderer",
-  FRONTMAN: "Frontman"
+  
 };
 
 export default function ElectionDistributionRules({ data, totalAdaPerElection }: ElectionDistributionRulesProps) {

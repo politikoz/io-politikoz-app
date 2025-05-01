@@ -1,25 +1,37 @@
 import { useTranslations } from "next-intl";
+import { useGovernanceData } from "@/hooks/useGovernanceData";
 
 interface ProfileHeaderProps {
   cargo: string;
 }
 
-// 🔹 Mock para simular valores vindos da API
-const ticketStats: { [key: string]: { boostPercentage: number; adaReward: number } } = {
-  frontman: { boostPercentage: 5, adaReward: 100 },
-  corrupt: { boostPercentage: 7, adaReward: 150 },
-  lobbyist: { boostPercentage: 4, adaReward: 80 },
-  launderer: { boostPercentage: 3, adaReward: 120 },
-  briber: { boostPercentage: 6, adaReward: 90 },
-};
-
 export default function ProfileHeader({ cargo }: ProfileHeaderProps) {
   const t = useTranslations("TicketProfile");
-
+  const { data: governanceData } = useGovernanceData();
+  
   const formattedCargo = cargo.toLowerCase().trim().replace(/\s+/g, "-");
+  const upperCargo = cargo.toUpperCase().trim().replace(/\s+/g, "_");
 
-  const stats = ticketStats[formattedCargo];
-  const isDynamicTicket = !!stats;
+  // Calculate ADA reward based on distribution percentage and total pot
+  const calculateAdaReward = () => {
+    if (!governanceData) return 0;
+    const distribution = governanceData.distribution[upperCargo] || 0;
+    const totalAda = governanceData.potShare.totalAdaPerElection;
+    return Math.round((distribution / 100) * totalAda);
+  };
+
+  // Get boost percentage from governance data
+  const getBoostPercentage = () => {
+    if (!governanceData) return 0;
+    return (governanceData.ticketBoost[upperCargo] || 0) * 100;
+  };
+
+  const stats = {
+    boostPercentage: getBoostPercentage(),
+    adaReward: calculateAdaReward()
+  };
+
+  const isDynamicTicket = governanceData && (upperCargo in governanceData.ticketBoost);
 
   return (
     <div className="flex items-start mt-4 space-x-4">

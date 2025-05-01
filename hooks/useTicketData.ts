@@ -1,12 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import api from '@/app/lib/api';
-import { Ticket } from '@/types/TicketData';
+import { Ticket, INITIAL_TICKET_DATA } from '@/types/TicketData';
 import { getDecryptedStakeAddress } from '@/utils/encryption';
 
 export function useTicketData() {
-  //const stakeAddress = getDecryptedStakeAddress();
-
-  const stakeAddress = 'stake1uypjm3lj957g5npktl7ljqx23lpena7jy8307zg3w95l9ncs759j7'; // Replace with the actual stake address or use a function to retrieve it
+  const mockStakeAddress = process.env.NEXT_PUBLIC_STAKE_ADDRESS_MOCK;
+  const stakeAddress = mockStakeAddress || getDecryptedStakeAddress();
 
   return useQuery({
     queryKey: ['tickets', stakeAddress],
@@ -20,6 +19,7 @@ export function useTicketData() {
       });
       return response.data;
     },
+    initialData: INITIAL_TICKET_DATA,
     staleTime: 0,
     refetchOnWindowFocus: true,
     retry: 2,

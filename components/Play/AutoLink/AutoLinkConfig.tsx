@@ -4,13 +4,13 @@ import { useState, useMemo } from "react";
 import { useTranslations } from "next-intl";
 import AutoLinkList from "./AutoLinkList";
 import AutoLinkProgress from "./AutoLinkProgress";
-import AutoLinkModal from "./AutoLinkModal";
 import AutoLinkPolitikozModal from "./AutoLinkPolitikozModal";
 import AutoLinkPartiesModal from "./AutoLinkPartiesModal";
+import AutoLinkRandomModal from "./AutoLinkRandomModal";
+import AutoLinkPartyModal from "./AutoLinkPartyModal";
 import { TicketType } from "@/types/AutoLinkConfigData";
 import { AutoLinkConfigData } from "./AutoLinkTypes";
 import { useAutoLinkConfig } from "@/hooks/useAutoLinkConfig";
-import { userParty } from "./AutoLinkData";
 
 type EntityType = 'party' | 'politikoz' | 'random';
 
@@ -104,9 +104,9 @@ export default function AutoLinkConfig() {
         <button
           onClick={() => setModalType("myParty")}
           className={`py-2 border-2 border-white ${
-            userParty.hasParty ? "bg-green-600 text-white hover:bg-green-700" : "bg-gray-600 text-gray-300 cursor-not-allowed"
+            true ? "bg-green-600 text-white hover:bg-green-700" : "bg-gray-600 text-gray-300 cursor-not-allowed"
           }`}
-          disabled={!userParty.hasParty}
+          disabled={!true}
         >
           {t("linkToMyParty")}
         </button>
@@ -132,9 +132,12 @@ export default function AutoLinkConfig() {
       {modalType === "parties" && (
         <AutoLinkPartiesModal isOpen={!!modalType} closeModal={closeModal} onSave={handleSaveConfig} />
       )}
-      {modalType && modalType !== "specificPolitikoz" && modalType !== "parties" && (
-        <AutoLinkModal isOpen={!!modalType} modalType={modalType} closeModal={closeModal} onSave={handleSaveConfig} />
+      {modalType === "randomPolitikoz" && (
+        <AutoLinkRandomModal isOpen={true} closeModal={closeModal} onSave={handleSaveConfig} />
       )}
+      {modalType === "myParty" && (
+        <AutoLinkPartyModal isOpen={true} closeModal={closeModal} onSave={handleSaveConfig} />
+      )}   
     </div>
   );
 }

@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { useTranslations } from "next-intl";
 import { AutoLinkConfigData, TicketDistribution } from "./AutoLinkTypes";
+import { usePartiesData } from "@/hooks/usePartiesData";
 
 const formatPolitikozId = (id: string) => id.padStart(5, '0');
 
@@ -17,6 +18,7 @@ const formatPercentage = (value: number) => `${(value * 100).toFixed(0)}%`;
 const AutoLinkList: React.FC<Props> = ({ config, onDelete, isDeleting }) => {
   const t = useTranslations("AutoLink.List");
   const [deletingId, setDeletingId] = useState<string | null>(null);
+  const { data: parties } = usePartiesData();
 
   const handleDelete = async (entityType: 'party' | 'politikoz' | 'random', entityId: string) => {
     setDeletingId(entityId);
@@ -69,22 +71,27 @@ const AutoLinkList: React.FC<Props> = ({ config, onDelete, isDeleting }) => {
   };
 
   const renderPartyConfigs = () => {
-    if (!config.party) return null;
+    if (!config.party || !parties) return null;
 
-    return Object.entries(config.party).map(([entityId, ticketDistribution]) => (
-      <div
-        key={`party-${entityId}`}
-        className="flex justify-between items-center bg-gray-700 p-2 rounded mb-2 text-xs"
-      >
-        <div>
-          <span className="font-bold text-yellow-400">
-            {t("partyLabel", { id: entityId })}
-          </span>{" "}
-          {renderDistributionText(ticketDistribution)}
+    return Object.entries(config.party).map(([entityId, ticketDistribution]) => {
+      const party = parties.find(p => p.id.toString() === entityId);
+      const partyAcronym = party?.acronym || entityId;
+
+      return (
+        <div
+          key={`party-${entityId}`}
+          className="flex justify-between items-center bg-gray-700 p-2 rounded mb-2 text-xs"
+        >
+          <div>
+            <span className="font-bold text-yellow-400">
+              {t("partyLabel", { id: partyAcronym })}
+            </span>{" "}
+            {renderDistributionText(ticketDistribution)}
+          </div>
+          <DeleteButton entityType="party" entityId={entityId} />
         </div>
-        <DeleteButton entityType="party" entityId={entityId} />
-      </div>
-    ));
+      );
+    });
   };
 
   const renderRandomConfig = () => {

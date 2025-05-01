@@ -11,6 +11,7 @@ import ElectionDistributionRules from "./ElectionDistributionRules";
 import OtherSettings from "./OtherSettings";
 import ElectionWaveSettings from "./ElectionWaveSettings";
 import { useGovernanceData } from "@/hooks/useGovernanceData";
+import TicketBoostRules from "./TicketBoostRules";
 
 export default function GovernanceSettingsClient() {
   const t = useTranslations("GovernanceSettings");
@@ -62,6 +63,10 @@ export default function GovernanceSettingsClient() {
         <TicketLimitsRules
           data={data.ticketLimits}
           rebalanceEpoch={data.other.nextRebalanceEpoch}
+        />
+
+        <TicketBoostRules
+          data={data.ticketBoost}
         />
 
         <OtherSettings

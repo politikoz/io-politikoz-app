@@ -9,10 +9,10 @@ export function useHomePageData() {
       const response = await api.get<HomePageData>('/api/v1/statistics/election');
       return response.data;
     },
-    initialData: INITIAL_HOMEPAGE_DATA,  // Use as initial data
-    staleTime: 0,                        // Consider data immediately stale
-    gcTime: 24 * 60 * 60 * 1000,        // Keep inactive data for 1 day
-    refetchOnWindowFocus: false,         // Don't refetch on window focus
-    retry: 2                             // Retry failed requests twice
+    initialData: INITIAL_HOMEPAGE_DATA,
+    staleTime: 0,
+    gcTime: 24 * 60 * 60 * 1000,
+    refetchOnWindowFocus: false,
+    retry: 2
   });
 }

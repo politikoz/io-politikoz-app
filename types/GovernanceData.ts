@@ -18,6 +18,7 @@ export interface GovernanceData {
     };
   };
   distribution: Record<string, number>;
+  ticketBoost: Record<string, number>;
   other: {
     electionEveryXEpochs: number;
     bestDayOfTheWeek: string;
@@ -31,7 +32,6 @@ export interface GovernanceData {
       numbersToBeDrawn: number;
       numbersDrawnPrecision: number;
       numberFeePrecision: number;
-      percentBonusTicket: number;
       percentBonusTopRanking: number;
       decreaseInStamina: number;
       minimumStamina: number;
@@ -89,6 +89,13 @@ export const INITIAL_GOVERNANCE_DATA: GovernanceData = {
     LAUNDERER: 0,
     FRONTMAN: 0
   },
+  ticketBoost: {
+    CORRUPT: 0,
+    LOBBYIST: 0,
+    BRIBER: 0,
+    LAUNDERER: 0,
+    FRONTMAN: 0
+  },
   other: {
     electionEveryXEpochs: 1,
     bestDayOfTheWeek: "SATURDAY",
@@ -102,7 +109,6 @@ export const INITIAL_GOVERNANCE_DATA: GovernanceData = {
       numbersToBeDrawn: 4,
       numbersDrawnPrecision: 2,
       numberFeePrecision: 2,
-      percentBonusTicket: 0.1,
       percentBonusTopRanking: 0.1,
       decreaseInStamina: 10,
       minimumStamina: 61,

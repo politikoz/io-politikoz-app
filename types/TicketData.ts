@@ -9,3 +9,16 @@ export interface Ticket {
   estimatedEarnings: number;
   singleUse: boolean;
 }
+
+export const INITIAL_TICKET_DATA: Ticket[] = [
+  {
+    id: 0,
+    type: 'Launderer',
+    name: '01235',
+    luckyNumber: '00',
+    inElection: false,
+    nextElection: false,
+    estimatedEarnings: 0,
+    singleUse: false
+  }
+];

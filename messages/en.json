@@ -229,14 +229,19 @@
     "cancel": "Cancel",
     "save": "Save"
   },
-  "Modal": {
-      "title": "Configure Automatic Distribution",
-      "randomTitle": "Configure Random Distribution",
-      "description": "Set up the percentage distribution for each ticket type to specific targets.",
-      "randomDescription": "Configure the percentage of tickets that will be automatically distributed to random Politikoz before each election. This ensures your unassigned tickets are always put to use, even if you haven't manually allocated them.",
+  "ModalRandom": {
+      "title": "Configure Random Distribution",
+      "description": "Configure the percentage of tickets that will be automatically distributed to random Politikoz before each election. This ensures your unassigned tickets are always put to use, even if you haven't manually allocated them.",
       "save": "Save",
       "cancel": "Cancel"
     },
+    "ModalParty": {
+      "title": "Configure Party Distribution",
+      "description": "Configure the percentage of tickets that will be automatically distributed to your party members before each election. This allows you to support your party's Politikoz and increase their chances of winning, strengthening your party's position in the electoral race.",
+      "save": "Save",
+      "cancel": "Cancel"
+    },
+    
   "ModalPolitikoz": {
       "title": "Link to Specific Politikoz",
       "description": "Configure percentage distribution for specific Politikoz. The selected percentage will be equally distributed among all selected Politikoz. You can only add percentages - to reduce, delete the configuration.",
@@ -348,7 +353,9 @@
   "GovernanceSettings": {
     "title": "Governance Settings",
     "loading": "Loading rules...",
-
+    "ticketBoostTitle": "Ticket Boost Settings",
+    "ticketBoostDescription": "Each ticket type has a unique power boost effect. When linked to a Politikoz, it enhances their voting capabilities, increasing their chances of winning elections.",
+    "ticketBoostValue": "{value}%",
     "votingPowerTitle": "Voting Power Summary",
     "votingPowerDescription": "Your voting power is based on the amount of KOZ tokens you hold. In future updates, this power will be used to vote on changes to the governance settings.",
     "votingPowerTotal": "Total Voting Power",

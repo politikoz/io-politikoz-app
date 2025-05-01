@@ -4,8 +4,8 @@ import { useState, useMemo } from "react";
 import { useTranslations } from "next-intl";
 import AutoLinkDistribution from "./AutoLinkDistribution";
 import { AutoLinkConfigData, TicketDistribution } from "./AutoLinkTypes";
-import { mockUserTickets } from "./AutoLinkData";
 import { usePartiesData } from "@/hooks/usePartiesData";
+import { useAutoLinkConfig } from "@/hooks/useAutoLinkConfig";
 
 interface AutoLinkPartiesModalProps {
   isOpen: boolean;
@@ -15,8 +15,10 @@ interface AutoLinkPartiesModalProps {
 
 export default function AutoLinkPartiesModal({ isOpen, closeModal, onSave }: AutoLinkPartiesModalProps) {
   const { data: parties, isLoading } = usePartiesData();
+  const { data: currentConfig } = useAutoLinkConfig();
   const [selectedParties, setSelectedParties] = useState<{ id: string; sigla: string; name: string }[]>([]);
   const [ticketDistribution, setTicketDistribution] = useState<TicketDistribution>({});
+  const [isSaving, setIsSaving] = useState(false);
 
   const t = useTranslations("AutoLink.ModalParties");
 
@@ -30,22 +32,43 @@ export default function AutoLinkPartiesModal({ isOpen, closeModal, onSave }: Aut
 
   if (!isOpen) return null;
 
-  const saveConfig = () => {
+  const saveConfig = async () => {
     if (selectedParties.length === 0 || Object.values(ticketDistribution).reduce((acc, p) => acc + p, 0) === 0) return;
 
-    const newConfig: AutoLinkConfigData = {
-      party: selectedParties.reduce<Record<string, TicketDistribution>>((acc, party) => {
-        acc[party.id] = { ...ticketDistribution };
+    try {
+      setIsSaving(true);
+      const updatedConfig = { ...currentConfig };
+      
+      // Calculate distribution per party
+      const distributionPerParty = Object.entries(ticketDistribution).reduce<Record<string, number>>((acc, [type, value]) => {
+        acc[type] = value / selectedParties.length;
         return acc;
-      }, {}),
-      politikoz: {}, // Keep empty as we're only configuring parties
-      user: null     // Add user property as null
-    };
+      }, {});
 
-    onSave(newConfig);
-    setSelectedParties([]);
-    setTicketDistribution({});
-    closeModal();
+      // Update party configurations
+      updatedConfig.party = updatedConfig.party || {};
+      selectedParties.forEach(party => {
+        const existingDistribution = currentConfig?.party?.[party.id] || {};
+        
+        // Merge existing and new distributions, summing values for same ticket types
+        updatedConfig.party = {
+          ...updatedConfig.party,
+          [party.id]: Object.entries(distributionPerParty).reduce<TicketDistribution>((acc, [ticketType, value]) => {
+            acc[ticketType] = (existingDistribution[ticketType] || 0) + value;
+            return acc;
+          }, { ...existingDistribution })
+        };
+      });
+
+      await onSave(updatedConfig);
+      setSelectedParties([]);
+      setTicketDistribution({});
+      closeModal();
+    } catch (error) {
+      console.error('Error saving config:', error);
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   const removeParty = (id: string) => {
@@ -103,14 +126,24 @@ export default function AutoLinkPartiesModal({ isOpen, closeModal, onSave }: Aut
           entityType="party"
           ticketDistribution={ticketDistribution}
           setTicketDistribution={setTicketDistribution}
-          userTickets={mockUserTickets}
         />
 
         <div className="flex justify-between mt-6">
-          <button onClick={closeModal} className="bg-red-600 text-white px-4 py-2 border-2 border-white rounded hover:bg-red-700">
+          <button 
+            onClick={closeModal} 
+            className="bg-red-600 text-white px-4 py-2 border-2 border-white rounded hover:bg-red-700"
+            disabled={isSaving}
+          >
             {t("cancel")}
           </button>
-          <button onClick={saveConfig} className="bg-green-600 text-white px-4 py-2 border-2 border-white rounded hover:bg-green-700" disabled={selectedParties.length === 0}>
+          <button 
+            onClick={saveConfig} 
+            className="bg-green-600 text-white px-4 py-2 border-2 border-white rounded hover:bg-green-700 flex items-center gap-2" 
+            disabled={selectedParties.length === 0 || isSaving}
+          >
+            {isSaving && (
+              <span className="animate-spin">⟳</span>
+            )}
             {t("save")}
           </button>
         </div>
