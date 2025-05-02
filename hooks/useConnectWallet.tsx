@@ -4,8 +4,8 @@ import { MeshTxBuilder, BlockfrostProvider } from "@meshsdk/core";
 import CryptoJS from "crypto-js";
 
 // Environment variables
-const ENCRYPTION_KEY = process.env.NEXT_PUBLIC_ENCRYPTION_KEY || "";
-const BLOCKFROST_API_KEY = process.env.NEXT_PUBLIC_BLOCKFROST_API_KEY || "";
+const ENCRYPTION_KEY = process.env.ENCRYPTION_KEY || "";
+const BLOCKFROST_API_KEY = process.env.BLOCKFROST_API_KEY || "";
 
 // Initialize BlockfrostProvider
 const provider = new BlockfrostProvider(BLOCKFROST_API_KEY);
@@ -206,7 +206,7 @@ export function useConnectWallet() {
       }
   
       // Simplified pool ID handling
-      const poolId = process.env.NEXT_PUBLIC_BECH32_POOL_ID;
+      const poolId = process.env.BECH32_POOL_ID;
       if (!poolId) {
         throw new Error("Pool ID not configured in environment variables");
       }

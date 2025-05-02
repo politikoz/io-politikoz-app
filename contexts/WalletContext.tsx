@@ -4,7 +4,7 @@ import { BlockfrostProvider } from '@meshsdk/core';
 import { MeshTxBuilder } from '@meshsdk/core';
 
 // Add at the top with other environment variables
-const BLOCKFROST_API_KEY = process.env.NEXT_PUBLIC_BLOCKFROST_API_KEY || '';
+const BLOCKFROST_API_KEY = process.env.BLOCKFROST_API_KEY || '';
 const provider = new BlockfrostProvider(BLOCKFROST_API_KEY);
 
 interface WalletContextType {
@@ -136,7 +136,7 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
       const utxos = await wallet.getUtxos();
   
       // Get pool ID
-      const poolId = process.env.NEXT_PUBLIC_BECH32_POOL_ID;
+      const poolId = process.env.BECH32_POOL_ID;
       if (!poolId) {
         throw new Error("Pool ID not configured");
       }

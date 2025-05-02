@@ -24,7 +24,7 @@ export default function ConnectWalletList() {
   // Add decryption function
   const decryptStakeAddress = (encryptedAddress: string) => {
     try {
-      const bytes = CryptoJS.AES.decrypt(encryptedAddress, process.env.NEXT_PUBLIC_ENCRYPTION_KEY || '');
+      const bytes = CryptoJS.AES.decrypt(encryptedAddress, process.env.ENCRYPTION_KEY || '');
       const decryptedAddress = bytes.toString(CryptoJS.enc.Utf8);
       return decryptedAddress;
     } catch (error) {

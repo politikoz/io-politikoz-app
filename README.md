@@ -57,10 +57,10 @@ Required environment variables:
 ```bash
 NEXT_PUBLIC_BASE_URL=          # Application base URL
 NEXT_PUBLIC_API_URL=           # Backend API URL
-NEXT_PUBLIC_DISCORD_CLIENT_ID= # Discord OAuth client ID
-NEXT_PUBLIC_ENCRYPTION_KEY=    # Encryption key for sensitive data
-NEXT_PUBLIC_BECH32_POOL_ID=    # Cardano pool ID
-NEXT_PUBLIC_BLOCKFROST_API_KEY=# Blockfrost API key
+DISCORD_CLIENT_ID= # Discord OAuth client ID
+ENCRYPTION_KEY=    # Encryption key for sensitive data
+BECH32_POOL_ID=    # Cardano pool ID
+BLOCKFROST_API_KEY=# Blockfrost API key
 ```
 
 See `.env.example` for detailed descriptions of each variable.

@@ -23,7 +23,7 @@ export default function DiscordAuthButton({
   const [user, setUser] = useState<User | null>(null);
   const [hasFetched, setHasFetched] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const DISCORD_CLIENT_ID = process.env.NEXT_PUBLIC_DISCORD_CLIENT_ID!;
+  const DISCORD_CLIENT_ID = process.env.DISCORD_CLIENT_ID!;
 
   const discordAuthUrl = `https://discord.com/oauth2/authorize?response_type=code&client_id=${DISCORD_CLIENT_ID}&redirect_uri=${redirectUri}&scope=identify`;
 
