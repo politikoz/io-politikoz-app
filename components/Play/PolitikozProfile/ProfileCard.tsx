@@ -6,7 +6,7 @@ import PolitikozTickets from "./PolitikozTickets";
 import { useTranslations } from "next-intl";
 
 interface ProfileCardProps {
-  historico: string[];
+  historic: string[] | null; // Mudou de historico para historic
   dirtyMoney: number;
   influence: number;
   cleanMoney: number;
@@ -15,7 +15,7 @@ interface ProfileCardProps {
 }
 
 export default function ProfileCard({
-  historico,
+  historic,
   dirtyMoney,
   influence,
   cleanMoney,
@@ -58,7 +58,7 @@ export default function ProfileCard({
               scapegoats={scapegoats}
             />
             <div className="mt-4"></div>
-            <History history={historico} />
+            <History history={historic || []} />
           </>
         ) : (
           <PolitikozTickets corrupt={5} lobbyist={3} launderer={7} briber={2} frontman={4} />

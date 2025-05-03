@@ -11,25 +11,29 @@ import {
 import TabNavigation from "./TabNavigation";
 import ProfileHeader from "./ProfileHeader";
 import ProfileCard from "./ProfileCard";
-import { politikozList } from "./data";
 import { tabs } from "./tabs";
 import PolitikozSearch from "./PolitikozSearch";
 import PolitikozGrid from "./PolitikozGrid";
 import { useTranslations } from "next-intl";
+import { usePolitikozData } from "@/hooks/usePolitikozData";
 
 export default function PolitikozProfileView() {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isGridView, setIsGridView] = useState(false);
   const t = useTranslations("PolitikozProfile");
+  const { data: politikozList = [], error } = usePolitikozData();
 
   const selectedTab = tabs[selectedIndex];
   const filteredPolitikoz = useMemo(
     () => politikozList.filter((p) => p.type === selectedTab.name),
-    [selectedTab]
+    [selectedTab, politikozList]
   );
 
-  const totalImprisoned = useMemo(() => politikozList.filter(p => p.isImprisoned).length, []);
+  const totalImprisoned = useMemo(
+    () => politikozList.filter(p => p.imprisoned).length,
+    [politikozList]
+  );
 
   useEffect(() => {
     setCurrentIndex(0);
@@ -83,8 +87,14 @@ export default function PolitikozProfileView() {
             <>
               <ProfileHeader
                 {...filteredPolitikoz[currentIndex]}
-                baseCostPerEpoch={10} // 💡 Valor base fictício
-                imprisonmentEpochs={2} // 💡 Valor fictício por exemplo
+                onRelease={(releaseAll) => {
+                  // Implement release logic here
+                  console.log('Release prisoner', releaseAll);
+                }}
+                handleLuckyChange={(newLucky) => {
+                  // Implement lucky number change logic here
+                  console.log('Change lucky number to', newLucky);
+                }}
                 totalImprisoned={totalImprisoned}
               />
               <ProfileCard {...filteredPolitikoz[currentIndex]} />

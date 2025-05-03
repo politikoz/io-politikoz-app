@@ -1,49 +1,25 @@
 import { Tab, TabList, TabGroup } from "@headlessui/react";
 import clsx from "clsx";
 import { tabs } from "./tabs";
-import { politikozList } from "./data";
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from "recharts";
 import { useRef, useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
+import { usePolitikozData } from "@/hooks/usePolitikozData";
 
-const tabsWithCounts = tabs.map((tab) => ({
-  ...tab,
-  politikozCount: politikozList.filter((p) => p.type === tab.name).length,
-}));
+const renderCustomLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, name }: any) => {
+  const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+  const x = cx + radius * Math.cos(-midAngle * Math.PI / 180);
+  const y = cy + radius * Math.sin(-midAngle * Math.PI / 180);
 
-const renderCustomLabel = ({
-  cx,
-  cy,
-  midAngle,
-  outerRadius,
-  percent,
-}: {
-  cx: number;
-  cy: number;
-  midAngle: number;
-  outerRadius: number;
-  percent: number;
-}) => {
-  if (percent === 0) return null;
-
-  const RADIAN = Math.PI / 180;
-  const radius = outerRadius * 0.75;
-  const x = cx + radius * Math.cos(-midAngle * RADIAN);
-  const y = cy + radius * Math.sin(-midAngle * RADIAN);
-
-  return (
-    <text
-      x={x}
-      y={y}
-      fill="black"
-      textAnchor="middle"
-      dominantBaseline="central"
-      fontSize="10px"
-      fontFamily="Press Start 2P"
-    >
-      {`${(percent * 100).toFixed(1)}%`}
+  return percent > 0 ? (
+    <text x={x} y={y} fill="white" textAnchor="middle" dominantBaseline="middle" style={{ fontSize: '10px' }}>
+      {name}
     </text>
-  );
+  ) : null;
+};
+
+const formatTabName = (name: string) => {
+  return name.replace('_', ' ');
 };
 
 interface TabNavigationProps {
@@ -51,14 +27,16 @@ interface TabNavigationProps {
   setSelectedIndex: (index: number) => void;
 }
 
-export default function TabNavigation({
-  selectedIndex,
-  setSelectedIndex,
-}: TabNavigationProps) {
+export default function TabNavigation({ selectedIndex, setSelectedIndex }: TabNavigationProps) {
+  const { data: politikozList = [] } = usePolitikozData();
   const tabContainerRef = useRef<HTMLDivElement>(null);
   const [panelHeight, setPanelHeight] = useState("auto");
-
   const t = useTranslations("PolitikozProfile");
+
+  const tabsWithCounts = tabs.map((tab) => ({
+    ...tab,
+    politikozCount: politikozList.filter((p) => p.type === tab.name).length,
+  }));
 
   useEffect(() => {
     if (tabContainerRef.current) {
@@ -90,7 +68,7 @@ export default function TabNavigation({
                   }}
                 >
                   <span className="absolute top-2 text-center md:static text-[8px] md:text-xs leading-none">
-                    {tab.name}
+                    {formatTabName(tab.name)}
                   </span>
 
                   <span className="absolute bottom-1 right-1 md:static md:ml-auto w-[32px] h-6 flex items-center justify-center bg-black text-yellow-300 text-[10px] font-bold border-2 border-white shadow-[2px_2px_0px_black]">

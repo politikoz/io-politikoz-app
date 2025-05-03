@@ -4,7 +4,7 @@ import LuckyNumberModal from "./LuckyNumberModal";
 import { useTranslations } from "next-intl";
 
 interface LuckyNumberProps {
-  value: number;
+  value: string;
   readonly: boolean;
   onChange?: (newValue: number, applyToAll: boolean) => void;
 }
@@ -53,7 +53,7 @@ export default function LuckyNumber({ value, readonly, onChange }: LuckyNumberPr
         currentValue={currentLuckyNumber}
         onSave={(newValue, applyToAll) => {
           onChange?.(newValue, applyToAll);
-          setCurrentLuckyNumber(newValue);
+          setCurrentLuckyNumber(newValue.toString());
           setIsModalOpen(false);
         }}
       />

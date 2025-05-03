@@ -4,28 +4,34 @@ import ReleasePrisonerButton from "./ReleasePrisonerButton";
 import { useTranslations } from "next-intl";
 
 interface ProfileHeaderProps {
-  name: string;
-  cargo: string;
+  name?: string; // Make name optional
+  type: string;
   stamina: number;
-  luckyNumber: number;
-  isImprisoned?: boolean;
+  luckyNumber: string;
+  imprisoned: boolean;
   handleLuckyChange?: (newLucky: number) => void;
   onRelease?: (releaseAll: boolean) => void;
-  baseCostPerEpoch: number;
-  imprisonmentEpochs: number;
+  prisonEpochs: number;
+  releaseCost: number;
   totalImprisoned: number;
 }
 
+const getImagePath = (name: string | undefined) => {
+  if (!name) return '/images/assets/default.png'; // Add a default image path
+  const id = name.replace(/\D/g, '');
+  return `/images/assets/${id}.png`;
+};
+
 export default function ProfileHeader({
   name,
-  cargo,
+  type,
   stamina,
   luckyNumber,
-  isImprisoned = false,
+  imprisoned = false,
   handleLuckyChange,
   onRelease,
-  baseCostPerEpoch,
-  imprisonmentEpochs,
+  prisonEpochs,
+  releaseCost,
   totalImprisoned
 }: ProfileHeaderProps) {
   const t = useTranslations("PolitikozProfile");
@@ -35,14 +41,14 @@ export default function ProfileHeader({
       <div className="flex space-x-4">
         <div className="relative w-[100px] h-[120px] border-4 border-white bg-gray-600 shadow-[6px_6px_0px_black] overflow-hidden">
           <Image
-            src={`/images/assets/${name.replace("#", "")}.png`}
+            src={getImagePath(name)}
             alt={`Picture of ${name}`}
             width={90}
             height={120}
             className="w-full h-full object-cover"
             style={{ imageRendering: "pixelated" }}
           />
-          {isImprisoned && (
+          {imprisoned && (
             <div className="absolute inset-0 flex justify-between">
               {[...Array(5)].map((_, i) => (
                 <div key={i} className="w-[4px] h-full bg-black"></div>
@@ -53,18 +59,18 @@ export default function ProfileHeader({
 
         <div className="flex flex-col justify-between">
           <div>
-            <h2 className="text-sm font-bold font-['Press_Start_2P']">{cargo}</h2>
+            <h2 className="text-sm font-bold font-['Press_Start_2P']">{type}</h2>
             <p className="font-['Press_Start_2P'] text-yellow-300 inline-block">
               {name}
               <span className="text-green-400">{luckyNumber}</span>
             </p>
 
-            {!isImprisoned && (
+            {!imprisoned && (
               <LuckyNumber value={luckyNumber} readonly={false} onChange={handleLuckyChange} />
             )}
           </div>
 
-          {!isImprisoned ? (
+          {!imprisoned ? (
             <div className="flex flex-col items-start mt-2">
               <div className="w-[130px] h-5 border-4 border-white bg-gray-500 shadow-[4px_4px_0px_black] relative">
                 <div
@@ -79,10 +85,10 @@ export default function ProfileHeader({
           ) : (
             <div className="absolute flex mt-20">
               <ReleasePrisonerButton
-                prisonerName={name}
+                prisonerName={name ?? 'Unknown'}
                 onRelease={onRelease || (() => {})}
-                baseCostPerEpoch={baseCostPerEpoch}
-                imprisonmentEpochs={imprisonmentEpochs}
+                releaseCost={releaseCost}
+                prisonEpochs={prisonEpochs}
                 totalImprisoned={totalImprisoned}
               />
             </div>

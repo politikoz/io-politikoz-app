@@ -5,9 +5,9 @@ import { useTranslations } from "next-intl";
 
 interface Politikoz {
   name: string;
-  luckyNumber: number;
+  luckyNumber: string; // Mudou para string
   type: string;
-  isImprisoned?: boolean;
+  imprisoned: boolean; // Mudou de isImprisoned para imprisoned
 }
 
 interface PolitikozGridProps {
@@ -57,7 +57,7 @@ export default function PolitikozGrid({ politikozList, selectedTab, onSelectPoli
                       className="w-full h-full object-cover"
                       style={{ imageRendering: "pixelated" }}
                     />
-                    {p.isImprisoned && (
+                    {p.imprisoned && (
                       <div className="absolute inset-0 flex justify-between">
                         {[...Array(5)].map((_, i) => (
                           <div key={i} className="w-[4px] h-full bg-black"></div>

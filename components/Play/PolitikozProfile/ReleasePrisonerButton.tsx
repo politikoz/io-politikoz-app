@@ -7,16 +7,16 @@ import ReleasePrisonerModal from "./ReleasePrisonerModal";
 interface ReleasePrisonerButtonProps {
   prisonerName: string;
   onRelease: (releaseAll: boolean) => void;
-  baseCostPerEpoch: number;
-  imprisonmentEpochs: number;
+  releaseCost: number; // Novo campo
+  prisonEpochs: number; // Renomeado
   totalImprisoned: number;
 }
 
 export default function ReleasePrisonerButton({
   prisonerName,
   onRelease,
-  baseCostPerEpoch,
-  imprisonmentEpochs,
+  releaseCost,
+  prisonEpochs,
   totalImprisoned
 }: ReleasePrisonerButtonProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -34,8 +34,8 @@ export default function ReleasePrisonerButton({
       <ReleasePrisonerModal
         isOpen={isModalOpen}
         prisonerName={prisonerName}
-        baseCostPerEpoch={baseCostPerEpoch}
-        imprisonmentEpochs={imprisonmentEpochs}
+        baseCostPerEpoch={releaseCost}
+        imprisonmentEpochs={prisonEpochs}
         totalImprisoned={totalImprisoned}
         onClose={() => setIsModalOpen(false)}
         onConfirm={(releaseAll: boolean) => {

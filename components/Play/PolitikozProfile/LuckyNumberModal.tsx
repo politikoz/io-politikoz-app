@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 interface LuckyNumberModalProps {
   isOpen: boolean;
   onClose: () => void;
-  currentValue: number;
+  currentValue: string;
   onSave: (newValue: number, applyToAll: boolean) => void;
 }
 
@@ -16,12 +16,12 @@ export default function LuckyNumberModal({
   onSave,
 }: LuckyNumberModalProps) {
   const t = useTranslations("PolitikozProfile");
-  const [newLuckyNumber, setNewLuckyNumber] = useState<string>(currentValue.toString());
-  const [applyToAll, setApplyToAll] = useState(false);
-
+  const [newLuckyNumber, setNewLuckyNumber] = useState<string>(currentValue);
+  const [applyToAll, setApplyToAll] = useState<boolean>(false);
+  
   useEffect(() => {
     if (isOpen) {
-      setNewLuckyNumber(currentValue.toString());
+      setNewLuckyNumber(currentValue);
     }
   }, [isOpen, currentValue]);
 

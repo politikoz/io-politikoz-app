@@ -12,6 +12,10 @@ interface PolitikozSearchProps {
   onSelectPolitikoz: (name: string) => void;
 }
 
+const formatType = (type: string) => {
+  return type.replace('_', ' ');
+};
+
 export default function PolitikozSearch({ politikozList, onSelectPolitikoz }: PolitikozSearchProps) {
   const t = useTranslations("PolitikozProfile"); // 🟡 namespace usado
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -68,7 +72,7 @@ export default function PolitikozSearch({ politikozList, onSelectPolitikoz }: Po
               }}
             >
               <span className="font-semibold">{p.name}</span>
-              <span className="ml-2 text-gray-300">({p.type})</span>
+              <span className="ml-2 text-gray-300">({formatType(p.type)})</span>
             </li>
           ))}
         </ul>
