@@ -304,7 +304,26 @@
     "winners": "winners",
     "prizePerWinner": "Prize per winner",
     "totalForRole": "Total for role",
-    "totalForType": "Total for type"
+    "totalForType": "Total for type",
+    "modalExecutedAt": "Executed at",
+    "modalDetails": "Transaction Details",
+    "modalEpoch": "Block Epoch",
+    "modalHeight": "Block Height",
+    "modalStaminaDecrease": "Stamina Decrease",
+    "modalMinStamina": "Minimum Stamina",
+    "modalDrawPrecision": "Draw Precision",
+    "modalFeePrecision": "Fee Precision",
+    "modalNumbersToDraw": "Numbers to Draw",
+    "modalBonus": "Top Ranking Bonus",
+    "modalBaseVote": "Base Vote",
+    "modalBlockFee": "Block Fee",
+    "modalBlockOutput": "Block Output",
+    "modalTurn": "Election Turn",
+    "noDrawsYet": "No draws yet",
+    "firstTurn": "FIRST TURN",
+    "secondTurn": "SECOND TURN",
+    "electionEnd": "END OF ELECTION"
+  
   },
 "ElectionResult": {
     "map": "Electoral Map",
@@ -552,8 +571,43 @@
     "stakeDescription": "Stake your ADA with our pool to earn rewards and support the Politikoz ecosystem.",
     "stakeNow": "Stake Now",
     "connectFirst": "Connect Wallet First",
+    "stakeError": "Error during stake delegation",    
+    "title": "Stake Your ADA with PLKOZ",
+    "description": "When you join our PLKOZ pool, you can earn ADA rewards like any other pool. Additionally, you'll get tickets and KOZ token that let you participate in a monthly lottery for a chance to win more ADA and further increase your earnings.",
+    "availableBalance": "Your Available Balance",
+    "estimatedTickets": "Estimated Tickets",
+    "connectToStart": "Connect to Start Staking",
+    "connectButtonLabel": "Connect to Start Staking",
+    "stakeButtonLabel": "Stake Now",
+    "kozBonus": "KOZ Bonus",
+    "kozRewardsMessage": "You can claim up to {amount} KOZ rewards through monthly claims",
     "stakeSuccess": "Stake delegation successful!",
-    "stakeError": "Error during stake delegation"
+    "errors": {
+      "transactionDeclined": "Transaction was declined by user",
+      "signingCanceled": "Transaction signing was canceled",
+      "insufficientFunds": "Insufficient funds in your wallet",
+      "insufficientFundsWithAmount": "Insufficient funds in your wallet. Required minimum: {amount} ADA",
+      "transactionFailed": "Transaction failed. Please try again",
+      "unexpected": "An unexpected error occurred. Please try again",
+      "title": "Transaction Failed"
+    },
+    "status": {
+      "staking": "Staking...",
+      "connectFirst": "Connect Wallet First",
+      "waitingSignature": "Waiting for transaction signature...",
+      "pleaseConfirm": "Please confirm in your wallet to complete staking"
+    },
+    "collateral": {
+      "amount": "+{amount} ADA collateral",
+      "info": "Learn about collateral"
+    },
+    "collateralModal": {
+      "title": "What is Collateral?",
+      "description": "Collateral is a small amount of ADA (usually 5 ADA) that your wallet holds separately. It's required for smart contract transactions on Cardano.",
+      "explanation": "Think of it as a security deposit that ensures smart contract transactions work properly. Don't worry - you keep full control of this ADA!",
+      "walletInfo": "Your wallet automatically manages this for you, and you can get it back anytime by removing the collateral setting in your wallet.",
+      "closeButton": "Got it!"
+    }
   },
   "Swap": {
     "title": "Swap ADA → KOZ",

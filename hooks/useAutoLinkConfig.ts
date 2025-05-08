@@ -57,18 +57,14 @@ export function useAutoLinkConfig() {
 
   const handleDelete = async ({ entityType, entityId }: { entityType: 'party' | 'politikoz' | 'random', entityId: string }) => {
     const currentConfig = query.data;
-    
     let updatedConfig = { ...currentConfig };
 
-    if (entityType === 'random') {
-      const { ['-1']: removed, ...rest } = updatedConfig.politikoz;
+    if (entityType === 'politikoz') {
+      const { [entityId]: removed, ...rest } = updatedConfig.politikoz;
       updatedConfig.politikoz = rest;
     } else if (entityType === 'party' && updatedConfig.party) {
       const { [entityId]: removed, ...rest } = updatedConfig.party;
       updatedConfig.party = rest;
-    } else if (entityType === 'politikoz') {
-      const { [entityId]: removed, ...rest } = updatedConfig.politikoz;
-      updatedConfig.politikoz = rest;
     }
 
     return updateConfigMutation.mutateAsync(updatedConfig);

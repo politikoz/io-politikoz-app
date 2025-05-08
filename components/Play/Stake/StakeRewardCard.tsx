@@ -3,7 +3,7 @@ import { useTranslations } from 'next-intl';
 
 interface StakeRewardCardProps {
   name: string;
-  amount: number;
+  amount: number | '-'; 
   image: string;
 }
 
@@ -18,6 +18,7 @@ export default function StakeRewardCard({ name, amount, image }: StakeRewardCard
             src={image}
             alt={`${name} Ticket`}
             fill
+            sizes="(max-width: 64px) 100vw, 64px"
             className="object-contain"
             priority
           />

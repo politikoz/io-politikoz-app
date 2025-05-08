@@ -52,7 +52,7 @@ const AutoLinkList: React.FC<Props> = ({ config, onDelete, isDeleting }) => {
     if (!config.politikoz) return null;
     
     return Object.entries(config.politikoz).map(([entityId, ticketDistribution]) => {
-      if (entityId === '-1') return null;
+      if (entityId === 'random') return null; // Changed from '-1' to 'random'
       
       const formattedId = formatPolitikozId(entityId);
       
@@ -95,15 +95,15 @@ const AutoLinkList: React.FC<Props> = ({ config, onDelete, isDeleting }) => {
   };
 
   const renderRandomConfig = () => {
-    if (!config.politikoz?.['-1']) return null;
+    if (!config.politikoz?.random) return null; // Changed from '['-1']' to '.random'
 
     return (
       <div className="flex justify-between items-center bg-gray-700 p-2 rounded mb-2 text-xs">
         <div>
           <span className="font-bold text-yellow-400">{t("randomLabel")}</span>{" "}
-          {renderDistributionText(config.politikoz['-1'])}
+          {renderDistributionText(config.politikoz.random)}
         </div>
-        <DeleteButton entityType="random" entityId="-1" />
+        <DeleteButton entityType="politikoz" entityId="random" /> {/* Changed from '-1' to 'random' */}
       </div>
     );
   };

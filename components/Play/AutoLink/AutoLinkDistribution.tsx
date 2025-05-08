@@ -26,8 +26,8 @@ const AutoLinkDistribution: React.FC<Props> = ({
 
   // Set initial state from existing config
   useEffect(() => {
-    if (entityType === 'random' && config?.politikoz?.['-1']) {
-      setTicketDistribution(config.politikoz['-1']);
+    if (entityType === 'random' && config?.politikoz?.random) {
+      setTicketDistribution(config.politikoz.random);
     }
     else if (entityType === 'politikoz' && entityId && config?.politikoz?.[entityId]) {
       setTicketDistribution(config.politikoz[entityId]);

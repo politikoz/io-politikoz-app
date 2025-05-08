@@ -14,7 +14,7 @@ const DISCORD_TOKEN_URL = "https://discord.com/api/oauth2/token";
 const DISCORD_USER_URL = "https://discord.com/api/users/@me";
 
 // Variáveis de ambiente
-const CLIENT_ID = process.env.DISCORD_CLIENT_ID!;
+const CLIENT_ID = process.env.NEXT_PUBLIC_DISCORD_CLIENT_ID!;
 const CLIENT_SECRET = process.env.DISCORD_CLIENT_SECRET!;
 const JWT_SECRET = process.env.JWT_SECRET!;
 
