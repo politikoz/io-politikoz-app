@@ -74,7 +74,7 @@ export default function BuyTickets() {
       {/* Descrição do Ticket com Imagem */}
       <div className="mb-4 p-3 bg-gray-800 border border-gray-700 rounded flex flex-col sm:flex-row items-center gap-4">
         <img
-          src="/images/frontman.png"
+          src="/images/assets/frontman.png"
           alt="Frontman Ticket"
           className="w-24 h-24 sm:w-21 sm:h-21 rounded border-2 border-yellow-400"
         />

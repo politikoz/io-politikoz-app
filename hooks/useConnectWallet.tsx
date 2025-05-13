@@ -26,9 +26,10 @@ export function useConnectWallet() {
       setIsConnecting(true);
       await meshConnect(walletName);
       
-      await new Promise(resolve => setTimeout(resolve, 100));
+      // Increased timeout for Eternl wallet initialization
+      await new Promise(resolve => setTimeout(resolve, 1000));
       
-      if (meshConnected) {
+      if (meshConnected && wallet) {
         localStorage.setItem("connected", "true");
         localStorage.setItem("walletName", walletName);
         setIsConnected(true);
@@ -39,6 +40,7 @@ export function useConnectWallet() {
         
         return true;
       }
+
       return false;
     } catch (error) {
       console.error('Failed to connect wallet:', error);
@@ -71,13 +73,27 @@ export function useConnectWallet() {
   }, [isConnected, name, rewardAddress]);
 
   useEffect(() => {
+    const storedStakeAddress = localStorage.getItem("stakeAddress");
+    
+    if (storedStakeAddress) {
+      // Se já temos o stakeAddress, apenas use-o
+      setRewardAddress(storedStakeAddress);
+      return;
+    }
+
+    // Só tenta obter o stakeAddress via wallet se não existir no localStorage
     if (isConnected && wallet) {
       wallet.getRewardAddresses().then((addresses) => {
-        console.log("Reward address obtained:", addresses[0]);
-        setRewardAddress(addresses[0] || null);
+        if (addresses && addresses[0]) {
+          const encryptedStakeAddress = encryptData(addresses[0]);
+          localStorage.setItem("stakeAddress", encryptedStakeAddress);
+          setRewardAddress(addresses[0]);
+          
+          if (process.env.NODE_ENV === "development") {
+            console.log("New stake address obtained and encrypted:", encryptedStakeAddress);
+          }
+        }
       });
-    } else {
-      setRewardAddress(null);
     }
   }, [isConnected, wallet]);
 
@@ -99,7 +115,8 @@ export function useConnectWallet() {
     if (meshConnected && wallet) {
       setIsConnected(true);
       console.log('Wallet connected:', { name, meshConnected });
-    } else if (!meshConnected) {
+    } else if (!meshConnected && !localStorage.getItem("stakeAddress")) {
+      // Só limpa se realmente não houver uma sessão válida
       setIsConnected(false);
       setAdaBalance(0);
       localStorage.removeItem("connected");
@@ -114,6 +131,7 @@ export function useConnectWallet() {
     setAdaBalance(0);
     meshDisconnect();
     
+    // Limpa o localStorage apenas em um disconnect explícito
     localStorage.removeItem("connected");
     localStorage.removeItem("walletName");
     localStorage.removeItem("stakeAddress");

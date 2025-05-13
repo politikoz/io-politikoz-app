@@ -9,7 +9,6 @@ import PolitikozTable from "./PolitikozTable";
 import SenateChamber from "./SenateChamber";
 import { PolitikozData } from "./politikozGridData";
 import { politikozFullData } from "./politikozFullData";
-import { electionData } from "./electionData";
 
 const electionSections = [
   { key: "map", labelKey: "map" },
@@ -27,7 +26,7 @@ export default function ElectionResultsView() {
     <div className="flex flex-col items-center w-full">
       <div className="w-full flex flex-col items-center p-4">
         {selectedView === "map" && <ElectoralMap />}
-        {selectedView === "candidates" && <UserCandidates data={electionData} />}
+        {selectedView === "candidates" && <UserCandidates />}
         {selectedView === "grid" && <PolitikozUserGrid PolitikozGroups={PolitikozData} />}
         {selectedView === "table" && <PolitikozTable politikozData={politikozFullData} />}
         {selectedView === "senate" && <SenateChamber />}

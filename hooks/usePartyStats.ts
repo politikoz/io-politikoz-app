@@ -22,17 +22,25 @@ export function usePartyStats() {
           : null;
   
         const top5 = sortedData.slice(0, 5);
-        if (userStats && !top5.find(stat => stat.stakeAddress === stakeAddress)) {
-          top5.push(userStats);
-        }
-  
-        const formattedData = top5.map(stat => ({
+        
+        // Criar legendData primeiro (inclui todos)
+        const legendData = top5.map(stat => ({
           name: stat.stakeAddress === stakeAddress ? 'You' : stat.party,
           percentage: stat.percentage,
-          color: stat.color,
+          color: stat.stakeAddress === stakeAddress && stat.percentage === 0 ? '#CCCCCC' : stat.color,
           earningsEstimate: stat.earningsEstimate
         }));
-  
+
+        // Dados para o gráfico (apenas partidos com porcentagem > 0)
+        const graphData = top5
+          .filter(stat => stat.percentage > 0) // Remove entradas com porcentagem zero
+          .map(stat => ({
+            name: stat.stakeAddress === stakeAddress ? 'You' : stat.party,
+            percentage: stat.percentage,
+            color: stat.color,
+            earningsEstimate: stat.earningsEstimate
+          }));
+
         const othersPercentage = Number(
           sortedData
             .filter(stat => !top5.find(t => t.stakeAddress === stat.stakeAddress))
@@ -41,18 +49,31 @@ export function usePartyStats() {
         );
   
         if (othersPercentage > 0) {
-          formattedData.push({
+          const othersData = {
             name: 'Others',
             percentage: othersPercentage,
             color: OTHERS_COLOR,
+            earningsEstimate: 0
+          };
+          graphData.push(othersData);
+          legendData.push(othersData);
+        }
+        
+        // Adicionar usuário zerado apenas na legenda
+        if (stakeAddress && !userStats) {
+          legendData.push({
+            name: 'You',
+            percentage: 0,
+            color: '#CCCCCC',
             earningsEstimate: 0
           });
         }
   
         return {
-          players: formattedData,
+          players: legendData,
+          graphPlayers: graphData.filter(player => player.percentage > 0), // Garantir que não há zeros
           userEstimate: userStats?.earningsEstimate || 0
         };
       }
     });
-  }
+}

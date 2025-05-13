@@ -21,11 +21,11 @@ export default function LinkTicketsModal({ onClose }: LinkTicketsModalProps) {
   const t = useTranslations("PolitikozProfile");
 
   const ticketTypes = [
-    { name: "Frontman", image: "/images/frontman.png", description: t("frontmenDesc") },
-    { name: "Corrupt", image: "/images/corrupt.png", description: t("corruptDesc") },
-    { name: "Lobbyist", image: "/images/lobbyist.png", description: t("lobbyistDesc") },
-    { name: "Briber", image: "/images/briber.png", description: t("briberDesc") },
-    { name: "Launderer", image: "/images/launderer.png", description: t("laundererDesc") },    
+    { name: "Frontman", image: "/images/assets/frontman.png", description: t("frontmenDesc") },
+    { name: "Corrupt", image: "/images/assets/corrupt.png", description: t("corruptDesc") },
+    { name: "Lobbyist", image: "/images/assets/lobbyist.png", description: t("lobbyistDesc") },
+    { name: "Briber", image: "/images/assets/briber.png", description: t("briberDesc") },
+    { name: "Launderer", image: "/images/assets/launderer.png", description: t("laundererDesc") },    
   ];
 
   const [selectedIndex, setSelectedIndex] = useState(0);

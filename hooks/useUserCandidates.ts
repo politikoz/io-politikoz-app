@@ -1,0 +1,32 @@
+import { useQuery } from '@tanstack/react-query';
+import { ElectionGroup, UserCandidatesResponse } from '@/types/UserCandidatesData';
+import api from '@/app/lib/api';
+import { getDecryptedStakeAddress } from '@/utils/encryption';
+
+export function useUserCandidates() {
+  const mockStakeAddress = process.env.NEXT_PUBLIC_STAKE_ADDRESS_MOCK;
+  const stakeAddress = mockStakeAddress || getDecryptedStakeAddress();
+
+  return useQuery({
+    queryKey: ['userCandidates', stakeAddress],
+    queryFn: async () => {
+      if (!stakeAddress) {
+        throw new Error('No stake address found');
+      }
+      
+      const response = await api.get<ElectionGroup[]>(
+        `/api/v1/office/user-candidates?stakeAddress=${stakeAddress}`
+      );
+      
+      // Wrap the response in the expected format
+      return {
+        data: response.data
+      } as UserCandidatesResponse;
+    },
+    enabled: !!stakeAddress,
+    staleTime: 0,
+    gcTime: 24 * 60 * 60 * 1000,
+    refetchOnWindowFocus: false,
+    retry: 2
+  });
+}

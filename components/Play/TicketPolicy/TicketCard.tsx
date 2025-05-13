@@ -15,7 +15,7 @@ export default function TicketCard({ ticket, amount }: TicketCardProps) {
   return (
     <div className="flex flex-col items-center border-2 border-white rounded p-3 bg-gray-800 text-center">
       <Image
-        src={`/images/${ticket.toLowerCase()}.png`}
+        src={`/images/assets/${ticket.toLowerCase()}.png`}
         alt={ticket}
         width={64}
         height={64}

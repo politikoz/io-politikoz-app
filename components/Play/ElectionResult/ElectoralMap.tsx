@@ -45,12 +45,16 @@ const ElectoralMap: React.FC = () => {
     color: string;
   }
 
+  // Update distributeRegions to skip zero percentage players
   const distributeRegions = (players: Player[]) => {
+    // Filter out zero percentage players for map distribution
+    const activePlayers = players.filter(player => player.percentage > 0);
+    
     let totalCells = irregularMap.flat().filter((cell) => cell === 1).length;
     let playerMap: string[][] = irregularMap.map((row) => row.map(() => ""));
     let playerCells: { [key: string]: number } = {};
 
-    players.forEach((player) => {
+    activePlayers.forEach((player) => {
       playerCells[player.name] = Math.round((player.percentage / 100) * totalCells);
     });
 
@@ -59,15 +63,17 @@ const ElectoralMap: React.FC = () => {
     for (let row = 0; row < irregularMap.length; row++) {
       for (let col = 0; col < irregularMap[row].length; col++) {
         if (irregularMap[row][col] === 1) {
-          const currentPlayer = players[playerIndex];
+          const currentPlayer = activePlayers[playerIndex];
+          
+          if (!currentPlayer) continue;
 
           if (playerCells[currentPlayer.name] === 0) {
             playerIndex++;
-            if (playerIndex >= players.length) playerIndex = players.length - 1;
+            if (playerIndex >= activePlayers.length) playerIndex = activePlayers.length - 1;
           }
 
-          playerMap[row][col] = players[playerIndex].name;
-          playerCells[players[playerIndex].name]--;
+          playerMap[row][col] = activePlayers[playerIndex].name;
+          playerCells[activePlayers[playerIndex].name]--;
         }
       }
     }
@@ -81,6 +87,12 @@ const ElectoralMap: React.FC = () => {
       const newColorMap = new Map<string, string>();
 
       statsData.players.forEach(player => {
+        if (player.percentage === 0) {
+          // Skip zero percentage players for the map coloring
+          newColorMap.set(player.name, '#CCCCCC'); // Gray color for zero percentage
+          return;
+        }
+
         if (player.name === 'Others') {
           newColorMap.set(player.name, OTHERS_COLOR);
           usedColors.push(OTHERS_COLOR);

@@ -36,11 +36,11 @@ export default function PolitikozTickets({
 
         <div className="flex justify-center w-full gap-4 flex-wrap">
           {[
-            { image: "/images/frontman.png", label: "Frontman", value: frontman },
-            { image: "/images/corrupt.png", label: "Corrupt", value: corrupt },
-            { image: "/images/lobbyist.png", label: "Lobbyist", value: lobbyist },
-            { image: "/images/briber.png", label: "Briber", value: briber },
-            { image: "/images/launderer.png", label: "Launderer", value: launderer },            
+            { image: "/images/assets/frontman.png", label: "Frontman", value: frontman },
+            { image: "/images/assets/corrupt.png", label: "Corrupt", value: corrupt },
+            { image: "/images/assets/lobbyist.png", label: "Lobbyist", value: lobbyist },
+            { image: "/images/assets/briber.png", label: "Briber", value: briber },
+            { image: "/images/assets/launderer.png", label: "Launderer", value: launderer },            
           ].map((ticket, index) => (
             <div key={index} className="flex flex-col items-center w-[18%] min-w-[100px]">
               <div className="border-4 border-white bg-gray-300 w-[120px] h-[120px] md:w-[132px] md:h-[132px] shadow-[4px_4px_0px_black] flex items-center justify-center">

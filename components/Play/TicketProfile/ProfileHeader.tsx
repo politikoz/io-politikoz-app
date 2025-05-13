@@ -38,7 +38,7 @@ export default function ProfileHeader({ cargo }: ProfileHeaderProps) {
       {/* Imagem */}
       <div className="w-[120px] h-[120px] border-4 border-white bg-gray-600 shadow-[6px_6px_0px_black] overflow-hidden">
         <img
-          src={`/images/${formattedCargo}.png`}
+          src={`/images/assets/${formattedCargo}.png`}
           alt={cargo}
           className="w-full h-full object-cover"
           style={{ imageRendering: "pixelated" }}
