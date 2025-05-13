@@ -20,7 +20,7 @@ export function useAutoLinkConfig() {
     },
     initialData: INITIAL_AUTOLINK_CONFIG,
     staleTime: 0,
-    gcTime: 24 * 60 * 60 * 1000,
+    gcTime: 60 * 2000,
     refetchOnWindowFocus: false,
     retry: 2,
     enabled: !!stakeAddress

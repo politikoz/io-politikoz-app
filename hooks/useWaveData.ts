@@ -11,7 +11,7 @@ export function useWaveData() {
     },
     initialData: INITIAL_WAVE_DATA,
     staleTime: 0,
-    gcTime: 60 * 1000,
+    gcTime: 60 * 2000,
     refetchOnWindowFocus: true,
     retry: 2,
   });
