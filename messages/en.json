@@ -51,19 +51,19 @@
 "cardData": {
     "prizes": {
       "title": "+{amount} ADA MONTHLY",
-      "text": "Regular Prizes"
+      "text": "Regular Prizes 💎"
     },
     "freeEntries": {
       "title": "FREE ENTRIES",
-      "text": "Join with No Cost"
+      "text": "Join with No Cost 🎟️"
     },
     "auditable": {
       "title": "100% AUDITABLE",
-      "text": "Verifiable for Everyone"
+      "text": "Verifiable by All 🔍"
     },
     "treasury": {
-      "title": "+{treasury} ADA TREASURY",
-      "text": "Always Growing"
+      "title": "+{treasury} ADA POT",
+      "text": "Win Your Share 🎯"
     }
   },
   "learnMore": "Learn More on Gitbook"
@@ -200,6 +200,15 @@
 
   "agreeToTerms": "By continuing, you agree to our <termsLink>Terms of Use</termsLink> and our <privacyLink>Privacy Policy</privacyLink>."
 },
+"AuthError": {
+    "title": "Authentication Failed",
+    "message": "Unable to authenticate: {error}",
+    "ok": "OK",
+    "errors": {
+      "unknown": "An unexpected error occurred",
+      "walletNotConnected": "Please connect your wallet first"
+    }
+  },
 "AutoLink": {
   "Config": {
     "title": "Auto Link Configuration",
@@ -539,6 +548,11 @@
   },
 
   "PolitikozProfile": {
+    "MarketListings": {
+      "title": "Available in Market",
+      "buyNow": "Buy Now",
+      "marketplace": "Find on {market}"
+    },
     "history": "History",
     "distribution": "DISTRIBUTION",
     "ticketsForJuly": "TICKETS FOR ELECTION OF JULY",
@@ -560,7 +574,7 @@
     "details": "DETAILS",
     "tickets": "TICKETS",
     "stamina": "Stamina",
-    "noPolitikozAvailable": "No Politikoz available",
+    "noPolitikozAvailable": "You do not have any Politikoz for this category",
     "noPolitikozForCategory": "No Politikoz available for this category",
     "previous": "Previous",
     "next": "Next",

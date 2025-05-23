@@ -3,6 +3,7 @@
 import { ReactNode, useState } from "react";
 import { useAuth } from "@/hooks/useAuth";
 import AuthModal from "./AuthModal";
+import AuthErrorModal from "./AuthErrorModal";
 
 interface AuthenticatedActionProps {
   children: ReactNode | ((isAuthenticated: boolean) => ReactNode);
@@ -18,52 +19,54 @@ export default function AuthenticatedAction({
   const { isAuthenticated, authenticate, getSession } = useAuth();
   const [showModal, setShowModal] = useState(false);
   const [isAuthenticating, setIsAuthenticating] = useState(false);
+  const [authError, setAuthError] = useState<string | null>(null);
+  const [hasAttempted, setHasAttempted] = useState(false);
 
   const handleAuth = async () => {
-    // Check if we already have a valid session
     const session = getSession();
     if (session || isAuthenticated || isAuthenticating) {
-      console.log('[AuthenticatedAction] Already authenticated or in progress');
       return;
     }
 
     setIsAuthenticating(true);
     setShowModal(true);
+    setHasAttempted(true);
     
     try {
-      console.log('[AuthenticatedAction] Starting wallet signature request');
-      const result = await authenticate().catch((error) => {
-        // Handle user cancellation gracefully
-        if (error?.message?.includes('user declined')) {
-          console.log('[AuthenticatedAction] User declined signature');
-          return null;
-        }
-        throw error;
-      });
+      const result = await authenticate().catch(() => null);
 
       if (result) {
-        console.log('[AuthenticatedAction] Authentication successful');
-        // Add delay to ensure backend processing completes
         await new Promise(resolve => setTimeout(resolve, 1000));
         setShowModal(false);
+      } else {
+        setAuthError('Authentication failed');
+        setShowModal(false);
       }
-    } catch (error) {
-      console.error('[AuthenticatedAction] Authentication error:', error);
-      onCancel?.();
     } finally {
       setIsAuthenticating(false);
     }
   };
 
-  // Only trigger authentication on initial mount if needed
-  if (!isAuthenticated && showModalOnError && !isAuthenticating) {
+  const handleErrorClose = () => {
+    setAuthError(null);
+    onCancel?.();
+  };
+
+  if (!isAuthenticated && showModalOnError && !isAuthenticating && !hasAttempted) {
     handleAuth();
   }
 
   return (
     <>
       {typeof children === "function" ? children(isAuthenticated) : children}
-      {showModal && <AuthModal />}
+      {showModal && !authError && <AuthModal />}
+      {authError && (
+        <AuthErrorModal 
+          isOpen={true}
+          onClose={handleErrorClose}
+          error={authError}
+        />
+      )}
     </>
   );
 }

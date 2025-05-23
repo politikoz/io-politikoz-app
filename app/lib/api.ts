@@ -42,50 +42,12 @@ api.interceptors.request.use(function (config) {
 });
 
 // Response interceptor for handling 401s and refreshing JWT
-api.interceptors.response.use(function (response) {
-    return response;
-}, async function (error) {
-    const originalRequest = error.config;
-
-    // Handle 401 Unauthorized errors
-    if (error.response?.status === 401 && !originalRequest._retry) {
-        originalRequest._retry = true;
-
-        try {
-            // Attempt to refresh authentication
-            if (authEventHandler) {
-                await authEventHandler();
-                // Retry the original request with new JWT
-                return api(originalRequest);
-            } else {
-                throw new Error('No auth handler available');
-            }
-        } catch (refreshError) {
-            // Clear invalid session
-            AuthService.clearSession();
-            return Promise.reject(refreshError);
-        }
+api.interceptors.response.use(
+    response => response,
+    error => {
+        return Promise.reject(error);
     }
-
-    // Handle other errors
-    if (error.response) {
-        switch (error.response.status) {
-            case 403:
-                console.error('Forbidden access');
-                break;
-            case 404:
-                console.error('Resource not found');
-                break;
-            case 429:
-                console.error('Too many requests');
-                break;
-            default:
-                console.error('API Error:', error.response.data);
-        }
-    }
-
-    return Promise.reject(error);
-});
+);
 
 // Development logging
 if (process.env.NODE_ENV === 'development') {

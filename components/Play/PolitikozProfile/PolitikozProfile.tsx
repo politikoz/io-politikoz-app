@@ -14,6 +14,7 @@ import ProfileCard from "./ProfileCard";
 import { tabs } from "./tabs";
 import PolitikozSearch from "./PolitikozSearch";
 import PolitikozGrid from "./PolitikozGrid";
+import MarketListings from "./MarketListings";
 import { useTranslations } from "next-intl";
 import { usePolitikozData } from "@/hooks/usePolitikozData";
 
@@ -23,7 +24,6 @@ export default function PolitikozProfileView() {
   const [isGridView, setIsGridView] = useState(false);
   const t = useTranslations("PolitikozProfile");
   const { data: politikozList = [], error } = usePolitikozData();
-
   const selectedTab = tabs[selectedIndex];
   const filteredPolitikoz = useMemo(
     () => politikozList.filter((p) => p.type === selectedTab.name),
@@ -31,7 +31,7 @@ export default function PolitikozProfileView() {
   );
 
   const totalImprisoned = useMemo(
-    () => politikozList.filter(p => p.imprisoned).length,
+    () => politikozList.filter((p) => p.imprisoned).length,
     [politikozList]
   );
 
@@ -40,7 +40,9 @@ export default function PolitikozProfileView() {
   }, [selectedIndex]);
 
   const handleSelectPolitikoz = (name: string) => {
-    const selectedPolitikoz = politikozList.find((p) => p.name.toLowerCase() === name.toLowerCase());
+    const selectedPolitikoz = politikozList.find(
+      (p) => p.name.toLowerCase() === name.toLowerCase()
+    );
     if (selectedPolitikoz) {
       const tabIndex = tabs.findIndex((tab) => tab.name === selectedPolitikoz.type);
       if (tabIndex !== -1) {
@@ -89,11 +91,11 @@ export default function PolitikozProfileView() {
                 {...filteredPolitikoz[currentIndex]}
                 onRelease={(releaseAll) => {
                   // Implement release logic here
-                  console.log('Release prisoner', releaseAll);
+                  console.log("Release prisoner", releaseAll);
                 }}
                 handleLuckyChange={(newLucky) => {
                   // Implement lucky number change logic here
-                  console.log('Change lucky number to', newLucky);
+                  console.log("Change lucky number to", newLucky);
                 }}
                 totalImprisoned={totalImprisoned}
               />
@@ -127,7 +129,10 @@ export default function PolitikozProfileView() {
               </div>
             </>
           ) : (
-            <p className="text-center text-gray-400">{t("noPolitikozAvailable")}</p>
+            <div className="flex flex-col items-center">
+              <p className="text-center text-gray-400 mb-8">{t("noPolitikozAvailable")}</p>
+              <MarketListings cargo={selectedTab.name} />
+            </div>
           )}
         </div>
       </div>

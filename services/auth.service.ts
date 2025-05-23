@@ -6,16 +6,15 @@ export class AuthService {
     private static readonly SESSION_DURATION = 60 * 60 * 1000; // 1 hour
     private static readonly COOKIE_NAME = 'auth_session';
 
-    // Remove wallet parameter and use provided addresses
     static async authenticate(
         stakeAddress: string, 
         signData: (payload: string, address: string) => Promise<DataSignature>
-    ): Promise<WalletAuthSession> {
-        try {
-            if (!stakeAddress) {
-                throw new Error('No stake address available');
-            }
+    ): Promise<WalletAuthSession | null> {
+        if (!stakeAddress) {
+            return null;
+        }
 
+        try {
             const payload: SignaturePayload = {
                 stakeAddress,
                 timestamp: Date.now(),
@@ -24,87 +23,42 @@ export class AuthService {
 
             const stringifiedPayload = JSON.stringify(payload, Object.keys(payload).sort());
             
-            try {
-                const signatureData = await signData(stringifiedPayload, stakeAddress);
-                
-                if (!signatureData.signature || !signatureData.key) {
-                    throw new Error('Invalid signature data received from wallet');
-                }
+            const signatureData = await Promise.resolve()
+                .then(() => signData(stringifiedPayload, stakeAddress))
+                .catch(() => null);
 
-                // Create signature object first
-                const signature: SignatureNested = {
-                    signature: signatureData.signature,
-                    key: signatureData.key
-                };
-
-                // Then create the complete request body
-                const requestBody: AuthRequestBody = {
-                    payload,
-                    signature,
-                    expiresIn: this.SESSION_DURATION
-                };
-
-                console.info('[AuthService] Request details:', {
-                    endpoint: '/api/v1/auth/wallet',
-                    signatureData,
-                    requestBody
-                });
-
-                const response = await api.post<AuthResponse>('/api/v1/auth/wallet', requestBody);
-                
-                const session: WalletAuthSession = {
-                    jwt: response.data.token,
-                    stakeAddress,
-                    expiresAt: Date.now() + this.SESSION_DURATION
-                };
-
-                this.saveSession(session);
-                return session;
-            } catch (signError) {
-                console.error('[AuthService] Signature generation failed:', {
-                    message: signError instanceof Error ? signError.message : String(signError),
-                    stakeAddress
-                });
-                throw signError;
-            }
-        } catch (error) {
-            console.error('[AuthService] Authentication failed:', error);
-            throw error;
-        }
-    }
-
-    static getSession(): WalletAuthSession | null {
-        try {
-            console.log('[AuthService] Getting session from cookie');
-            const cookie = this.getCookie(this.COOKIE_NAME);
-            console.log('[AuthService] Cookie found:', !!cookie);
-            
-            if (!cookie) return null;
-
-            const session = JSON.parse(decodeURIComponent(cookie)) as WalletAuthSession;
-            console.log('[AuthService] Session parsed:', {
-                hasJwt: !!session?.jwt,
-                hasStakeAddress: !!session?.stakeAddress,
-                expiresAt: session?.expiresAt
-            });
-            
-            if (this.isSessionExpired(session)) {
-                console.log('[AuthService] Session expired');
-                this.clearSession();
+            if (!signatureData?.signature || !signatureData?.key) {
                 return null;
             }
 
-            if (!this.isValidSession(session)) {
-                console.log('[AuthService] Invalid session');
-                this.clearSession();
+            const signature: SignatureNested = {
+                signature: signatureData.signature,
+                key: signatureData.key
+            };
+
+            const requestBody: AuthRequestBody = {
+                payload,
+                signature,
+                expiresIn: this.SESSION_DURATION
+            };
+
+            const response = await Promise.resolve()
+                .then(() => api.post<AuthResponse>('/api/v1/auth/wallet', requestBody))
+                .catch(() => null);
+                
+            if (!response?.data?.token) {
                 return null;
             }
 
-            console.log('[AuthService] Valid session found');
+            const session: WalletAuthSession = {
+                jwt: response.data.token,
+                stakeAddress,
+                expiresAt: Date.now() + this.SESSION_DURATION
+            };
+
+            this.saveSession(session);
             return session;
-        } catch (error) {
-            console.error('[AuthService] Error getting session:', error);
-            this.clearSession();
+        } catch {
             return null;
         }
     }
@@ -114,16 +68,28 @@ export class AuthService {
             const value = encodeURIComponent(JSON.stringify(session));
             const expires = new Date(session.expiresAt).toUTCString();
             const cookieString = `${this.COOKIE_NAME}=${value}; expires=${expires}; path=/; SameSite=Strict`;
-            
-            console.log('[AuthService] Saving session cookie:', {
-                hasJwt: !!session.jwt,
-                expiresAt: session.expiresAt,
-                cookieLength: cookieString.length
-            });
-            
             document.cookie = cookieString;
-        } catch (error) {
-            console.error('[AuthService] Error saving session:', error);
+        } catch {
+            // Silent fail
+        }
+    }
+
+    static getSession(): WalletAuthSession | null {
+        try {
+            const cookie = this.getCookie(this.COOKIE_NAME);
+            if (!cookie) return null;
+
+            const session = JSON.parse(decodeURIComponent(cookie)) as WalletAuthSession;
+            
+            if (this.isSessionExpired(session) || !this.isValidSession(session)) {
+                this.clearSession();
+                return null;
+            }
+
+            return session;
+        } catch {
+            this.clearSession();
+            return null;
         }
     }
 
