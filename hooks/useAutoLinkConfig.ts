@@ -1,12 +1,13 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import api from '@/app/lib/api';
 import { AutoLinkAPIResponse, INITIAL_AUTOLINK_CONFIG } from '@/types/AutoLinkConfigData';
-import { getDecryptedStakeAddress } from '@/utils/encryption';
+import { useAuth } from './useAuth';
 
 export function useAutoLinkConfig() {
+  const { getSession } = useAuth(); // Add getSession
   const queryClient = useQueryClient();
   const mockStakeAddress = process.env.NEXT_PUBLIC_STAKE_ADDRESS_MOCK;
-  const stakeAddress = mockStakeAddress || getDecryptedStakeAddress();
+  const stakeAddress = mockStakeAddress || localStorage.getItem('stakeAddress');
 
   const query = useQuery({
     queryKey: ['autoLinkConfig', stakeAddress],
@@ -26,9 +27,12 @@ export function useAutoLinkConfig() {
     enabled: !!stakeAddress
   });
 
-  // Single mutation for both saving and deleting
   const updateConfigMutation = useMutation({
     mutationFn: async (updatedConfig: AutoLinkAPIResponse) => {
+      if (!stakeAddress) {
+        throw new Error('No stake address found');
+      }
+
       console.log('Sending config to API:', {
         stakeAddress,
         config: updatedConfig
@@ -46,18 +50,60 @@ export function useAutoLinkConfig() {
     }
   });
 
+  const deleteConfigMutation = useMutation({
+    mutationFn: async ({ entityType, entityId }: { entityType: 'party' | 'politikoz' | 'random', entityId: string }) => {
+      const session = getSession();
+      if (!session?.jwt) {
+        throw new Error('Authentication required');
+      }
+
+      const currentConfig = query.data;
+      let updatedConfig = { ...currentConfig };
+
+      // Add artificial delay to show loading state
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      if (entityType === 'politikoz') {
+        const { [entityId]: removed, ...rest } = updatedConfig.politikoz;
+        updatedConfig.politikoz = rest;
+      } else if (entityType === 'party' && updatedConfig.party) {
+        const { [entityId]: removed, ...rest } = updatedConfig.party;
+        updatedConfig.party = rest;
+      }
+
+      return updateConfigMutation.mutateAsync(updatedConfig);
+    }
+  });
+
   const handleSave = async (newConfig: AutoLinkAPIResponse) => {
+    // Check session from cookie
+    const session = getSession();
+    if (!session?.jwt) {
+      console.error('[useAutoLinkConfig] No valid session found in cookie');
+      throw new Error('Authentication required');
+    }
+    
     try {
+      console.log('[useAutoLinkConfig] Saving config with session:', !!session);
       return await updateConfigMutation.mutateAsync(newConfig);
-    } catch (error) {
-      console.error('Error saving config:', error);
+    } catch (error: any) {
+      console.error('[useAutoLinkConfig] Error saving config:', error);
       throw error;
     }
   };
 
   const handleDelete = async ({ entityType, entityId }: { entityType: 'party' | 'politikoz' | 'random', entityId: string }) => {
+    const session = getSession();
+    if (!session?.jwt) {
+      console.error('[useAutoLinkConfig] No valid session found in cookie');
+      throw new Error('Authentication required');
+    }
+
     const currentConfig = query.data;
     let updatedConfig = { ...currentConfig };
+
+    // Add artificial delay to show loading state
+    await new Promise(resolve => setTimeout(resolve, 1000));
 
     if (entityType === 'politikoz') {
       const { [entityId]: removed, ...rest } = updatedConfig.politikoz;
@@ -75,6 +121,7 @@ export function useAutoLinkConfig() {
     saveConfig: handleSave,
     deleteConfig: handleDelete,
     isSaving: updateConfigMutation.isPending,
-    isDeleting: updateConfigMutation.isPending
+    isDeleting: deleteConfigMutation.isPending,
+    isAuthenticated: !!getSession()?.jwt // Update to use cookie session
   };
 }

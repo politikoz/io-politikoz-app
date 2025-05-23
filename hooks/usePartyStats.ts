@@ -1,16 +1,15 @@
 import { useQuery } from '@tanstack/react-query';
 import { PartyStats } from '@/types/PartyStats';
 import api from '@/app/lib/api';
-import { getDecryptedStakeAddress } from '@/utils/encryption';
 
 const OTHERS_COLOR = '#808080';
 
 export function usePartyStats() {
     const mockStakeAddress = process.env.NEXT_PUBLIC_STAKE_ADDRESS_MOCK;
-    const stakeAddress = mockStakeAddress || getDecryptedStakeAddress();
+    const stakeAddress = mockStakeAddress || localStorage.getItem('stakeAddress');
   
     return useQuery({
-      queryKey: ['partyStats'],
+      queryKey: ['partyStats', stakeAddress],
       queryFn: async () => {
         const response = await api.get<PartyStats[]>('/api/v1/office/parties/stats');
         return response.data;

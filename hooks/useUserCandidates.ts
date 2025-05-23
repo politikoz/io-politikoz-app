@@ -1,11 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import { ElectionGroup, UserCandidatesResponse } from '@/types/UserCandidatesData';
 import api from '@/app/lib/api';
-import { getDecryptedStakeAddress } from '@/utils/encryption';
 
 export function useUserCandidates() {
   const mockStakeAddress = process.env.NEXT_PUBLIC_STAKE_ADDRESS_MOCK;
-  const stakeAddress = mockStakeAddress || getDecryptedStakeAddress();
+  const stakeAddress = mockStakeAddress || localStorage.getItem('stakeAddress');
 
   return useQuery({
     queryKey: ['userCandidates', stakeAddress],

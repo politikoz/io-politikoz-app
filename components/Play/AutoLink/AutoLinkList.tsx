@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useTranslations } from "next-intl";
 import { AutoLinkConfigData, TicketDistribution } from "./AutoLinkTypes";
 import { usePartiesData } from "@/hooks/usePartiesData";
+import DeleteConfirmModal from "./DeleteConfirmModal";
 
 const formatPolitikozId = (id: string) => id.padStart(5, '0');
 
@@ -18,24 +19,53 @@ const formatPercentage = (value: number) => `${(value * 100).toFixed(0)}%`;
 const AutoLinkList: React.FC<Props> = ({ config, onDelete, isDeleting }) => {
   const t = useTranslations("AutoLink.List");
   const [deletingId, setDeletingId] = useState<string | null>(null);
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState<{
+    show: boolean;
+    type: 'party' | 'politikoz' | 'random';
+    id: string;
+    isDeleting: boolean;
+  } | null>(null);
   const { data: parties } = usePartiesData();
 
-  const handleDelete = async (entityType: 'party' | 'politikoz' | 'random', entityId: string) => {
-    setDeletingId(entityId);
-    await onDelete(entityType, entityId);
-    setDeletingId(null);
+  const handleDeleteClick = (entityType: 'party' | 'politikoz' | 'random', entityId: string) => {
+    setShowDeleteConfirm({
+      show: true,
+      type: entityType,
+      id: entityId,
+      isDeleting: false
+    });
+  };
+
+  const handleConfirmDelete = async () => {
+    if (!showDeleteConfirm) return;
+
+    setDeletingId(showDeleteConfirm.id);
+    setShowDeleteConfirm(prev => prev ? { ...prev, isDeleting: true } : null);
+
+    try {
+      await onDelete(showDeleteConfirm.type, showDeleteConfirm.id);
+    } catch (error) {
+      console.error('Delete failed:', error);
+      setShowDeleteConfirm(prev => prev ? { ...prev, isDeleting: false } : null);
+    } finally {
+      // Aguarda um pequeno delay antes de fechar o modal
+      await new Promise(resolve => setTimeout(resolve, 500));
+      setDeletingId(null);
+      setShowDeleteConfirm(null);
+    }
   };
 
   const DeleteButton = ({ entityType, entityId }: { entityType: 'party' | 'politikoz' | 'random', entityId: string }) => (
     <button
-      onClick={() => handleDelete(entityType, entityId)}
+      onClick={() => handleDeleteClick(entityType, entityId)}
       disabled={isDeleting && deletingId === entityId}
       className="ml-4 bg-red-600 px-2 py-1 text-[10px] text-white border border-white rounded hover:bg-red-700 disabled:bg-gray-600 disabled:cursor-not-allowed flex items-center gap-1"
     >
       {isDeleting && deletingId === entityId ? (
-        <>
-          <span className="animate-spin">⟳</span>          
-        </>
+        <svg className="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
       ) : (
         t("delete")
       )}
@@ -109,17 +139,30 @@ const AutoLinkList: React.FC<Props> = ({ config, onDelete, isDeleting }) => {
   };
 
   return (
-    <div className="p-4 bg-gray-800 border-2 text-xs">
-      {!config.politikoz && !config.party ? (
-        <p className="text-gray-400">{t("empty")}</p>
-      ) : (
-        <>
-          {renderRandomConfig()}
-          {renderPolitikozConfigs()}
-          {renderPartyConfigs()}
-        </>
+    <>
+      <div className="p-4 bg-gray-800 border-2 text-xs">
+        {!config.politikoz && !config.party ? (
+          <p className="text-gray-400">{t("empty")}</p>
+        ) : (
+          <>
+            {renderRandomConfig()}
+            {renderPolitikozConfigs()}
+            {renderPartyConfigs()}
+          </>
+        )}
+      </div>
+
+      {showDeleteConfirm && (
+        <DeleteConfirmModal
+          isOpen={showDeleteConfirm.show}
+          onConfirm={handleConfirmDelete}
+          onCancel={() => !showDeleteConfirm.isDeleting && setShowDeleteConfirm(null)}
+          type={showDeleteConfirm.type}
+          itemId={showDeleteConfirm.id}
+          isDeleting={showDeleteConfirm.isDeleting}
+        />
       )}
-    </div>
+    </>
   );
 };
 

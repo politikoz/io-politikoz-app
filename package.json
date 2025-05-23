@@ -11,6 +11,7 @@
   "dependencies": {
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.2.0",
+    "@meshsdk/contract": "^1.9.0-beta.43",
     "@meshsdk/core": "1.9.0-beta.43",
     "@meshsdk/react": "1.9.0-beta.43",
     "@reduxjs/toolkit": "^2.4.0",
@@ -19,7 +20,6 @@
     "@tanstack/react-query": "^5.74.4",
     "axios": "^1.8.4",
     "cookie": "^1.0.2",
-    "crypto-js": "^4.2.0",
     "dayjs": "^1.11.13",
     "discord-api-types": "^0.37.115",
     "jsonwebtoken": "^9.0.2",
@@ -45,7 +45,6 @@
     "@types/axios": "^0.9.36",
     "@types/busboy": "^1.5.4",
     "@types/cookie": "^0.6.0",
-    "@types/crypto-js": "^4.2.2",
     "@types/jsonwebtoken": "^9.0.7",
     "@types/node": "^22",
     "@types/nodemailer": "^6.4.17",

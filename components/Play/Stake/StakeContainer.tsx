@@ -1,15 +1,12 @@
 "use client";
 
-import { MeshProvider } from "@meshsdk/react";
-import { WalletContextProvider } from "@/contexts/WalletContext";
 import StakePage from "./StakePage";
+import { WalletProvider } from "@/providers/WalletProvider";
 
 export function StakeContainer() {
   return (
-    <MeshProvider>
-      <WalletContextProvider>
+    <WalletProvider>
         <StakePage />
-      </WalletContextProvider>
-    </MeshProvider>
+    </WalletProvider>
   );
 }

@@ -11,6 +11,7 @@ import AutoLinkPartyModal from "./AutoLinkPartyModal";
 import { TicketType } from "@/types/AutoLinkConfigData";
 import { AutoLinkConfigData } from "./AutoLinkTypes";
 import { useAutoLinkConfig } from "@/hooks/useAutoLinkConfig";
+import AuthenticatedAction from "@/components/Auth/AuthenticatedAction";
 
 type EntityType = 'party' | 'politikoz' | 'random';
 
@@ -18,7 +19,12 @@ const TICKET_TYPES: TicketType[] = ["BRIBER", "CORRUPT", "FRONTMAN", "LAUNDERER"
 
 export default function AutoLinkConfig() {
   const t = useTranslations("AutoLink.Config");
-  const { data: config, saveConfig, deleteConfig, isSaving, isDeleting } = useAutoLinkConfig();
+  const { 
+    data: config, 
+    saveConfig, 
+    deleteConfig,
+    isDeleting // Get isDeleting from hook
+  } = useAutoLinkConfig();
   const [modalType, setModalType] = useState<string | null>(null);
 
   const ticketTotals = useMemo(() => {
@@ -87,57 +93,72 @@ export default function AutoLinkConfig() {
   return (
     <div className="relative flex flex-col w-full max-w-4xl mx-auto border-4 border-black bg-gray-900 text-white p-4 shadow-lg h-full">
       <h2 className="text-xl font-bold text-yellow-300">{t("title")}</h2>
-      
       <p className="text-sm text-gray-400 mb-4">{t("description")}</p>
-
+      
       <AutoLinkProgress usedPercentage={usedPercentage} />
 
+      {/* Grid de botões */}
       <div className="grid grid-cols-2 gap-4 my-4 mt-10">
-        <button onClick={() => setModalType("specificPolitikoz")} className="bg-blue-600 text-white py-2 border-2 border-white hover:bg-blue-700">
+        <button 
+          onClick={() => setModalType("specificPolitikoz")}
+          className="bg-blue-600 text-white py-2 border-2 border-white hover:bg-blue-700"
+        >
           {t("linkToSpecificPolitikoz")}
         </button>
 
-        <button onClick={() => setModalType("randomPolitikoz")} className="bg-blue-600 text-white py-2 border-2 border-white hover:bg-blue-700">
+        <button 
+          onClick={() => setModalType("randomPolitikoz")} 
+          className="bg-blue-600 text-white py-2 border-2 border-white hover:bg-blue-700"
+        >
           {t("distributeToRandomPolitikoz")}
         </button>
 
         <button
           onClick={() => setModalType("myParty")}
-          className={`py-2 border-2 border-white ${
-            true ? "bg-green-600 text-white hover:bg-green-700" : "bg-gray-600 text-gray-300 cursor-not-allowed"
-          }`}
-          disabled={!true}
+          className="bg-green-600 text-white py-2 border-2 border-white hover:bg-green-700"
         >
           {t("linkToMyParty")}
         </button>
 
-        <button onClick={() => setModalType("parties")} className="bg-green-600 text-white py-2 border-2 border-white hover:bg-green-700">
+        <button 
+          onClick={() => setModalType("parties")} 
+          className="bg-green-600 text-white py-2 border-2 border-white hover:bg-green-700"
+        >
           {t("distributeAmongParties")}
         </button>
       </div>
 
+      {/* Lista com título original e container com scroll */}
       <h3 className="mt-10 text-lg font-bold text-yellow-300">{t("configuredAutoLinks")}</h3>    
-      
       <div className="h-auto overflow-y-auto max-h-40 border-t border-gray-700 pt-2">        
         <AutoLinkList 
           config={config} 
           onDelete={handleDeleteConfig} 
-          isDeleting={isDeleting} 
+          isDeleting={isDeleting}
         />
       </div>
 
-      {modalType === "specificPolitikoz" && (
-        <AutoLinkPolitikozModal isOpen={!!modalType} closeModal={closeModal} onSave={handleSaveConfig} />
+      {/* Modal com autenticação */}
+      {modalType && (
+        <AuthenticatedAction onCancel={closeModal}>
+          {modalType === "specificPolitikoz" && (
+            <AutoLinkPolitikozModal 
+              isOpen={true}
+              closeModal={closeModal} 
+              onSave={handleSaveConfig} 
+            />
+          )}
+          {modalType === "parties" && (
+            <AutoLinkPartiesModal isOpen={true} closeModal={closeModal} onSave={handleSaveConfig} />
+          )}
+          {modalType === "randomPolitikoz" && (
+            <AutoLinkRandomModal isOpen={true} closeModal={closeModal} onSave={handleSaveConfig} />
+          )}
+          {modalType === "myParty" && (
+            <AutoLinkPartyModal isOpen={true} closeModal={closeModal} onSave={handleSaveConfig} />
+          )}   
+        </AuthenticatedAction>
       )}
-      {modalType === "parties" && (
-        <AutoLinkPartiesModal isOpen={!!modalType} closeModal={closeModal} onSave={handleSaveConfig} />
-      )}
-      {modalType === "randomPolitikoz" && (
-        <AutoLinkRandomModal isOpen={true} closeModal={closeModal} onSave={handleSaveConfig} />
-      )}
-      {modalType === "myParty" && (
-        <AutoLinkPartyModal isOpen={true} closeModal={closeModal} onSave={handleSaveConfig} />
-      )}   
     </div>
   );
 }

@@ -8,11 +8,11 @@ import ElectionInfo from "@/components/Play/ElectionInfo/ElectionInfo";
 import ElectionPrize from "@/components/Play/ElectionInfo/ElectionPrize";
 import ElectionResultsView from "../ElectionResult/ElectionResultsView";
 import TourManager from "../Tour/TourManager";
-import TicketProfileView from "../TicketProfile/TicketProfileView";
 import IncomeOutcome from "../IncomeOutcome/IncomeOutcome";
-import SwapAdaToKoz from "../SwapAdaToKoz/SwapAdaToKoz";
+import { SwapContainer } from "../SwapAdaToKoz/SwapContainer";
 import { useTour } from "@/contexts/TourContext";
 import { useTranslations } from "next-intl";
+import TicketProfileContainer from "../TicketProfile/TicketProfileContainer";
 
 export default function OfficeView() {
   const [selectedSection, setSelectedSection] = useState<null | string>(null);
@@ -30,6 +30,10 @@ export default function OfficeView() {
   }, [selectedSection, router]);
 
   if (selectedSection === "exit") return null;
+
+  const handleSectionChange = (section: string | null) => {
+    setSelectedSection(section);
+  };
 
   return (
     <div className="flex flex-col flex-1 w-full bg-[#816346] relative">
@@ -49,11 +53,15 @@ export default function OfficeView() {
                 {t("backToOffice")}
               </button>
               {selectedSection === "income-outcome" && <IncomeOutcome />}
-              {selectedSection === "my-tickets" && <TicketProfileView />}
+              {selectedSection === "my-tickets" && (
+                <TicketProfileContainer 
+                  onAuthError={() => handleSectionChange(null)} 
+                />
+              )}
               {selectedSection === "prize-info" && <ElectionPrize />}
               {selectedSection === "wave-info" && <ElectionInfo />}
               {selectedSection === "election-results" && <ElectionResultsView />}
-              {selectedSection === "buy-koz" && <SwapAdaToKoz />}
+              {selectedSection === "buy-koz" && <SwapContainer />}
             </div>
           )}
         </div>

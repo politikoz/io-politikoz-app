@@ -98,12 +98,35 @@ export default function StakePage() {
     isMounted.current = true;
   };
 
+  const initialize = async () => {
+    if (isMounted.current) return;
+    
+    if (isConnected) {
+      try {
+        setIsLoading(true);
+        await new Promise(resolve => setTimeout(resolve, 500));
+        const balance = await getBalance();
+        
+        if (balance > 0) {
+          const result = calculateTickets(balance, currentPolicy);
+          setTicketCalculation(result);
+        }
+      } catch (error) {
+        console.error('Initialization failed:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    
+    isMounted.current = true;
+  };
+
   useEffect(() => {
     const init = async () => {
-      await initializeConnection();
+      await initialize();
     };
     init();
-  }, []);
+  }, [isConnected]); // Add isConnected dependency
 
   useEffect(() => {
     if (!isConnected) {

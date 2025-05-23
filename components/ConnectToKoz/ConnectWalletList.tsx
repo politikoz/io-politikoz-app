@@ -5,7 +5,6 @@ import Image from "next/image";
 import { ArrowDownTrayIcon } from "@heroicons/react/24/solid";
 import { useConnectWallet } from "@/hooks/useConnectWallet";
 import { useTranslations } from "next-intl";
-import CryptoJS from 'crypto-js';
 
 export default function ConnectWalletList() {
   const {
@@ -21,19 +20,6 @@ export default function ConnectWalletList() {
   const [localWalletName, setLocalWalletName] = useState<string | null>(null);
   const [localStakeAddress, setLocalStakeAddress] = useState<string | null>(null);
 
-  // Add decryption function
-  const decryptStakeAddress = (encryptedAddress: string) => {
-    try {
-      const bytes = CryptoJS.AES.decrypt(encryptedAddress, process.env.ENCRYPTION_KEY || '');
-      const decryptedAddress = bytes.toString(CryptoJS.enc.Utf8);
-      return decryptedAddress;
-    } catch (error) {
-      console.error("Failed to decrypt stake address:", error);
-      return null;
-    }
-  };
-
-  // Add handleDisconnect function
   const handleDisconnect = () => {
     disconnect();
     setIsLocalConnected(false);
@@ -41,23 +27,16 @@ export default function ConnectWalletList() {
     setLocalStakeAddress(null);
   };
 
-  // Update useEffect to also listen for disconnect events
   useEffect(() => {
     if (typeof window !== "undefined") {
       const storedConnected = localStorage.getItem("connected") === "true";
       const storedWalletName = localStorage.getItem("walletName");
-      const encryptedStakeAddress = localStorage.getItem("stakeAddress");
+      const storedStakeAddress = localStorage.getItem("stakeAddress");
 
       setIsLocalConnected(storedConnected);
       setLocalWalletName(storedWalletName);
-      
-      // Decrypt stake address if present
-      if (encryptedStakeAddress) {
-        const decryptedAddress = decryptStakeAddress(encryptedStakeAddress);
-        setLocalStakeAddress(decryptedAddress);
-      }
+      setLocalStakeAddress(storedStakeAddress);
 
-      // Add listener for connection changes
       const handleConnectionChange = (event: CustomEvent<{ connected: boolean }>) => {
         if (!event.detail.connected) {
           setIsLocalConnected(false);

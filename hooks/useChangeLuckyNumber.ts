@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import api from '@/app/lib/api';
 
 interface ChangeLuckyNumberParams {
-  ticketIds: number[]; // Changed from string[] to number[]
+  ticketIds: number[];
   luckyNumber: string;
 }
 

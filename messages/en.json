@@ -210,6 +210,20 @@
     "distributeAmongParties": "Distribute Among Parties",
     "configuredAutoLinks": "Configured Auto Links"
   },
+  "DeleteConfirm": {
+      "title": "Confirm Deletion",
+      "message": "Are you sure you want to delete this {type} configuration {id}?",
+      "cancel": "Cancel",
+      "confirm": "Delete",
+      "deleting": "Deleting...",
+      "deletingMessage": "Deleting configuration, please wait...",
+      "type": {
+        "party": "party",
+        "politikoz": "politikoz",
+        "random": "random distribution"
+      },
+      "random": "configuration"
+    },
   "Distribution": {
     "otherConfigs": "Other configs",
     "thisConfig": "This config",
@@ -609,6 +623,12 @@
       "closeButton": "Got it!"
     }
   },
+     "AuthModal": {
+    "title": "Verify Wallet",
+    "description": "Please sign with your wallet to continue",
+    "walletPrompt": "No transaction or fees - just a signature",
+    "sessionInfo": "Valid for 1 hour before another signature is needed"
+  },
   "Swap": {
     "title": "Swap ADA → KOZ",
     "rate": "Fixed rate:",
@@ -616,7 +636,55 @@
     "amountLabel": "Amount in KOZ",
     "costLabel": "Cost:",
     "swapButton": "Swap Now",
-    "historyTitle": "Swap History"
+    "historyTitle": "Swap History",
+    "noHistory": "No swap history found",
+     "date": "Date",
+     "viewHistory": "View Swap History",
+    "connectWallet": "Connect Wallet",
+    "processing": "Processing...",    
+    "history": {
+      "amount": "Amount",
+      "transaction": "Transaction",
+      "status": "Status",
+      "action": "Action",
+      "adaAmount": "{amount} ADA",
+      "kozAmount": "{amount} KOZ",
+      "pending": "Pending",
+      "completed": "Completed",
+      "failed": "Failed",
+      "canceled": "Canceled",
+      "cancel": "Cancel"
+    },
+     "messages": {
+      "checkingWallet": "Checking wallet connection...",
+      "swapButtonState": "Swap button state:",
+      "walletNotConnected": "Wallet not connected",
+      "transactionInProgress": "Transaction in progress",
+      "buttonEnabled": "Button enabled",
+      "connectionFailed": "Connection attempt {attempt} failed",
+      "validatingSwap": "Transaction submitted. Validation and acceptance in progress - you can close this window if you want, the status will be available in swap history.",
+      "cancelingSwap": "Swap declined - initiating cancellation process to refund contract balance. you can close this window if you want, the status will be available in swap history."  
+    },
+    "status": {
+      "connecting": "connecting",
+      "processing": "processing",
+      "cancelling": "cancelling",
+      "failed": "failed",
+      "completed": "completed"
+    },
+    "errors": {
+      "minimumKozRequired": "Minimum swap amount is {amount} KOZ",
+      "cancelling": "Cancelling swap...",
+      "swapCancelled": "Transaction was cancelled successfully",
+      "cancelFailed": "Failed to cancel transaction. Please contact support.",
+      "signatureDeclined": "Transaction signature was declined. Please try again if you want to proceed with the swap.",
+      "walletNotConnected": "Please connect your wallet first",
+      "invalidAmount": "Invalid KOZ amount",
+      "swapFailed": "Failed to perform swap",
+      "insufficientBalance": "Insufficient balance",
+      "connectionInitFailed": "Connection initialization failed",
+      "cancelSwapFailed": "Failed to cancel swap"
+    }
   },
   "Team": {
   "title": "Meet the Team",

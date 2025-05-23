@@ -3,7 +3,6 @@
 import { useTranslations } from "next-intl";
 import React, { useState } from "react";
 import { useCandidatesTable } from "@/hooks/useCandidatesTable";
-import { getDecryptedStakeAddress } from '@/utils/encryption';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 
 const roleOrder = [
@@ -24,8 +23,8 @@ const roleOrder = [
 
 export default function PolitikozTable() {
   const t = useTranslations("ElectionResult");
-    const mockStakeAddress = process.env.NEXT_PUBLIC_STAKE_ADDRESS_MOCK;
-    const stakeAddress = mockStakeAddress || getDecryptedStakeAddress();
+  const mockStakeAddress = process.env.NEXT_PUBLIC_STAKE_ADDRESS_MOCK;
+  const stakeAddress = mockStakeAddress || localStorage.getItem('stakeAddress');
   const isMobile = useMediaQuery('(max-width: 640px)');
 
   const formatEarnings = (value: number) => {

@@ -1,11 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import api from '@/app/lib/api';
 import { Politikoz, INITIAL_POLITIKOZ_DATA } from '@/types/PolitikozData';
-import { getDecryptedStakeAddress } from '@/utils/encryption';
 
 export function usePolitikozData() {
   const mockStakeAddress = process.env.NEXT_PUBLIC_STAKE_ADDRESS_MOCK;
-  const stakeAddress = mockStakeAddress || getDecryptedStakeAddress();
+  const stakeAddress = mockStakeAddress || localStorage.getItem('stakeAddress');
 
   return useQuery({
     queryKey: ['politikoz', stakeAddress],

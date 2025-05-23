@@ -1,44 +1,123 @@
 import axios from 'axios';
+import { AuthService } from '@/services/auth.service';
+
+type AuthEventHandler = () => Promise<void>;
+let authEventHandler: AuthEventHandler | null = null;
+
+export const setAuthEventHandler = (handler: AuthEventHandler) => {
+    authEventHandler = handler;
+};
 
 const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL,
-  timeout: 10000,
-  headers: {
-    'Content-Type': 'application/json',
-  }
+    baseURL: process.env.NEXT_PUBLIC_API_URL,
+    headers: {
+        'Content-Type': 'application/json'
+    }
 });
 
-// Adiciona log para desenvolvimento
-if (process.env.NODE_ENV === 'development') {
-  api.interceptors.request.use(request => {
-    return request;
-  });
+// Critical endpoints that require authentication (including secure GET operations)
+const SECURE_ENDPOINTS = [
+    '/office/tickets/config',
+    '/office/tickets/lucky-number',
+    '/api/v1/auth/wallet'
+];
 
-  api.interceptors.response.use(response => {
-    return response;
-  });
-}
+// Request interceptor for adding JWT
+api.interceptors.request.use(function (config) {
+    const isSecureEndpoint = SECURE_ENDPOINTS.some(
+        endpoint => config.url?.includes(endpoint)
+    );
 
-api.interceptors.response.use(
-  (response) => response,
-  (error) => {
-    if (error.response) {
-      switch (error.response.status) {
-        case 401:
-          console.error('Unauthorized');
-          break;
-        case 403:
-          console.error('Forbidden');
-          break;
-        case 429:
-          console.error('Too Many Requests');
-          break;
-        default:
-          console.error('API Error:', error.response.data);
-      }
+    if (isSecureEndpoint) {
+        const session = AuthService.getSession();
+        if (session?.jwt) {
+            config.headers = config.headers || {};
+            config.headers.Authorization = `Bearer ${session.jwt}`;
+        }
     }
+    
+    return config;
+}, function (error) {
     return Promise.reject(error);
-  }
-);
+});
+
+// Response interceptor for handling 401s and refreshing JWT
+api.interceptors.response.use(function (response) {
+    return response;
+}, async function (error) {
+    const originalRequest = error.config;
+
+    // Handle 401 Unauthorized errors
+    if (error.response?.status === 401 && !originalRequest._retry) {
+        originalRequest._retry = true;
+
+        try {
+            // Attempt to refresh authentication
+            if (authEventHandler) {
+                await authEventHandler();
+                // Retry the original request with new JWT
+                return api(originalRequest);
+            } else {
+                throw new Error('No auth handler available');
+            }
+        } catch (refreshError) {
+            // Clear invalid session
+            AuthService.clearSession();
+            return Promise.reject(refreshError);
+        }
+    }
+
+    // Handle other errors
+    if (error.response) {
+        switch (error.response.status) {
+            case 403:
+                console.error('Forbidden access');
+                break;
+            case 404:
+                console.error('Resource not found');
+                break;
+            case 429:
+                console.error('Too many requests');
+                break;
+            default:
+                console.error('API Error:', error.response.data);
+        }
+    }
+
+    return Promise.reject(error);
+});
+
+// Development logging
+if (process.env.NODE_ENV === 'development') {
+    api.interceptors.request.use(function (config) {
+        console.log('API Request:', {
+            url: config.url,
+            method: config.method,
+            headers: config.headers,
+            data: config.data,
+            params: config.params
+        });
+        return config;
+    });
+
+    api.interceptors.response.use(function (response) {
+        console.log('API Response:', {
+            status: response.status,
+            data: response.data
+        });
+        return response;
+    }, function (error) {
+        console.error('API Error:', {
+            status: error?.response?.status,
+            data: error?.response?.data,
+            config: {
+                url: error?.config?.url,
+                method: error?.config?.method,
+                headers: error?.config?.headers
+            }
+        });
+        return Promise.reject(error);
+    });
+}
 
 export default api;

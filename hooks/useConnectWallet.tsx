@@ -1,9 +1,5 @@
 import { useState, useEffect } from "react";
 import { useWallet, useWalletList, useLovelace, useNetwork } from "@meshsdk/react";
-import CryptoJS from "crypto-js";
-
-// Environment variables
-const ENCRYPTION_KEY = process.env.ENCRYPTION_KEY || "";
 
 export function useConnectWallet() {
   const { connect: meshConnect, disconnect: meshDisconnect, connected: meshConnected, name, wallet } = useWallet();
@@ -50,10 +46,6 @@ export function useConnectWallet() {
     }
   };
 
-  const encryptData = (data: string) => {
-    return CryptoJS.AES.encrypt(data, ENCRYPTION_KEY).toString();
-  };
-
   useEffect(() => {
     if (typeof window === "undefined") return;
 
@@ -62,39 +54,41 @@ export function useConnectWallet() {
       localStorage.setItem("walletName", name);
 
       if (rewardAddress) {
-        const encryptedStakeAddress = encryptData(rewardAddress);
-        localStorage.setItem("stakeAddress", encryptedStakeAddress);
-
+        localStorage.setItem("stakeAddress", rewardAddress);
         if (process.env.NODE_ENV === "development") {
-          console.log("Encrypted stake address:", encryptedStakeAddress);
+          console.log("Stored stake address:", rewardAddress);
         }
       }
     }
   }, [isConnected, name, rewardAddress]);
 
   useEffect(() => {
-    const storedStakeAddress = localStorage.getItem("stakeAddress");
-    
-    if (storedStakeAddress) {
-      // Se já temos o stakeAddress, apenas use-o
-      setRewardAddress(storedStakeAddress);
-      return;
-    }
+    const getStakeAddress = async () => {
+      const storedStakeAddress = localStorage.getItem("stakeAddress");
+      
+      if (storedStakeAddress) {
+        setRewardAddress(storedStakeAddress);
+        return;
+      }
 
-    // Só tenta obter o stakeAddress via wallet se não existir no localStorage
-    if (isConnected && wallet) {
-      wallet.getRewardAddresses().then((addresses) => {
-        if (addresses && addresses[0]) {
-          const encryptedStakeAddress = encryptData(addresses[0]);
-          localStorage.setItem("stakeAddress", encryptedStakeAddress);
-          setRewardAddress(addresses[0]);
-          
-          if (process.env.NODE_ENV === "development") {
-            console.log("New stake address obtained and encrypted:", encryptedStakeAddress);
+      if (isConnected && wallet && typeof wallet.getRewardAddresses === 'function') {
+        try {
+          const addresses = await wallet.getRewardAddresses();
+          if (addresses && addresses[0]) {
+            localStorage.setItem("stakeAddress", addresses[0]);
+            setRewardAddress(addresses[0]);
+            
+            if (process.env.NODE_ENV === "development") {
+              console.log("New stake address obtained:", addresses[0]);
+            }
           }
+        } catch (error) {
+          console.error("Failed to get reward addresses:", error);
         }
-      });
-    }
+      }
+    };
+
+    getStakeAddress();
   }, [isConnected, wallet]);
 
   useEffect(() => {

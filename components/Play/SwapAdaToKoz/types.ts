@@ -2,6 +2,8 @@ export interface SwapHistory {
     adaSent: number;
     kozReceived: number;
     timestamp: string;
+    txHash?: string;  // Added txHash property as optional
+    status?: 'pending' | 'completed' | 'failed';  // Optional status field
   }
   
   export interface SwapProps {
@@ -9,4 +11,3 @@ export interface SwapHistory {
     kozAvailable: number;
     adaReceiverAddress: string;
   }
-  

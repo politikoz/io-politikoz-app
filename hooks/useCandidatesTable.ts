@@ -1,11 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import { CandidatesTableResponse, CandidatesTableFilters } from '@/types/CandidatesTableData';
 import api from '@/app/lib/api';
-import { getDecryptedStakeAddress } from '@/utils/encryption';
 
 export function useCandidatesTable(filters: CandidatesTableFilters) {
   const mockStakeAddress = process.env.NEXT_PUBLIC_STAKE_ADDRESS_MOCK;
-  const stakeAddress = mockStakeAddress || getDecryptedStakeAddress();
+  const stakeAddress = mockStakeAddress || localStorage.getItem('stakeAddress');
 
   return useQuery({
     queryKey: ['candidatesTable', filters],
