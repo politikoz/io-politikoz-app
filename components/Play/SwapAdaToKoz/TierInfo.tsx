@@ -74,11 +74,43 @@ export default function TierInfo({ currentTier, allTiers, electionInfo }: TierIn
 
   return (
     <div className="relative">
-      {/* Main Info Card */}
       <div className="w-full p-3 rounded border border-yellow-500/20 bg-gray-900">
+        {/* Tier Number Display */}
+        <div className="absolute top-2 left-3 mb-8">
+          <span className="text-yellow-400 font-bold">
+            {t('tierNumber', { number: currentTier.tierId })}
+          </span>
+        </div>
+
         {/* Prize Information Box */}
-        <div className="mb-3 p-2 bg-yellow-500/10 border border-yellow-500/20 rounded-md">
-          <div className="grid grid-cols-2 gap-4">
+        <div className="mt-8 mb-3 p-2 bg-yellow-500/10 border border-yellow-500/20 rounded-md">
+          {currentTier.status === 'PENDING' ? (
+            <div className="grid grid-cols-2 gap-4">
+              <div className="flex flex-col items-center justify-center">
+                <span className="text-yellow-500 text-sm font-medium flex items-center gap-1">
+                  <TrophyIcon className="w-4 h-4" />
+                  {t('prizeLabel')}
+                </span>
+                <div className="text-xl font-bold text-yellow-400 mt-1">
+                  {currentTier.prizePerTier} ADA
+                </div>           
+              </div>
+              <div className="flex flex-col items-center justify-center">
+                <span className="text-yellow-500 text-sm font-medium flex items-center gap-1">
+                  <CalendarIcon className="w-4 h-4" />
+                  {t('nextElectionLabel')}
+                </span>
+                <div className="text-sm font-medium text-gray-300 mt-1">
+                  {new Date(electionInfo.electionStartDate).toLocaleDateString()}
+                </div>
+                {daysDifference > 0 && (
+                  <div className="text-xs text-green-400">
+                    {t('earlierByDays', { days: daysDifference })}*
+                  </div>
+                )}
+              </div>
+            </div>
+          ) : (
             <div className="flex flex-col items-center justify-center">
               <span className="text-yellow-500 text-sm font-medium flex items-center gap-1">
                 <TrophyIcon className="w-4 h-4" />
@@ -88,21 +120,7 @@ export default function TierInfo({ currentTier, allTiers, electionInfo }: TierIn
                 {currentTier.prizePerTier} ADA
               </div>           
             </div>
-            <div className="flex flex-col items-center justify-center">
-              <span className="text-yellow-500 text-sm font-medium flex items-center gap-1">
-                <CalendarIcon className="w-4 h-4" />
-                {t('nextElectionLabel')}
-              </span>
-              <div className="text-sm font-medium text-gray-300 mt-1">
-                {new Date(electionInfo.electionStartDate).toLocaleDateString()}
-              </div>
-              {daysDifference > 0 && (
-                <div className="text-xs text-green-400">
-                  {t('earlierByDays', { days: daysDifference })}*
-                </div>
-              )}
-            </div>
-          </div>
+          )}
         </div>
 
         {/* Progress Section */}

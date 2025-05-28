@@ -12,6 +12,8 @@ import { useTranslations } from 'next-intl';
 import { TransactionStatus } from '@/types/transaction';
 import { useSwapHistory } from '@/hooks/useSwapHistory';
 import { useTiersDashboard } from '@/hooks/useTiersDashboard';
+import NextTierCountdown from "./NextTierCountdown";
+import AllTiersCompleted from "./AllTiersCompleted";
 
 export default function SwapAdaToKoz() {
   const t = useTranslations("Swap");
@@ -40,9 +42,17 @@ export default function SwapAdaToKoz() {
   const MIN_KOZ_AMOUNT = 200;
   const [showHistory, setShowHistory] = useState(false);
 
-  // Calculando valores dinâmicos do tier atual
-  const conversionRate = tiersDashboard ? 1 / tiersDashboard.currentTier.adaPerKoz : 0;
-  const kozAvailable = tiersDashboard?.currentTier.remainingKozSupply ?? 0;
+  const isSwapEnabled = () => {
+    return tiersDashboard?.currentTier?.status === 'PENDING';
+  };
+
+  // Safe type checking for conversion rate
+  const conversionRate = tiersDashboard?.currentTier?.adaPerKoz 
+    ? parseFloat((1 / tiersDashboard.currentTier.adaPerKoz).toFixed(6)) 
+    : 0;
+
+  // Safe type checking for koz available
+  const kozAvailable = tiersDashboard?.currentTier?.remainingKozSupply ?? 0;
 
   const initialize = async () => {
     if (isMounted.current) return;
@@ -244,38 +254,63 @@ export default function SwapAdaToKoz() {
   // Main return - update the SwapHistory section
   return (
     <div className="p-4 sm:p-6 w-full max-w-md sm:max-w-lg lg:max-w-xl mx-auto bg-gray-900 text-white border-2 border-yellow-500 rounded-lg shadow-lg">
-      <SwapHeader 
-        conversionRate={conversionRate} 
-        kozAvailable={kozAvailable}
-        currentTier={tiersDashboard?.currentTier!}
-        allTiers={tiersDashboard?.allTiers ?? []}
-        electionInfo={tiersDashboard?.electionInfo!} 
-      />
-      <SwapInput 
-        kozAmount={kozAmount} 
-        setKozAmount={setKozAmount} 
-        max={kozAvailable}
-        min={MIN_KOZ_AMOUNT}
-      />
-      
-      <SwapDetails 
-        kozAmount={kozAmount} 
-        adaAmount={adaAmount}
-        status={txStatus?.status}
-        txHash={txStatus?.txHash}
-        isLoading={isLoading}
-        error={error || undefined}
-        message={txStatus?.message} // Add this line to pass the message
-      />
-      
-      <SwapSummary
-        kozAmount={kozAmount}
-        onSwap={onSwap}
-        maxKozAvailable={kozAvailable}
-        isLoading={isLoading}
-        disabled={!isConnected || isLoading}
-        status={txStatus?.status} // Add this to support Processing... state
-      />
+      {!tiersDashboard?.currentTier ? (
+        <>
+          <SwapHeader 
+            conversionRate={0} 
+            kozAvailable={0}
+            currentTier={null}
+            allTiers={tiersDashboard?.allTiers ?? []}
+            electionInfo={null}
+          />
+          <AllTiersCompleted />
+        </>
+      ) : (
+        <>
+          <SwapHeader 
+            conversionRate={conversionRate} 
+            kozAvailable={kozAvailable}
+            currentTier={tiersDashboard.currentTier}
+            allTiers={tiersDashboard?.allTiers ?? []}
+            electionInfo={tiersDashboard?.electionInfo ?? null}
+          />
+
+          {isSwapEnabled() ? (
+            <>
+              <SwapInput 
+                kozAmount={kozAmount} 
+                setKozAmount={setKozAmount} 
+                max={kozAvailable}
+                min={MIN_KOZ_AMOUNT}
+              />
+              
+              <SwapDetails 
+                kozAmount={kozAmount} 
+                adaAmount={adaAmount}
+                status={txStatus?.status}
+                txHash={txStatus?.txHash}
+                isLoading={isLoading}
+                error={error || undefined}
+                message={txStatus?.message}
+              />
+              
+              <SwapSummary
+                kozAmount={kozAmount}
+                onSwap={onSwap}
+                maxKozAvailable={kozAvailable}
+                isLoading={isLoading}
+                disabled={!isConnected || isLoading}
+                status={txStatus?.status}
+              />
+            </>
+          ) : (
+            <NextTierCountdown 
+              targetDate={tiersDashboard.electionInfo?.electionStartDate || ''} 
+              tierId={tiersDashboard.currentTier.tierId}
+            />
+          )}
+        </>
+      )}
 
       {!showHistory ? (
         <SwapHistoryPlaceholder onShowHistory={handleShowHistory} />

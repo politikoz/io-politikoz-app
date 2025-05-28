@@ -655,7 +655,15 @@
      "date": "Date",
      "viewHistory": "View Swap History",
     "connectWallet": "Connect Wallet",
-    "processing": "Processing...",    
+    "processing": "Processing...",        
+    "waitingForNextTier": "Waiting for next tier to start",
+    "tierWillBeAvailable": "Tier {tier} will be available in:",
+     "timer": {
+      "days": "Days",
+      "hours": "Hours",
+      "minutes": "Minutes",
+      "seconds": "Seconds"
+    },
     "history": {
       "amount": "Amount",
       "transaction": "Transaction",
@@ -687,6 +695,8 @@
       "completed": "completed"
     },
     "tiers": {
+      "allTiersCompleted": "All Tiers Successfully Completed!",
+      "waitForNextWave": "Thank you for your participation. A new wave of tiers will be available soon. Stay tuned!",    
       "modalDescription": "Complete tiers to supercharge the next election! When a tier is filled, its BOOST prize adds to the Frontman ticket jackpot, and the election moves to the next cardano epoch - making winner even bigger winner, even sooner! 🏆",      
       "projectedTickets": "Projected Tickets",
       "loading": "Loading tier information...",

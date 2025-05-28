@@ -6,9 +6,9 @@ import { ElectionInfo, Tier } from "@/types/tiers";
 interface Props {
   conversionRate: number;
   kozAvailable: number;
-  currentTier: Tier;
+  currentTier: Tier | null;
   allTiers: Tier[];
-  electionInfo: ElectionInfo;
+  electionInfo: ElectionInfo | null;
 }
 
 export default function SwapHeader({ 
@@ -19,7 +19,7 @@ export default function SwapHeader({
   electionInfo 
 }: Props) {
   const t = useTranslations("Swap");
-  const adaPerKoz = 1 / conversionRate;
+  const adaPerKoz = conversionRate ? 1 / conversionRate : 0;
 
   return (
     <div className="mb-4 space-y-4">
@@ -35,7 +35,9 @@ export default function SwapHeader({
           <h3 className="text-lg font-bold text-yellow-300">{t("title")}</h3>
           <p className="text-sm text-gray-300">
             {t("rate")}{" "}
-            <span className="text-yellow-400 font-bold">1 KOZ = {adaPerKoz.toFixed(4)} ADA</span>
+            <span className="text-yellow-400 font-bold">
+              1 KOZ = {adaPerKoz ? adaPerKoz.toFixed(4) : '-'} ADA
+            </span>
           </p>
           <p className="text-sm text-gray-300">
             {t("available")}{" "}
@@ -44,11 +46,13 @@ export default function SwapHeader({
         </div>
       </div>
 
-      <TierInfo 
-        currentTier={currentTier} 
-        allTiers={allTiers} 
-        electionInfo={electionInfo}
-      />
+      {currentTier && electionInfo && (
+        <TierInfo 
+          currentTier={currentTier} 
+          allTiers={allTiers} 
+          electionInfo={electionInfo}
+        />
+      )}
     </div>
   );
 }

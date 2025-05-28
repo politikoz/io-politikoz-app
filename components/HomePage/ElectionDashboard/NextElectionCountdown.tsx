@@ -1,6 +1,6 @@
 import React from "react";
-import Timer from "./Timer";
 import { useTranslations } from "next-intl";
+import Timer from "@/utils/Timer";
 
 interface NextElectionCountdownProps {
   date?: string;
