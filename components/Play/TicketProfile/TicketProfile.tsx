@@ -11,26 +11,14 @@ import SelectButtons from "./SelectButtons";
 import { useTicketData } from '@/hooks/useTicketData';
 import { tabs } from "./tabs";
 import AutoLinkConfig from "../AutoLink/AutoLinkConfig";
-import ChangeLuckyNumberModal from "./ChangeLuckyNumberModal";
-import { Ticket } from '@/types/TicketData';
-import { useChangeLuckyNumber } from '@/hooks/useChangeLuckyNumber';
-
-interface ChangeLuckyNumberModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  selectedTickets: Ticket[]; // Use the Ticket type from TicketData
-  onSave: (newValue: string) => void;
-}
 
 export default function TicketProfile() {
   const t = useTranslations("TicketProfile");
   const { data: tickets, error } = useTicketData();
-  const changeLuckyNumber = useChangeLuckyNumber();
 
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [selectedTickets, setSelectedTickets] = useState<number[]>([]); // Changed from string[] to number[]
+  const [selectedTickets, setSelectedTickets] = useState<number[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [isChangeLuckyNumberOpen, setIsChangeLuckyNumberOpen] = useState(false);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const itemsPerPage = 5;
 
@@ -65,34 +53,6 @@ export default function TicketProfile() {
     const startIndex = (currentPage - 1) * itemsPerPage;
     return filteredTickets.slice(startIndex, startIndex + itemsPerPage);
   }, [currentPage, filteredTickets]);
-
-  const handleLuckyNumberChange = async (newLuckyNumber: string) => {
-    // Log selected tickets and filtered tickets
-    console.log('Selected Ticket IDs:', selectedTickets);
-    console.log('Filtered Tickets:', filteredTickets);
-    console.log('Selected Tickets Detail:', filteredTickets.filter(ticket => selectedTickets.includes(ticket.id)));
-
-    try {
-      const payload = {
-        ticketIds: selectedTickets,
-        luckyNumber: newLuckyNumber
-      };
-      
-      // Log the payload being sent to API
-      console.log('Payload being sent to API:', payload);
-
-      await changeLuckyNumber.mutateAsync(payload);
-      setSelectedTickets([]); // Clear selected tickets after success
-
-    } catch (error) {
-      console.error('Failed to change lucky number:', error);
-      console.error('Error details:', {
-        status: (error as any)?.response?.status,
-        data: (error as any)?.response?.data,
-        message: (error as any)?.message
-      });
-    }
-  };
 
   if (error) {
     return (
@@ -129,45 +89,38 @@ export default function TicketProfile() {
               {filteredTickets.length > 0 ? (
                 <>
                   {!isOnTheRace && !isAutoLink && (
-                  <SelectButtons
-                  selectedTickets={selectedTickets}
-                  setSelectedTickets={setSelectedTickets}
-                  paginatedTickets={paginatedTickets}
-                  filteredTickets={filteredTickets} // Passar todos os tickets filtrados
-                  />
+                    <SelectButtons
+                      selectedTickets={selectedTickets}
+                      setSelectedTickets={setSelectedTickets}
+                      paginatedTickets={paginatedTickets}
+                      filteredTickets={filteredTickets}
+                    />
                   )}
 
                   <TicketTable
-                  paginatedTickets={paginatedTickets}
-                  selectedTickets={selectedTickets}
-                  setSelectedTickets={setSelectedTickets}
-                  isOnTheRace={isOnTheRace}
-                  isNextRace={isNextRace}
-                  isAutoLink={isAutoLink}
+                    paginatedTickets={paginatedTickets}
+                    selectedTickets={selectedTickets}
+                    setSelectedTickets={setSelectedTickets}
+                    isOnTheRace={isOnTheRace}
+                    isNextRace={isNextRace}
+                    isAutoLink={isAutoLink}
                   />
 
                   {!isOnTheRace && !isAutoLink && (
-                  <TicketActions 
-                    selectedTickets={selectedTickets} 
-                    setSelectedTickets={setSelectedTickets} // Adicionar esta prop
-                    isNextRace={isNextRace}
-                    tickets={filteredTickets} // Pass the tickets array
-                  />
+                    <TicketActions 
+                      selectedTickets={selectedTickets} 
+                      setSelectedTickets={setSelectedTickets}
+                      isNextRace={isNextRace}
+                      tickets={filteredTickets}
+                    />
                   )}
 
-                  <ChangeLuckyNumberModal
-                  isOpen={isChangeLuckyNumberOpen}
-                  onClose={() => setIsChangeLuckyNumberOpen(false)}
-                  selectedTickets={filteredTickets.filter(ticket => selectedTickets.includes(ticket.id))}
-                  onSave={handleLuckyNumberChange}
-                  />
-
                   <div className="mt-auto">
-                  <Pagination
-                  currentPage={currentPage}
-                  setCurrentPage={setCurrentPage}
-                  totalPages={totalPages}
-                  />
+                    <Pagination
+                      currentPage={currentPage}
+                      setCurrentPage={setCurrentPage}
+                      totalPages={totalPages}
+                    />
                   </div>
                 </>
               ) : (

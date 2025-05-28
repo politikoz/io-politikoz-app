@@ -76,7 +76,7 @@ export default function PolitikozGrid({ politikozList, selectedTab, onSelectPoli
           </>
         ) : (
           <div className="flex flex-grow items-center justify-center min-h-[300px]">
-            <p className="text-center text-gray-400">{t("noPolitikoz")}</p>
+            <p className="text-center text-gray-400">{t("noPolitikozAvailable")}</p>
           </div>
         )}
       </div>

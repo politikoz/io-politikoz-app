@@ -7,8 +7,7 @@ interface UseSwapHistoryProps {
 }
 
 export function useSwapHistory({ enabled = false }: UseSwapHistoryProps = {}) {
-    const mockStakeAddress = process.env.NEXT_PUBLIC_STAKE_ADDRESS_MOCK;
-    const stakeAddress = mockStakeAddress || localStorage.getItem('stakeAddress');
+    const stakeAddress = localStorage.getItem('stakeAddress');
 
     return useQuery({
         queryKey: ['swapHistory', stakeAddress],

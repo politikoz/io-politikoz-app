@@ -23,8 +23,7 @@ const roleOrder = [
 
 export default function PolitikozTable() {
   const t = useTranslations("ElectionResult");
-  const mockStakeAddress = process.env.NEXT_PUBLIC_STAKE_ADDRESS_MOCK;
-  const stakeAddress = mockStakeAddress || localStorage.getItem('stakeAddress');
+  const stakeAddress = localStorage.getItem('stakeAddress');
   const isMobile = useMediaQuery('(max-width: 640px)');
 
   const formatEarnings = (value: number) => {

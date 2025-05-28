@@ -71,8 +71,8 @@ export default function ChangeLuckyNumberModal({
   };
 
   return (
-    <Dialog open={isOpen} onClose={onClose} className="relative z-50">
-      <div className="fixed inset-0 bg-black bg-opacity-80" />
+    <Dialog open={isOpen} onClose={onClose} className="relative z-40"> {/* Lower z-index than AuthenticatedAction */}
+      <div className="fixed inset-0 bg-black bg-opacity-80" aria-hidden="true" />
 
       <div className="fixed inset-0 flex items-center justify-center p-4">
         <DialogPanel className="border-4 border-white bg-gray-900 p-6 shadow-[6px_6px_0px_black] w-64 text-center">

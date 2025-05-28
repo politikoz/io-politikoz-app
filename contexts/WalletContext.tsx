@@ -8,7 +8,7 @@ import { useOfficeSwap } from '@/hooks/useOfficeSwap';
 import { useSwapStatus } from '@/hooks/useSwapStatus';
 import { SwapHistoryDTO, SwapStatus } from '@/types/swap';
 
-const BLOCKFROST_API_KEY = process.env.BLOCKFROST_API_KEY_PREVIEW || process.env.BLOCKFROST_API_KEY || '';
+const BLOCKFROST_API_KEY = process.env.BLOCKFROST_API_KEY_PREFIX || '';
 const provider = new BlockfrostProvider(BLOCKFROST_API_KEY);
 
 interface WalletContextType {
@@ -290,16 +290,14 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
         throw new Error('Wallet not connected');
       }
 
-      const testProvider = new BlockfrostProvider('previewESGvuLyddDE2OYbwq8eBmGrsVSs3CTry');
-
       const meshTxBuilder = new MeshTxBuilder({
-          fetcher: testProvider,
-          submitter: testProvider
+          fetcher: provider,
+          submitter: provider
       });
 
       const contract = new MeshSwapContract({
           mesh: meshTxBuilder,
-          fetcher: testProvider,
+          fetcher: provider,
           wallet: wallet,
           networkId: 0
       });

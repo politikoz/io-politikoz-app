@@ -549,9 +549,8 @@
 
   "PolitikozProfile": {
     "MarketListings": {
-      "title": "Available in Market",
-      "buyNow": "Buy Now",
-      "marketplace": "Find on {market}"
+      "title": "Available in Jpg.store",
+      "viewAllListings": "View all listings in JPG.store" 
     },
     "history": "History",
     "distribution": "DISTRIBUTION",
@@ -574,8 +573,7 @@
     "details": "DETAILS",
     "tickets": "TICKETS",
     "stamina": "Stamina",
-    "noPolitikozAvailable": "You do not have any Politikoz for this category",
-    "noPolitikozForCategory": "No Politikoz available for this category",
+    "noPolitikozAvailable": "You do not have any Politikoz for this category",    
     "previous": "Previous",
     "next": "Next",
     "restartList": "Restart List",
@@ -800,7 +798,7 @@
   "Auto Link": "Auto Link",
   "distribution": "DISTRIBUTION",
   "changePolitikoz": "Change Politikoz Linked",
-  "linkTicket": "Link Ticket for Next Race",
+  "linkTicket": "Link Ticket for Next Election",
   "changeLuckyNumber": "Change Lucky Number",
   "luckyNumberChangeError": "Failed to change lucky number. Please try again.",
   "luckyNumberChangeSuccess": "Lucky number changed successfully!",

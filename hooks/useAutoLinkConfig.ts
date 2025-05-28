@@ -6,8 +6,7 @@ import { useAuth } from './useAuth';
 export function useAutoLinkConfig() {
   const { getSession } = useAuth(); // Add getSession
   const queryClient = useQueryClient();
-  const mockStakeAddress = process.env.NEXT_PUBLIC_STAKE_ADDRESS_MOCK;
-  const stakeAddress = mockStakeAddress || localStorage.getItem('stakeAddress');
+  const stakeAddress = localStorage.getItem('stakeAddress');
 
   const query = useQuery({
     queryKey: ['autoLinkConfig', stakeAddress],

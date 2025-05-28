@@ -3,8 +3,7 @@ import { ElectionGroup, UserCandidatesResponse } from '@/types/UserCandidatesDat
 import api from '@/app/lib/api';
 
 export function useUserCandidates() {
-  const mockStakeAddress = process.env.NEXT_PUBLIC_STAKE_ADDRESS_MOCK;
-  const stakeAddress = mockStakeAddress || localStorage.getItem('stakeAddress');
+  const stakeAddress = localStorage.getItem('stakeAddress');
 
   return useQuery({
     queryKey: ['userCandidates', stakeAddress],

@@ -1,30 +1,38 @@
 import { useQuery } from '@tanstack/react-query';
 import api from '@/app/lib/api';
-import { PolitikozListing, cargoMapping } from '@/types/PolitikozListing';
+import { PolitikozListing } from '@/types/PolitikozListing';
 
 export function usePolitikozListings(tabName: string, quantity: number = 4) {
-  const cargo = cargoMapping[tabName];
-
+  // Remove cargoMapping dependency and use the tabName directly
   return useQuery({
-    queryKey: ['politikozListings', cargo, quantity],
+    queryKey: ['politikozListings', tabName, quantity],
     queryFn: async () => {
-      if (!cargo) return [];
-
       try {
+        console.log('[usePolitikozListings] Fetching with params:', { 
+          cargo: tabName, 
+          quantity,
+          url: `/api/v1/party/listings?cargo=${tabName}&quantity=${quantity}`
+        });
+
         const response = await api.get<PolitikozListing[]>(
-          `/api/v1/party/listings?cargo=${cargo}&quantity=${quantity}`
+          `/api/v1/party/listings?cargo=${tabName}&quantity=${quantity}`
         );
+
+        console.log('[usePolitikozListings] API Response:', {
+          status: response.status,
+          data: response.data,
+          hasData: !!response.data?.length
+        });
+
         return response.data;
       } catch (error) {
-        // Silently handle any API errors by returning empty array
-        return [];
+        console.error('[usePolitikozListings] API Error:', error);
+        throw error; // Let the error propagate instead of returning empty array
       }
     },
-    staleTime: 5 * 60 * 1000, // 5 minutes
-    gcTime: 10 * 60 * 1000, // 10 minutes
+    staleTime: 5 * 60 * 1000,
+    gcTime: 10 * 60 * 1000,
     refetchOnWindowFocus: false,
-    enabled: !!cargo,
-    // Return empty array as fallback
-    initialData: []
+    retry: 2
   });
 }

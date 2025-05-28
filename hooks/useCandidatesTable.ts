@@ -3,8 +3,7 @@ import { CandidatesTableResponse, CandidatesTableFilters } from '@/types/Candida
 import api from '@/app/lib/api';
 
 export function useCandidatesTable(filters: CandidatesTableFilters) {
-  const mockStakeAddress = process.env.NEXT_PUBLIC_STAKE_ADDRESS_MOCK;
-  const stakeAddress = mockStakeAddress || localStorage.getItem('stakeAddress');
+  const stakeAddress = localStorage.getItem('stakeAddress');
 
   return useQuery({
     queryKey: ['candidatesTable', filters],
