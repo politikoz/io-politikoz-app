@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
+import { useCreateUser } from "@/hooks/useCreateUser";
 
 declare global {
   interface WindowEventMap {
@@ -25,41 +26,53 @@ export default function ConnectToKozButton({
 }: ConnectToKozButtonProps) {
   const t = useTranslations("Header");
   const [isConnected, setIsConnected] = useState(false);
+  const { createUser } = useCreateUser();
 
+  // Initial connection check and user creation
   useEffect(() => {
-    const checkConnection = () => {
-      const storedConnected = localStorage.getItem("connected") === "true";
-      const storedWalletName = localStorage.getItem("walletName");
-      setIsConnected(storedConnected && !!storedWalletName);
-    };
+    const storedConnected = localStorage.getItem("connected") === "true";
+    const storedWalletName = localStorage.getItem("walletName");
+    const storedStakeAddress = localStorage.getItem("stakeAddress");
 
-    // Initial check
-    checkConnection();
+    setIsConnected(storedConnected && !!storedWalletName);
 
-    // Handler for connection changes
+    // Se temos um stakeAddress e está conectado, criar/atualizar usuário
+    if (storedStakeAddress && storedConnected) {
+      createUser(storedStakeAddress).catch(console.error);
+    }
+  }, []); // Run only once on mount
+
+  // Connection change handler
+  useEffect(() => {
     const handleConnectionChange = (event: Event) => {
       if (event instanceof CustomEvent) {
         setIsConnected(event.detail.connected);
+        
+        // Se conectou, criar/atualizar usuário
+        if (event.detail.connected) {
+          const stakeAddress = localStorage.getItem("stakeAddress");
+          if (stakeAddress) {
+            createUser(stakeAddress).catch(console.error);
+          }
+        }
       } else if (event instanceof StorageEvent) {
         if (event.key === "connected" || event.key === "walletName") {
-          checkConnection();
+          const storedConnected = localStorage.getItem("connected") === "true";
+          const storedWalletName = localStorage.getItem("walletName");
+          setIsConnected(storedConnected && !!storedWalletName);
         }
       }
     };
 
-    // Add event listeners
+    // Listen to both custom event and storage changes
     window.addEventListener("walletConnectionChange", handleConnectionChange);
     window.addEventListener("storage", handleConnectionChange);
-
-    // Poll for changes every second (as backup)
-    const interval = setInterval(checkConnection, 1000);
 
     return () => {
       window.removeEventListener("walletConnectionChange", handleConnectionChange);
       window.removeEventListener("storage", handleConnectionChange);
-      clearInterval(interval);
     };
-  }, []);
+  }, [createUser]); // Run only once to set up listeners
 
   return (
     <Link

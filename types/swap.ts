@@ -9,7 +9,7 @@ export enum SwapStatus {
 export interface SwapHistoryDTO {
     id: number;
     transactionHash: string;
-    tier: string;
+    tier: number;
     ada: string;
     koz: string;
     status: SwapStatus;
@@ -19,7 +19,7 @@ export interface SwapHistoryDTO {
 export interface CreateSwapDTO {
     stakeAddress: string;
     transactionHash: string;
-    tier: string;
+    tier: number;
     ada: string;
     koz: string;
 }

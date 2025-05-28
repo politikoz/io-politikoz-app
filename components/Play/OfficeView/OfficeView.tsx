@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "@/i18n/routing";
+import { useSearchParams } from "next/navigation";
 import MyOffice from "@/components/Play/InsideBuilding/MyOffice";
 import OfficeButtons from "@/components/Play/OfficeView/OfficeButtons";
 import ElectionInfo from "@/components/Play/ElectionInfo/ElectionInfo";
@@ -19,27 +20,43 @@ export default function OfficeView() {
   const [localTourActive, setLocalTourActive] = useState(false);
   const { isTourActive, deactivateTour } = useTour();
   const router = useRouter();
+  const searchParams = useSearchParams();
   const t = useTranslations("OfficeView");
+
+  // Handle section from URL parameter and clean up URL
+  useEffect(() => {
+    const section = searchParams.get("section");
+    if (section) {
+      setSelectedSection(section);
+      // Clean up URL by using proper typed path
+      router.replace(
+        {
+          pathname: "/office",
+        },
+        {
+          scroll: false,
+        }
+      );
+    }
+  }, [searchParams, router]);
 
   useEffect(() => {
     if (isTourActive) setLocalTourActive(true);
   }, [isTourActive]);
 
   useEffect(() => {
-    if (selectedSection === "exit") router.push("/play");
+    if (selectedSection === "exit") {
+      router.push("/play");
+    }
   }, [selectedSection, router]);
 
   if (selectedSection === "exit") return null;
-
-  const handleSectionChange = (section: string | null) => {
-    setSelectedSection(section);
-  };
 
   return (
     <div className="flex flex-col flex-1 w-full bg-[#816346] relative">
       <div className="flex-1 w-full overflow-y-auto">
         <div className="w-full mx-auto px-0 lg:px-[120px] max-w-full lg:max-w-[1800px] flex flex-col items-center">
-          {(selectedSection === null || localTourActive) ? (
+          {selectedSection === null || localTourActive ? (
             <>
               <MyOffice />
               <OfficeButtons onNavigate={setSelectedSection} />
@@ -54,8 +71,8 @@ export default function OfficeView() {
               </button>
               {selectedSection === "income-outcome" && <IncomeOutcome />}
               {selectedSection === "my-tickets" && (
-                <TicketProfileContainer 
-                  onAuthError={() => handleSectionChange(null)} 
+                <TicketProfileContainer
+                  onAuthError={() => setSelectedSection(null)}
                 />
               )}
               {selectedSection === "prize-info" && <ElectionPrize />}
@@ -71,10 +88,13 @@ export default function OfficeView() {
         <div className="fixed inset-0 z-[100]">
           <div className="absolute inset-0 bg-transparent pointer-events-auto"></div>
           <div className="absolute bottom-32 sm:bottom-40 left-4 sm:left-10 pointer-events-auto">
-            <TourManager section="office" onClose={() => {
-              setLocalTourActive(false);
-              deactivateTour();
-            }} />
+            <TourManager
+              section="office"
+              onClose={() => {
+                setLocalTourActive(false);
+                deactivateTour();
+              }}
+            />
           </div>
         </div>
       )}

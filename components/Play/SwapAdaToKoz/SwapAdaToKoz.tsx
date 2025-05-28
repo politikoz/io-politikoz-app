@@ -11,6 +11,7 @@ import SwapHistoryPlaceholder from './SwapHistoryPlaceholder';
 import { useTranslations } from 'next-intl';
 import { TransactionStatus } from '@/types/transaction';
 import { useSwapHistory } from '@/hooks/useSwapHistory';
+import { useTiersDashboard } from '@/hooks/useTiersDashboard';
 
 export default function SwapAdaToKoz() {
   const t = useTranslations("Swap");
@@ -21,23 +22,27 @@ export default function SwapAdaToKoz() {
     isConnected, 
     getBalance, 
     wallet 
-  } = useWalletContext(); // Removed connect from destructuring
+  } = useWalletContext();
   const { 
     data: history, 
     isLoading: isHistoryLoading, 
     refetch: fetchHistory,
     error: historyError 
   } = useSwapHistory();
+  const { data: tiersDashboard } = useTiersDashboard();
+
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [conversionRate] = useState<number>(25); // 1 ADA = 25 KOZ fixo
-  const [kozAvailable] = useState<number>(50000); // Valor fixo inicial
   const [kozAmount, setKozAmount] = useState(0);
   const [adaAmount, setAdaAmount] = useState(0);
   const [txStatus, setTxStatus] = useState<TransactionStatus | null>(null);
   const isMounted = useRef(false);
-  const MIN_KOZ_AMOUNT = 200; // Add minimum KOZ constant
+  const MIN_KOZ_AMOUNT = 200;
   const [showHistory, setShowHistory] = useState(false);
+
+  // Calculando valores dinâmicos do tier atual
+  const conversionRate = tiersDashboard ? 1 / tiersDashboard.currentTier.adaPerKoz : 0;
+  const kozAvailable = tiersDashboard?.currentTier.remainingKozSupply ?? 0;
 
   const initialize = async () => {
     if (isMounted.current) return;
@@ -85,118 +90,137 @@ export default function SwapAdaToKoz() {
     setAdaAmount(parseFloat(cost.toFixed(6)));
   }, [kozAmount, conversionRate]);
 
+  useEffect(() => {
+    if (kozAmount > 0) {
+      const exactAdaAmount = kozAmount / conversionRate;
+      const roundedAdaAmount = Math.ceil(exactAdaAmount * 100) / 100; // Round up to 2 decimal places
+      if (roundedAdaAmount !== adaAmount) {
+        setAdaAmount(roundedAdaAmount);
+      }
+    }
+  }, [kozAmount, conversionRate]);
+
   const onSwap = async () => {
     setTxStatus(null);
     setError(null);
 
+    if (!tiersDashboard?.currentTier) {
+        setError(t("errors.tierNotAvailable"));
+        return;
+    }
+
     if (kozAmount < MIN_KOZ_AMOUNT) {
-      setError(t("errors.minimumKozRequired", { amount: MIN_KOZ_AMOUNT }));
-      return;
+        setError(t("errors.minimumKozRequired", { amount: MIN_KOZ_AMOUNT }));
+        return;
     }
 
     // Show connecting status
     setTxStatus({
-      status: 'connecting',
-      details: {
-        adaAmount: adaAmount,
-        kozAmount: kozAmount,
-        returnAmount: 2,
-        serviceFee: 0.5,
-        networkFee: 0.18,
-        total: adaAmount + 2.5
-      }
+        status: 'connecting',
+        details: {
+            adaAmount: adaAmount,
+            kozAmount: kozAmount,
+            returnAmount: 2,
+            serviceFee: 0.5,
+            networkFee: 0.18,
+            total: adaAmount + 2.5
+        }
     });
 
     if (!isConnected) {
-      setError(t("errors.walletNotConnected"));
-      return;
+        setError(t("errors.walletNotConnected"));
+        return;
     }
 
-    // First try-catch: Submit transaction to blockchain
     try {
-      const { success, error, txHash, swapHistory } = await handleSubmitSwap(adaAmount, kozAmount, setTxStatus);
-      
-      if (success && txHash && swapHistory) {
-        await fetchHistory();
-        setShowHistory(true);
+        const { success, error, txHash, swapHistory } = await handleSubmitSwap(
+            adaAmount, 
+            kozAmount,
+            tiersDashboard.currentTier.id, // Pass tier ID as number
+            setTxStatus
+        );
+        
+        if (success && txHash && swapHistory) {
+          await fetchHistory();
+          setShowHistory(true);
 
-        try {
-          const acceptResult = await handleAcceptSwap(txHash, swapHistory.id);
-          
-          if (acceptResult.success) {
-            setKozAmount(0);
-            setTxStatus(prev => prev ? {
-              ...prev,
-              status: 'completed'
-            } : null);
-          } else {
-            // Start cancellation process
+          try {
+            const acceptResult = await handleAcceptSwap(txHash, swapHistory.id);
+            
+            if (acceptResult.success) {
+              setKozAmount(0);
+              setTxStatus(prev => prev ? {
+                ...prev,
+                status: 'completed'
+              } : null);
+            } else {
+              // Start cancellation process
+              setTxStatus(prev => prev ? {
+                ...prev,
+                status: 'cancelling',
+                message: t('messages.cancelingSwap')
+              } : null);
+
+              if (!txHash) {
+                throw new Error(t("errors.missingTxHash"));
+              }
+              
+              const cancelResult = await handleCancelSwap(txHash, swapHistory.id);
+              if (cancelResult.success) {
+                setTxStatus(prev => prev ? {
+                  ...prev,
+                  status: 'cancelled',
+                  error: t("errors.swapCancelled")
+                } : null);
+              }
+            }
+          } catch (acceptError) {
+            // If acceptance process fails, attempt cancellation
             setTxStatus(prev => prev ? {
               ...prev,
               status: 'cancelling',
               message: t('messages.cancelingSwap')
             } : null);
 
-            if (!txHash) {
-              throw new Error(t("errors.missingTxHash"));
-            }
-            
-            const cancelResult = await handleCancelSwap(txHash, swapHistory.id);
-            if (cancelResult.success) {
+            try {
+              if (!txHash) throw new Error(t("errors.missingTxHash"));
+              const cancelResult = await handleCancelSwap(txHash, swapHistory.id);
+              if (cancelResult.success) {
+                setTxStatus(prev => prev ? {
+                  ...prev,
+                  status: 'cancelled',
+                  error: t("errors.swapCancelled")
+                } : null);
+              }
+            } catch (cancelError) {
               setTxStatus(prev => prev ? {
                 ...prev,
-                status: 'cancelled',
-                error: t("errors.swapCancelled")
+                status: 'failed',
+                error: t("errors.cancellationFailed")
               } : null);
             }
           }
-        } catch (acceptError) {
-          // If acceptance process fails, attempt cancellation
+        } else {
+          const isSignatureDeclined = error?.toLowerCase().includes('declined') || 
+                                     error?.toLowerCase().includes('rejected') || 
+                                     error?.toLowerCase().includes('denied');
+
           setTxStatus(prev => prev ? {
             ...prev,
-            status: 'cancelling',
-            message: t('messages.cancelingSwap')
+            status: 'failed',
+            error: isSignatureDeclined ? t("errors.signatureDeclined") : error
           } : null);
-
-          try {
-            if (!txHash) throw new Error(t("errors.missingTxHash"));
-            const cancelResult = await handleCancelSwap(txHash, swapHistory.id);
-            if (cancelResult.success) {
-              setTxStatus(prev => prev ? {
-                ...prev,
-                status: 'cancelled',
-                error: t("errors.swapCancelled")
-              } : null);
-            }
-          } catch (cancelError) {
-            setTxStatus(prev => prev ? {
-              ...prev,
-              status: 'failed',
-              error: t("errors.cancellationFailed")
-            } : null);
-          }
         }
-      } else {
-        const isSignatureDeclined = error?.toLowerCase().includes('declined') || 
-                                   error?.toLowerCase().includes('rejected') || 
-                                   error?.toLowerCase().includes('denied');
-
+      } catch (err) {
+        // Generic error for unexpected submission errors
         setTxStatus(prev => prev ? {
           ...prev,
           status: 'failed',
-          error: isSignatureDeclined ? t("errors.signatureDeclined") : error
+          error: t("errors.submissionFailed")
         } : null);
+      } finally {
+        await fetchHistory();
       }
-    } catch (err) {
-      // Generic error for unexpected submission errors
-      setTxStatus(prev => prev ? {
-        ...prev,
-        status: 'failed',
-        error: t("errors.submissionFailed")
-      } : null);
-    } finally {
-      await fetchHistory();
-    }
   };
 
   const handleCancelHistorySwap = async (txHash: string, swapId: number) => {
@@ -220,7 +244,13 @@ export default function SwapAdaToKoz() {
   // Main return - update the SwapHistory section
   return (
     <div className="p-4 sm:p-6 w-full max-w-md sm:max-w-lg lg:max-w-xl mx-auto bg-gray-900 text-white border-2 border-yellow-500 rounded-lg shadow-lg">
-      <SwapHeader conversionRate={conversionRate} kozAvailable={kozAvailable} />
+      <SwapHeader 
+        conversionRate={conversionRate} 
+        kozAvailable={kozAvailable}
+        currentTier={tiersDashboard?.currentTier!}
+        allTiers={tiersDashboard?.allTiers ?? []}
+        electionInfo={tiersDashboard?.electionInfo!} 
+      />
       <SwapInput 
         kozAmount={kozAmount} 
         setKozAmount={setKozAmount} 

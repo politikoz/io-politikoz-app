@@ -23,7 +23,8 @@ interface WalletContextType {
   getCollateral: () => Promise<number>;
   handleSubmitSwap: (
     adaAmount: number, 
-    kozAmount: number, 
+    kozAmount: number,
+    tierId: number, // Add tierId parameter
     setTxStatus: React.Dispatch<React.SetStateAction<TransactionStatus | null>>
   ) => Promise<{ success: boolean; error?: string; txHash?: string; swapHistory?: SwapHistoryDTO }>;
   handleAcceptSwap: (txHash: string, swapId: number) => Promise<{ success: boolean; error?: string }>;
@@ -156,7 +157,8 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
 
   const handleSubmitSwap = async (
     adaAmount: number, 
-    kozAmount: number, 
+    kozAmount: number,
+    tierId: number,
     setTxStatus: React.Dispatch<React.SetStateAction<TransactionStatus | null>>
 ): Promise<{ success: boolean; error?: string; txHash?: string; swapHistory?: SwapHistoryDTO }> => {
     let submittedTxHash: string | undefined;
@@ -236,12 +238,12 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
           const response = await createSwap({
             stakeAddress: rewardAddress[0],
             transactionHash: txHash,
-            tier: 'standard',
+            tier: tierId, // Pass number directly
             ada: adaAmount.toString(),
             koz: kozAmount.toString()
           });
 
-          swapHistory = response || undefined; // Convert null to undefined if response is null
+          swapHistory = response || undefined;
         } catch (officeError) {
           console.error('Failed to record swap in office:', officeError);
         }

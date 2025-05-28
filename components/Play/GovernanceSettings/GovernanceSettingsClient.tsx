@@ -41,6 +41,7 @@ export default function GovernanceSettingsClient() {
         <ElectionPotShareRules
           percentage={data.potShare.percentage}
           treasuryBalance={data.potShare.treasuryBalance}
+          totalAdaPerElection={data.potShare.totalAdaPerElection}
         />
 
         <ElectionDistributionRules

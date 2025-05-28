@@ -28,7 +28,7 @@ export default function SwapSummary({
     setIsWalletConnected(!!walletName);
   }, []);
 
-  const isDisabled = kozAmount <= 0 || kozAmount > maxKozAvailable || disabled;
+  const isDisabled = kozAmount < 200 || kozAmount > maxKozAvailable || disabled;
   const isProcessing = status === 'processing' || status === 'signing' || status === 'submitting' || status === 'accepting' || status === 'cancelling';
 
   if (!isWalletConnected) {

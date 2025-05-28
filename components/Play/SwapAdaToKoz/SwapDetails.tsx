@@ -11,6 +11,7 @@ interface SwapDetailsProps {
     isLoading?: boolean;
     error?: string;
     message?: string; // Add this line
+    min?: number;
 }
 
 export default function SwapDetails({ 
@@ -20,12 +21,17 @@ export default function SwapDetails({
     txHash,
     isLoading,
     error,
-    message
+    message,
+    min = 200 // Add minimum requirement
 }: SwapDetailsProps) {
     const serviceFee = 0.5;
     const networkFee = 0.18;
     const returnAmount = 2;
-    const total = adaAmount + serviceFee + networkFee + returnAmount;
+    const roundedAdaAmount = Math.ceil(adaAmount * 100) / 100;
+    const total = Math.ceil((roundedAdaAmount + serviceFee + networkFee + returnAmount) * 100) / 100;
+
+    // Check if amount meets minimum requirement
+    const isValidAmount = kozAmount >= min;
 
     const getStatusMessage = (status: string | undefined) => {
         switch (status) {
@@ -73,7 +79,7 @@ export default function SwapDetails({
                     <div className="animate-spin h-4 w-4 border-2 border-yellow-500 rounded-full border-t-transparent" />
                 );
             case 'completed':
-                return <span className="text-green-500">✓</span>;
+                return (<span className="text-green-500">✓</span>);
             case 'failed':
                 return <span className="text-red-500">✗</span>;
             default:
@@ -82,23 +88,27 @@ export default function SwapDetails({
     };
 
     return (
-        <div className="mt-4 space-y-4">
-            {/* Status Title Card - Only show during active transactions */}
-            {((isLoading && status === 'connecting') || error) && (
-                <div className={`mt-4 bg-gray-900 rounded-lg p-3 border ${error ? 'border-red-500' : 'border-yellow-500'} shadow-lg`}>
-                    <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-3">
-                            {isLoading ? (
-                                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-yellow-500" />
+        <div className="mt-2">
+            {/* Status and Message - Only render div if there's content */}
+            {((isLoading && status === 'connecting') || error || message) && (
+                <div className="mb-3">
+                    {/* Status card */}
+                    {((isLoading && status === 'connecting') || error) && (
+                        <div className={`bg-gray-900 rounded-lg p-3 border ${error ? 'border-red-500' : 'border-yellow-500'} shadow-lg mb-2`}>
+                            <div className="flex items-center justify-between">
+                                <div className="flex items-center space-x-3">
+                                    {isLoading ? (
+                                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-yellow-500" />
                             ) : error ? (
                                 <div className="text-red-500">✗</div>
                             ) : null}
-                            <p className={`text-sm ${error ? 'text-red-400' : 'text-white'}`}>
-                                {error ? error : getStatusMessage(status)}
-                            </p>
-                        </div>
-                        {txHash && (
-                            <div className="text-xs text-gray-400">
+                                <p className={`text-sm ${error ? 'text-red-400' : 'text-white'}`}>
+                                    {error ? error : getStatusMessage(status)}
+                                </p>
+                            </div>
+                            </div>
+                            {txHash && (
+                                <div className="text-xs text-gray-400">
                                 TX: <a 
                                     href={`${CARDANOSCAN_URL}${txHash}`}
                                     target="_blank"
@@ -109,24 +119,25 @@ export default function SwapDetails({
                                     <ArrowTopRightOnSquareIcon className="h-3 w-3" />
                                 </a>
                             </div>
-                        )}
-                    </div>
+                            )}
+                        </div>
+                    )}
+
+                    {/* Message box */}
+                    {message && (
+                        <div className={`p-4 rounded-lg text-sm ${
+                            status === 'cancelling'
+                                ? 'bg-red-500/10 border border-red-500/30 text-red-300'
+                                : 'bg-blue-500/10 border border-blue-500/30 text-blue-300'
+                        }`}>
+                            {message}
+                        </div>
+                    )}
                 </div>
             )}
 
-            {/* Message Info Box - Updated with conditional styling */}
-            {message && (
-                <div className={`p-4 rounded-lg text-sm ${
-                    status === 'cancelling'
-                        ? 'bg-red-500/10 border border-red-500/30 text-red-300'
-                        : 'bg-blue-500/10 border border-blue-500/30 text-blue-300'
-                }`}>
-                    {message}
-                </div>
-            )}
-
-            {/* Main Transaction Details Card */}
-            <div className="mt-4 bg-gray-800 rounded-lg p-4 border border-gray-700">
+            {/* Transaction Details */}
+            <div className="bg-gray-800 rounded-lg p-4 border border-gray-700">
                 <div className="space-y-4">
                     <div>
                         <div className="flex justify-between items-center mb-3">
@@ -149,8 +160,12 @@ export default function SwapDetails({
                             <div className="flex justify-between items-center text-sm">
                                 <span className="text-gray-400">You will receive:</span>
                                 <div className="text-right">
-                                    <div className="text-white font-medium">{kozAmount} KOZ</div>
-                                    <div className="text-green-400 text-sm">+ {returnAmount} ADA return</div>
+                                    <div className="text-white font-medium">
+                                        {isValidAmount ? `${kozAmount} KOZ` : '-'}
+                                    </div>
+                                    <div className="text-green-400 text-sm">
+                                        {isValidAmount ? `+ ${returnAmount} ADA return` : '-'}
+                                    </div>
                                 </div>
                             </div>
 
@@ -159,7 +174,9 @@ export default function SwapDetails({
                             <div className="space-y-2">
                                 <div className="flex justify-between items-center text-sm">
                                     <span className="text-gray-400">Swap Amount:</span>
-                                    <span className="text-white">{adaAmount} ADA</span>
+                                    <span className="text-white">
+                                        {isValidAmount ? `${roundedAdaAmount.toFixed(2)} ADA` : '-'}
+                                    </span>
                                 </div>
                                 <div className="flex justify-between items-center text-xs">
                                     <span className="text-gray-500">Required Return Amount:</span>
@@ -177,8 +194,12 @@ export default function SwapDetails({
                                 <div className="flex justify-between items-center text-sm font-medium">
                                     <span className="text-gray-400">Total Required:</span>
                                     <div className="text-right">
-                                        <div className="text-white">{total} ADA</div>
-                                        <div className="text-xs text-green-400">({returnAmount} ADA will be returned)</div>
+                                        <div className="text-white">
+                                            {isValidAmount ? `${total.toFixed(2)} ADA` : '-'}
+                                        </div>
+                                        <div className="text-xs text-green-400">
+                                            ({returnAmount} ADA will be returned)
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -6,11 +6,11 @@ import React from "react";
 interface Props {
   percentage: number;
   treasuryBalance: number;
+  totalAdaPerElection: number;
 }
 
-export default function ElectionPotShareRules({ percentage, treasuryBalance }: Props) {
+export default function ElectionPotShareRules({ percentage, treasuryBalance, totalAdaPerElection }: Props) {
   const t = useTranslations("GovernanceSettings");
-  const electionCostADA = (percentage * treasuryBalance).toFixed(2);
 
   return (
     <div className="w-full bg-gray-800 p-4 border border-yellow-400 rounded shadow mb-6">
@@ -32,7 +32,7 @@ export default function ElectionPotShareRules({ percentage, treasuryBalance }: P
 
       <div className="mt-3 space-y-2 text-sm text-white">
         <p>
-          <span className="font-bold text-yellow-300">{t("potShareTotal")}</span> {electionCostADA} ADA
+          <span className="font-bold text-yellow-300">{t("potShareTotal")}</span> {totalAdaPerElection} ADA
         </p>
         <p>
           <span className="font-bold text-yellow-300">{t("potShareTreasury")}</span> {treasuryBalance} ADA

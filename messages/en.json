@@ -686,6 +686,34 @@
       "failed": "failed",
       "completed": "completed"
     },
+    "tiers": {
+      "modalDescription": "Complete tiers to supercharge the next election! When a tier is filled, its BOOST prize adds to the Frontman ticket jackpot, and the election moves to the next cardano epoch - making winner even bigger winner, even sooner! 🏆",      
+      "projectedTickets": "Projected Tickets",
+      "loading": "Loading tier information...",
+      "currentTier": "Current Tier: {tier}",
+      "remaining": "remaining",
+      "tierNumber": "Tier {number}",
+      "supply": "Supply: {amount} KOZ",
+      "kozPrice": "1 KOZ = {price} ADA",
+      "modalTitle": "KOZ Token Tiers",
+      "viewAllTiers": "View all tiers information",
+      "currentTierLabel": "Current",
+      "ticketsLabel": "Tickets per tier",
+      "adaPerTicketLabel": "ADA per ticket",
+      "prizeLabel": "Frontman Boost Prize",
+      "complete": "complete",
+      "clickToViewAllTiers": "Click to view all tiers and prize details",
+      "frontmanBoostLabel": "Frontman Boost Total Prize",
+      "nextElectionLabel": "Next Election Would Start",
+      "earlierByDays": "{days} days earlier",
+      "earlyCompletionNote": "If tier completes today, election starts earlier",
+      
+      "status": {
+        "PENDING": "Active",
+        "WAIT": "Waiting",
+        "COMPLETED": "Completed"
+      }
+    },
     "errors": {
       "minimumKozRequired": "Minimum swap amount is {amount} KOZ",
       "cancelling": "Cancelling swap...",

@@ -63,6 +63,13 @@ export default function ConnectWalletList() {
   const handleConnect = async (walletName: string) => {
     try {
       await connect(walletName);
+      
+      // Ensure connection event is dispatched
+      window.dispatchEvent(
+        new CustomEvent("walletConnectionChange", {
+          detail: { connected: true }
+        })
+      );
     } catch (error) {
       console.error(`Failed to connect to ${walletName}:`, error);
       alert(t("connectError", { wallet: walletName }));
