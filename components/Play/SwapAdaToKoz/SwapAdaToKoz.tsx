@@ -31,7 +31,7 @@ export default function SwapAdaToKoz() {
     refetch: fetchHistory,
     error: historyError 
   } = useSwapHistory();
-  const { data: tiersDashboard } = useTiersDashboard();
+  const { data: tiersDashboard, isLoading: isTiersDashboardLoading } = useTiersDashboard();
 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -251,10 +251,17 @@ export default function SwapAdaToKoz() {
     }
   };
 
-  // Main return - update the SwapHistory section
+  // Main return - update the conditional rendering
   return (
     <div className="p-4 sm:p-6 w-full max-w-md sm:max-w-lg lg:max-w-xl mx-auto bg-gray-900 text-white border-2 border-yellow-500 rounded-lg shadow-lg">
-      {!tiersDashboard?.currentTier ? (
+      {isTiersDashboardLoading ? (
+        // Loading state
+        <div className="animate-pulse space-y-4">
+          <div className="h-20 bg-gray-800 rounded"></div>
+          <div className="h-40 bg-gray-800 rounded"></div>
+        </div>
+      ) : !tiersDashboard?.currentTier ? (
+        // All tiers completed state
         <>
           <SwapHeader 
             conversionRate={0} 
@@ -266,6 +273,7 @@ export default function SwapAdaToKoz() {
           <AllTiersCompleted />
         </>
       ) : (
+        // Normal swap state
         <>
           <SwapHeader 
             conversionRate={conversionRate} 

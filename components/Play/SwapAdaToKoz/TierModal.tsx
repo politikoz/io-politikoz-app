@@ -121,8 +121,11 @@ export default function TierModal({ isOpen, onClose, currentTier, allTiers, elec
                             
                             <div className="h-2 bg-gray-700 rounded overflow-hidden">
                               <div 
-                                className="h-full bg-yellow-500/50 transition-all"
-                                style={{ width: `${(soldTickets/tier.ticketsPerTier) * 100}%` }}
+                                className="h-full transition-all duration-300"
+                                style={{ 
+                                  width: `${(soldTickets/tier.ticketsPerTier) * 100}%`,
+                                  backgroundColor: '#22c55e' // Green color
+                                }}
                               />
                             </div>
 

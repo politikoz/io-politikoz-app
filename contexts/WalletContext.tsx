@@ -29,6 +29,11 @@ interface WalletContextType {
   ) => Promise<{ success: boolean; error?: string; txHash?: string; swapHistory?: SwapHistoryDTO }>;
   handleAcceptSwap: (txHash: string, swapId: number) => Promise<{ success: boolean; error?: string }>;
   handleCancelSwap: (txHash: string, swapId: number) => Promise<{ success: boolean; error?: string; txHash?: string }>;
+  handleBuyTickets: (
+    ticketAmount: number,
+    kozAmount: number,
+    serviceFee: number
+  ) => Promise<{ success: boolean; error?: string; txHash?: string }>;
 }
 
 const WalletContext = createContext<WalletContextType | undefined>(undefined);
@@ -382,6 +387,71 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
     }
 };
 
+  const handleBuyTickets = async (
+    ticketAmount: number,
+    kozAmount: number,
+    serviceFee: number
+  ): Promise<{ success: boolean; error?: string; txHash?: string }> => {
+    try {
+      if (!wallet || !isConnected) {
+        throw new Error('Wallet not connected');
+      }
+
+      const utxos = await wallet.getUtxos();
+      const changeAddress = await wallet.getChangeAddress();
+
+      // Convert amounts to lovelace (1 ADA = 1,000,000 lovelace)
+      const serviceFeeQuantity = (serviceFee * 1_000_000).toString();
+      //const kozQuantity = kozAmount.toString();
+      const kozQuantity = '1';
+
+      const txBuilder = new MeshTxBuilder({
+        fetcher: provider,
+        submitter: provider,
+        verbose: true,
+      });
+
+      const unsignedTx = await txBuilder
+        // Send KOZ tokens
+        .txOut(process.env.NEXT_PUBLIC_TICKET_TREASURY || '', [
+          { 
+            unit: process.env.NEXT_PUBLIC_KOZ_TOKEN_UNIT || '', 
+            quantity: kozQuantity 
+          }
+        ])
+        // Send service fee in ADA
+        .txOut(process.env.NEXT_PUBLIC_TICKET_TREASURY || '', [
+          { 
+            unit: "lovelace", 
+            quantity: serviceFeeQuantity 
+          }
+        ])    
+        .changeAddress(changeAddress)
+        .selectUtxosFrom(utxos)
+        .complete();
+
+      const signedTx = await wallet.signTx(unsignedTx);
+
+      if (!signedTx) {
+        throw new Error('Failed to sign transaction');
+      }
+
+      const txHash = await wallet.submitTx(signedTx);
+
+      return {
+        success: true,
+        txHash
+      };
+
+    } catch (error: any) {
+      console.error('Buy tickets transaction failed:', error);
+      return {
+        success: false,
+        error: error?.message || 'Failed to process transaction'
+      };
+    }
+  };
+
   // Sync wallet state on mount and when mesh connection changes
   useEffect(() => {
     const syncWalletState = async () => {
@@ -416,7 +486,8 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
     getCollateral,
     handleSubmitSwap,
     handleAcceptSwap,
-    handleCancelSwap
+    handleCancelSwap,
+    handleBuyTickets,
   };
 
   return (

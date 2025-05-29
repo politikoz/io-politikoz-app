@@ -7,7 +7,6 @@ interface TicketTableProps {
   selectedTickets: number[];
   setSelectedTickets: React.Dispatch<React.SetStateAction<number[]>>;
   isOnTheRace: boolean;
-  isNextRace: boolean;
   isAutoLink: boolean;
 }
 
@@ -16,7 +15,6 @@ const TicketTable: React.FC<TicketTableProps> = ({
   selectedTickets,
   setSelectedTickets,
   isOnTheRace,
-  isNextRace,
   isAutoLink,
 }) => {
   const t = useTranslations("TicketProfile");
@@ -42,7 +40,7 @@ const TicketTable: React.FC<TicketTableProps> = ({
                 <th className="border-2 border-white px-2 sm:px-4 py-2">{t("role")}</th>
               )}
               <th className="border-2 border-white px-2 sm:px-4 py-2">{t("ticket")}</th>
-              {(isOnTheRace || isNextRace) && (
+              {isOnTheRace && (
                 <th className="border-2 border-white px-2 sm:px-4 py-2">{t("linkedPolitikoz")}</th>
               )}
               {isOnTheRace ? (
@@ -74,7 +72,7 @@ const TicketTable: React.FC<TicketTableProps> = ({
                   <span className="text-white">{ticket.name}</span>
                   <span className="text-green-400">{ticket.luckyNumber}</span>
                 </td>
-                {(isOnTheRace || isNextRace) && (
+                {isOnTheRace && (
                   <td className="border-2 border-white px-2 sm:px-4 py-2">
                     {ticket.politikozLinked || t("notAvailable")}
                   </td>

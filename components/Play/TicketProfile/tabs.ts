@@ -4,7 +4,6 @@ export const tabs = [
   { name: "Lobbyist", color: "#88CEFA" },
   { name: "Launderer", color: "#FFFBCC" },
   { name: "Briber", color: "#FF8281" },
-  { name: "On the Race", color: "#FF4500" },
-  { name: "Next Race", color: "#00BFFF" },  
+  { name: "On the Race", color: "#FF4500" },  
   { name: "Auto Link", color: "#FFD991" },
 ];

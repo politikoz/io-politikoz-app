@@ -1,4 +1,10 @@
-export type TicketType = "BRIBER" | "CORRUPT" | "FRONTMAN" | "LAUNDERER" | "LOBBYIST";
+export type TicketType = 
+  | "BRIBER" 
+  | "CORRUPT" 
+  | "FRONTMAN" 
+  | "FRONTMAN_BOOSTED_ELECTION_ONLY"
+  | "LAUNDERER" 
+  | "LOBBYIST";
 
 export interface TicketDistribution {
   [ticketType: string]: number;
@@ -6,7 +12,7 @@ export interface TicketDistribution {
 
 export interface AutoLinkAPIResponse {
   politikoz: {
-    [key: string]: TicketDistribution; // This will handle both random and specific politikoz IDs
+    [key: string]: TicketDistribution;
   };
   user: null;
   party: {

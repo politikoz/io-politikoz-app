@@ -46,13 +46,19 @@ const InsideBuilding: React.FC = () => {
       >
         <span className="text-white text-[8px] font-pixel">{t("party")}</span>
       </Link>
-      <Link
+      {/* <Link
         href="/arcade"
         className="absolute top-[17%] w-[100%] h-[15%] ml-[2%] cursor-pointer flex items-start"
         aria-label="Clickable Area"
       >
         <span className="text-white text-[8px] font-pixel">{t("arcade")}</span>
-      </Link>
+      </Link> */}
+      <div
+        className="absolute top-[17%] w-[100%] h-[15%] ml-[2%] flex items-start cursor-not-allowed"
+        aria-label="Coming Soon"
+      >
+        <span className="text-white text-[8px] font-pixel">{t("arcade")}</span>
+      </div>
       <Link
         href="/news"
         className="absolute top-[0.6%] w-[100%] h-[15%] ml-[2%] cursor-pointer flex items-start"

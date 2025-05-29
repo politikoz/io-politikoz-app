@@ -133,10 +133,17 @@ export default function TierInfo({ currentTier, allTiers, electionInfo }: TierIn
               {t('projectedTickets')}: {soldTickets}/{currentTier.ticketsPerTier}
             </div>
           </div>
-          <div className="h-2 bg-gray-700 rounded overflow-hidden">
+          {/* Progress bar container */}
+          <div className="h-2 bg-gray-700/50 rounded overflow-hidden">
+            {/* Progress bar fill */}
             <div 
-              className={`h-full ${bgColor}/50 transition-all`}
-              style={{ width: `${remainingPercentage}%` }}
+              className={`h-full transition-all duration-300`}
+              style={{ 
+                width: `${100 - Math.min(95, Math.max(0, 100 - remainingPercentage))}%`,
+                backgroundColor: remainingPercentage <= 25 ? '#ef4444' : 
+                                remainingPercentage <= 50 ? '#eab308' : 
+                                '#22c55e'
+              }}
             />
           </div>
         </div>

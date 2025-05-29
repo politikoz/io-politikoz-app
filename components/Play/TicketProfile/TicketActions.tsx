@@ -7,15 +7,13 @@ import { Ticket } from "@/types/TicketData";
 
 interface TicketActionsProps {
   selectedTickets: number[];
-  setSelectedTickets: React.Dispatch<React.SetStateAction<number[]>>; // Adicionar esta prop
-  isNextRace: boolean;
-  tickets: Ticket[]; // Add this to have access to full ticket data
+  setSelectedTickets: React.Dispatch<React.SetStateAction<number[]>>;
+  tickets: Ticket[];
 }
 
 const TicketActions: React.FC<TicketActionsProps> = ({ 
   selectedTickets, 
   setSelectedTickets,
-  isNextRace,
   tickets 
 }) => {
   const t = useTranslations("TicketProfile");

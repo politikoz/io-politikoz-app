@@ -24,7 +24,6 @@ export default function TicketProfile() {
 
   const selectedTab = useMemo(() => tabs[selectedIndex], [selectedIndex]);
   const isOnTheRace = selectedTab.name === "On the Race";
-  const isNextRace = selectedTab.name === "Next Race";
   const isAutoLink = selectedTab.name === "Auto Link";
 
   const filteredTickets = useMemo(() => {
@@ -32,14 +31,10 @@ export default function TicketProfile() {
     
     if (isOnTheRace) {
       return tickets.filter((ticket) => ticket.inElection);
-    } else if (isNextRace) {
-      return tickets.filter((ticket) => ticket.nextElection);
     } else {
-      // Para as tabs de tipo (Corrupt, Launderer, etc), não mostrar tickets que estão em eleição ou na próxima eleição
       return tickets.filter((ticket) => 
         ticket.type.toLowerCase() === selectedTab.name.toLowerCase() && 
-        !ticket.inElection && 
-        !ticket.nextElection
+        !ticket.inElection
       );
     }
   }, [selectedTab, tickets]);
@@ -66,68 +61,72 @@ export default function TicketProfile() {
   }
 
   return (
-    <div className="relative flex flex-col w-full max-w-4xl mx-auto border-4 border-black bg-gray-900 text-white p-2 shadow-[6px_6px_0px_black]">
-      {/* Show success message if exists */}
-      {successMessage && (
-        <div className="absolute top-0 right-0 m-4 p-2 bg-green-600 text-white text-sm rounded animate-fade-out">
-          {successMessage}
-        </div>
-      )}
-      
-      <div className="relative flex flex-col md:flex-row h-auto w-full">
-        <TabNavigation selectedIndex={selectedIndex} setSelectedIndex={setSelectedIndex} />
-
-        <div className="flex-1 flex flex-col border-4 border-black bg-gray-800 p-4 shadow-[4px_4px_0px_black]">
-          {isAutoLink ? (
-            <AutoLinkConfig />
-          ) : (
-            <>
-              <div className="flex justify-start w-full">
-                <ProfileHeader cargo={selectedTab.name} />
+    <div className="flex flex-col items-center w-full">
+      <div className="w-full flex flex-col items-center p-4 max-w-4xl border-4 border-black bg-gray-900 shadow-[6px_6px_0px_black] min-h-[730px]">
+        <div className="w-full flex flex-col flex-1">
+          <div className="relative flex flex-col w-full max-w-4xl mx-auto">
+            {/* Show success message if exists */}
+            {successMessage && (
+              <div className="absolute top-0 right-0 m-4 p-2 bg-green-600 text-white text-sm rounded animate-fade-out">
+                {successMessage}
               </div>
+            )}
+            
+            <div className="relative flex flex-col md:flex-row h-auto w-full">
+              <TabNavigation selectedIndex={selectedIndex} setSelectedIndex={setSelectedIndex} />
 
-              {filteredTickets.length > 0 ? (
-                <>
-                  {!isOnTheRace && !isAutoLink && (
-                    <SelectButtons
-                      selectedTickets={selectedTickets}
-                      setSelectedTickets={setSelectedTickets}
-                      paginatedTickets={paginatedTickets}
-                      filteredTickets={filteredTickets}
-                    />
-                  )}
+              <div className="flex-1 flex flex-col border-4 border-black bg-gray-800 p-4 shadow-[4px_4px_0px_black]">
+                {isAutoLink ? (
+                  <AutoLinkConfig />
+                ) : (
+                  <>
+                    <div className="flex justify-start w-full">
+                      <ProfileHeader cargo={selectedTab.name} />
+                    </div>
 
-                  <TicketTable
-                    paginatedTickets={paginatedTickets}
-                    selectedTickets={selectedTickets}
-                    setSelectedTickets={setSelectedTickets}
-                    isOnTheRace={isOnTheRace}
-                    isNextRace={isNextRace}
-                    isAutoLink={isAutoLink}
-                  />
+                    {filteredTickets.length > 0 ? (
+                      <>
+                        {!isOnTheRace && !isAutoLink && (
+                          <SelectButtons
+                            selectedTickets={selectedTickets}
+                            setSelectedTickets={setSelectedTickets}
+                            paginatedTickets={paginatedTickets}
+                            filteredTickets={filteredTickets}
+                          />
+                        )}
 
-                  {!isOnTheRace && !isAutoLink && (
-                    <TicketActions 
-                      selectedTickets={selectedTickets} 
-                      setSelectedTickets={setSelectedTickets}
-                      isNextRace={isNextRace}
-                      tickets={filteredTickets}
-                    />
-                  )}
+                        <TicketTable
+                          paginatedTickets={paginatedTickets}
+                          selectedTickets={selectedTickets}
+                          setSelectedTickets={setSelectedTickets}
+                          isOnTheRace={isOnTheRace}
+                          isAutoLink={isAutoLink}
+                        />
 
-                  <div className="mt-auto">
-                    <Pagination
-                      currentPage={currentPage}
-                      setCurrentPage={setCurrentPage}
-                      totalPages={totalPages}
-                    />
-                  </div>
-                </>
-              ) : (
-                <p className="text-center text-gray-400 mt-4">{t("noTickets")}</p>
-              )}
-            </>
-          )}
+                        {!isOnTheRace && !isAutoLink && (
+                          <TicketActions 
+                            selectedTickets={selectedTickets} 
+                            setSelectedTickets={setSelectedTickets}
+                            tickets={filteredTickets}
+                          />
+                        )}
+
+                        <div className="mt-auto">
+                          <Pagination
+                            currentPage={currentPage}
+                            setCurrentPage={setCurrentPage}
+                            totalPages={totalPages}
+                          />
+                        </div>
+                      </>
+                    ) : (
+                      <p className="text-center text-gray-400 mt-4">{t("noTickets")}</p>
+                    )}
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

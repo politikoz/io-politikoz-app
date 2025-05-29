@@ -14,6 +14,7 @@ import { SwapContainer } from "../SwapAdaToKoz/SwapContainer";
 import { useTour } from "@/contexts/TourContext";
 import { useTranslations } from "next-intl";
 import TicketProfileContainer from "../TicketProfile/TicketProfileContainer";
+import { BuyTicketContainer } from "../BuyTicket/BuyTicketContainer";
 
 export default function OfficeView() {
   const [selectedSection, setSelectedSection] = useState<null | string>(null);
@@ -79,6 +80,7 @@ export default function OfficeView() {
               {selectedSection === "wave-info" && <ElectionInfo />}
               {selectedSection === "election-results" && <ElectionResultsView />}
               {selectedSection === "buy-koz" && <SwapContainer />}
+              {selectedSection === "buy-tickets" && <BuyTicketContainer />}
             </div>
           )}
         </div>

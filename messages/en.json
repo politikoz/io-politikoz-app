@@ -234,6 +234,8 @@
       "random": "configuration"
     },
   "Distribution": {
+    "frontmanDescription": "Assign tickets between standard FRONTMAN and FRONTMAN BOOSTED ELECTION ONLY. The boosted version will only be used in elections with boosted rewards. Combined allocation cannot exceed 100%.",
+    "combinedFrontman": "Combined Total",
     "otherConfigs": "Other configs",
     "thisConfig": "This config",
     "available": "Available"
@@ -254,7 +256,7 @@
   },
   "ModalRandom": {
       "title": "Configure Random Distribution",
-      "description": "Configure the percentage of tickets that will be automatically distributed to random Politikoz before each election. This ensures your unassigned tickets are always put to use, even if you haven't manually allocated them.",
+      "description": "Configure the percentage of tickets that will be automatically distributed to random Politikoz before each election. This ensures your unassigned tickets are always put to use.",
       "save": "Save",
       "cancel": "Cancel"
     },
@@ -277,23 +279,49 @@
     "title": "Total Allocated Percentage"
   }
 },
-"Calendar": {
-  "upcomingEvents": "Upcoming Events",
-  "months": {
-    "january": "January",
-    "february": "February",
-    "march": "March",
-    "april": "April",
-    "may": "May",
-    "june": "June",
-    "july": "July",
-    "august": "August",
-    "september": "September",
-    "october": "October",
-    "november": "November",
-    "december": "December"
-  }
-},
+"BuyTicket": {
+    "title": "Buy Tickets",
+    "pricePerTicket": "Price per ticket:",
+    "yourBalance": "Your balance:",
+    "enterTicketAmount": "Enter number of tickets",
+    "tickets": "tickets",
+    "processing": "Processing...",
+    "buyButton": "Buy {amount} {amount, plural, one {Ticket} other {Tickets}}",
+    "historyTitle": "Purchase History",
+    "viewHistory": "View History",
+    "noHistory": "No purchase history",
+    "perTicketFeeInfo": "Service fee: + {fee} ADA per ticket",
+    "cancel": "Cancel",
+    "connectWalletFirst": "Please connect your wallet first",
+    "serviceFeeInfo": "(+{fee} ADA service fee per ticket)",
+    "minimumFeeInfo": "Minimum service fee 2.5 ADA (includes 3 FREE tickets)",
+    "minimumFeeTooltip": "The first 2.5 ADA covers up to 25 tickets and includes 3 FREE tickets. After that, +0.1 ADA per additional ticket.",
+    "transactionDetails": {
+      "title": "Transaction Details",
+      "willReceive": "You will receive:",
+      "tickets": "Tickets",
+      "freeTicketShort": " FREE tickets",
+      "kozAmount": "KOZ Amount:",
+      "minimumFee": "Minimum Fee:",
+      "additionalFee": "Additional Fee:",
+      "networkFee": "Network Fee (est.):",
+      "totalKoz": "Total KOZ Required:",
+      "totalAda": "Total ADA Required:",
+      "transactionId": "Transaction ID"
+    },
+    "status": {
+      "processing": "Processing purchase...",
+      "completed": "Purchase completed!",
+      "failed": "Purchase failed",
+      "default": "Processing...",
+      "pending": "Pending",
+      "cancelled": "Cancelled"
+    },
+    "errors": {
+      "maxTicketsExceeded": "Maximum {max} tickets allowed",
+      "insufficientBalance": "Insufficient KOZ balance"
+    }
+  },
 "ClaimKoz": {
   "title": "Claim KOZ Rewards",
   "description": "Claim your available KOZ tokens accumulated through platform activities.",
@@ -491,7 +519,7 @@
   "office": "OFFICE",
   "laundry": "LAUNDRY",
   "party": "PARTY",
-  "arcade": "ARCADE ROOM",
+  "arcade": "ARCADE ROOM - COMING SOON",
   "news": "NEWS"
 },
 "LaundryView": {
@@ -515,6 +543,7 @@
 },
 "OfficeView": {
   "incomeOutcome": "Income/Outcome",
+  "buyTickets": "Buy Tickets",
   "myTickets": "My Tickets",
   "calendar": "Calendar",
   "prizeInfo": "Prize Info",
@@ -662,6 +691,18 @@
       "minutes": "Minutes",
       "seconds": "Seconds"
     },
+    "transactionDetails": {
+      "title": "Transaction Details",
+      "willReceive": "You will receive:",
+      "returnAmount": "+ {amount} ADA return",
+      "swapAmount": "Swap Amount:",
+      "requiredReturn": "Required Return Amount:",
+      "serviceFee": "Service Fee:",
+      "networkFee": "Network Fee (est.):",
+      "totalRequired": "Total Required:",
+      "returnMessage": "({amount} ADA will be returned)",
+      "transactionId": "Transaction ID"
+    },
     "history": {
       "amount": "Amount",
       "transaction": "Transaction",
@@ -686,11 +727,19 @@
       "cancelingSwap": "Swap declined - initiating cancellation process to refund contract balance. you can close this window if you want, the status will be available in swap history."  
     },
     "status": {
-      "connecting": "connecting",
-      "processing": "processing",
-      "cancelling": "cancelling",
-      "failed": "failed",
-      "completed": "completed"
+      "connecting": "Checking wallet connection...",
+      "signing": "Waiting for signature...",
+      "submitting": "Submitting transaction...",
+      "processing": "Processing swap...",
+      "accepting": "Accepting swap...",
+      "cancelling": "Cancelling swap...",
+      "completed": "Completed",
+      "failed": "Failed",
+      "default": "Processing..."
+    },
+    "notes": {
+      "returnNote": "{amount} ADA will be returned to your wallet after the swap",
+      "networkNote": "Network fee is approximate and may vary slightly"
     },
     "tiers": {
       "allTiersCompleted": "All Tiers Successfully Completed!",
@@ -806,7 +855,6 @@
   "cancel": "Cancel",
   "confirm": "Confirm",
   "myTickets": "My Tickets",
-  "buyTickets": "Buy Tickets",
   "noTickets": "No Tickets Available",
   "select": "Select",
   "role": "Role",

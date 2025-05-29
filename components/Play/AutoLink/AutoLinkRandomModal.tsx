@@ -24,9 +24,11 @@ export default function AutoLinkRandomModal({ isOpen, closeModal, onSave }: Auto
     try {
       setIsSaving(true);
       const updatedConfig = { ...currentConfig };
+      
+      // Atribui a distribuição diretamente, sem cálculos adicionais
       updatedConfig.politikoz = {
         ...updatedConfig.politikoz,
-        random: ticketDistribution // Changed from '-1' to 'random'
+        random: { ...ticketDistribution }
       };
 
       await onSave(updatedConfig);

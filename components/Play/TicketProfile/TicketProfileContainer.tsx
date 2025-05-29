@@ -1,7 +1,7 @@
 "use client";
 
 import { AuthProvider } from "@/providers/AuthProvider";
-import TicketProfileView from "./TicketProfileView";
+import TicketProfile from "./TicketProfile";
 
 interface TicketProfileContainerProps {
   onAuthError?: () => void;
@@ -10,7 +10,7 @@ interface TicketProfileContainerProps {
 export default function TicketProfileContainer({ onAuthError }: TicketProfileContainerProps) {
   return (
     <AuthProvider onAuthError={onAuthError}>
-      <TicketProfileView />
+      <TicketProfile />
     </AuthProvider>
   );
 }

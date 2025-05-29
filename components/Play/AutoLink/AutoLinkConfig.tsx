@@ -15,7 +15,14 @@ import AuthenticatedAction from "@/components/Auth/AuthenticatedAction";
 
 type EntityType = 'party' | 'politikoz' | 'random';
 
-const TICKET_TYPES: TicketType[] = ["BRIBER", "CORRUPT", "FRONTMAN", "LAUNDERER", "LOBBYIST"];
+const TICKET_TYPES: TicketType[] = [
+  "BRIBER", 
+  "CORRUPT", 
+  "FRONTMAN",
+  "FRONTMAN_BOOSTED_ELECTION_ONLY",
+  "LAUNDERER", 
+  "LOBBYIST"
+];
 
 export default function AutoLinkConfig() {
   const t = useTranslations("AutoLink.Config");
@@ -98,7 +105,7 @@ export default function AutoLinkConfig() {
       <AutoLinkProgress usedPercentage={usedPercentage} />
 
       {/* Grid de botões */}
-      <div className="grid grid-cols-2 gap-4 my-4 mt-10">
+      <div className="grid grid-cols-2 gap-4 my-4 mt-4">
         <button 
           onClick={() => setModalType("specificPolitikoz")}
           className="bg-blue-600 text-white py-2 border-2 border-white hover:bg-blue-700"

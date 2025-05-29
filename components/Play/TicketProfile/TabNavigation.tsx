@@ -26,14 +26,11 @@ export default function TabNavigation({ selectedIndex, setSelectedIndex }: TabNa
 
     if (tab.name === "On the Race") {
       filteredTickets = tickets.filter((ticket) => ticket.inElection);
-    } else if (tab.name === "Next Race") {
-      filteredTickets = tickets.filter((ticket) => ticket.nextElection && !ticket.inElection);
     } else {
       filteredTickets = tickets.filter(
         (ticket) => 
           ticket.type.toLowerCase() === tab.name.toLowerCase() && 
-          !ticket.inElection && 
-          !ticket.nextElection
+          !ticket.inElection
       );
     }
 
