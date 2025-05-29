@@ -25,7 +25,6 @@ export default function LaundryView() {
     const section = searchParams.get("section");
     if (section) {
       setSelectedSection(section);
-      // Clean up URL by using proper typed path
       router.replace({
         pathname: "/laundry",
       }, { 
@@ -38,13 +37,13 @@ export default function LaundryView() {
     if (isTourActive) setLocalTourActive(true);
   }, [isTourActive]);
 
-  useEffect(() => {
-    if (selectedSection === "exit") {
-      router.push("/play");
+  const handleSectionSelect = (section: string) => {
+    if (section === "exit") {
+      router.replace("/play");
+      return;
     }
-  }, [selectedSection, router]);
-
-  if (selectedSection === "exit") return null;
+    setSelectedSection(section);
+  };
 
   return (
     <div className="flex flex-col flex-1 w-full bg-[#816346] relative">
@@ -53,9 +52,7 @@ export default function LaundryView() {
           {(selectedSection === null || localTourActive) ? (
             <>
               <MyLaundry />
-              <LaundryButtons 
-                onNavigate={(section) => setSelectedSection(section)} 
-              />
+              <LaundryButtons onNavigate={handleSectionSelect} />
             </>
           ) : (
             <div className="w-full flex flex-col items-center p-4">

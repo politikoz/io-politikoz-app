@@ -24,13 +24,11 @@ export default function HallView() {
     }
   }, [isTourActive]);
 
-  useEffect(() => {
-    if (selectedSection === "exit") {
-      router.push("/play");
-    }
-  }, [selectedSection, router]);
-
   const handleSectionSelect = (section: string) => {
+    if (section === "exit") {
+      router.replace("/play");
+      return;
+    }
     if (section === "tour-politikoz") {
       activateTour();
       router.push("/hall");
@@ -38,8 +36,6 @@ export default function HallView() {
     }
     setSelectedSection(section);
   };
-
-  if (selectedSection === "exit") return null;
 
   return (
     <div className="flex flex-col flex-1 w-full bg-[#816346] relative">

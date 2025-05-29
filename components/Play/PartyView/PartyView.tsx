@@ -24,13 +24,13 @@ export default function PartyView() {
     }
   }, [isTourActive]);
 
-  useEffect(() => {
-    if (selectedSection === "exit") {
-      router.push("/play");
+  const handleSectionSelect = (section: string) => {
+    if (section === "exit") {
+      router.replace("/play");
+      return;
     }
-  }, [selectedSection, router]);
-
-  if (selectedSection === "exit") return null;
+    setSelectedSection(section);
+  };
 
   return (
     <div className="flex flex-col flex-1 w-full bg-[#816346] relative">
@@ -39,7 +39,7 @@ export default function PartyView() {
           {(selectedSection === null || localTourActive) ? (
             <>
               <MyParty />
-              <PartyButtons onNavigate={setSelectedSection} />
+              <PartyButtons onNavigate={handleSectionSelect} />
             </>
           ) : (
             <div className="w-full flex flex-col items-center p-4">

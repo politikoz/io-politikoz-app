@@ -19,11 +19,13 @@ export default function NewsView() {
     if (isTourActive) setLocalTourActive(true);
   }, [isTourActive]);
 
-  useEffect(() => {
-    if (selectedSection === "exit") router.push("/play");
-  }, [selectedSection, router]);
-
-  if (selectedSection === "exit") return null;
+  const handleSectionSelect = (section: string) => {
+    if (section === "exit") {
+      router.replace("/play");
+      return;
+    }
+    setSelectedSection(section);
+  };
 
   return (
     <div className="flex flex-col flex-1 w-full bg-[#816346] relative">
@@ -32,7 +34,7 @@ export default function NewsView() {
           {(selectedSection === null || localTourActive) ? (
             <>
               <MyNews />
-              <NewsButtons onNavigate={setSelectedSection} />
+              <NewsButtons onNavigate={handleSectionSelect} />
             </>
           ) : (
             <div className="w-full flex flex-col items-center p-4">

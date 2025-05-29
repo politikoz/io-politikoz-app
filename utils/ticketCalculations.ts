@@ -6,10 +6,7 @@ export function calculateTickets(adaAmount: number, policyData: TicketPolicyData
     quantity: Math.floor(adaAmount / value)
   }));
 
-  const estimatedKozRewards = adaAmount * policyData.kozRewardRate;
-
   return {
-    tickets,
-    estimatedKozRewards
+    tickets
   };
 }

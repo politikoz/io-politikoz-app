@@ -57,16 +57,6 @@ export default function TicketCalculator({ policyData }: Props) {
               </li>
             ))}
           </ul>
-          {calculation.estimatedKozRewards > 0 && (
-            <div className="mt-4 p-4 bg-green-900 border-2 border-green-500 rounded shadow-md">
-              <h5 className="text-md font-bold text-green-300 mb-1">💰 {t("bonusTitle")}</h5>
-              <p className="text-sm">
-                {t("bonusMessage", {
-                  amount: calculation.estimatedKozRewards,
-                })}
-              </p>
-            </div>
-          )}
         </div>
       )}
     </div>
