@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Image from "next/image";
-import LinkTicketsModal from "./LinkTicketsModal";
 import { useTranslations } from "next-intl";
 
 interface PolitikozTicketsProps {
@@ -16,10 +15,19 @@ export default function PolitikozTickets({
   lobbyist,
   launderer,
   briber,
-  frontman,
+  frontman
 }: PolitikozTicketsProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const t = useTranslations("PolitikozProfile");
+
+  // Set all ticket values to 0
+  const ticketValues = {
+    corrupt: 0,
+    lobbyist: 0,
+    launderer: 0,
+    briber: 0,
+    frontman: 0,
+  };
 
   return (
     <div className="relative flex flex-col items-center w-full">
@@ -36,11 +44,11 @@ export default function PolitikozTickets({
 
         <div className="flex justify-center w-full gap-4 flex-wrap">
           {[
-            { image: "/images/assets/frontman.png", label: "Frontman", value: frontman },
-            { image: "/images/assets/corrupt.png", label: "Corrupt", value: corrupt },
-            { image: "/images/assets/lobbyist.png", label: "Lobbyist", value: lobbyist },
-            { image: "/images/assets/briber.png", label: "Briber", value: briber },
-            { image: "/images/assets/launderer.png", label: "Launderer", value: launderer },            
+            { image: "/images/assets/frontman.png", label: "Frontman", value: ticketValues.frontman },
+            { image: "/images/assets/corrupt.png", label: "Corrupt", value: ticketValues.corrupt },
+            { image: "/images/assets/lobbyist.png", label: "Lobbyist", value: ticketValues.lobbyist },
+            { image: "/images/assets/briber.png", label: "Briber", value: ticketValues.briber },
+            { image: "/images/assets/launderer.png", label: "Launderer", value: ticketValues.launderer },            
           ].map((ticket, index) => (
             <div key={index} className="flex flex-col items-center w-[18%] min-w-[100px]">
               <div className="border-4 border-white bg-gray-300 w-[120px] h-[120px] md:w-[132px] md:h-[132px] shadow-[4px_4px_0px_black] flex items-center justify-center">
@@ -62,14 +70,18 @@ export default function PolitikozTickets({
         </div>
 
         <button
-          onClick={() => setIsModalOpen(true)}
-          className="mt-3 border-2 border-white px-6 py-2 bg-blue-600 text-white text-xs md:text-sm font-['Press_Start_2P'] shadow-[4px_4px_0px_black] hover:bg-blue-700 transition w-1/2"
+          disabled
+          className="mt-3 border-2 border-white px-6 py-2 bg-gray-600 text-white text-xs md:text-sm font-['Press_Start_2P'] shadow-[4px_4px_0px_black] w-1/2 opacity-50 cursor-not-allowed relative"
         >
           {t("linkTickets")}
+          <span className="absolute -bottom-5 left-1/2 transform -translate-x-1/2 text-[8px] text-red-400">
+            {t("comingSoon")}
+          </span>
         </button>
       </div>
 
-      {isModalOpen && <LinkTicketsModal onClose={() => setIsModalOpen(false)} />}
+      {/* Remove or comment out the modal since it's not being used */}
+      {/* {isModalOpen && <LinkTicketsModal onClose={() => setIsModalOpen(false)} />} */}
     </div>
   );
 }

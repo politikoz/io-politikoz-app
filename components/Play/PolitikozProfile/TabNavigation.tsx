@@ -12,7 +12,7 @@ const renderCustomLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent
   const y = cy + radius * Math.sin(-midAngle * Math.PI / 180);
 
   return percent > 0 ? (
-    <text x={x} y={y} fill="white" textAnchor="middle" dominantBaseline="middle" style={{ fontSize: '10px' }}>
+    <text x={x} y={y} fill="black" textAnchor="middle" dominantBaseline="middle" style={{ fontSize: '10px' }}>
       {name}
     </text>
   ) : null;

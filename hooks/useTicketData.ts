@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import api from '@/app/lib/api';
-import { Ticket, INITIAL_TICKET_DATA } from '@/types/TicketData';
+import { Ticket } from '@/types/TicketData';
 
 export function useTicketData() {
   const stakeAddress = localStorage.getItem('stakeAddress');
@@ -17,7 +17,6 @@ export function useTicketData() {
       });
       return response.data;
     },
-    initialData: INITIAL_TICKET_DATA,
     staleTime: 0,
     refetchOnWindowFocus: true,
     retry: 2,

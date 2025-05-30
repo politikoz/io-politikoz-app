@@ -25,7 +25,8 @@ interface WalletContextType {
     adaAmount: number, 
     kozAmount: number,
     tierId: number, // Add tierId parameter
-    setTxStatus: React.Dispatch<React.SetStateAction<TransactionStatus | null>>
+    setTxStatus: React.Dispatch<React.SetStateAction<TransactionStatus | null>>,
+    referralCode?: string // Add optional referral code
   ) => Promise<{ success: boolean; error?: string; txHash?: string; swapHistory?: SwapHistoryDTO }>;
   handleAcceptSwap: (txHash: string, swapId: number) => Promise<{ success: boolean; error?: string }>;
   handleCancelSwap: (txHash: string, swapId: number) => Promise<{ success: boolean; error?: string; txHash?: string }>;
@@ -33,6 +34,10 @@ interface WalletContextType {
     ticketAmount: number,
     kozAmount: number,
     serviceFee: number
+  ) => Promise<{ success: boolean; error?: string; txHash?: string }>;
+  handleReleasePrisoner: (
+    kozAmount: number,
+    assetNames: string[]
   ) => Promise<{ success: boolean; error?: string; txHash?: string }>;
 }
 
@@ -164,7 +169,8 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
     adaAmount: number, 
     kozAmount: number,
     tierId: number,
-    setTxStatus: React.Dispatch<React.SetStateAction<TransactionStatus | null>>
+    setTxStatus: React.Dispatch<React.SetStateAction<TransactionStatus | null>>,
+    referralCode?: string // Add optional referral code
 ): Promise<{ success: boolean; error?: string; txHash?: string; swapHistory?: SwapHistoryDTO }> => {
     let submittedTxHash: string | undefined;
     let swapHistory: SwapHistoryDTO | undefined;
@@ -245,7 +251,8 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
             transactionHash: txHash,
             tier: tierId, // Pass number directly
             ada: adaAmount.toString(),
-            koz: kozAmount.toString()
+            koz: kozAmount.toString(),
+            referralCode // Include referral code in API call
           });
 
           swapHistory = response || undefined;
@@ -452,6 +459,109 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
     }
   };
 
+  const handleReleasePrisoner = async (
+    kozAmount: number,
+    assetNames: string[]
+  ): Promise<{ success: boolean; error?: string; txHash?: string }> => {
+    try {
+      if (!wallet || !isConnected) {
+        return {
+          success: false,
+          error: 'walletNotConnected'
+        };
+      }
+
+      const lovelace = await wallet.getLovelace();
+      const adaBalance = parseInt(lovelace) / 1_000_000;
+      
+      if (adaBalance < 1) {
+        return {
+          success: false,
+          error: 'insufficientAda'
+        };
+      }
+
+      const utxos = await wallet.getUtxos();
+      const changeAddress = await wallet.getChangeAddress();
+      const serviceFeeQuantity = "1000000";
+      const kozQuantity = kozAmount.toString();
+
+      try {
+        const txBuilder = new MeshTxBuilder({
+          fetcher: provider,
+          submitter: provider,
+          verbose: true,
+        });
+
+        const unsignedTx = await txBuilder
+          .txOut(process.env.NEXT_PUBLIC_TICKET_TREASURY || '', [
+            { 
+              unit: process.env.NEXT_PUBLIC_KOZ_TOKEN_UNIT || '', 
+              quantity: kozQuantity 
+            }
+          ])
+          .txOut(process.env.NEXT_PUBLIC_TICKET_TREASURY || '', [
+            { 
+              unit: "lovelace", 
+              quantity: serviceFeeQuantity 
+            }
+          ])    
+          .changeAddress(changeAddress)
+          .selectUtxosFrom(utxos)
+          .complete();
+
+        const signedTx = await wallet.signTx(unsignedTx);
+
+        if (!signedTx) {
+          return {
+            success: false,
+            error: 'transactionDeclined'
+          };
+        }
+
+        const txHash = await wallet.submitTx(signedTx);
+
+        return {
+          success: true,
+          txHash
+        };
+
+      } catch (txError: any) {
+        if (
+          txError?.message?.includes('UTxO Balance Insufficient') || 
+          txError?.error?.failure === 'UTxO Balance Insufficient'
+        ) {
+          return {
+            success: false,
+            error: 'insufficientFunds'
+          };
+        }
+
+        if (txError?.message?.includes('declined') || txError?.message?.includes('rejected')) {
+          return {
+            success: false,
+            error: 'transactionDeclined'
+          };
+        }
+
+        throw txError;
+      }
+
+    } catch (error: any) {
+      if (error?.message?.includes('UTxO Balance Insufficient')) {
+        return {
+          success: false,
+          error: 'insufficientFunds'
+        };
+      }
+
+      return {
+        success: false,
+        error: 'transactionFailed'
+      };
+    }
+  };
+
   // Sync wallet state on mount and when mesh connection changes
   useEffect(() => {
     const syncWalletState = async () => {
@@ -488,6 +598,7 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
     handleAcceptSwap,
     handleCancelSwap,
     handleBuyTickets,
+    handleReleasePrisoner,
   };
 
   return (

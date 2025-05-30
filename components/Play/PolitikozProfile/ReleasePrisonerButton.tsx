@@ -2,14 +2,16 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import ReleasePrisonerModal from "./ReleasePrisonerModal";
+import { ReleasePrisonerModalContainer } from "./ReleasePrisonerModalContainer";
 
 interface ReleasePrisonerButtonProps {
   prisonerName: string;
   onRelease: (releaseAll: boolean) => void;
-  releaseCost: number; // Novo campo
-  prisonEpochs: number; // Renomeado
-  totalImprisoned: number;
+  releaseCost: number;
+  prisonEpochs: number;
+  totalPrisoners: number;
+  totalReleaseCost: number;
+  assetNames: string[];
 }
 
 export default function ReleasePrisonerButton({
@@ -17,10 +19,17 @@ export default function ReleasePrisonerButton({
   onRelease,
   releaseCost,
   prisonEpochs,
-  totalImprisoned
+  totalPrisoners,
+  totalReleaseCost,
+  assetNames
 }: ReleasePrisonerButtonProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const t = useTranslations("PolitikozProfile");
+
+  const handleRelease = (releaseAll: boolean) => {
+    onRelease(releaseAll);
+    setIsModalOpen(false);
+  };
 
   return (
     <>
@@ -31,17 +40,16 @@ export default function ReleasePrisonerButton({
         {t("release")}
       </button>
 
-      <ReleasePrisonerModal
+      <ReleasePrisonerModalContainer
         isOpen={isModalOpen}
         prisonerName={prisonerName}
-        baseCostPerEpoch={releaseCost}
-        imprisonmentEpochs={prisonEpochs}
-        totalImprisoned={totalImprisoned}
         onClose={() => setIsModalOpen(false)}
-        onConfirm={(releaseAll: boolean) => {
-          onRelease(releaseAll);
-          setIsModalOpen(false);
-        }}
+        onConfirm={handleRelease}
+        releaseCost={releaseCost}
+        prisonEpochs={prisonEpochs}
+        totalPrisoners={totalPrisoners}
+        totalReleaseCost={totalReleaseCost}
+        assetNames={assetNames}
       />
     </>
   );

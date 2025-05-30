@@ -21,9 +21,10 @@ export default function PolitikozPower({
   return (
     <div className="relative flex flex-col items-center w-full">
       <div className="absolute -top-3 left-0">
-        <div className="border-2 border-white bg-gray-800 shadow-[2px_2px_0px_black] px-3 py-0.5 ">
-          <span className="text-white text-[8px] md:text-[10px] font-['Press_Start_2P'] tracking-widest">
+        <div className="border-2 border-white bg-gray-800 shadow-[2px_2px_0px_black] px-3 py-0.5">
+          <span className="text-white text-[8px] md:text-[10px] font-['Press_Start_2P'] tracking-widest flex items-center gap-2">
             {t("power")}
+            <span className="text-red-400">{t("comingSoon")}</span>
           </span>
         </div>
       </div>

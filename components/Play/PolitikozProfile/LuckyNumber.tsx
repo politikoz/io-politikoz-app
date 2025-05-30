@@ -2,22 +2,26 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import LuckyNumberModal from "./LuckyNumberModal";
 import { useTranslations } from "next-intl";
+import AuthenticatedAction from "@/components/Auth/AuthenticatedAction";
 
 interface LuckyNumberProps {
   value: string;
   readonly: boolean;
+  assetName: string;
   onChange?: (newValue: number, applyToAll: boolean) => void;
+  allPolitikozIds: string[]; // Changed from number[] to string[]
 }
 
-export default function LuckyNumber({ value, readonly, onChange }: LuckyNumberProps) {
+export default function LuckyNumber({ value, readonly, assetName, onChange, allPolitikozIds }: LuckyNumberProps) {
   const t = useTranslations("PolitikozProfile");
-
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [currentLuckyNumber, setCurrentLuckyNumber] = useState(value);
+  const [currentLuckyNumber, setCurrentLuckyNumber] = useState(value.padStart(2, '0'));
 
   useEffect(() => {
-    setCurrentLuckyNumber(value);
+    setCurrentLuckyNumber(value.padStart(2, '0'));
   }, [value]);
+
+  const closeModal = () => setIsModalOpen(false);
 
   return (
     <>
@@ -34,7 +38,7 @@ export default function LuckyNumber({ value, readonly, onChange }: LuckyNumberPr
         </div>
 
         <span className="text-md font-bold text-green-400 font-['Press_Start_2P']">
-          {currentLuckyNumber}
+          {currentLuckyNumber.padStart(2, '0')}
         </span>
 
         {!readonly && (
@@ -47,16 +51,24 @@ export default function LuckyNumber({ value, readonly, onChange }: LuckyNumberPr
         )}
       </div>
 
-      <LuckyNumberModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        currentValue={currentLuckyNumber}
-        onSave={(newValue, applyToAll) => {
-          onChange?.(newValue, applyToAll);
-          setCurrentLuckyNumber(newValue.toString());
-          setIsModalOpen(false);
-        }}
-      />
+      {isModalOpen && (
+        <AuthenticatedAction onCancel={closeModal}>
+          <LuckyNumberModal
+            isOpen={true}
+            onClose={() => {
+              setIsModalOpen(false);
+            }}
+            currentValue={currentLuckyNumber.padStart(2, '0')}
+            assetName={assetName}
+            allPolitikozIds={allPolitikozIds} // Remove the map to String, keep as is
+            onSave={(newValue, applyToAll) => {
+              const formattedValue = newValue.toString().padStart(2, '0');
+              onChange?.(newValue, applyToAll);
+              setCurrentLuckyNumber(formattedValue);
+            }}
+          />
+        </AuthenticatedAction>
+      )}
     </>
   );
 }

@@ -12,6 +12,5 @@ export interface Politikoz {
   prisonEpochs: number;
   releaseCost: number;
   imprisoned: boolean;
+  releaseDate: string; // Add this new field
 }
-
-export const INITIAL_POLITIKOZ_DATA: Politikoz[] = [];

@@ -22,6 +22,7 @@ export interface CreateSwapDTO {
     tier: number;
     ada: string;
     koz: string;
+    referralCode?: string; // Add optional referral code
 }
 
 export interface UpdateSwapStatusDTO {

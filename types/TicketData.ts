@@ -9,5 +9,3 @@ export interface Ticket {
   estimatedEarnings: number;
   singleUse: boolean;
 }
-
-export const INITIAL_TICKET_DATA: Ticket[] = [];

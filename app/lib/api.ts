@@ -19,7 +19,8 @@ const api = axios.create({
 const SECURE_ENDPOINTS = [
     '/office/tickets/config',
     '/office/tickets/lucky-number',
-    '/api/v1/auth/wallet'
+    '/party/politikoz/lucky-number',
+    '/auth/wallet'
 ];
 
 // Request interceptor for adding JWT

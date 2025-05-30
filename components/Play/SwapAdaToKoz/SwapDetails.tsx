@@ -13,6 +13,8 @@ interface SwapDetailsProps {
     error?: string;
     message?: string; // Add this line
     min?: number;
+    referralCode?: string;
+    onReferralCodeChange: (code: string) => void;
 }
 
 export default function SwapDetails({ 
@@ -23,7 +25,9 @@ export default function SwapDetails({
     isLoading,
     error,
     message,
-    min = 200
+    min = 200,
+    referralCode,
+    onReferralCodeChange
 }: SwapDetailsProps) {
     const t = useTranslations("Swap");
     const serviceFee = 0.5;
@@ -122,9 +126,34 @@ export default function SwapDetails({
                 </div>
             )}
 
-            {/* Transaction Details */}
             <div className="bg-gray-800 rounded-lg p-4 border border-gray-700">
                 <div className="space-y-4">
+                    {/* Referral Code Input with Bonus Info */}
+                    <div className="flex flex-col space-y-2">
+                        <label htmlFor="referralCode" className="text-sm text-gray-400">
+                            {t("transactionDetails.referralCode")} ({t("transactionDetails.optional")})
+                        </label>
+                        <div className="space-y-2">
+                            <input
+                                id="referralCode"
+                                type="text"
+                                value={referralCode}
+                                onChange={(e) => onReferralCodeChange(e.target.value)}
+                                placeholder={t("transactionDetails.enterReferralCode")}
+                                className="w-full bg-gray-700 border border-gray-600 rounded px-3 py-2 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-yellow-500"
+                                maxLength={20}
+                            />
+                            {referralCode && (
+                                <div className="text-xs text-green-400 flex items-center gap-1 pl-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                    </svg>
+                                    {t("transactionDetails.referralBonus", { amount: 5 })}
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                    
                     <div>
                         <div className="flex justify-between items-center mb-3">
                             <h4 className="text-sm font-semibold text-yellow-400">

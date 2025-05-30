@@ -38,6 +38,7 @@ export default function SwapAdaToKoz() {
   const [kozAmount, setKozAmount] = useState(0);
   const [adaAmount, setAdaAmount] = useState(0);
   const [txStatus, setTxStatus] = useState<TransactionStatus | null>(null);
+  const [referralCode, setReferralCode] = useState<string>("");
   const isMounted = useRef(false);
   const MIN_KOZ_AMOUNT = 200;
   const [showHistory, setShowHistory] = useState(false);
@@ -146,8 +147,9 @@ export default function SwapAdaToKoz() {
         const { success, error, txHash, swapHistory } = await handleSubmitSwap(
             adaAmount, 
             kozAmount,
-            tiersDashboard.currentTier.id, // Pass tier ID as number
-            setTxStatus
+            tiersDashboard.currentTier.id,
+            setTxStatus,
+            referralCode // Add referral code to swap submission
         );
         
         if (success && txHash && swapHistory) {
@@ -300,6 +302,8 @@ export default function SwapAdaToKoz() {
                 isLoading={isLoading}
                 error={error || undefined}
                 message={txStatus?.message}
+                referralCode={referralCode}
+                onReferralCodeChange={setReferralCode}
               />
               
               <SwapSummary

@@ -61,7 +61,13 @@ export default function ProfileCard({
             <History history={historic || []} />
           </>
         ) : (
-          <PolitikozTickets corrupt={5} lobbyist={3} launderer={7} briber={2} frontman={4} />
+          <PolitikozTickets
+            corrupt={0}
+            lobbyist={0}
+            launderer={0}
+            briber={0}
+            frontman={0}
+          />
         )}
       </div>
     </div>

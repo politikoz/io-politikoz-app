@@ -4,12 +4,12 @@ import { useState, useEffect } from "react";
 import { useRouter } from "@/i18n/routing";
 import MyParty from "@/components/Play/InsideBuilding/MyParty";
 import TourManager from "../Tour/TourManager";
-import PolitikozProfileView from "../PolitikozProfile/PolitikozProfile";
 import CreateParty from "./CreateParty";
 import PartyButtons from "@/components/Play/PartyView/PartyButtons";
 import GovernanceSettings from "../GovernanceSettings/GovernanceSettings";
 import { useTour } from "@/contexts/TourContext";
 import { useTranslations } from "next-intl";
+import PolitikozProfileContainer from "../PolitikozProfile/PolitikozProfileContainer";
 
 export default function PartyView() {
   const [selectedSection, setSelectedSection] = useState<null | string>(null);
@@ -51,7 +51,7 @@ export default function PartyView() {
               </button>
 
               {selectedSection === "my-party" && <CreateParty />}
-              {selectedSection === "my-politikoz" && <PolitikozProfileView />}
+              {selectedSection === "my-politikoz" && <PolitikozProfileContainer />}
               {selectedSection === "governance-settings" && <GovernanceSettings />}
             </div>
           )}
