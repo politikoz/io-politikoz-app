@@ -15,7 +15,7 @@ const InfoSection: React.FC<InfoSectionProps> = ({ treasury }) => {
   // Dados dos cartões com placeholders traduzidos
   const cardData = [
     { 
-      title: t("cardData.prizes.title", { amount: 600 }), 
+      title: t("cardData.prizes.title", { amount: 350 }), 
       text: t("cardData.prizes.text") 
     },
     { 

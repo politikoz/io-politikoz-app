@@ -172,6 +172,17 @@ export const routing = defineRouting({
       nl: "/arcade",       // Nederlands
       no: "/arkade",       // Norsk
       fil: "/arkada"       // Filipino
+    },
+    "/maintenance": {
+      en: "/maintenance",     // English
+      es: "/mantenimiento",   // Español
+      fr: "/maintenance",     // Français
+      pt: "/manutencao",      // Português
+      de: "/wartung",         // Deutsch
+      it: "/manutenzione",    // Italiano
+      nl: "/onderhoud",       // Nederlands
+      no: "/vedlikehold",     // Norsk
+      fil: "/pagpapanatili"   // Filipino
     }
   }
 });

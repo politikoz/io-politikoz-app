@@ -1,28 +1,22 @@
 "use client";
 
+import { useRouter } from "next/navigation"; // Change this line
 import Background from "./Building/Background";
 import Building from "./Building/Building";
 import Sidewalk from "./Building/Sidewalk";
 import InfoSection from "./InfoSection/InfoSection";
 import ElectionDashboard from "./ElectionDashboard/ElectionDashboard";
-import JoinPolitikozPaths from "./JoinPolitikozPaths/JoinPolitikozPaths";
 import PoweredBy from "./PoweredBy/PoweredBy";
 import { useHomePageData } from "@/hooks/useHomePageData";
+import JoinPolitikozTour from "./JoinPolitikozTour/JoinPolitikozTour";
 
 export default function HomePageClient() {
-
-  // Dados da API da homepage
+  const router = useRouter();
   const { data, error } = useHomePageData();
 
   if (error) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="text-center p-4">
-          <h2 className="text-xl font-bold text-red-600 mb-2">Error</h2>
-          <p className="text-gray-600">{error.message}</p>
-        </div>
-      </div>
-    );
+    router.push('/maintenance'); // Change to push and absolute path
+    return null;
   }
 
   return (
@@ -37,12 +31,13 @@ export default function HomePageClient() {
         </div>
       </div>
 
-      <InfoSection treasury={data.treasury} />
+      
       <ElectionDashboard
         nextElection={data.nextElection}
         lastElection={data.lastElection}
       />
-      <JoinPolitikozPaths />
+      <InfoSection treasury={data.treasury} />
+      <JoinPolitikozTour />
       <PoweredBy />
     </main>
   );

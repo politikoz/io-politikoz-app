@@ -32,7 +32,9 @@ const PoweredBy: React.FC = () => {
   return (
     <div
       className="w-full bg-[#1c1c1c] text-white py-6 px-4 relative"
-      style={{ boxShadow: "0 -4px 6px rgba(0, 0, 0, 0.2)" }}
+      style={{ background: "linear-gradient(to bottom, #3b3b3b, #505050)",
+        boxShadow: "inset 0px 4px 6px rgba(0, 0, 0, 0.5)", // Efeito de profundidade
+      }}
     >
       {/* Título */}
       <h2 className="text-center text-lg font-bold mb-4 font-pixel">{poweredBy}</h2>

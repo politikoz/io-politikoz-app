@@ -1,20 +1,14 @@
-// app/layout.tsx
-
-import './globals.css';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
-import { Header } from '@/components/Header/Header';
-import Footer from '@/components/Footer/Footer';
 import { SupportedLocales } from "@/i18n/routing";
 import { ClientProviders } from '@/providers/ClientProviders';
-import ConsentBanner from "@/components/Legal/ConsentBanner";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export default async function LocaleLayout({
+export default async function MaintenanceLayout({
   children,
   params,
 }: {
@@ -23,7 +17,6 @@ export default async function LocaleLayout({
 }) {
   const resolvedParams = await params;
   const { locale } = resolvedParams;
-  
 
   if (!routing.locales.includes(locale)) {
     notFound();
@@ -35,12 +28,7 @@ export default async function LocaleLayout({
     <html lang={locale}>
       <body className="flex flex-col min-h-screen bg-gray-100 text-gray-900">
         <ClientProviders locale={locale} messages={messages}>
-          <ConsentBanner />
-          <Header />
-          <main className="flex flex-col flex-1">
-            {children}
-          </main>
-          <Footer />          
+          {children}
         </ClientProviders>
       </body>
     </html>

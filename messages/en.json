@@ -47,23 +47,120 @@
     "prize": "Prize",
 	"user": "User"   
 },
+"Consent": {
+    "message": "By using this site you are agreeing to the",
+    "termsLink": "Terms and Conditions",
+    "and": "and",
+    "privacyLink": "Privacy Policy"
+  },
+  "Privacy": {
+    "title": "Privacy Policy",
+    "close": "Close",
+    "sections": {
+      "intro": {
+        "title": "Introduction",
+        "content": "This Privacy Policy explains how Politikoz collects, uses, and protects information from users of our platform, applications, tokens, and related services. By using our services, you agree to these practices."
+      },
+      "collection": {
+        "title": "1. Information We Collect",
+        "content": "We collect and process the following types of information:",
+        "points": {
+          "wallet": "Wallet addresses and blockchain transactions",
+          "usage": "Usage data and platform interactions",
+          "cookies": "Cookies and similar technologies for platform functionality"
+        }
+      },
+      "usage": {
+        "title": "2. How We Use Your Information",
+        "content": "We use the collected information to:",
+        "points": {
+          "service": "Provide and maintain our services",
+          "improve": "Improve and optimize platform functionality",
+          "security": "Ensure platform security and prevent fraud",
+          "communication": "Send essential updates about the platform"
+        }
+      },
+      "sharing": {
+        "title": "3. Information Sharing",
+        "content": "We do not sell your personal information. We may share data:",
+        "points": {
+          "providers": "With service providers that help operate our platform",
+          "legal": "When required by law or to protect our rights",
+          "aggregated": "In anonymized, aggregated form for analytics"
+        }
+      },
+      "security": {
+        "title": "4. Data Security",
+        "content": "We implement appropriate security measures to protect your information. However, no internet transmission is completely secure, and we cannot guarantee absolute security."
+      },
+      "rights": {
+        "title": "5. Your Rights",
+        "content": "You have the right to:",
+        "points": {
+          "access": "Access your personal information",
+          "correct": "Request corrections to your data",
+          "delete": "Request deletion of your data",
+          "object": "Object to certain data processing"
+        }
+      },
+      "contact": {
+        "title": "6. Contact Information",
+        "content": "For questions about this policy, please contact us through our official channels listed on the website."
+      }
+    }
+  },
+"Terms": {
+    "title": "Terms and Conditions",
+    "close": "Close",
+    "sections": {
+      "intro": {
+        "title": "1. Introduction",
+        "content": "These Terms and Conditions govern your use of Politikoz and its associated KOZ token, applications, and services. By using our platform, you agree to these terms."
+      },
+      "token": {
+        "title": "2. KOZ Token",
+        "content": "The KOZ token is a utility token that serves multiple purposes within the Politikoz ecosystem:",
+        "points": {
+          "utility": "Platform access and feature unlocking",
+          "governance": "Participation in governance decisions",
+          "rewards": "Earning rewards through platform activities"
+        }
+      },
+      "disclaimers": {
+        "title": "3. Disclaimers",
+        "content": "KOZ tokens are utility tokens intended for use within the Politikoz platform. They are not securities, investments, or financial instruments. Users should not expect financial returns from holding KOZ tokens."
+      },
+      "responsibilities": {
+        "title": "4. User Responsibilities",
+        "points": {
+          "compliance": "Users must comply with all applicable laws and regulations in their jurisdiction",
+          "security": "Users are responsible for maintaining the security of their wallets and private keys",
+          "conduct": "Users must engage with the platform in good faith and avoid any malicious activities"
+        }
+      },
+      "contact": {
+        "title": "5. Contact Information",
+        "content": "For questions about these terms, please contact us through our official channels listed on the website."
+      }
+    }
+  },
 "InfoSection": {
 "cardData": {
     "prizes": {
-      "title": "+{amount} ADA MONTHLY",
-      "text": "Regular Prizes 💎"
+      "title": "MONTHLY PRIZES",
+      "text": "Starting at 350 ADA 💎"
     },
     "freeEntries": {
       "title": "FREE ENTRIES",
-      "text": "Join with No Cost 🎟️"
+      "text": "Stake or Engage 🤝"
     },
     "auditable": {
       "title": "100% AUDITABLE",
       "text": "Verifiable by All 🔍"
     },
     "treasury": {
-      "title": "+{treasury} ADA POT",
-      "text": "Win Your Share 🎯"
+      "title": "32k ADA TREASURY",
+      "text": "To be drawn in 5 🎯"
     }
   },
   "learnMore": "Learn More on Gitbook"
@@ -576,7 +673,46 @@
       "tryAgain": "Try Again"
     }
   },
-
+  "JoinPolitikozTour": {
+    "title": "Take Our Budget-Optimized Tour™",
+    "description": "A semi-guided tour through Politikoz, powered by recycled code and final coffee reserves! Complete the tour to spin our definitely-not-vibe-coding-generated reward wheel.",
+    "startTourButton": "Start Quick Tour",
+    "rewardLabel": "Maybe Win FREE ENTRIES!*",
+    "disclaimer": "*Reward subject to bureaucratic approval"
+  },
+"Maintenance": {
+    "messages": {
+      "budgetReallocation": {
+        "title": "Budget Reallocated",
+        "description": "Our server budget was mysteriously allocated to a new 'swimming pool study'. We're currently investigating why dolphins need luxury spa treatments. Back soon! 🏊‍♂️"
+      },
+      "coffeeCrisis": {
+        "title": "Emergency Coffee Break",
+        "description": "Our servers are on strike after discovering their maintenance budget was spent on golden doorknobs for the IT department. We're negotiating with premium coffee beans. ☕"
+      },
+      "secretMeeting": {
+        "title": "Secret Meeting",
+        "description": "Systems temporarily down while our servers attend a mandatory 'cheese tasting workshop' in Switzerland. They claim it's essential for network performance. 🧀"
+      },
+      "budgetOptimization": {
+        "title": "Budget Optimization",
+        "description": "Our hosting provider discovered their funds were invested in a 'lunar real estate project'. We're waiting for the next full moon to recover our services. 🌕"
+      },
+      "investigation": {
+        "title": "Technical Investigation",
+        "description": "Servers are participating in a congressional hearing about why they need RGB lighting for better performance. We expect to be back after the bureaucracy. 💼"
+      }
+    },
+    "disclaimer": "Don't worry, we're just kidding! We'll be back online shortly after some quick maintenance. 😉",
+        "retrying": "🤞 Attempting a Political Maneuver... 🤞",
+    "retryButtons": {
+      "bribeButton": "🤫 Attempt to Bribe the Server",
+      "blackmailButton": "📸 Blackmail with Server Photos",
+      "lobbyButton": "🤝 Lobby for System Access",
+      "negotiateButton": "💼 Negotiate with Bureaucrats",
+      "pleadButton": "🙏 Plead the Fifth and Retry"
+    }
+  },
   "PolitikozProfile": {
     "MarketListings": {
       "title": "Available in Jpg.store",

@@ -1,6 +1,5 @@
 import React from "react";
 import FooterIcons from "./FooterIcons";
-import FooterLinks from "./FooterLinks";
 import FooterSupportButton from "./FooterSupportButton";
 import FooterCopyright from "./FooterCopyright";
 
@@ -13,20 +12,11 @@ const FooterMobile: React.FC = () => {
       {/* Separator */}
       <div className="w-full h-px bg-gray-700"></div>
 
-      {/* Links and Support Button Section */}
+      {/* Support Button and Copyright Section */}
       <div className="flex items-center justify-between">
-        {/* Links Section (Left-aligned) */}
-        <FooterLinks />
-
-        {/* Support Button (Right-aligned) */}
         <FooterSupportButton />
+        <FooterCopyright />
       </div>
-
-      {/* Separator */}
-      <div className="w-full h-px bg-gray-700"></div>
-
-      {/* Copyright Section */}
-      <FooterCopyright />
     </div>
   );
 };
