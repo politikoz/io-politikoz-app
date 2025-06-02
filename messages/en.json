@@ -663,7 +663,9 @@
       "position": "Position",
       "you": "YOU",
       "youGet": "Lobbyists",
-      "theyGet": "Launderers"
+      "theyGet": "Launderers",
+      "youReceive": "YOU RECEIVE",
+      "theyReceive": "THEY RECEIVE"
     },
     "backToParty": "← Back to Party",
     "buttons": {

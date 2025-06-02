@@ -13,9 +13,17 @@ interface PartyInfoProps {
   referralRanking: ReferralRanking[];
 }
 
-const ReferralRewardCard = ({ icon, amount, label }: { icon: string; amount: string; label: string }) => (
+const ReferralRewardCard = ({ 
+  amount, 
+  label, 
+  recipient 
+}: { 
+  amount: string; 
+  label: string;
+  recipient: string;
+}) => (
   <div className="flex flex-col items-center justify-center bg-gray-700 p-2 rounded-md">
-    <span className="text-sm font-['Press_Start_2P']">{icon}</span>
+    <span className="text-yellow-300 text-xs mb-1 font-['Press_Start_2P']">{recipient}</span>    
     <span className="text-yellow-300 text-sm font-['Press_Start_2P']">{amount}</span>
     <span className="text-white text-xs font-['Press_Start_2P']">{label}</span>
   </div>
@@ -116,8 +124,16 @@ export default function PartyInfo({ party, referralRanking }: PartyInfoProps) {
             </button>
           </div>
           <div className="grid grid-cols-2 gap-2 mt-4">
-            <ReferralRewardCard icon="🎁" amount="5x" label={t("youGet")} />
-            <ReferralRewardCard icon="🤝" amount="5x" label={t("theyGet")} />
+            <ReferralRewardCard 
+              amount="5x" 
+              label={t("youGet")} 
+              recipient={t("youReceive")} 
+            />
+            <ReferralRewardCard 
+              amount="5x" 
+              label={t("theyGet")} 
+              recipient={t("theyReceive")} 
+            />
           </div>
         </div>
 
@@ -129,9 +145,9 @@ export default function PartyInfo({ party, referralRanking }: PartyInfoProps) {
             {t("rankingDescription")}
           </p>
           <div className="grid grid-cols-3 gap-2 mb-4">
-            <ReferralRewardCard icon="🥇" amount="5000" label="KOZ" />
-            <ReferralRewardCard icon="🥈" amount="2500" label="KOZ" />
-            <ReferralRewardCard icon="🥉" amount="1250" label="KOZ" />
+            <ReferralRewardCard amount="5000" label="KOZ" recipient="1st" />
+            <ReferralRewardCard amount="2500" label="KOZ" recipient="2nd" />
+            <ReferralRewardCard amount="1250" label="KOZ" recipient="3rd" />
           </div>
           <div className="space-y-2">
             {rankingsToShow.map((rank, index) => (
