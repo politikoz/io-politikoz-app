@@ -7,8 +7,8 @@ export interface PartyInfo {
 }
 
 export interface ReferralRanking {
-  partyAcronym: string;  // Changed from referralCode
-  count: number;
+  partyAcronym: string;
+  kozAmount: number; // Changed from count to kozAmount
   position: number;
   isPartyReferral: boolean;
 }

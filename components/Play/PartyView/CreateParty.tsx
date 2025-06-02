@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import PartyFlag from "./PartyFlag";
 import { useTranslations } from "next-intl";
 import { useCreateParty } from "@/hooks/useCreateParty";
@@ -15,8 +15,19 @@ export default function CreateParty({ availableColors }: CreatePartyProps) {
   const [partySigla, setPartySigla] = useState("");
   const [partyName, setPartyName] = useState("");
   const [selectedColor, setSelectedColor] = useState(availableColors[0] || "");
+  const [error, setError] = useState<string | null>(null);
   
   const createPartyMutation = useCreateParty();
+
+  // Add validation helper
+  const isFormValid = useMemo(() => {
+    return (
+      partySigla.trim().length > 0 && 
+      partyName.trim().length > 0 && 
+      selectedColor && 
+      !createPartyMutation.isPending
+    );
+  }, [partySigla, partyName, selectedColor, createPartyMutation.isPending]);
 
   const handleSiglaChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 4);
@@ -28,14 +39,15 @@ export default function CreateParty({ availableColors }: CreatePartyProps) {
     if (!stakeAddress) return;
 
     try {
+      setError(null);
       await createPartyMutation.mutateAsync({
         acronym: partySigla,
         name: partyName,
         flagColor: selectedColor,
         stakeAddress
       });
-    } catch (error) {
-      console.error('Failed to create party:', error);
+    } catch (error: any) {
+      setError(error.message || t("errorDefault"));
     }
   };
 
@@ -49,6 +61,12 @@ export default function CreateParty({ availableColors }: CreatePartyProps) {
           onColorSelect={setSelectedColor}
         />
       </div>
+
+      {error && (
+        <div className="mt-4 p-3 bg-red-900 border-2 border-red-600 text-white text-sm text-center">
+          {error}
+        </div>
+      )}
 
       <div className="flex flex-col space-y-4">
         <div>
@@ -76,8 +94,11 @@ export default function CreateParty({ availableColors }: CreatePartyProps) {
 
         <button
           onClick={handleSubmit}
-          className="mt-4 border-2 border-white px-4 py-2 bg-green-600 text-white shadow-[4px_4px_0px_black] hover:bg-green-700 transition font-['Press_Start_2P']"
-          disabled={!partySigla || !partyName || !selectedColor || createPartyMutation.isPending}
+          disabled={!isFormValid}
+          className={`mt-4 border-2 border-white px-4 py-2 text-white shadow-[4px_4px_0px_black] transition font-['Press_Start_2P']
+            ${isFormValid 
+              ? 'bg-green-600 hover:bg-green-700' 
+              : 'bg-gray-600 cursor-not-allowed opacity-50'}`}
         >
           {createPartyMutation.isPending ? t("creating") : t("createButton")}
         </button>

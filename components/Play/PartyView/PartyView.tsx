@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "@/i18n/routing";
 import { usePartyInfo } from "@/hooks/usePartyInfo";
+import { useAuth } from "@/hooks/useAuth"; // Add this import
 import MyParty from "@/components/Play/InsideBuilding/MyParty";
 import TourManager from "../Tour/TourManager";
 import CreateParty from "./CreateParty";
@@ -11,14 +12,14 @@ import { useTour } from "@/contexts/TourContext";
 import { useTranslations } from "next-intl";
 import PolitikozProfileContainer from "../PolitikozProfile/PolitikozProfileContainer";
 import PartyInfo from "./PartyInfo";
-import PartyButtonsContainer from "./PartyButtonsContainer";
+import PartyButtons from "./PartyButtons";
 
 export default function PartyView() {
   const [selectedSection, setSelectedSection] = useState<null | string>(null);
   const [localTourActive, setLocalTourActive] = useState(false);
   const { isTourActive, deactivateTour } = useTour();
   const { party, availableColors, referralRanking, isWalletConnected, isPending } = usePartyInfo();
-  console.log("PartyView received colors:", availableColors);
+  const { getSession } = useAuth(); // Add this line
   const router = useRouter();
   const t = useTranslations("PartyView");
 
@@ -28,13 +29,24 @@ export default function PartyView() {
     }
   }, [isTourActive]);
 
-  const handleSectionSelect = (section: string) => {
+  const handleSectionSelect = useCallback((section: string) => {
     if (section === "exit") {
       router.replace("/play");
       return;
     }
-    setSelectedSection(section);
-  };
+    
+    if (section === "my-party" && !party) {
+      const session = getSession();
+      if (!session?.jwt) {
+        return;
+      }
+    }
+    
+    // Use setTimeout to avoid state updates during render
+    setTimeout(() => {
+      setSelectedSection(section);
+    }, 0);
+  }, [router, party, getSession]);
 
   return (
     <div className="flex flex-col flex-1 w-full bg-[#816346] relative">
@@ -43,11 +55,12 @@ export default function PartyView() {
           {selectedSection === null || localTourActive ? (
             <>
               <MyParty />
-              <PartyButtonsContainer
+              <PartyButtons
                 onNavigate={handleSectionSelect}
                 hasParty={party === undefined ? undefined : !!party}
                 isWalletConnected={isWalletConnected}
                 isLoading={isPending}
+                availableColors={availableColors} // Add this prop
               />
             </>
           ) : (
@@ -66,7 +79,9 @@ export default function PartyView() {
                     referralRanking={referralRanking} 
                   />
                 ) : (
-                  <CreateParty availableColors={availableColors} />
+                  isWalletConnected && (
+                    <CreateParty availableColors={availableColors} />
+                  )
                 )
               )}
               {selectedSection === "my-politikoz" && (
@@ -79,7 +94,7 @@ export default function PartyView() {
       </div>
 
       {localTourActive && (
-        <div className="fixed inset-0 z-[100]">
+        <div className="fixed inset-0 z-[90]"> {/* Ajustado para ficar abaixo dos modais de auth */}
           <div className="absolute inset-0 bg-transparent pointer-events-auto"></div>
           <div className="absolute bottom-32 sm:bottom-40 left-4 sm:left-10 pointer-events-auto">
             <TourManager

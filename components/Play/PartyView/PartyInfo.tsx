@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { formatTokenAmount } from "@/utils/formatters"; // Add this import
 import { PartyInfoDTO } from "@/types/CreatePartyData";
 import { ReferralRanking } from "@/types/PartyInfoData";
 import PartyFlag from "./PartyFlag";
@@ -18,13 +19,15 @@ const ReferralRewardCard = ({
   label, 
   recipient 
 }: { 
-  amount: string; 
+  amount: string | number; // Updated type to accept number
   label: string;
   recipient: string;
 }) => (
   <div className="flex flex-col items-center justify-center bg-gray-700 p-2 rounded-md">
     <span className="text-yellow-300 text-xs mb-1 font-['Press_Start_2P']">{recipient}</span>    
-    <span className="text-yellow-300 text-sm font-['Press_Start_2P']">{amount}</span>
+    <span className="text-yellow-300 text-sm font-['Press_Start_2P']">
+      {typeof amount === 'string' ? amount : formatTokenAmount(amount)}
+    </span>
     <span className="text-white text-xs font-['Press_Start_2P']">{label}</span>
   </div>
 );
@@ -34,11 +37,11 @@ export default function PartyInfo({ party, referralRanking }: PartyInfoProps) {
   const [copied, setCopied] = useState(false);
 
   const getMockRankings = (): ReferralRanking[] => [
-    { partyAcronym: t("you"), count: 0, position: 1, isPartyReferral: true },
-    { partyAcronym: "----", count: 0, position: 2, isPartyReferral: false },
-    { partyAcronym: "----", count: 0, position: 3, isPartyReferral: false },
-    { partyAcronym: "----", count: 0, position: 4, isPartyReferral: false },
-    { partyAcronym: "----", count: 0, position: 5, isPartyReferral: false }
+    { partyAcronym: t("you"), kozAmount: 0, position: 1, isPartyReferral: true },
+    { partyAcronym: "----", kozAmount: 0, position: 2, isPartyReferral: false },
+    { partyAcronym: "----", kozAmount: 0, position: 3, isPartyReferral: false },
+    { partyAcronym: "----", kozAmount: 0, position: 4, isPartyReferral: false },
+    { partyAcronym: "----", kozAmount: 0, position: 5, isPartyReferral: false }
   ];
 
   const handleCopyCode = async () => {
@@ -145,10 +148,11 @@ export default function PartyInfo({ party, referralRanking }: PartyInfoProps) {
             {t("rankingDescription")}
           </p>
           <div className="grid grid-cols-3 gap-2 mb-4">
-            <ReferralRewardCard amount="5000" label="KOZ" recipient="1st" />
-            <ReferralRewardCard amount="2500" label="KOZ" recipient="2nd" />
-            <ReferralRewardCard amount="1250" label="KOZ" recipient="3rd" />
+            <ReferralRewardCard amount={5000} label="KOZ" recipient="1st" />
+            <ReferralRewardCard amount={2500} label="KOZ" recipient="2nd" />
+            <ReferralRewardCard amount={1250} label="KOZ" recipient="3rd" />
           </div>
+
           <div className="space-y-2">
             {rankingsToShow.map((rank, index) => (
               <div 
@@ -166,18 +170,20 @@ export default function PartyInfo({ party, referralRanking }: PartyInfoProps) {
                   </span>
                 </div>
                 <div className="flex items-center">
-                  <span className="text-white font-mono opacity-50">
-                    {rank.count}
+                  <span className="text-white font-mono opacity-50 w-24 text-right"> {/* Added fixed width */}
+                    {formatTokenAmount(rank.kozAmount)} KOZ
                   </span>
-                  {rank.position <= 3 && (
-                    <TrophyIcon 
-                      className={`w-5 h-5 ml-2 ${rank.isPartyReferral ? '' : 'opacity-30'} ${
-                        rank.position === 1 ? 'text-yellow-400' :
-                        rank.position === 2 ? 'text-gray-400' :
-                        'text-yellow-700'
-                      }`}
-                    />
-                  )}
+                  <div className="w-7 flex justify-center"> {/* Added fixed width container for trophy */}
+                    {rank.position <= 3 && (
+                      <TrophyIcon 
+                        className={`w-5 h-5 ${rank.isPartyReferral ? '' : 'opacity-30'} ${
+                          rank.position === 1 ? 'text-yellow-400' :
+                          rank.position === 2 ? 'text-gray-400' :
+                          'text-yellow-700'
+                        }`}
+                      />
+                    )}
+                  </div>
                 </div>
               </div>
             ))}

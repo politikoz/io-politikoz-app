@@ -685,7 +685,9 @@
       "nameLabel": "Party Name",
       "placeholderSigla": "XXXX",
       "placeholderName": "Party Name",
-      "createButton": "Create Party"
+      "createButton": "Create Party",
+      "errorDefault": "Failed to create party",
+      "errorHasParty": "You already have a party"
     },
     "flag": {
       "tryAgain": "Try Again"
