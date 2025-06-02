@@ -57,28 +57,43 @@ export default function PartyInfo({ party, referralRanking }: PartyInfoProps) {
   const getRankingsToShow = (rankings: ReferralRanking[]): ReferralRanking[] => {
     if (!rankings.length) return getMockRankings();
 
-    const partyRanking = rankings.find(r => r.isPartyReferral);
-    if (!partyRanking) return rankings.slice(0, 5);
-
-    const position = partyRanking.position;
-    const isFirst = position === 1;
-    const isLast = position === rankings.length;
-
-    if (isFirst) return rankings.slice(0, 5);
-    if (isLast) {
-      const startIndex = Math.max(0, rankings.length - 3);
-      return [
-        ...rankings.slice(0, 3),
-        ...rankings.slice(startIndex)
-      ];
+    // Find party position (the one with isPartyReferral: true)
+    const partyRanking = rankings.find(rank => rank.isPartyReferral);
+    
+    if (!partyRanking) {
+      // If no party referral found, follow previous logic
+      const topRankings = rankings.slice(0, 4);
+      const partyPosition = rankings.length + 1;
+      const newPartyRanking: ReferralRanking = {
+        partyAcronym: t("you"),
+        kozAmount: 0,
+        position: partyPosition,
+        isPartyReferral: true
+      };
+      return [...topRankings, newPartyRanking];
     }
 
-    const startIndex = Math.max(0, position - 3);
-    const endIndex = Math.min(rankings.length, position + 2);
-    return [
-      ...rankings.slice(0, 3),
-      ...rankings.slice(startIndex, endIndex)
+    // Always show top 3
+    const top3 = rankings.filter(r => r.position <= 3);
+    
+    // If party is in top 3, get next 2 positions after top 3
+    if (partyRanking.position <= 3) {
+      const afterTop3 = rankings
+        .filter(r => r.position > 3 && r.position <= 5)
+        .slice(0, 2);
+      return [...top3, ...afterTop3];
+    }
+
+    // For parties below top 3:
+    // Show top 3 + position before party + party position
+    const positionBeforeParty = rankings.find(r => r.position === partyRanking.position - 1);
+    const finalRankings = [
+      ...top3,
+      ...(positionBeforeParty ? [positionBeforeParty] : []),
+      partyRanking
     ];
+
+    return finalRankings.slice(0, 5).sort((a, b) => a.position - b.position);
   };
 
   const rankingsToShow = getRankingsToShow(referralRanking);
@@ -154,39 +169,53 @@ export default function PartyInfo({ party, referralRanking }: PartyInfoProps) {
           </div>
 
           <div className="space-y-2">
-            {rankingsToShow.map((rank, index) => (
-              <div 
-                key={`${rank.partyAcronym}-${index}`}
-                className={`flex items-center justify-between p-2 rounded ${
-                  rank.isPartyReferral ? 'bg-yellow-900' : 'bg-gray-700'
-                }`}
-              >
-                <div className="flex items-center">
-                  <span className="text-yellow-300 font-mono w-8">
-                    #{rank.position}
-                  </span>
-                  <span className={`text-white font-mono ml-2 ${!rank.isPartyReferral ? 'opacity-50' : ''}`}>
-                    {rank.partyAcronym}
-                  </span>
-                </div>
-                <div className="flex items-center">
-                  <span className="text-white font-mono opacity-50 w-24 text-right"> {/* Added fixed width */}
-                    {formatTokenAmount(rank.kozAmount)} KOZ
-                  </span>
-                  <div className="w-7 flex justify-center"> {/* Added fixed width container for trophy */}
-                    {rank.position <= 3 && (
-                      <TrophyIcon 
-                        className={`w-5 h-5 ${rank.isPartyReferral ? '' : 'opacity-30'} ${
-                          rank.position === 1 ? 'text-yellow-400' :
-                          rank.position === 2 ? 'text-gray-400' :
-                          'text-yellow-700'
-                        }`}
-                      />
-                    )}
+            {rankingsToShow.map((rank, index) => {
+              const previousRank = index > 0 ? rankingsToShow[index - 1] : null;
+              const hasSkippedPositions = previousRank && (rank.position - previousRank.position > 1);
+
+              return (
+                <>
+                  {hasSkippedPositions && (
+                    <div className="flex items-center justify-center py-1">
+                      <div className="text-yellow-500 text-xs opacity-50 font-['Press_Start_2P']">
+                        • • •
+                      </div>
+                    </div>
+                  )}
+                  <div 
+                    key={`${rank.partyAcronym}-${index}`}
+                    className={`flex items-center justify-between p-2 rounded ${
+                      rank.isPartyReferral ? 'bg-yellow-900' : 'bg-gray-700'
+                    }`}
+                  >
+                    <div className="flex items-center">
+                      <span className="text-yellow-300 font-mono w-8">
+                        #{rank.position}
+                      </span>
+                      <span className={`text-white font-mono ml-2 ${!rank.isPartyReferral ? 'opacity-50' : ''}`}>
+                        {rank.partyAcronym}
+                      </span>
+                    </div>
+                    <div className="flex items-center">
+                      <span className="text-white font-mono opacity-50 w-24 text-right"> {/* Added fixed width */}
+                        {formatTokenAmount(rank.kozAmount)} KOZ
+                      </span>
+                      <div className="w-7 flex justify-center"> {/* Added fixed width container for trophy */}
+                        {rank.position <= 3 && (
+                          <TrophyIcon 
+                            className={`w-5 h-5 ${rank.isPartyReferral ? '' : 'opacity-30'} ${
+                              rank.position === 1 ? 'text-yellow-400' :
+                              rank.position === 2 ? 'text-gray-400' :
+                              'text-yellow-700'
+                            }`}
+                          />
+                        )}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            ))}
+                </>
+              );
+            })}
           </div>
         </div>
       </div>
