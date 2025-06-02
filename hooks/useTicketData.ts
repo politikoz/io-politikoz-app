@@ -1,9 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
 import api from '@/app/lib/api';
 import { Ticket } from '@/types/TicketData';
+import { useEffect, useState } from 'react';
 
 export function useTicketData() {
-  const stakeAddress = localStorage.getItem('stakeAddress');
+  const [stakeAddress, setStakeAddress] = useState<string | null>(null);
+  
+    useEffect(() => {
+      setStakeAddress(localStorage.getItem('stakeAddress'));
+    }, []);
 
   return useQuery({
     queryKey: ['tickets', stakeAddress],

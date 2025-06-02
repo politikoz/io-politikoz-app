@@ -652,18 +652,34 @@
   "backToOffice": "← Back to Office"
 },
   "PartyView": {
+    "info": {
+      "referralCode": "Referral Code",
+      "copyCode": "Copy referral code",
+      "copied": "Copied!",
+      "referralRanking": "Referral Ranking",
+      "referralCodeDescription": "Share your code! When used in KOZ swaps, both get rewards!",      
+      "rankingDescription": "Top referrers earn KOZ rewards each tier!",
+      "usesCount": "Uses",
+      "position": "Position",
+      "you": "YOU",
+      "youGet": "Lobbyists",
+      "theyGet": "Launderers"
+    },
     "backToParty": "← Back to Party",
     "buttons": {
       "myParty": "My Party",
+      "createParty": "Create Party",
       "myPolitikoz": "My Politikoz",
       "campaignGame": "Campaign Game",
       "governanceSettings": "Governance Settings",
       "exit": "Exit",
-      "comingSoon": "Coming Soon"
+      "comingSoon": "Coming Soon",
+      "connectWallet": "Connect Wallet First"
     },
     "create": {
       "title": "Create Party",
       "siglaLabel": "Party Acronym",
+      "creating": "Creating...",
       "nameLabel": "Party Name",
       "placeholderSigla": "XXXX",
       "placeholderName": "Party Name",

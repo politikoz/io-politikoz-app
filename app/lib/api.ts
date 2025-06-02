@@ -20,6 +20,7 @@ const SECURE_ENDPOINTS = [
     '/office/tickets/config',
     '/office/tickets/lucky-number',
     '/party/politikoz/lucky-number',
+    "/party/create",
     '/auth/wallet'
 ];
 

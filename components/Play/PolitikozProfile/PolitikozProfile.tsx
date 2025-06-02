@@ -28,7 +28,7 @@ export default function PolitikozProfileView() {
   const t = useTranslations("PolitikozProfile");
   const { data: politikozList, isLoading } = usePolitikozData();
 
-  // 3. All useMemo hooks - move these before the conditional return
+  // 3. All useMemo hooks
   const selectedTab = tabs[selectedIndex];
   const filteredPolitikoz = useMemo(
     () => politikozList?.filter((p) => p.type === selectedTab.name) || [],
@@ -40,7 +40,6 @@ export default function PolitikozProfileView() {
     [politikozList]
   );
 
-  // Add a useMemo to get the IDs of the filtered Politikoz
   const filteredPolitikozIds = useMemo(
     () => filteredPolitikoz.map((p) => p.name || ""),
     [filteredPolitikoz]
@@ -76,98 +75,103 @@ export default function PolitikozProfileView() {
     setIsGridView(false);
   }, []);
 
-  // 6. Loading state check - after all hooks
-  if (isLoading || !politikozList) {
-    return (
-      <div className="relative flex flex-col w-full max-w-6xl mx-auto border-4 border-black bg-gray-900 text-white p-2 shadow-[6px_6px_0px_black]">
+  // 6. Render content based on loading state
+  const content = useMemo(() => {
+    if (isLoading && localStorage.getItem('stakeAddress')) {
+      return (
         <div className="flex items-center justify-center h-[600px]">
           <div className="w-8 h-8 border-4 border-yellow-300 border-t-transparent rounded-full animate-spin"></div>
         </div>
-      </div>
-    );
-  }
+      );
+    }
 
-  // 7. Component render
+    return (
+      <>
+        <div className="flex items-center justify-between w-full p-3 bg-gray-800 border-2 border-white shadow-md rounded-md">
+          <PolitikozSearch politikozList={politikozList || []} onSelectPolitikoz={handleSelectPolitikoz} />
+          <button
+            onClick={() => setIsGridView(!isGridView)}
+            className="p-2 bg-gray-700 border-2 border-white rounded-md shadow-md hover:bg-gray-600 transition"
+          >
+            {isGridView ? (
+              <IdentificationIcon className="w-6 h-6 text-yellow-300" />
+            ) : (
+              <Squares2X2Icon className="w-6 h-6 text-gray-400 hover:text-yellow-300" />
+            )}
+          </button>
+        </div>
+
+        <div className="relative flex flex-col md:flex-row h-auto w-full">
+          <TabNavigation selectedIndex={selectedIndex} setSelectedIndex={setSelectedIndex} />
+          <div className="flex-1 border-4 border-black bg-gray-800 p-2 shadow-[4px_4px_0px_black] flex flex-col relative">
+            {isGridView ? (
+              <PolitikozGrid
+                politikozList={filteredPolitikoz}
+                selectedTab={selectedTab.name}
+                onSelectPolitikoz={handleSelectFromGrid}
+              />
+            ) : filteredPolitikoz.length > 0 ? (
+              <>
+                <ProfileHeader
+                  {...filteredPolitikoz[currentIndex]}
+                  onRelease={(releaseAll) => {
+                    // Implement release logic here
+                    console.log("Release prisoner", releaseAll);
+                  }}
+                  handleLuckyChange={(newLucky) => {
+                    // Implement lucky number change logic here
+                    console.log("Change lucky number to", newLucky);
+                  }}
+                  totalImprisoned={totalImprisoned}
+                  politikozIds={filteredPolitikozIds}
+                  filteredPolitikoz={filteredPolitikoz}
+                />
+                <ProfileCard {...filteredPolitikoz[currentIndex]} />
+                {/* Navigation buttons */}
+                <div className="mt-auto flex justify-center w-full border-t-4 border-white pt-2 space-x-6">
+                  <button
+                    onClick={() => setCurrentIndex((prev) => Math.max(prev - 1, 0))}
+                    disabled={currentIndex === 0}
+                    className={`border-2 border-white px-4 py-2 bg-black text-yellow-300 shadow-[4px_4px_0px_black] w-[40%] max-w-[160px] flex items-center justify-center 
+                      ${currentIndex === 0 ? "opacity-50 cursor-not-allowed" : ""}`}
+                  >
+                    <BackwardIcon className="w-5 h-5 mr-2" />
+                    {t("previous")}
+                  </button>
+                  <button
+                    onClick={() => setCurrentIndex((prev) => (prev + 1) % filteredPolitikoz.length)}
+                    className="border-2 border-white px-4 py-2 bg-black text-yellow-300 shadow-[4px_4px_0px_black] w-[40%] max-w-[160px] flex items-center justify-center"
+                  >
+                    {currentIndex === filteredPolitikoz.length - 1 ? (
+                      <>
+                        <ArrowPathRoundedSquareIcon className="w-5 h-5 mr-2" />
+                        {t("restartList")}
+                      </>
+                    ) : (
+                      <>
+                        <ForwardIcon className="w-5 h-5 mr-2" />
+                        {t("next")}
+                      </>
+                    )}
+                  </button>
+                </div>
+              </>
+            ) : (
+              <div className="flex flex-col items-center p-4">
+                <p className="text-center text-gray-400 mb-8">{t("noPolitikozAvailable")}</p>
+                <MarketListings cargo={selectedTab.name} />
+              </div>
+            )}
+          </div>
+        </div>
+      </>
+    );
+  }, [isLoading, politikozList, isGridView, handleSelectPolitikoz]);
+
+  // 7. Final render
   return (
     <div className="relative flex flex-col w-full max-w-6xl mx-auto border-4 border-black bg-gray-900 text-white p-2 shadow-[6px_6px_0px_black]">
-      {/* Search and Grid View controls */}
-      <div className="flex items-center justify-between w-full p-3 bg-gray-800 border-2 border-white shadow-md rounded-md">
-        <PolitikozSearch politikozList={politikozList || []} onSelectPolitikoz={handleSelectPolitikoz} />
-        <button
-          onClick={() => setIsGridView(!isGridView)}
-          className="p-2 bg-gray-700 border-2 border-white rounded-md shadow-md hover:bg-gray-600 transition"
-        >
-          {isGridView ? (
-            <IdentificationIcon className="w-6 h-6 text-yellow-300" />
-          ) : (
-            <Squares2X2Icon className="w-6 h-6 text-gray-400 hover:text-yellow-300" />
-          )}
-        </button>
-      </div>
-
-      <div className="relative flex flex-col md:flex-row h-auto w-full">
-        <TabNavigation selectedIndex={selectedIndex} setSelectedIndex={setSelectedIndex} />
-        <div className="flex-1 border-4 border-black bg-gray-800 p-2 shadow-[4px_4px_0px_black] flex flex-col relative">
-          {isGridView ? (
-            <PolitikozGrid
-              politikozList={filteredPolitikoz}
-              selectedTab={selectedTab.name}
-              onSelectPolitikoz={handleSelectFromGrid}
-            />
-          ) : filteredPolitikoz.length > 0 ? (
-            <>
-              <ProfileHeader
-                {...filteredPolitikoz[currentIndex]}
-                onRelease={(releaseAll) => {
-                  // Implement release logic here
-                  console.log("Release prisoner", releaseAll);
-                }}
-                handleLuckyChange={(newLucky) => {
-                  // Implement lucky number change logic here
-                  console.log("Change lucky number to", newLucky);
-                }}
-                totalImprisoned={totalImprisoned}
-                politikozIds={filteredPolitikozIds}
-                filteredPolitikoz={filteredPolitikoz}
-              />
-              <ProfileCard {...filteredPolitikoz[currentIndex]} />
-              {/* Navigation buttons */}
-              <div className="mt-auto flex justify-center w-full border-t-4 border-white pt-2 space-x-6">
-                <button
-                  onClick={() => setCurrentIndex((prev) => Math.max(prev - 1, 0))}
-                  disabled={currentIndex === 0}
-                  className={`border-2 border-white px-4 py-2 bg-black text-yellow-300 shadow-[4px_4px_0px_black] w-[40%] max-w-[160px] flex items-center justify-center 
-                    ${currentIndex === 0 ? "opacity-50 cursor-not-allowed" : ""}`}
-                >
-                  <BackwardIcon className="w-5 h-5 mr-2" />
-                  {t("previous")}
-                </button>
-                <button
-                  onClick={() => setCurrentIndex((prev) => (prev + 1) % filteredPolitikoz.length)}
-                  className="border-2 border-white px-4 py-2 bg-black text-yellow-300 shadow-[4px_4px_0px_black] w-[40%] max-w-[160px] flex items-center justify-center"
-                >
-                  {currentIndex === filteredPolitikoz.length - 1 ? (
-                    <>
-                      <ArrowPathRoundedSquareIcon className="w-5 h-5 mr-2" />
-                      {t("restartList")}
-                    </>
-                  ) : (
-                    <>
-                      <ForwardIcon className="w-5 h-5 mr-2" />
-                      {t("next")}
-                    </>
-                  )}
-                </button>
-              </div>
-            </>
-          ) : (
-            <div className="flex flex-col items-center p-4">
-              <p className="text-center text-gray-400 mb-8">{t("noPolitikozAvailable")}</p>
-              <MarketListings cargo={selectedTab.name} />
-            </div>
-          )}
-        </div>
-      </div>
+      {content}
     </div>
   );
 }

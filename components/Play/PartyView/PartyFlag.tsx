@@ -1,19 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import { colorsPalette } from "./colorsPaleta";
-import { useTranslations } from "next-intl";
 
-export default function PartyFlag({ onRegenerate }: { onRegenerate: () => void }) {
-  const t = useTranslations("PartyView.flag");
-  // 🔹 Gera uma cor aleatória para a bandeira
-  const getRandomColor = () => {
-    return colorsPalette[Math.floor(Math.random() * colorsPalette.length)];
-  };
+interface PartyFlagProps {
+  availableColors: string[];
+  onRegenerate: () => void;
+  selectedColor?: string;
+  onColorSelect: (color: string) => void;
+  readOnly?: boolean;
+}
 
-  const [flagColor, setFlagColor] = useState(getRandomColor());
+export default function PartyFlag({ availableColors, onRegenerate, selectedColor, onColorSelect, readOnly }: PartyFlagProps) {
+  const [flagColor, setFlagColor] = useState(selectedColor || availableColors[0]);
 
-  // 🔹 Gera tons mais escuros para as sombras da bandeira
   const getDarkerColor = (color: string, factor: number) => {
     const r = Math.max(0, Math.floor(parseInt(color.slice(1, 3), 16) * factor));
     const g = Math.max(0, Math.floor(parseInt(color.slice(3, 5), 16) * factor));
@@ -21,12 +20,12 @@ export default function PartyFlag({ onRegenerate }: { onRegenerate: () => void }
     return `rgb(${r}, ${g}, ${b})`;
   };
 
-  const flagShadowColor = getDarkerColor(flagColor, 0.8); // Segunda parte (leve sombra)
-  const flagDeepShadowColor = getDarkerColor(flagColor, 0.6); // Terceira parte (sombra mais forte)
+  const flagShadowColor = getDarkerColor(flagColor, 0.8);
+  const flagDeepShadowColor = getDarkerColor(flagColor, 0.6);
 
-  // 🔹 Regenera a bandeira com uma nova cor
-  const regenerateFlag = () => {
-    setFlagColor(getRandomColor());
+  const handleColorSelect = (color: string) => {
+    setFlagColor(color);
+    onColorSelect(color);
     onRegenerate();
   };
 
@@ -109,13 +108,22 @@ export default function PartyFlag({ onRegenerate }: { onRegenerate: () => void }
         </div>        
       </div>
 
-      {/* 🔹 Botão para regenerar a bandeira */}
-      <button
-        onClick={regenerateFlag}
-        className="mt-2 border-2 border-white px-3 py-1 bg-blue-600 text-white shadow-[4px_4px_0px_black] hover:bg-blue-700 transition font-['Press_Start_2P']"
-      >
-        {t("tryAgain")}
-      </button>
+      {/* Somente exibe as opções de cor se não for somente leitura */}
+      {!readOnly && availableColors.length > 0 && (
+        <div className="mt-4 flex gap-2 p-2 bg-gray-800 rounded-md border-2 border-white shadow-[4px_4px_0px_black]">
+          {availableColors.map((color, index) => (
+            <button
+              key={index}
+              onClick={() => handleColorSelect(color)}
+              className={`w-8 h-8 rounded-sm transition-transform hover:scale-110 ${
+                selectedColor === color ? 'ring-2 ring-white ring-offset-1 ring-offset-gray-800' : ''
+              }`}
+              style={{ backgroundColor: color }}
+              aria-label={`Select color ${color}`}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

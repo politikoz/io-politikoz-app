@@ -1,13 +1,18 @@
 import { useQuery } from '@tanstack/react-query';
 import api from '@/app/lib/api';
 import { SwapHistoryDTO } from '@/types/swap';
+import { useEffect, useState } from 'react';
 
 interface UseSwapHistoryProps {
     enabled?: boolean;
 }
 
 export function useSwapHistory({ enabled = false }: UseSwapHistoryProps = {}) {
-    const stakeAddress = localStorage.getItem('stakeAddress');
+    const [stakeAddress, setStakeAddress] = useState<string | null>(null);
+    
+      useEffect(() => {
+        setStakeAddress(localStorage.getItem('stakeAddress'));
+      }, []);
 
     return useQuery({
         queryKey: ['swapHistory', stakeAddress],

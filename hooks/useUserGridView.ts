@@ -1,9 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
 import { UserGridViewResponse } from '@/types/UserGridViewData';
 import api from '@/app/lib/api';
+import { useEffect, useState } from 'react';
 
 export function useUserGridView() {
-  const stakeAddress = localStorage.getItem('stakeAddress');
+  const [stakeAddress, setStakeAddress] = useState<string | null>(null);
+  
+    useEffect(() => {
+      setStakeAddress(localStorage.getItem('stakeAddress'));
+    }, []);
 
   return useQuery({
     queryKey: ['userGridView', stakeAddress],

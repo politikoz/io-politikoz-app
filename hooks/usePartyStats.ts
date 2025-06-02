@@ -1,11 +1,16 @@
 import { useQuery } from '@tanstack/react-query';
 import { PartyStats } from '@/types/PartyStats';
 import api from '@/app/lib/api';
+import { useEffect, useState } from 'react';
 
 const OTHERS_COLOR = '#808080';
 
 export function usePartyStats() {
-    const stakeAddress = localStorage.getItem('stakeAddress');
+    const [stakeAddress, setStakeAddress] = useState<string | null>(null);
+    
+      useEffect(() => {
+        setStakeAddress(localStorage.getItem('stakeAddress'));
+      }, []);
   
     return useQuery({
       queryKey: ['partyStats', stakeAddress],

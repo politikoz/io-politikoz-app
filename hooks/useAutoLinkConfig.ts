@@ -2,11 +2,16 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import api from '@/app/lib/api';
 import { AutoLinkAPIResponse, INITIAL_AUTOLINK_CONFIG } from '@/types/AutoLinkConfigData';
 import { useAuth } from './useAuth';
+import { useEffect, useState } from 'react';
 
 export function useAutoLinkConfig() {
   const { getSession } = useAuth(); // Add getSession
   const queryClient = useQueryClient();
-  const stakeAddress = localStorage.getItem('stakeAddress');
+  const [stakeAddress, setStakeAddress] = useState<string | null>(null);
+  
+    useEffect(() => {
+      setStakeAddress(localStorage.getItem('stakeAddress'));
+    }, []);
 
   const query = useQuery({
     queryKey: ['autoLinkConfig', stakeAddress],

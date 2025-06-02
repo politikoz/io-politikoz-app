@@ -1,9 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
 import { CandidatesTableResponse, CandidatesTableFilters } from '@/types/CandidatesTableData';
 import api from '@/app/lib/api';
+import { useEffect, useState } from 'react';
 
 export function useCandidatesTable(filters: CandidatesTableFilters) {
-  const stakeAddress = localStorage.getItem('stakeAddress');
+  const [stakeAddress, setStakeAddress] = useState<string | null>(null);
+  
+    useEffect(() => {
+      setStakeAddress(localStorage.getItem('stakeAddress'));
+    }, []);
 
   return useQuery({
     queryKey: ['candidatesTable', filters],
