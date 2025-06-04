@@ -151,7 +151,7 @@
       "text": "Starting at 350 ADA 💎"
     },
     "freeEntries": {
-      "title": "FREE ENTRIES",
+      "title": "FREE\nENTRIES",
       "text": "Stake or Engage 🤝"
     },
     "auditable": {
@@ -163,8 +163,18 @@
       "text": "To be drawn in 5 🎯"
     }
   },
-  "learnMore": "Learn More on Gitbook"
+  "learnMore": "Learn more about Politikoz"
 },
+"ElectionDashboard": {
+    "nextElection": "Next Election",
+    "lastElection": "Last Election Results",
+    "totalPrize": "Total Prize Pool",
+    "month": "Results from {month}",
+    "days": "DAYS",
+    "hours": "HOURS",
+    "minutes": "MINS",
+    "seconds": "SECS"
+  },
 "JoinPolitikozPaths": {
     "buyPolitikoz": {
       "header": "Secure Your Spot: Buy Now!",
