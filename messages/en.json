@@ -864,6 +864,7 @@
       "seconds": "Seconds"
     },
     "transactionDetails": {
+
       "title": "Transaction Details",
       "willReceive": "You will receive:",
       "returnAmount": "+ {amount} ADA return",
@@ -877,7 +878,10 @@
       "referralCode": "Referral Code",
       "optional": "Optional",
       "enterReferralCode": "Enter referral code if you have one",
-      "referralBonus": "You will receive 5 Launderer Tickets as bonus!"
+      "validate": "Validate",
+      "invalidReferralCode": "This referral seems as legitimate as a politician's promise! 🤥",
+      "referralValidationError": "Error validating referral code",
+      "validReferralCode": "You will receive 5 Launderer Tickets as bonus!"
     },
     "history": {
       "amount": "Amount",
@@ -958,7 +962,9 @@
       "swapFailed": "Failed to perform swap",
       "insufficientBalance": "Insufficient balance",
       "connectionInitFailed": "Connection initialization failed",
-      "cancelSwapFailed": "Failed to cancel swap"
+      "cancelSwapFailed": "Failed to cancel swap",
+      "invalidReferralCode": "Invalid referral code! The swap cannot proceed.",
+      "referralValidationFailed": "Failed to validate referral code. Please try again."
     }
   },
   "Team": {

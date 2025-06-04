@@ -14,6 +14,7 @@ import { useSwapHistory } from '@/hooks/useSwapHistory';
 import { useTiersDashboard } from '@/hooks/useTiersDashboard';
 import NextTierCountdown from "./NextTierCountdown";
 import AllTiersCompleted from "./AllTiersCompleted";
+import { useValidateReferralCode } from '@/hooks/useValidateReferralCode';
 
 export default function SwapAdaToKoz() {
   const t = useTranslations("Swap");
@@ -32,6 +33,7 @@ export default function SwapAdaToKoz() {
     error: historyError 
   } = useSwapHistory();
   const { data: tiersDashboard, isLoading: isTiersDashboardLoading } = useTiersDashboard();
+  const validateReferralMutation = useValidateReferralCode(); // Add this line
 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -115,9 +117,23 @@ export default function SwapAdaToKoz() {
     setTxStatus(null);
     setError(null);
 
-    if (!tiersDashboard?.currentTier) {
-        setError(t("errors.tierNotAvailable"));
+    // Validate referral code first if present
+    if (referralCode) {
+      try {
+        const { valid } = await validateReferralMutation.mutateAsync(referralCode);
+        if (!valid) {
+          setError(t("errors.invalidReferralCode"));
+          return;
+        }
+      } catch (error) {
+        setError(t("errors.referralValidationFailed"));
         return;
+      }
+    }
+
+    if (!tiersDashboard?.currentTier) {
+      setError(t("errors.tierNotAvailable"));
+      return;
     }
 
     if (kozAmount < MIN_KOZ_AMOUNT) {

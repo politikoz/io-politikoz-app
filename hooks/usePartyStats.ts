@@ -19,14 +19,16 @@ export function usePartyStats() {
         return response.data;
       },
       select: (data) => {
-        const sortedData = [...data].sort((a, b) => b.percentage - a.percentage);
+        // Filter out election_pot from main sorting and calculations
+        const regularData = data.filter(stat => stat.party !== 'election_pot');
+        const sortedData = [...regularData].sort((a, b) => b.percentage - a.percentage);
         const userStats = stakeAddress 
-          ? data.find(stat => stat.stakeAddress === stakeAddress)
+          ? regularData.find(stat => stat.stakeAddress === stakeAddress)
           : null;
   
         const top5 = sortedData.slice(0, 5);
         
-        // Criar legendData primeiro (inclui todos)
+        // Create legend data (includes all except election_pot)
         const legendData = top5.map(stat => ({
           name: stat.stakeAddress === stakeAddress ? 'You' : stat.party,
           percentage: stat.percentage,
@@ -34,20 +36,12 @@ export function usePartyStats() {
           earningsEstimate: stat.earningsEstimate
         }));
 
-        // Dados para o gráfico (apenas partidos com porcentagem > 0)
-        const graphData = top5
-          .filter(stat => stat.percentage > 0) // Remove entradas com porcentagem zero
-          .map(stat => ({
-            name: stat.stakeAddress === stakeAddress ? 'You' : stat.party,
-            percentage: stat.percentage,
-            color: stat.color,
-            earningsEstimate: stat.earningsEstimate
-          }));
-
+        // Calculate others percentage including election_pot
         const othersPercentage = Number(
-          sortedData
+          (sortedData
             .filter(stat => !top5.find(t => t.stakeAddress === stat.stakeAddress))
-            .reduce((sum, stat) => sum + stat.percentage, 0)
+            .reduce((sum, stat) => sum + stat.percentage, 0) +
+           (data.find(stat => stat.party === 'election_pot')?.percentage || 0))
             .toFixed(2)
         );
   
@@ -58,11 +52,10 @@ export function usePartyStats() {
             color: OTHERS_COLOR,
             earningsEstimate: 0
           };
-          graphData.push(othersData);
           legendData.push(othersData);
         }
         
-        // Adicionar usuário zerado apenas na legenda
+        // Add zero-percentage user to legend if needed
         if (stakeAddress && !userStats) {
           legendData.push({
             name: 'You',
@@ -74,7 +67,7 @@ export function usePartyStats() {
   
         return {
           players: legendData,
-          graphPlayers: graphData.filter(player => player.percentage > 0), // Garantir que não há zeros
+          graphPlayers: legendData.filter(player => player.percentage > 0),
           userEstimate: userStats?.earningsEstimate || 0
         };
       }

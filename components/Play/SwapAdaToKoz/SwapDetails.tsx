@@ -1,6 +1,8 @@
 import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
 import { TransactionStatusType } from '@/types/transaction';
 import { useTranslations } from 'next-intl';
+import { useValidateReferralCode } from '@/hooks/useValidateReferralCode';
+import { useState } from 'react';
 
 const CARDANOSCAN_URL = 'https://cardanoscan.io/transaction/';
 
@@ -30,6 +32,9 @@ export default function SwapDetails({
     onReferralCodeChange
 }: SwapDetailsProps) {
     const t = useTranslations("Swap");
+    const validateReferralMutation = useValidateReferralCode();
+    const [referralError, setReferralError] = useState<string | null>(null);
+    const [validReferral, setValidReferral] = useState(false);
     const serviceFee = 0.5;
     const networkFee = 0.18;
     const returnAmount = 2;
@@ -74,6 +79,26 @@ export default function SwapDetails({
                 return <span className="text-red-500">✗</span>;
             default:
                 return null;
+        }
+    };
+
+    const handleValidateReferral = async () => {
+        if (!referralCode) return;
+        
+        try {
+            setReferralError(null);
+            const { valid } = await validateReferralMutation.mutateAsync(referralCode);
+            
+            if (valid) {
+                setValidReferral(true);
+                onReferralCodeChange(referralCode);
+            } else {
+                setReferralError(t("transactionDetails.invalidReferralCode"));
+                setValidReferral(false);
+            }
+        } catch (error) {
+            setReferralError(t("transactionDetails.referralValidationError"));
+            setValidReferral(false);
         }
     };
 
@@ -134,21 +159,54 @@ export default function SwapDetails({
                             {t("transactionDetails.referralCode")} ({t("transactionDetails.optional")})
                         </label>
                         <div className="space-y-2">
-                            <input
-                                id="referralCode"
-                                type="text"
-                                value={referralCode}
-                                onChange={(e) => onReferralCodeChange(e.target.value)}
-                                placeholder={t("transactionDetails.enterReferralCode")}
-                                className="w-full bg-gray-700 border border-gray-600 rounded px-3 py-2 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-yellow-500"
-                                maxLength={20}
-                            />
-                            {referralCode && (
+                            <div className="flex gap-2">
+                                <input
+                                    id="referralCode"
+                                    type="text"
+                                    value={referralCode}
+                                    onChange={(e) => {
+                                        setValidReferral(false);
+                                        setReferralError(null);
+                                        onReferralCodeChange(e.target.value);
+                                    }}
+                                    placeholder={t("transactionDetails.enterReferralCode")}
+                                    className={`w-full bg-gray-700 border ${
+                                        referralError ? 'border-red-500' : 
+                                        validReferral ? 'border-green-500' : 
+                                        'border-gray-600'
+                                    } rounded px-3 py-2 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-yellow-500`}
+                                    maxLength={20}
+                                />
+                                <button
+                                    onClick={handleValidateReferral}
+                                    disabled={!referralCode || validateReferralMutation.isPending}
+                                    className={`px-4 py-2 rounded text-sm font-medium transition-colors ${
+                                        !referralCode || validateReferralMutation.isPending
+                                            ? 'bg-gray-600 text-gray-400 cursor-not-allowed'
+                                            : 'bg-yellow-500 hover:bg-yellow-600 text-black'
+                                    }`}
+                                >
+                                    {validateReferralMutation.isPending ? (
+                                        <div className="animate-spin h-5 w-5 border-2 border-black rounded-full border-t-transparent" />
+                                    ) : t("transactionDetails.validate")}
+                                </button>
+                            </div>
+                            
+                            {referralError && (
+                                <div className="text-xs text-red-400 flex items-center gap-1 pl-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                                    </svg>
+                                    {referralError}
+                                </div>
+                            )}
+
+                            {validReferral && (
                                 <div className="text-xs text-green-400 flex items-center gap-1 pl-1">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                                     </svg>
-                                    {t("transactionDetails.referralBonus", { amount: 5 })}
+                                    {t("transactionDetails.validReferralCode")}
                                 </div>
                             )}
                         </div>
