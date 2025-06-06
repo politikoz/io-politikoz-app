@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { useWallet } from "@meshsdk/react";
 import { MeshSwapContract } from "@meshsdk/contract";
-import { BlockfrostProvider, MeshTxBuilder } from '@meshsdk/core';
+import { BlockfrostProvider, MeshTxBuilder, ForgeScript, resolveScriptHash, stringToHex } from '@meshsdk/core';
 import { SwapService } from '@/services/SwapService';
 import { TransactionStatus } from '@/types/transaction';
 import { useOfficeSwap } from '@/hooks/useOfficeSwap';
@@ -28,7 +28,7 @@ interface WalletContextType {
     setTxStatus: React.Dispatch<React.SetStateAction<TransactionStatus | null>>,
     referralCode?: string // Add optional referral code
   ) => Promise<{ success: boolean; error?: string; txHash?: string; swapHistory?: SwapHistoryDTO }>;
-  handleAcceptSwap: (txHash: string, swapId: number) => Promise<{ success: boolean; error?: string }>;
+  handleAcceptSwap: (txHash: string, swapId: number, tier: number) => Promise<{ success: boolean; error?: string }>;
   handleCancelSwap: (txHash: string, swapId: number) => Promise<{ success: boolean; error?: string; txHash?: string }>;
   handleBuyTickets: (
     ticketAmount: number,
@@ -39,6 +39,7 @@ interface WalletContextType {
     kozAmount: number,
     assetNames: string[]
   ) => Promise<{ success: boolean; error?: string; txHash?: string }>;
+  handleMintTKOZ: () => Promise<{ success: boolean; error?: string; txHash?: string }>;
 }
 
 const WalletContext = createContext<WalletContextType | undefined>(undefined);
@@ -213,8 +214,8 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
 
       const assetToReceive = [
         {
-          unit: 'd9312da562da182b02322fd8acb536f37eb9d29fba7c49dc172555274d657368546f6b656e',
-          quantity: "1"
+          unit: process.env.NEXT_PUBLIC_KOZ_TOKEN_UNIT || '',
+          quantity: kozAmount.toString()
         },
         {
           unit: 'lovelace',
@@ -249,7 +250,7 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
           const response = await createSwap({
             stakeAddress: rewardAddress[0],
             transactionHash: txHash,
-            tier: tierId, // Pass number directly
+            tierId: tierId, // Pass number directly
             ada: adaAmount.toString(),
             koz: kozAmount.toString(),
             referralCode // Include referral code in API call
@@ -275,9 +276,9 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  const handleAcceptSwap = async (txHash: string, swapId: number): Promise<{ success: boolean; error?: string }> => {
+  const handleAcceptSwap = async (txHash: string, swapId: number, tier: number): Promise<{ success: boolean; error?: string }> => {
     try {
-        const { success, error } = await SwapService.acceptSwap(txHash);
+        const { success, error } = await SwapService.acceptSwap(txHash, tier);
 
         if (!success || error) {
             return {
@@ -409,8 +410,7 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
 
       // Convert amounts to lovelace (1 ADA = 1,000,000 lovelace)
       const serviceFeeQuantity = (serviceFee * 1_000_000).toString();
-      //const kozQuantity = kozAmount.toString();
-      const kozQuantity = '1';
+      const kozQuantity = kozAmount.toString();
 
       const txBuilder = new MeshTxBuilder({
         fetcher: provider,
@@ -562,6 +562,81 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
     }
   };
 
+  const handleMintTKOZ = async (): Promise<{ success: boolean; error?: string; txHash?: string }> => {
+    try {
+      if (!wallet || !isConnected) {
+        throw new Error('Wallet not connected');
+      }
+
+      const utxos = await wallet.getUtxos();
+      const changeAddress = await wallet.getChangeAddress();
+      
+      // Create forging script with change address
+      const forgingScript = ForgeScript.withOneSignature(changeAddress);
+      
+      // tKOZ metadata
+      const tKozMetadata = {
+        name: "tKOZ",
+        image: "images/KOZ.png",
+        mediaType: "image/png",
+        description: "Test KOZ token for Politikoz Platform",
+      };
+
+      // Generate policy ID from script
+      const policyId = resolveScriptHash(forgingScript);
+      const tokenName = "tKOZ";
+      const tokenNameHex = stringToHex(tokenName);
+      
+      // Metadata structure following CIP-721
+      const metadata = {
+        [policyId]: {
+          [tokenName]: {
+            ...tKozMetadata
+          }
+        }
+      };
+
+      // Create transaction builder
+      const txBuilder = new MeshTxBuilder({
+        fetcher: provider,
+        submitter: provider,
+        verbose: true,
+      });
+
+      // Build unsigned transaction
+      // Mint 10 million tokens (10_000_000)
+      const unsignedTx = await txBuilder
+        .mint("10000000", policyId, tokenNameHex)
+        .mintingScript(forgingScript)
+        .metadataValue(721, metadata)
+        .changeAddress(changeAddress)
+        .selectUtxosFrom(utxos)
+        .complete();
+
+      // Sign transaction
+      const signedTx = await wallet.signTx(unsignedTx);
+      
+      if (!signedTx) {
+        throw new Error('Failed to sign minting transaction');
+      }
+
+      // Submit transaction
+      const txHash = await wallet.submitTx(signedTx);
+
+      return {
+        success: true,
+        txHash
+      };
+
+    } catch (error: any) {
+      console.error('Token minting failed:', error);
+      return {
+        success: false,
+        error: error?.message || 'Failed to mint tokens'
+      };
+    }
+  };
+
   // Sync wallet state on mount and when mesh connection changes
   useEffect(() => {
     const syncWalletState = async () => {
@@ -599,6 +674,7 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
     handleCancelSwap,
     handleBuyTickets,
     handleReleasePrisoner,
+    handleMintTKOZ,
   };
 
   return (

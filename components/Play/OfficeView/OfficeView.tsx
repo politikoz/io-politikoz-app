@@ -15,6 +15,7 @@ import { useTour } from "@/contexts/TourContext";
 import { useTranslations } from "next-intl";
 import TicketProfileContainer from "../TicketProfile/TicketProfileContainer";
 import { BuyTicketContainer } from "../BuyTicket/BuyTicketContainer";
+import { MintContainer } from "./MintContainer";
 
 export default function OfficeView() {
   const [selectedSection, setSelectedSection] = useState<null | string>(null);
@@ -76,6 +77,7 @@ export default function OfficeView() {
                   onAuthError={() => setSelectedSection(null)}
                 />
               )}
+              {selectedSection === "mint-tkoz" && <MintContainer />}
               {selectedSection === "prize-info" && <ElectionPrize />}
               {selectedSection === "wave-info" && <ElectionInfo />}
               {selectedSection === "election-results" && <ElectionResultsView />}

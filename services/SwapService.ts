@@ -1,9 +1,9 @@
 import api from '@/app/lib/apiNode';
 
 export class SwapService {
-    static async acceptSwap(txHash: string): Promise<{ success: boolean; error?: string; status?: string }> {
+    static async acceptSwap(txHash: string, tier: number): Promise<{ success: boolean; error?: string; status?: string }> {
         try {
-            const response = await api.post(`/swap/accept/${txHash}`);
+            const response = await api.post(`/swap/accept/${txHash}/${tier}`);
 
             if (response.status === 202) {
                 return {

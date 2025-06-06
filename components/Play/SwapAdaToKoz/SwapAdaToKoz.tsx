@@ -167,13 +167,13 @@ export default function SwapAdaToKoz() {
             setTxStatus,
             referralCode // Add referral code to swap submission
         );
-        
+
         if (success && txHash && swapHistory) {
           await fetchHistory();
           setShowHistory(true);
-
+        
           try {
-            const acceptResult = await handleAcceptSwap(txHash, swapHistory.id);
+            const acceptResult = await handleAcceptSwap(txHash, swapHistory.id, swapHistory.tierId);
             
             if (acceptResult.success) {
               setKozAmount(0);

@@ -38,10 +38,6 @@ export default function PartyInfo({ party, referralRanking }: PartyInfoProps) {
 
   const getMockRankings = (): ReferralRanking[] => [
     { partyAcronym: t("you"), kozAmount: 0, position: 1, isPartyReferral: true },
-    { partyAcronym: "----", kozAmount: 0, position: 2, isPartyReferral: false },
-    { partyAcronym: "----", kozAmount: 0, position: 3, isPartyReferral: false },
-    { partyAcronym: "----", kozAmount: 0, position: 4, isPartyReferral: false },
-    { partyAcronym: "----", kozAmount: 0, position: 5, isPartyReferral: false }
   ];
 
   const handleCopyCode = async () => {
