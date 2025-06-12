@@ -72,7 +72,7 @@ const InfoSection: React.FC<InfoSectionProps> = ({ treasury }) => {
           ))}
         </div>
 
-        <div className="mt-8 text-center">
+        <div className="mt-10 text-center">
           <a
             href="https://docs.politikoz.io"
             target="_blank"

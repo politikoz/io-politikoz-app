@@ -23,7 +23,7 @@ const JoinPolitikozTour: React.FC = () => {
 
         <button
           onClick={handleStartTour}
-          className="relative group bg-green-600 hover:bg-green-700 
+          className="relative group mt-4 bg-green-600 hover:bg-green-700 
                    transform hover:scale-105 transition-all duration-200
                    font-pixel text-white px-10 py-4 rounded-lg
                    border-4 border-white shadow-[6px_6px_0px_black]

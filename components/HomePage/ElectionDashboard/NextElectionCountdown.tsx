@@ -55,7 +55,7 @@ const NextElectionCountdown: React.FC<NextElectionCountdownProps> = ({
             height="672"
             xlinkHref="/images/prisionerFemale.svg"
           />
-          <foreignObject x="50" y="310" width="360" height="200">
+          <foreignObject x="55" y="350" width="360" height="200">
             <div
               style={{
                 color: "#000000",

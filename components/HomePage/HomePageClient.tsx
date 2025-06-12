@@ -31,12 +31,12 @@ export default function HomePageClient() {
         </div>
       </div>
 
-      
+      <InfoSection treasury={data.treasury} />
       <ElectionDashboard
         nextElection={data.nextElection}
         lastElection={data.lastElection}
       />
-      <InfoSection treasury={data.treasury} />
+      
       <JoinPolitikozTour />
       <PoweredBy />
     </main>

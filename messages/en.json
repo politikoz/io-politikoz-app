@@ -36,7 +36,7 @@
 	"hours": "hours",
 	"minutes": "minutes",
 	"seconds": "seconds",
-	"electionSignText": "THE<br />ELECTION<br />IS<br />NEAR!",
+	"electionSignText": "ELECTION<br />IS<br />NEAR!",
 	"prizesSignText": "{ADA} ADA<br />IN<br />PRIZES"
 },
 "LastElectionLeaderboard": {
@@ -719,10 +719,10 @@
   },
   "JoinPolitikozTour": {
     "title": "Take Our Budget-Optimized Tour™",
-    "description": "A semi-guided tour through Politikoz, powered by recycled code and final coffee reserves! Complete the tour to spin our definitely-not-vibe-coding-generated reward wheel.",
+    "description": "A quick tour through Politikoz, fueled by coffee and questionable code! Complete it to spin our totally-not-rigged reward wheel.",
     "startTourButton": "Start Quick Tour",
     "rewardLabel": "Maybe Win FREE ENTRIES!*",
-    "disclaimer": "*Reward subject to bureaucratic approval"
+    "disclaimer": "*You'll actually win something. Promise."
   },
 "Maintenance": {
     "messages": {

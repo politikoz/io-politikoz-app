@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 import React from "react";
-import Image from "next/image"; // Importação do componente Image
+import Image from "next/image";
 
 const partners = [
   {
@@ -30,16 +30,11 @@ const PoweredBy: React.FC = () => {
   const poweredBy = t("poweredBy");
 
   return (
-    <div
-      className="w-full bg-[#1c1c1c] text-white py-6 px-4 relative"
-      style={{ background: "linear-gradient(to bottom, #3b3b3b, #505050)",
-        boxShadow: "inset 0px 4px 6px rgba(0, 0, 0, 0.5)", // Efeito de profundidade
-      }}
-    >
+    <div className="w-full bg-[#1c1c1c] text-white py-6 px-4 relative">
       {/* Título */}
-      <h2 className="text-center text-lg font-bold mb-4 font-pixel">{poweredBy}</h2>
+      <h2 className="text-left text-[12px] mb-4">{poweredBy}</h2>
 
-      {/* Logotipos dos Parceiros */}
+      {/* Logotipos dos Parceiros - com tamanho reduzido */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 justify-items-center items-center">
         {partners.map((partner, index) => (
           <a
@@ -53,10 +48,10 @@ const PoweredBy: React.FC = () => {
             <Image
               src={partner.logo}
               alt={`${partner.name} logo`}
-              width={112} // Largura fixa
-              height={112} // Altura fixa
-              className="object-contain" // Garante que a imagem seja redimensionada corretamente
-              style={{ width: "auto", height: "auto" }} // Mantém a proporção
+              width={80}
+              height={80}
+              className="object-contain max-h-16 w-auto"
+              style={{ maxWidth: "80px", height: "auto" }}
             />
           </a>
         ))}

@@ -25,7 +25,7 @@ export default function ElectionDashboard({ nextElection, lastElection }: Electi
     <div
       className="relative w-full"
       style={{
-        backgroundColor: "#3A2920",
+        backgroundColor: "#2A1F18",
         paddingBottom: `${groundHeight}px`,
       }}
     >
