@@ -18,11 +18,6 @@ export class SwapService {
             };
 
         } catch (error) {
-            console.error('Swap acceptance error:', {
-                error,
-                message: error instanceof Error ? error.message : 'Failed to process swap',
-                txHash
-            });
             return {
                 success: false,
                 error: error instanceof Error ? error.message : 'Failed to process swap',

@@ -13,10 +13,12 @@ interface SwapDetailsProps {
     txHash?: string;
     isLoading?: boolean;
     error?: string;
-    message?: string; // Add this line
+    message?: string;
     min?: number;
     referralCode?: string;
-    onReferralCodeChange: (code: string) => void;
+    isOwnerReferral?: boolean;
+    onReferralCodeChange: (code: string, isOwner?: boolean) => void;
+    stakeAddress?: string; // Trocar wallet por stakeAddress
 }
 
 export default function SwapDetails({ 
@@ -29,7 +31,9 @@ export default function SwapDetails({
     message,
     min = 200,
     referralCode,
-    onReferralCodeChange
+    isOwnerReferral = false,
+    onReferralCodeChange,
+    stakeAddress // Trocar wallet por stakeAddress
 }: SwapDetailsProps) {
     const t = useTranslations("Swap");
     const validateReferralMutation = useValidateReferralCode();
@@ -39,7 +43,13 @@ export default function SwapDetails({
     const networkFee = 0.18;
     const returnAmount = 2;
     const roundedAdaAmount = Math.ceil(adaAmount * 100) / 100;
-    const total = Math.ceil((roundedAdaAmount + serviceFee + networkFee + returnAmount) * 100) / 100;
+    
+    // Adicionar taxa de bribe para autorreferência
+    const bribeFee = isOwnerReferral ? 1.5 : 0;
+    
+    // Atualizar o cálculo do total para incluir a taxa de bribe
+    const total = Math.ceil((roundedAdaAmount + serviceFee + networkFee + returnAmount + bribeFee) * 100) / 100;
+    
     const isValidAmount = kozAmount >= min;
 
     const getStatusMessage = (status: string | undefined) => {
@@ -87,11 +97,27 @@ export default function SwapDetails({
         
         try {
             setReferralError(null);
-            const { valid } = await validateReferralMutation.mutateAsync(referralCode);
+            
+            // Verificação melhorada para stakeAddress
+            if (!stakeAddress) {
+                setReferralError(t("transactionDetails.referralValidationError"));
+                return;
+            }
+            
+            // Log para depuração (remova para produção)
+            console.log('Validando com stakeAddress:', stakeAddress);
+            
+            // Chamar a validação com o stakeAddress
+            const { valid, isOwner } = await validateReferralMutation.mutateAsync({
+                referralCode,
+                stakeAddress
+            });
+
+            console.log('Validação concluída:', { valid, isOwner });
             
             if (valid) {
                 setValidReferral(true);
-                onReferralCodeChange(referralCode);
+                onReferralCodeChange(referralCode, isOwner);
             } else {
                 setReferralError(t("transactionDetails.invalidReferralCode"));
                 setValidReferral(false);
@@ -167,12 +193,12 @@ export default function SwapDetails({
                                     onChange={(e) => {
                                         setValidReferral(false);
                                         setReferralError(null);
-                                        onReferralCodeChange(e.target.value);
+                                        onReferralCodeChange(e.target.value, false);
                                     }}
                                     placeholder={t("transactionDetails.enterReferralCode")}
                                     className={`w-full bg-gray-700 border ${
                                         referralError ? 'border-red-500' : 
-                                        validReferral ? 'border-green-500' : 
+                                        validReferral ? (isOwnerReferral ? 'border-amber-500' : 'border-green-500') : 
                                         'border-gray-600'
                                     } rounded px-3 py-2 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-yellow-500`}
                                     maxLength={20}
@@ -202,11 +228,14 @@ export default function SwapDetails({
                             )}
 
                             {validReferral && (
-                                <div className="text-xs text-green-400 flex items-center gap-1 pl-1">
+                                <div className={`text-xs ${isOwnerReferral ? "text-amber-400" : "text-green-400"} flex items-center gap-1 pl-1`}>
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                                     </svg>
-                                    {t("transactionDetails.validReferralCode")}
+                                    {isOwnerReferral 
+                                        ? t("transactionDetails.ownReferralCode")
+                                        : t("transactionDetails.validReferralCode")
+                                    }
                                 </div>
                             )}
                         </div>
@@ -265,6 +294,14 @@ export default function SwapDetails({
                                     <span className="text-gray-500">{t("transactionDetails.networkFee")}</span>
                                     <span className="text-yellow-400">~{networkFee} ADA</span>
                                 </div>
+                                
+                                {/* Taxa de bribe para autorreferência */}
+                                {isOwnerReferral && (
+                                    <div className="flex justify-between items-center text-xs">
+                                        <span className="text-amber-500">{t("transactionDetails.referralBribeCost")}</span>
+                                        <span className="text-amber-400">{bribeFee} ADA</span>
+                                    </div>
+                                )}
 
                                 <div className="h-px bg-gray-700 my-2"></div>
 

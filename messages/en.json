@@ -388,6 +388,8 @@
 },
 "BuyTicket": {
     "title": "Buy Tickets",
+    "ticketsAddedSoon": "Your tickets will be added to your account shortly (max 10 minutes).",  
+    "date": "Date",
     "pricePerTicket": "Price per ticket:",
     "yourBalance": "Your balance:",
     "enterTicketAmount": "Enter number of tickets",
@@ -403,6 +405,18 @@
     "serviceFeeInfo": "(+{fee} ADA service fee per ticket)",
     "minimumFeeInfo": "Minimum service fee 2.5 ADA (includes 3 FREE tickets)",
     "minimumFeeTooltip": "The first 2.5 ADA covers up to 25 tickets and includes 3 FREE tickets. After that, +0.1 ADA per additional ticket.",
+    "history": {
+      "amount": "Amount",
+      "transaction": "Transaction",
+      "status": "Status",
+      "action": "Action",
+      "ticketAmount": "{amount} Ticket(s)",
+      "kozAmount": "{amount} KOZ",
+      "validating": "Validating",
+      "completed": "Completed",
+      "failed": "Failed",
+      "cancel": "Cancel"
+    },
     "transactionDetails": {
       "title": "Transaction Details",
       "willReceive": "You will receive:",
@@ -891,7 +905,9 @@
       "validate": "Validate",
       "invalidReferralCode": "This referral seems as legitimate as a politician's promise! 🤥",
       "referralValidationError": "Error validating referral code",
-      "validReferralCode": "You will receive 5 Launderer Tickets as bonus!"
+      "validReferralCode": "You will receive 5 Launderer Tickets as bonus!",
+      "ownReferralCode": "+1.5 ADA 'administrative fee' added. You'll get 5 Briber Tickets, and the 'totally different person' who owns this code gets 3 Corrupt Tickets.",     
+      "referralBribeCost": "+1.5 ADA bribe fee"
     },
     "history": {
       "amount": "Amount",

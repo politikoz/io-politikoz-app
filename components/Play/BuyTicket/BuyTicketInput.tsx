@@ -40,6 +40,14 @@ export default function BuyTicketInput({ ticketAmount, setTicketAmount, maxTicke
     setDebouncedValue(numValue);
   };
 
+  // Função para definir o número máximo de tickets
+  const handleMaxClick = () => {
+    if (maxTickets > 0) {
+      setInputValue(maxTickets.toString());
+      setDebouncedValue(maxTickets);
+    }
+  };
+
   // Update parent state after debounce
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -63,6 +71,18 @@ export default function BuyTicketInput({ ticketAmount, setTicketAmount, maxTicke
           {t("tickets")}
         </span>
       </div>
+      
+      {/* Botão MAX */}
+      <div className="flex justify-end mt-2">
+        <button
+          onClick={handleMaxClick}
+          disabled={maxTickets <= 0}
+          className="px-3 py-1 text-xs font-medium text-yellow-400 hover:text-yellow-300 bg-gray-800 hover:bg-gray-700 rounded border border-gray-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          MAX
+        </button>
+      </div>
+      
       <div className="h-4">
         {ticketAmount > maxTickets && (
           <p className="text-xs text-red-400">

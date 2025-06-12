@@ -16,9 +16,8 @@ export const formatTokenAmount = (amount: number): string => {
   }).format(amount);
 };
 
-export const formatTxHash = (hash: string): string => {
-    if (hash.length <= 16) return hash;
-    return `${hash.slice(0, 8)}...${hash.slice(-8)}`;
+export const formatTxHash = (hash: string): string => {    
+    return `${hash.slice(0, 3)}...${hash.slice(-3)}`;
 };
 
 export const isPendingExpired = (createdAt: string): boolean => {

@@ -8,7 +8,7 @@ import { useOfficeSwap } from '@/hooks/useOfficeSwap';
 import { useSwapStatus } from '@/hooks/useSwapStatus';
 import { SwapHistoryDTO, SwapStatus } from '@/types/swap';
 
-const BLOCKFROST_API_KEY = process.env.BLOCKFROST_API_KEY_PREFIX || '';
+const BLOCKFROST_API_KEY = process.env.NEXT_PUBLIC_BLOCKFROST_API_KEY || '';
 const provider = new BlockfrostProvider(BLOCKFROST_API_KEY);
 
 interface WalletContextType {
@@ -40,6 +40,8 @@ interface WalletContextType {
     assetNames: string[]
   ) => Promise<{ success: boolean; error?: string; txHash?: string }>;
   handleMintTKOZ: () => Promise<{ success: boolean; error?: string; txHash?: string }>;
+  getKozBalance: () => Promise<number>;
+  kozBalance: number;
 }
 
 const WalletContext = createContext<WalletContextType | undefined>(undefined);
@@ -49,6 +51,7 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
   const [isConnected, setIsConnected] = useState(false);
   const [balance, setBalance] = useState(0);
   const [walletName, setWalletName] = useState<string | null>(null);
+  const [kozBalance, setKozBalance] = useState(0);
   const { createSwap } = useOfficeSwap();
   const { updateStatus } = useSwapStatus();
 
@@ -303,14 +306,17 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
         throw new Error('Wallet not connected');
       }
 
+      const blockfrostKey = process.env.NEXT_PUBLIC_BLOCKFROST_API_KEY_PREFIX || '';
+      const localProvider = new BlockfrostProvider(blockfrostKey);
+      
       const meshTxBuilder = new MeshTxBuilder({
-          fetcher: provider,
-          submitter: provider
+          fetcher: localProvider,
+          submitter: localProvider
       });
 
       const contract = new MeshSwapContract({
           mesh: meshTxBuilder,
-          fetcher: provider,
+          fetcher: localProvider,
           wallet: wallet,
           networkId: 0
       });
@@ -433,7 +439,7 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
             quantity: serviceFeeQuantity 
           }
         ])    
-        .changeAddress(changeAddress)
+        .changeAddress(changeAddress)  
         .selectUtxosFrom(utxos)
         .complete();
 
@@ -637,28 +643,41 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  // Sync wallet state on mount and when mesh connection changes
-  useEffect(() => {
-    const syncWalletState = async () => {
-      const storedWalletName = localStorage.getItem("walletName");
+  const getKozBalance = async (): Promise<number> => {
+    if (!wallet || !isConnected) return 0;
+
+    try {
+      const kozTokenId = process.env.NEXT_PUBLIC_KOZ_TOKEN_UNIT || '';
+      if (!kozTokenId) {
+        console.warn('KOZ token ID not configured in environment variables');
+        return 0;
+      }
+
+      const assets = await wallet.getAssets();
       
-      if (meshConnected && !isConnected && storedWalletName) {
-        console.log('Restoring wallet connection...');
-        setIsConnected(true);
-        setWalletName(storedWalletName);
-        const balance = await getBalance();
-        console.log('Wallet restored with balance:', balance);
+      // Find KOZ token in the assets list
+      const kozAsset = assets.find(asset => 
+        asset.unit === kozTokenId || // Exact match
+        asset.unit.startsWith(kozTokenId) // Policy ID match with any asset name
+      );
+      
+      if (kozAsset) {
+        const kozAmount = parseInt(kozAsset.quantity);
+        setKozBalance(kozAmount);
+        return kozAmount;
       }
       
-      if (!meshConnected && isConnected) {
-        console.log('Cleaning up disconnected wallet state');
-        disconnect();
-      }
-    };
+      // If no KOZ tokens found, return 0
+      setKozBalance(0);
+      return 0;
+    } catch (error) {
+      // Silent error in production
+      setKozBalance(0);
+      return 0;
+    }
+  };
 
-    syncWalletState();
-  }, [meshConnected]);
-
+  // Update value object to include the new method and state
   const value: WalletContextType = {
     isConnected,
     wallet,
@@ -675,7 +694,32 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
     handleBuyTickets,
     handleReleasePrisoner,
     handleMintTKOZ,
+    getKozBalance,
+    kozBalance,
   };
+
+  // Sync wallet state on mount and when mesh connection changes
+  useEffect(() => {
+    const syncWalletState = async () => {
+      const storedWalletName = localStorage.getItem("walletName");
+      
+      if (meshConnected && !isConnected && storedWalletName) {
+        console.log('Restoring wallet connection...');
+        setIsConnected(true);
+        setWalletName(storedWalletName);
+        const balance = await getBalance();
+        await getKozBalance(); // Also get KOZ balance when restoring wallet
+        console.log('Wallet restored with balance:', balance);
+      }
+      
+      if (!meshConnected && isConnected) {
+        console.log('Cleaning up disconnected wallet state');
+        disconnect();
+      }
+    };
+
+    syncWalletState();
+  }, [meshConnected]);
 
   return (
     <WalletContext.Provider value={value}>

@@ -8,62 +8,25 @@ const api = axios.create({
   }
 });
 
-// Melhorar logs para desenvolvimento
-if (process.env.NODE_ENV === 'development') {
-  api.interceptors.request.use(request => {
-    console.log('API Request:', {
-      url: request.url,
-      method: request.method,
-      baseURL: request.baseURL,
-      data: request.data,
-      timestamp: new Date().toISOString()
-    });
-    return request;
-  });
-
-  api.interceptors.response.use(
-    response => {
-      console.log('API Response:', {
-        status: response.status,
-        data: response.data,
-        url: response.config.url,
-        timestamp: new Date().toISOString()
-      });
-      return response;
-    },
-    error => {
-      console.error('API Error:', {
-        message: error.message,
-        status: error.response?.status,
-        data: error.response?.data,
-        config: {
-          url: error.config?.url,
-          baseURL: error.config?.baseURL,
-          method: error.config?.method
-        },
-        timestamp: new Date().toISOString()
-      });
-      return Promise.reject(error);
-    }
-  );
-}
-
+// Interceptor de resposta global (mantido)
 api.interceptors.response.use(
   (response) => response,
   (error) => {
+    // Interceptor de erro sem logs de console
     if (error.response) {
+      // Status code handling sem console.error
       switch (error.response.status) {
         case 401:
-          console.error('Unauthorized');
+          // Unauthorized - tratamento silencioso
           break;
         case 403:
-          console.error('Forbidden');
+          // Forbidden - tratamento silencioso
           break;
         case 429:
-          console.error('Too Many Requests');
+          // Too Many Requests - tratamento silencioso
           break;
         default:
-          console.error('API Error:', error.response.data);
+          // Outros erros - tratamento silencioso
       }
     }
     return Promise.reject(error);

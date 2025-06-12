@@ -42,8 +42,7 @@ export default function StakePage() {
     balance: walletBalance, 
     handleStake, 
     getBalance,
-    getCollateral,
-    connect 
+    getCollateral
   } = useWalletContext();
   
   const [status, setStatus] = useState<StakeStatus>('idle');
@@ -56,68 +55,8 @@ export default function StakePage() {
   const currentPolicy = policyData || INITIAL_TICKET_POLICY;
   const isMounted = useRef(false);
 
-  const retryConnection = async (walletName: string, attempts = 3): Promise<boolean> => {
-    for (let i = 0; i < attempts; i++) {
-      try {
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        const connected = await connect(walletName);
-        if (connected) return true;
-      } catch (error) {
-        console.log(`Connection attempt ${i + 1} failed:`, error);
-      }
-    }
-    return false;
-  };
-
-  const initializeConnection = async () => {
-    if (isMounted.current) return;
-    
-    const storedWalletName = localStorage.getItem("walletName");
-    
-    if (storedWalletName && !isConnected) {
-      try {
-        setIsLoading(true);
-        const connected = await retryConnection(storedWalletName);
-        
-        if (connected) {
-          await new Promise(resolve => setTimeout(resolve, 500));
-          const balance = await getBalance();
-          
-          if (balance > 0) {
-            const result = calculateTickets(balance, currentPolicy);
-            setTicketCalculation(result);
-          }
-        }
-      } catch (error) {
-        console.error('Connection initialization failed:', error);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-    
-    isMounted.current = true;
-  };
-
   const initialize = async () => {
-    if (isMounted.current) return;
-    
-    if (isConnected) {
-      try {
-        setIsLoading(true);
-        await new Promise(resolve => setTimeout(resolve, 500));
-        const balance = await getBalance();
-        
-        if (balance > 0) {
-          const result = calculateTickets(balance, currentPolicy);
-          setTicketCalculation(result);
-        }
-      } catch (error) {
-        console.error('Initialization failed:', error);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-    
+    if (isMounted.current) return;  
     isMounted.current = true;
   };
 
@@ -256,7 +195,7 @@ export default function StakePage() {
                     key={role}
                     name={role.charAt(0).toUpperCase() + role.slice(1).toLowerCase()}
                     amount="-"
-                    image={`/images/${role.toLowerCase()}.png`}
+                    image={`/images/assets/${role.toLowerCase()}.png`}
                   />
                 ))}
               </div>
@@ -328,17 +267,10 @@ export default function StakePage() {
                         key={role}
                         name={role.charAt(0).toUpperCase() + role.slice(1).toLowerCase()}
                         amount={quantity}
-                        image={`/images/${role.toLowerCase()}.png`}
+                        image={`/images/assets/${role.toLowerCase()}.png`}
                       />
                     ))}
                   </div>
-
-                  {ticketCalculation.estimatedKozRewards > 0 && (
-                    <div className="mt-4 p-4 bg-green-900 border-2 border-green-500 rounded">
-                      <h4 className="text-md font-bold text-green-300">💰 {t("kozBonus")}</h4>
-                      <p>{t("kozRewardsMessage", { amount: ticketCalculation.estimatedKozRewards })}</p>
-                    </div>
-                  )}
                 </div>
               )}
 

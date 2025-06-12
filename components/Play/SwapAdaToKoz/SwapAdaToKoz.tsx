@@ -33,7 +33,7 @@ export default function SwapAdaToKoz() {
     error: historyError 
   } = useSwapHistory();
   const { data: tiersDashboard, isLoading: isTiersDashboardLoading } = useTiersDashboard();
-  const validateReferralMutation = useValidateReferralCode(); // Add this line
+  const validateReferralMutation = useValidateReferralCode();
 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -41,6 +41,9 @@ export default function SwapAdaToKoz() {
   const [adaAmount, setAdaAmount] = useState(0);
   const [txStatus, setTxStatus] = useState<TransactionStatus | null>(null);
   const [referralCode, setReferralCode] = useState<string>("");
+  const [isOwnerReferral, setIsOwnerReferral] = useState<boolean>(false);
+  const [stakeAddress, setStakeAddress] = useState<string>('');
+  const [walletBalance, setWalletBalance] = useState(0);
   const isMounted = useRef(false);
   const MIN_KOZ_AMOUNT = 200;
   const [showHistory, setShowHistory] = useState(false);
@@ -57,46 +60,74 @@ export default function SwapAdaToKoz() {
   // Safe type checking for koz available
   const kozAvailable = tiersDashboard?.currentTier?.remainingKozSupply ?? 0;
 
+  // Manter initialize simples, apenas para configuração inicial
   const initialize = async () => {
     if (isMounted.current) return;
     
-    if (isConnected) {
-      try {
-        setIsLoading(true);
-        setTxStatus({
-          status: 'connecting',
-          details: {
-            adaAmount: 0,
-            kozAmount: 0,
-            returnAmount: 2,
-            serviceFee: 0.5,
-            networkFee: 0.18,
-            total: 2.68
-          }
-        });
-
-        await new Promise(resolve => setTimeout(resolve, 500));
-        await getBalance();
-        
-        if (!showHistory) {
-          await fetchHistory();
+    try {
+      setIsLoading(true);
+      setTxStatus({
+        status: 'connecting',
+        details: {
+          adaAmount: 0,
+          kozAmount: 0,
+          returnAmount: 2,
+          serviceFee: 0.5,
+          networkFee: 0.18,
+          total: 2.68
         }
-      } catch (error) {
-        console.error(t('errors.initializationFailed'));
-      } finally {
-        setIsLoading(false);
-        setError(null);
-        setTxStatus(null);
+      });
+
+      await new Promise(resolve => setTimeout(resolve, 500));
+      
+      if (!showHistory) {
+        await fetchHistory();
       }
+    } catch (error) {
+      // Erro silencioso em produção
+    } finally {
+      setIsLoading(false);
+      setError(null);
+      setTxStatus(null);
     }
     
     isMounted.current = true;
   };
 
-  // Update effect to use new initialize function
+  // Efeito apenas para montagem
   useEffect(() => {
     initialize();
-  }, [isConnected]); // Run when connection status changes
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Efeito para mudanças em isConnected
+  useEffect(() => {
+    if (isConnected) {
+      initialize();
+    }
+  }, [isConnected]);
+
+  // Adicionar um useEffect separado para lidar com obtenção de saldo e endereço
+  useEffect(() => {
+    const updateWalletData = async () => {
+      if (isConnected && wallet) {
+        try {
+          // Obter o stakeAddress
+          const rewardAddresses = await wallet.getRewardAddresses();
+          const address = rewardAddresses?.[0] || '';
+          setStakeAddress(address);
+
+          // Obter o saldo
+          const balance = await getBalance();
+          setWalletBalance(balance);
+        } catch (error) {
+          // Erro silencioso em produção
+        }
+      }
+    };
+
+    updateWalletData();
+  }, [isConnected, wallet, getBalance]);
 
   useEffect(() => {
     const cost = kozAmount > 0 ? kozAmount / conversionRate : 0;
@@ -113,18 +144,31 @@ export default function SwapAdaToKoz() {
     }
   }, [kozAmount, conversionRate]);
 
+  // Atualizar a função para aceitar o parâmetro isOwner
+  const handleReferralCodeChange = (code: string, isOwner: boolean = false) => {
+    setReferralCode(code);
+    setIsOwnerReferral(isOwner);
+  };
+
   const onSwap = async () => {
     setTxStatus(null);
     setError(null);
 
     // Validate referral code first if present
-    if (referralCode) {
+    if (referralCode && stakeAddress) {
       try {
-        const { valid } = await validateReferralMutation.mutateAsync(referralCode);
+        const { valid, isOwner } = await validateReferralMutation.mutateAsync({
+          referralCode,
+          stakeAddress
+        });
+        
         if (!valid) {
           setError(t("errors.invalidReferralCode"));
           return;
         }
+        
+        // Atualizar o estado de autorreferência
+        setIsOwnerReferral(isOwner);
       } catch (error) {
         setError(t("errors.referralValidationFailed"));
         return;
@@ -141,7 +185,10 @@ export default function SwapAdaToKoz() {
         return;
     }
 
-    // Show connecting status
+    // Adicionar a taxa de bribe se for autorreferência
+    const bribeFee = isOwnerReferral ? 1.5 : 0;
+    
+    // Show connecting status com a taxa de bribe
     setTxStatus({
         status: 'connecting',
         details: {
@@ -150,7 +197,8 @@ export default function SwapAdaToKoz() {
             returnAmount: 2,
             serviceFee: 0.5,
             networkFee: 0.18,
-            total: adaAmount + 2.5
+            bribeFee: bribeFee, // Adicionar a taxa de bribe
+            total: adaAmount + 2.5 + bribeFee // Incluir a taxa no total
         }
     });
 
@@ -161,11 +209,11 @@ export default function SwapAdaToKoz() {
 
     try {
         const { success, error, txHash, swapHistory } = await handleSubmitSwap(
-            adaAmount, 
+            adaAmount + bribeFee, 
             kozAmount,
             tiersDashboard.currentTier.id,
             setTxStatus,
-            referralCode // Add referral code to swap submission
+            referralCode
         );
 
         if (success && txHash && swapHistory) {
@@ -262,10 +310,10 @@ export default function SwapAdaToKoz() {
 
   const handleShowHistory = async () => {
     try {
-      await fetchHistory(); // Add this line to fetch history before showing
+      await fetchHistory();
       setShowHistory(true);
     } catch (error) {
-      console.error('Failed to fetch history:', error);
+      // Erro silencioso em produção
     }
   };
 
@@ -308,6 +356,8 @@ export default function SwapAdaToKoz() {
                 setKozAmount={setKozAmount} 
                 max={kozAvailable}
                 min={MIN_KOZ_AMOUNT}
+                walletBalance={walletBalance}
+                conversionRate={conversionRate}
               />
               
               <SwapDetails 
@@ -319,7 +369,9 @@ export default function SwapAdaToKoz() {
                 error={error || undefined}
                 message={txStatus?.message}
                 referralCode={referralCode}
-                onReferralCodeChange={setReferralCode}
+                isOwnerReferral={isOwnerReferral}
+                onReferralCodeChange={handleReferralCodeChange}
+                stakeAddress={stakeAddress}
               />
               
               <SwapSummary

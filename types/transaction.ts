@@ -4,6 +4,7 @@ export interface TransactionDetails {
     returnAmount: number;
     serviceFee: number;
     networkFee: number;
+    bribeFee?: number;
     total: number;
 }
 
