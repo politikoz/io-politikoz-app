@@ -29,7 +29,6 @@ export default function ElectionRoadmap() {
 
   const nextWaveIndex = waves.findIndex((wave) => wave.nextWave);
   const nextWave = waves[nextWaveIndex] || null;
-  const hasSecondTurn = waves.some(wave => wave.detail.electionWaveTurn === "SECOND_TURN");
   const isElectionEnded = waves.length > 0 && !waves.some(wave => wave.nextWave);
 
   const renderTurnCard = (turnType: string) => (

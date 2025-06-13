@@ -12,6 +12,12 @@ interface WaveDetailsModalProps {
 export default function WaveDetailsModal({ wave, onClose }: WaveDetailsModalProps) {
   const t = useTranslations("ElectionInfo");
 
+  // Verificar se a data de execução existe antes de formatar
+  const hasExecutedDate = wave.executedAt !== null;
+  const executedDate = hasExecutedDate 
+    ? new Date(wave.executedAt!).toLocaleString() 
+    : null;
+
   return (
     <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center z-50">
       <div className="bg-gray-800 text-white p-6 rounded-lg w-[480px] pixel-shadow">
@@ -21,7 +27,14 @@ export default function WaveDetailsModal({ wave, onClose }: WaveDetailsModalProp
         
         <div className="mt-4 space-y-2 text-sm">
           <p>{t("modalDate")}: {new Date(wave.date).toLocaleString()}</p>
-          <p>{t("modalExecutedAt")}: {new Date(wave.executedAt).toLocaleString()}</p>
+          
+          {/* Mostrar a data de execução apenas se existir */}
+          {hasExecutedDate && (
+            <p className="text-gray-300">
+              <span className="font-semibold text-white">{t("executed")}:</span>{" "}
+              {executedDate}
+            </p>
+          )}
           
           <div className="mt-4 pt-4 border-t border-gray-700">
             <h4 className="font-bold mb-2 text-blue-300">{t("modalDetails")}</h4>

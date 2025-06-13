@@ -116,10 +116,13 @@ export default function ElectionPrize() {
                   <span className="text-gray-400">{t("prizePerWinner")}</span>
                   <span className="text-green-400 font-mono">₳{formatTokenAmount(p.unitPrize)}</span>
                 </div>
-                <div className="flex justify-between items-center text-sm">
-                  <span className="text-gray-400">{t("totalForRole")}</span>
-                  <span className="text-green-400 font-mono">₳{formatTokenAmount(p.totalPrize)}</span>
-                </div>
+                {/* Mostrar o total apenas se houver mais de 1 eleito */}
+                {p.count > 1 && (
+                  <div className="flex justify-between items-center text-sm">
+                    <span className="text-gray-400">{t("totalForRole")}</span>
+                    <span className="text-green-400 font-mono">₳{formatTokenAmount(p.totalPrize)}</span>
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -146,10 +149,13 @@ export default function ElectionPrize() {
                   <span className="text-gray-400">{t("prizePerWinner")}</span>
                   <span className="text-blue-400 font-mono">₳{formatTokenAmount(ticket.unitPrize)}</span>
                 </div>
-                <div className="flex justify-between items-center text-sm">
-                  <span className="text-gray-400">{t("totalForType")}</span>
-                  <span className="text-blue-400 font-mono">₳{formatTokenAmount(ticket.totalPrize)}</span>
-                </div>
+                {/* Mostrar o total apenas se houver mais de 1 vencedor */}
+                {ticket.count > 1 && (
+                  <div className="flex justify-between items-center text-sm">
+                    <span className="text-gray-400">{t("totalForType")}</span>
+                    <span className="text-blue-400 font-mono">₳{formatTokenAmount(ticket.totalPrize)}</span>
+                  </div>
+                )}
               </div>
             ))}
           </div>

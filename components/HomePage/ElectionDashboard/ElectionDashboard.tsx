@@ -20,6 +20,9 @@ export default function ElectionDashboard({ nextElection, lastElection }: Electi
   const concreteHeight = 16;
   const chainHeight = 10;
   const groundHeight = 40;
+  
+  // Verificar se o leaderboard existe e não está vazio
+  const hasLeaderboard = lastElection?.leaderboard && lastElection.leaderboard.length > 0;
 
   return (
     <div
@@ -43,22 +46,24 @@ export default function ElectionDashboard({ nextElection, lastElection }: Electi
       <div style={{ height: `${chainHeight}px` }}></div>
 
       {/* Container principal dos componentes internos */}
-      <div className="flex flex-col lg:flex-row justify-between items-start gap-6 mt-4">
+      <div className={`flex ${hasLeaderboard ? 'flex-col lg:flex-row justify-between' : 'justify-center'} items-start gap-6 mt-4`}>
         {/* Contador da próxima eleição */}
-        <div className="w-full lg:w-auto lg:ml-[10%]">
+        <div className={`w-full ${hasLeaderboard ? 'lg:w-auto lg:ml-[10%]' : 'max-w-lg mx-auto'}`}>
           <NextElectionCountdown 
             date={nextElection?.date}
             totalPrize={nextElection?.totalPrize}
           />
         </div>
 
-        {/* Tabela do último leaderboard */}
-        <div className="w-full lg:w-auto lg:mr-[10%]">
-          <LastElectionLeaderboard 
-            winners={lastElection?.leaderboard}
-            month={lastElection?.month}
-          />
-        </div>
+        {/* Tabela do último leaderboard - exibida apenas se houver dados */}
+        {hasLeaderboard && (
+          <div className="w-full lg:w-auto lg:mr-[10%]">
+            <LastElectionLeaderboard 
+              winners={lastElection.leaderboard}
+              month={lastElection.month}
+            />
+          </div>
+        )}
       </div>
 
       {/* Chão pisado */}
@@ -66,7 +71,7 @@ export default function ElectionDashboard({ nextElection, lastElection }: Electi
         className="absolute bottom-0 left-0 w-full"
         style={{
           height: `${groundHeight}px`,
-          background: "linear-gradient(to top, #3A2920, #4B3F36)",
+          background: "linear-gradient(to top, #2A1F18, #3F332C)",
           boxShadow: "inset 0px -4px 6px rgba(0, 0, 0, 0.3)",
         }}
       ></div>
