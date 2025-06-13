@@ -4,11 +4,12 @@ export interface PartyInfo {
   name: string;
   flagColor: string;
   referralCode: string;
+  partyType: string; // Mudança de PartyTypes para string
 }
 
 export interface ReferralRanking {
   partyAcronym: string;
-  kozAmount: number; // Changed from count to kozAmount
+  kozAmount: number;
   position: number;
   isPartyReferral: boolean;
 }
@@ -16,11 +17,13 @@ export interface ReferralRanking {
 export interface PartyInfoResponse {
   party: PartyInfo | null;
   availableColors: string[];
+  availablePartyTypes: string[]; // Mudança de PartyTypes[] para string[]
   referralRanking: ReferralRanking[];
 }
 
 export const INITIAL_PARTY_INFO: PartyInfoResponse = {
   party: null,
   availableColors: [],
+  availablePartyTypes: [],
   referralRanking: []
 };

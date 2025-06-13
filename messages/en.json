@@ -711,7 +711,8 @@
       "placeholderName": "Party Name",
       "createButton": "Create Party",
       "errorDefault": "Failed to create party",
-      "errorHasParty": "You already have a party"
+      "errorHasParty": "You already have a party",
+      "typeLabel": "Party Type"
     },
     "flag": {
       "tryAgain": "Try Again"

@@ -28,6 +28,7 @@ export function usePartyInfo() {
     return {
       party: null,
       availableColors: [],
+      availablePartyTypes: [],
       referralRanking: [],
       isWalletConnected: false,
       isPending: false
@@ -38,6 +39,7 @@ export function usePartyInfo() {
   return {
     party: query.isLoading ? undefined : query.data?.party ?? null,
     availableColors: query.data?.availableColors ?? [],
+    availablePartyTypes: query.data?.availablePartyTypes ?? [],
     referralRanking: query.data?.referralRanking ?? [],
     isWalletConnected: true,
     isPending: query.isLoading

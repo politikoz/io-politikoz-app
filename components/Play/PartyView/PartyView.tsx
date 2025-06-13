@@ -18,7 +18,14 @@ export default function PartyView() {
   const [selectedSection, setSelectedSection] = useState<null | string>(null);
   const [localTourActive, setLocalTourActive] = useState(false);
   const { isTourActive, deactivateTour } = useTour();
-  const { party, availableColors, referralRanking, isWalletConnected, isPending } = usePartyInfo();
+  const { 
+    party, 
+    availableColors, 
+    availablePartyTypes,
+    referralRanking, 
+    isWalletConnected, 
+    isPending 
+  } = usePartyInfo();
   const { getSession } = useAuth(); // Add this line
   const router = useRouter();
   const t = useTranslations("PartyView");
@@ -80,7 +87,10 @@ export default function PartyView() {
                   />
                 ) : (
                   isWalletConnected && (
-                    <CreateParty availableColors={availableColors} />
+                    <CreateParty 
+                      availableColors={availableColors}
+                      availablePartyTypes={availablePartyTypes} 
+                    />
                   )
                 )
               )}

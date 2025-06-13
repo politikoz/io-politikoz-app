@@ -3,6 +3,7 @@ export interface CreatePartyRequest {
   name: string;
   flagColor: string;
   stakeAddress: string;
+  partyType: string; // Mudança de PartyTypes para string
 }
 
 export interface PartyInfoDTO {
@@ -11,4 +12,5 @@ export interface PartyInfoDTO {
   name: string;
   flagColor: string;
   referralCode: string;
+  partyType: string; // Mudança de PartyTypes para string
 }

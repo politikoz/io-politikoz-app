@@ -5,7 +5,7 @@ import { formatTokenAmount } from "@/utils/formatters"; // Add this import
 import { PartyInfoDTO } from "@/types/CreatePartyData";
 import { ReferralRanking } from "@/types/PartyInfoData";
 import PartyFlag from "./PartyFlag";
-import { useState } from "react";
+import React, { useState } from "react";
 import { ClipboardDocumentIcon } from "@heroicons/react/24/outline";
 import { TrophyIcon } from "@heroicons/react/24/solid";
 
@@ -31,6 +31,15 @@ const ReferralRewardCard = ({
     <span className="text-white text-xs font-['Press_Start_2P']">{label}</span>
   </div>
 );
+
+// Helper function to format party type for display
+const formatPartyType = (type: string): string => {
+  if (!type) return '';
+  
+  return type.split('_').map(word => 
+    word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+  ).join(' ');
+};
 
 export default function PartyInfo({ party, referralRanking }: PartyInfoProps) {
   const t = useTranslations("PartyView.info");
@@ -114,6 +123,13 @@ export default function PartyInfo({ party, referralRanking }: PartyInfoProps) {
           <p className="text-white mt-2 font-['Press_Start_2P'] text-sm">
             {party.name}
           </p>
+          {party.partyType && (
+            <div className="mt-2 inline-block bg-gray-800 px-3 py-1 rounded-full">
+              <p className="text-gray-300 text-xs font-['Press_Start_2P']">
+                {party.partyType ? formatPartyType(party.partyType) : t("unknownType", { defaultValue: "Unknown Type" })}
+              </p>
+            </div>
+          )}
         </div>
 
         <div className="bg-gray-800 p-4 rounded-md border-2 border-white">
@@ -159,9 +175,9 @@ export default function PartyInfo({ party, referralRanking }: PartyInfoProps) {
             {t("rankingDescription")}
           </p>
           <div className="grid grid-cols-3 gap-2 mb-4">
-            <ReferralRewardCard amount={5000} label="KOZ" recipient="1st" />
-            <ReferralRewardCard amount={2500} label="KOZ" recipient="2nd" />
-            <ReferralRewardCard amount={1250} label="KOZ" recipient="3rd" />
+            <ReferralRewardCard amount={14000} label="KOZ" recipient="1st" />
+            <ReferralRewardCard amount={7000} label="KOZ" recipient="2nd" />
+            <ReferralRewardCard amount={3000} label="KOZ" recipient="3rd" />
           </div>
 
           <div className="space-y-2">
@@ -170,7 +186,7 @@ export default function PartyInfo({ party, referralRanking }: PartyInfoProps) {
               const hasSkippedPositions = previousRank && (rank.position - previousRank.position > 1);
 
               return (
-                <>
+                <React.Fragment key={`rank-${index}-${rank.position}`}>
                   {hasSkippedPositions && (
                     <div className="flex items-center justify-center py-1">
                       <div className="text-yellow-500 text-xs opacity-50 font-['Press_Start_2P']">
@@ -179,7 +195,6 @@ export default function PartyInfo({ party, referralRanking }: PartyInfoProps) {
                     </div>
                   )}
                   <div 
-                    key={`${rank.partyAcronym}-${index}`}
                     className={`flex items-center justify-between p-2 rounded ${
                       rank.isPartyReferral ? 'bg-yellow-900' : 'bg-gray-700'
                     }`}
@@ -193,10 +208,10 @@ export default function PartyInfo({ party, referralRanking }: PartyInfoProps) {
                       </span>
                     </div>
                     <div className="flex items-center">
-                      <span className="text-white font-mono opacity-50 w-24 text-right"> {/* Added fixed width */}
+                      <span className="text-white font-mono opacity-50 w-24 text-right">
                         {formatTokenAmount(rank.kozAmount)} KOZ
                       </span>
-                      <div className="w-7 flex justify-center"> {/* Added fixed width container for trophy */}
+                      <div className="w-7 flex justify-center">
                         {rank.position <= 3 && (
                           <TrophyIcon 
                             className={`w-5 h-5 ${rank.isPartyReferral ? '' : 'opacity-30'} ${
@@ -209,7 +224,7 @@ export default function PartyInfo({ party, referralRanking }: PartyInfoProps) {
                       </div>
                     </div>
                   </div>
-                </>
+                </React.Fragment>
               );
             })}
           </div>

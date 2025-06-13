@@ -7,14 +7,18 @@ import { useCreateParty } from "@/hooks/useCreateParty";
 
 interface CreatePartyProps {
   availableColors: string[];
+  availablePartyTypes: string[]; // Atualizado para string[]
 }
 
-export default function CreateParty({ availableColors }: CreatePartyProps) {
+export default function CreateParty({ availableColors, availablePartyTypes }: CreatePartyProps) {
   const t = useTranslations("PartyView.create");
   const [flagKey, setFlagKey] = useState(0);
   const [partySigla, setPartySigla] = useState("");
   const [partyName, setPartyName] = useState("");
   const [selectedColor, setSelectedColor] = useState(availableColors[0] || "");
+  const [selectedPartyType, setSelectedPartyType] = useState<string>(
+    availablePartyTypes[0] || ""
+  );
   const [error, setError] = useState<string | null>(null);
   
   const createPartyMutation = useCreateParty();
@@ -25,9 +29,10 @@ export default function CreateParty({ availableColors }: CreatePartyProps) {
       partySigla.trim().length > 0 && 
       partyName.trim().length > 0 && 
       selectedColor && 
+      selectedPartyType &&
       !createPartyMutation.isPending
     );
-  }, [partySigla, partyName, selectedColor, createPartyMutation.isPending]);
+  }, [partySigla, partyName, selectedColor, selectedPartyType, createPartyMutation.isPending]);
 
   const handleSiglaChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 4);
@@ -36,7 +41,7 @@ export default function CreateParty({ availableColors }: CreatePartyProps) {
 
   const handleSubmit = async () => {
     const stakeAddress = localStorage.getItem('stakeAddress');
-    if (!stakeAddress) return;
+    if (!stakeAddress || !selectedPartyType) return;
 
     try {
       setError(null);
@@ -44,11 +49,21 @@ export default function CreateParty({ availableColors }: CreatePartyProps) {
         acronym: partySigla,
         name: partyName,
         flagColor: selectedColor,
-        stakeAddress
+        stakeAddress,
+        partyType: selectedPartyType
       });
     } catch (error: any) {
       setError(error.message || t("errorDefault"));
     }
+  };
+
+  // Helper function to format party type for display
+  const formatPartyType = (type: string): string => {
+    if (!type) return '';
+    
+    return type.split('_').map(word => 
+      word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+    ).join(' ');
   };
 
   return (
@@ -90,6 +105,21 @@ export default function CreateParty({ availableColors }: CreatePartyProps) {
             className="w-full p-2 border-2 border-gray-400 bg-gray-800 text-white text-center font-['Press_Start_2P']"
             placeholder={t("placeholderName")}
           />
+        </div>
+
+        <div>
+          <label className="text-white text-sm font-bold">{t("typeLabel")}</label>
+          <select
+            value={selectedPartyType}
+            onChange={(e) => setSelectedPartyType(e.target.value)}
+            className="w-full p-2 border-2 border-gray-400 bg-gray-800 text-white text-center font-['Press_Start_2P']"
+          >
+            {availablePartyTypes.map((type) => (
+              <option key={type} value={type}>
+                {formatPartyType(type)}
+              </option>
+            ))}
+          </select>
         </div>
 
         <button
