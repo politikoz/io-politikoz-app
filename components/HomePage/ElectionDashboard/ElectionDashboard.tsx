@@ -5,6 +5,7 @@ interface ElectionDashboardProps {
   nextElection?: {
     date: string;
     totalPrize: number;
+    tierId: number;
   };
   lastElection?: {
     leaderboard: Array<{

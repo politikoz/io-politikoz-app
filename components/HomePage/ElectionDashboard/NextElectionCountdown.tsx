@@ -9,12 +9,15 @@ interface NextElectionCountdownProps {
 
 const NextElectionCountdown: React.FC<NextElectionCountdownProps> = ({ 
   date = "2025-01-25T15:00:00Z",
-  totalPrize = 0 
+  totalPrize = 0
 }) => {
   const t = useTranslations("NextElectionCountdown");
+  // Formatar o tierId com zero à esquerda
 
   return (
-    <div className="flex flex-col items-center font-pixel text-yellow-400">
+    <div className="flex flex-col items-center font-pixel text-yellow-400 relative">
+      
+      
       <div className="flex justify-between gap-2 mb-8 w-full max-w-[600px]">
         {["days", "hours", "minutes", "seconds"].map((unit, index) => (
           <div
@@ -31,7 +34,7 @@ const NextElectionCountdown: React.FC<NextElectionCountdownProps> = ({
             />
             <span className="text-xs sm:text-[10px] md:text-[8px] text-gray-800">
               {t(unit).toUpperCase()}
-            </span>
+            </span>      
           </div>
         ))}
       </div>

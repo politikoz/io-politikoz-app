@@ -1,13 +1,14 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { formatTokenAmount } from "@/utils/formatters"; // Add this import
 import { PartyInfoDTO } from "@/types/CreatePartyData";
 import { ReferralRanking } from "@/types/PartyInfoData";
 import PartyFlag from "./PartyFlag";
 import React, { useState } from "react";
 import { ClipboardDocumentIcon } from "@heroicons/react/24/outline";
 import { TrophyIcon } from "@heroicons/react/24/solid";
+import { usePartyRankings } from "@/hooks/usePartyRankings";
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 
 interface PartyInfoProps {
   party: PartyInfoDTO;
@@ -41,9 +42,51 @@ const formatPartyType = (type: string): string => {
   ).join(' ');
 };
 
+// Função auxiliar para formatar o valor KOZ - sem decimais
+const formatTokenAmount = (amount: number): string => {
+  // Arredonda para cima para garantir valores inteiros
+  const roundedAmount = Math.ceil(amount);
+  
+  if (roundedAmount >= 1000000) {
+    return Math.ceil(roundedAmount / 10000) / 100 + 'M';
+  } else if (roundedAmount >= 1000) {
+    return Math.ceil(roundedAmount / 10) / 100 + 'K';
+  } else {
+    return roundedAmount.toString();
+  }
+};
+
 export default function PartyInfo({ party, referralRanking }: PartyInfoProps) {
   const t = useTranslations("PartyView.info");
   const [copied, setCopied] = useState(false);
+  // Estado para controlar qual season está sendo visualizada
+  const [currentSeasonIndex, setCurrentSeasonIndex] = useState(0);
+  
+  // Usar o hook para obter os rankings
+  const { rankings, isLoading } = usePartyRankings();
+  
+  // Ordenar as temporadas por tierId em ordem decrescente (mais recente primeiro)
+  const sortedRankings = [...rankings].sort((a, b) => b.tierId - a.tierId);
+  
+  // Obter a temporada atual com base no índice
+  const currentSeason = sortedRankings[currentSeasonIndex];
+  
+  // Verificar se há temporadas para navegar
+  const hasMultipleSeasons = sortedRankings.length > 1;
+  
+  // Navegar para a temporada anterior
+  const goToPreviousSeason = () => {
+    if (currentSeasonIndex < sortedRankings.length - 1) {
+      setCurrentSeasonIndex(currentSeasonIndex + 1);
+    }
+  };
+  
+  // Navegar para a próxima temporada
+  const goToNextSeason = () => {
+    if (currentSeasonIndex > 0) {
+      setCurrentSeasonIndex(currentSeasonIndex - 1);
+    }
+  };
 
   const getMockRankings = (): ReferralRanking[] => [
     { partyAcronym: t("you"), kozAmount: 0, position: 1, isPartyReferral: true },
@@ -228,6 +271,139 @@ export default function PartyInfo({ party, referralRanking }: PartyInfoProps) {
               );
             })}
           </div>
+        </div>
+
+        {/* Adicionar esta nova seção após o bloco de referral ranking */}
+        <div className="bg-gray-800 p-4 rounded-md border-2 border-white mt-4">
+          <h3 className="text-yellow-300 text-sm font-bold mb-2 font-['Press_Start_2P'] text-center">
+            {t("partyRanking", { defaultValue: "Party Performance" })}
+          </h3>
+          
+          {isLoading ? (
+            <div className="flex justify-center p-4">
+              <div className="w-6 h-6 border-2 border-yellow-300 border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          ) : sortedRankings.length === 0 ? (
+            <p className="text-white text-xs text-center leading-relaxed font-['Press_Start_2P']">
+              {t("noRankingsAvailable", { defaultValue: "No rankings available yet" })}
+            </p>
+          ) : (
+            <>
+              {/* Exibir informação sobre o tesouro KOZ (sempre mostrar) */}
+              <div className="mb-4 p-3 bg-yellow-900/30 border border-yellow-600 rounded-md">
+                <h4 className="text-yellow-300 text-xs font-bold mb-2 font-['Press_Start_2P'] text-center">
+                  {t("treasuryPool")}
+                </h4>
+                
+                <div className="flex justify-center items-center gap-2 mb-2">
+                  <span className="text-white text-sm font-mono font-bold">
+                    {formatTokenAmount(currentSeason?.kozBalance || 0)} KOZ
+                  </span>
+                </div>           
+                
+                <p className="mt-2 text-xs text-center text-yellow-200">
+                  {t("distributionMethod")}
+                </p>
+                
+                {currentSeasonIndex === 0 && (
+                  <div className="mt-3 text-xs text-gray-300 text-center">
+                    <i>{t("treasuryNote")}</i>
+                  </div>
+                )}
+              </div>
+
+              {/* Navegação entre temporadas */}
+              <div className="flex items-center justify-between mb-4">
+                <button 
+                  onClick={() => {
+                    if (currentSeasonIndex < sortedRankings.length - 1) {
+                      setCurrentSeasonIndex(currentSeasonIndex + 1);
+                    }
+                  }}
+                  className={`p-1 rounded-full ${hasMultipleSeasons && currentSeasonIndex < sortedRankings.length - 1 
+                    ? 'bg-gray-700 text-white hover:bg-gray-600' 
+                    : 'bg-gray-900 text-gray-700 cursor-not-allowed'}`}
+                  disabled={!hasMultipleSeasons || currentSeasonIndex >= sortedRankings.length - 1}
+                >
+                  <ChevronLeftIcon className="w-5 h-5" />
+                </button>
+                
+                <div className="text-white text-xs font-['Press_Start_2P']">
+                  {t("season", { seasonNumber: String(currentSeason?.tierId || 0).padStart(2, '0') })}
+                </div>
+                
+                <button 
+                  onClick={() => {
+                    if (currentSeasonIndex > 0) {
+                      setCurrentSeasonIndex(currentSeasonIndex - 1);
+                    }
+                  }}
+                  className={`p-1 rounded-full ${hasMultipleSeasons && currentSeasonIndex > 0
+                    ? 'bg-gray-700 text-white hover:bg-gray-600' 
+                    : 'bg-gray-900 text-gray-700 cursor-not-allowed'}`}
+                  disabled={!hasMultipleSeasons || currentSeasonIndex <= 0}
+                >
+                  <ChevronRightIcon className="w-5 h-5" />
+                </button>
+              </div>
+              
+              {/* Tabela de rankings - com coluna Elected próxima a Party */}
+              <div className="space-y-2">
+                {/* Cabeçalhos da tabela com distribuição de espaço ajustada */}
+                <div className="grid grid-cols-12 gap-2 text-xs text-gray-400 mb-1 font-['Press_Start_2P']">
+                  <div className="col-span-1 text-center">{t("rankColumn")}</div>
+                  <div className="col-span-3 pl-1">{t("partyColumn")}</div>
+                  <div className="col-span-2 text-right pr-1">{t("winnersColumn")}</div>
+                  <div className="col-span-3 text-right pr-1">{t("percentageColumn")}</div>
+                  <div className="col-span-3 text-right pr-1">{t("rewardColumn")}</div>
+                </div>
+                
+                {/* Linhas de dados */}
+                {currentSeason?.rankings.sort((a, b) => b.totalWinners - a.totalWinners).map((ranking, index) => {
+                  const isCurrentParty = ranking.partyAcronym === party.acronym;
+                  
+                  // Calcular a recompensa para cada partido com base na porcentagem
+                  // e arredondar para cima para garantir valor inteiro
+                  const partyReward = currentSeason?.kozBalance
+                    ? Math.ceil((ranking.percentage / 100) * currentSeason.kozBalance)
+                    : 0;
+                  
+                  return (
+                    <div 
+                      key={`party-rank-${ranking.partyAcronym}`}
+                      className={`grid grid-cols-12 gap-2 p-2 rounded items-center ${
+                        isCurrentParty ? 'bg-yellow-900' : 'bg-gray-700'
+                      }`}
+                    >
+                      <div className="col-span-1 text-yellow-300 font-mono text-center">
+                        {index + 1}
+                      </div>
+                      <div className={`col-span-3 font-mono pl-1 ${isCurrentParty ? 'text-white font-bold' : 'text-white opacity-70'} truncate`}>
+                        {ranking.partyAcronym}
+                      </div>
+                      <div className="col-span-2 text-right text-white font-mono pr-1">
+                        {ranking.totalWinners}
+                      </div>
+                      <div className="col-span-3 text-right text-yellow-300 font-mono pr-1">
+                        {ranking.percentage.toFixed(1)}%
+                      </div>
+                      <div className="col-span-3 text-right text-green-300 font-mono pr-1">
+                        {formatTokenAmount(partyReward)}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              
+              <p className="text-white text-xs mt-4 text-center leading-relaxed font-['Press_Start_2P']">
+                {currentSeasonIndex === 0 && (
+                  <span className="block mt-1 text-yellow-200">
+                    {t("currentSeasonNote")}
+                  </span>
+                )}
+              </p>
+            </>
+          )}
         </div>
       </div>
     </div>

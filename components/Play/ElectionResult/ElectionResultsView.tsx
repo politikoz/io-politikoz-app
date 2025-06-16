@@ -23,11 +23,11 @@ export default function ElectionResultsView() {
       <div className="w-full flex flex-col items-center p-4">
         {selectedView === "map" && <ElectoralMap />}
         {selectedView === "candidates" && <UserCandidates />}
-        {selectedView === "grid" && <PolitikozUserGrid/>}
+        {selectedView === "grid" && <PolitikozUserGrid />}
         {selectedView === "table" && <PolitikozTable />}
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 mt-4">
         {electionSections.map((option, index) => (
           <button
             key={index}
