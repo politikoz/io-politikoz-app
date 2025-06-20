@@ -1,37 +1,21 @@
 export interface HomePageData {
-  treasury: {
-    balance: number;
-  };
   nextElection: {
     date: string;
     totalPrize: number;
+  };
+  tierProgress: {
+    percentageCompleted: number;
+    prizePerTier: number;
+    status: 'COMPLETED' | 'IN_PROGRESS';
+    estimatedExecutionDate: string;
     tierId: number;
-  };
-  lastElection: {
-    leaderboard: Array<{
-      place: string;
-      user: string;
-      prize: number;
-    }>;
-    month: string;
-  };
+  } | null;
 }
 
 export const INITIAL_HOMEPAGE_DATA: HomePageData = {
-  treasury: {
-    balance: 0
-  },
   nextElection: {
     date: '2024-12-31T23:59:59Z',
-    totalPrize: 0,
-    tierId: 0
+    totalPrize: 0
   },
-  lastElection: {
-    leaderboard: Array(3).fill({
-      place: '-',
-      user: '--------',
-      prize: 0
-    }),
-    month: ''
-  }
+  tierProgress: null
 };

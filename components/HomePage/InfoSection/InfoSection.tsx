@@ -1,16 +1,8 @@
 import React from "react";
 import { useTranslations } from "next-intl";
-import { formatTreasuryValue } from '@/utils/formatters';
 
-interface InfoSectionProps {
-  treasury?: {
-    balance: number;
-  };
-}
-
-const InfoSection: React.FC<InfoSectionProps> = ({ treasury }) => {
+const InfoSection: React.FC = () => {
   const t = useTranslations("InfoSection");
-  const treasuryValue = treasury?.balance ? formatTreasuryValue(treasury.balance) : '0K';
 
   // Keeping existing card data structure
   const cardData = [
@@ -30,7 +22,7 @@ const InfoSection: React.FC<InfoSectionProps> = ({ treasury }) => {
       gradient: "from-blue-400 to-blue-600"
     },
     { 
-      title: t("cardData.treasury.title", { treasury: treasuryValue }), 
+      title: t("cardData.treasury.title"), 
       text: t("cardData.treasury.text"),
       gradient: "from-purple-400 to-purple-600"
     },

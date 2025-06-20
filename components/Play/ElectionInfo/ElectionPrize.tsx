@@ -2,8 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import React from "react";
-import { useGovernanceData } from "@/hooks/useGovernanceData";
-import { INITIAL_GOVERNANCE_DATA } from "@/types/GovernanceData";
+import { useElectedRoles } from "@/hooks/useElectedRoles";
 import { formatTokenAmount } from "@/utils/formatters";
 
 const formatRole = (role: string) => {
@@ -37,46 +36,70 @@ const sortByOrder = (a: { role: string }, b: { role: string }, orderMap: Record<
 
 export default function ElectionPrize() {
   const t = useTranslations("ElectionInfo");
-  const { data = INITIAL_GOVERNANCE_DATA } = useGovernanceData();
+  const { data: electedRoles, isLoading } = useElectedRoles();
 
-  // Calculate total prizes and shares
-  const totalAdaPerElection = data.potShare.totalAdaPerElection;
-  
-  const politikozPrizes = Object.entries(data.politikozElected)
-    .filter(([_, count]) => count > 0)
-    .map(([role, count]) => {
-      const roleShare = data.distribution[role];
-      const totalRoleAda = (totalAdaPerElection * roleShare) / 100;
-      const unitPrize = count > 0 ? totalRoleAda / count : 0;
+  if (isLoading || !electedRoles) {
+    return (
+      <div className="w-full max-w-4xl mx-auto p-6 bg-gray-900 border-4 border-white/50 shadow-[6px_6px_0px_black] animate-pulse">
+        {/* Title Placeholder */}
+        <div className="h-8 bg-gray-800 rounded w-64 mx-auto mb-6"></div>
 
-      return {
-        role: formatRole(role),
-        count,
-        unitPrize,
-        totalPrize: totalRoleAda
-      };
-    });
+        {/* Total Prize Placeholder */}
+        <div className="text-center mb-6">
+          <div className="h-10 bg-gray-800 rounded w-72 mx-auto"></div>
+        </div>
 
-  const ticketsPrizes = Object.entries(data.ticketElected)
-    .filter(([_, count]) => count > 0)
-    .map(([role, count]) => {
-      const roleShare = data.distribution[role];
-      const totalRoleAda = (totalAdaPerElection * roleShare) / 100;
-      const unitPrize = count > 0 ? totalRoleAda / count : 0;
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          {/* Politikoz Section Placeholder */}
+          <div className="bg-gray-800/50 p-4 rounded-lg border-2 border-yellow-500/50">
+            <div className="space-y-4">
+              <div className="h-16 bg-gray-800 rounded mb-4"></div>
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="bg-gray-900/50 p-3 rounded border border-gray-700/50">
+                  <div className="h-6 bg-gray-800 rounded w-3/4 mb-2"></div>
+                  <div className="h-4 bg-gray-800 rounded w-1/2"></div>
+                </div>
+              ))}
+            </div>
+          </div>
 
-      return {
-        role: formatRole(role),
-        count,
-        unitPrize,
-        totalPrize: totalRoleAda
-      };
-    });
+          {/* Tickets Section Placeholder */}
+          <div className="bg-gray-800/50 p-4 rounded-lg border-2 border-blue-500/50">
+            <div className="space-y-4">
+              <div className="h-16 bg-gray-800 rounded mb-4"></div>
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="bg-gray-900/50 p-3 rounded border border-gray-700/50">
+                  <div className="h-6 bg-gray-800 rounded w-3/4 mb-2"></div>
+                  <div className="h-4 bg-gray-800 rounded w-1/2"></div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
-  // Calculate actual shares based on total prizes
+  const politikozPrizes = Object.entries(electedRoles.politikozElected)
+    .map(([role, info]) => ({
+      role: formatRole(role),
+      count: info.quantity,
+      unitPrize: info.prize,
+      totalPrize: info.prize * info.quantity
+    }));
+
+  const ticketsPrizes = Object.entries(electedRoles.ticketElected)
+    .map(([role, info]) => ({
+      role: formatRole(role),
+      count: info.quantity,
+      unitPrize: info.prize,
+      totalPrize: info.prize * info.quantity
+    }));
+
   const totalPolitikozPrize = politikozPrizes.reduce((sum, p) => sum + p.totalPrize, 0);
   const totalTicketsPrize = ticketsPrizes.reduce((sum, t) => sum + t.totalPrize, 0);
-  const politikozShare = Math.round((totalPolitikozPrize / totalAdaPerElection) * 100);
-  const ticketsShare = Math.round((totalTicketsPrize / totalAdaPerElection) * 100);
+  const politikozShare = Math.round((totalPolitikozPrize / electedRoles.totalPrize) * 100);
+  const ticketsShare = Math.round((totalTicketsPrize / electedRoles.totalPrize) * 100);
 
   const sortedPolitikozPrizes = [...politikozPrizes].sort((a, b) => 
     sortByOrder(a, b, POLITIKOZ_ORDER)
@@ -91,7 +114,7 @@ export default function ElectionPrize() {
       <h2 className="text-xl font-bold text-center text-yellow-400 mb-6">{t("prizeTitle")}</h2>
 
       <div className="text-center text-white font-['Press_Start_2P'] mb-6">
-        <p className="text-xl">{t("totalPrize")}: <span className="text-green-400">₳{formatTokenAmount(totalAdaPerElection)}</span></p>
+        <p className="text-xl">{t("totalPrize")}: <span className="text-green-400">₳{formatTokenAmount(electedRoles.totalPrize)}</span></p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">

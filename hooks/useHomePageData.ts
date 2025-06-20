@@ -11,7 +11,7 @@ export function useHomePageData() {
     },
     initialData: INITIAL_HOMEPAGE_DATA,
     staleTime: 0,
-    gcTime: 24 * 60 * 60 * 1000,
+    gcTime: 60 * 1000,
     refetchOnWindowFocus: false,
     retry: 2
   });

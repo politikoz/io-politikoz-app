@@ -5,8 +5,9 @@ import {
   ChartPieIcon,
   CircleStackIcon,
   ArrowRightStartOnRectangleIcon,
-  RocketLaunchIcon, // Add this import
-  WalletIcon
+  RocketLaunchIcon,
+  WalletIcon,
+  ShieldCheckIcon
 } from "@heroicons/react/24/solid";
 import { useTranslations } from "next-intl";
 
@@ -20,11 +21,12 @@ const OfficeButtons: React.FC<OfficeButtonsProps> = ({ onNavigate }) => {
   const officeOptions = [
     { label: "Mint tKOZ", icon: <WalletIcon />, section: "mint-tkoz" },
     { label: t("buyKoz"), icon: <CircleStackIcon />, section: "buy-koz" },
-    { label: t("buyTickets"), icon: <RocketLaunchIcon />, section: "buy-tickets" }, // Add this option
+    { label: t("buyTickets"), icon: <RocketLaunchIcon />, section: "buy-tickets" },
     { label: t("myTickets"), icon: <TicketIcon />, section: "my-tickets" },
     { label: t("prizeInfo"), icon: <ChartPieIcon />, section: "prize-info" },
     { label: t("waveInfo"), icon: <InformationCircleIcon />, section: "wave-info" },
-    { label: t("electionResults"), icon: <ChartBarSquareIcon />, section: "election-results" },    
+    { label: t("electionResults"), icon: <ChartBarSquareIcon />, section: "election-results" },
+    { label: t("audit"), icon: <ShieldCheckIcon />, section: "audit" }, 
     { label: t("exit"), icon: <ArrowRightStartOnRectangleIcon />, section: "exit" }
   ];
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation"; // Change this line
+import { useRouter } from "next/navigation";
 import Background from "./Building/Background";
 import Building from "./Building/Building";
 import Sidewalk from "./Building/Sidewalk";
@@ -15,7 +15,7 @@ export default function HomePageClient() {
   const { data, error } = useHomePageData();
 
   if (error) {
-    router.push('/maintenance'); // Change to push and absolute path
+    router.push('/maintenance');
     return null;
   }
 
@@ -31,10 +31,10 @@ export default function HomePageClient() {
         </div>
       </div>
 
-      <InfoSection treasury={data.treasury} />
+      <InfoSection />
       <ElectionDashboard
         nextElection={data.nextElection}
-        lastElection={data.lastElection}
+        tierProgress={data.tierProgress}
       />
       
       <JoinPolitikozTour />

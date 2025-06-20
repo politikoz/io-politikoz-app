@@ -20,7 +20,7 @@ export default function SwapInput({ kozAmount, setKozAmount, max, min, walletBal
     if (!walletBalance || !conversionRate) return max;
     
     // Subtrair 2.5 ADA para taxas (2 retorno + 0.5 taxa)
-    const availableForSwap = Math.max(0, walletBalance - 2.5);
+    const availableForSwap = Math.max(0, walletBalance - 20);
     // Converter para KOZ e arredondar para baixo (sem decimais)
     const maxKozPossible = Math.floor(availableForSwap * conversionRate);
     // Retornar o menor entre o máximo possível e o máximo disponível
