@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useTranslations } from "next-intl";
 import { Ticket } from "@/types/TicketData";
 
@@ -27,6 +27,17 @@ const TicketTable: React.FC<TicketTableProps> = ({
     );
   };
 
+  // Sort tickets by estimatedEarnings when isOnTheRace is true
+  const sortedTickets = useMemo(() => {
+    if (isOnTheRace) {
+      return [...paginatedTickets].sort((a, b) =>
+        // Sort by estimatedEarnings in descending order
+        (b.estimatedEarnings || 0) - (a.estimatedEarnings || 0)
+      );
+    }
+    return paginatedTickets;
+  }, [paginatedTickets, isOnTheRace]);
+
   return (
     <div className="w-full mt-4 px-2 sm:px-4 flex flex-col items-center overflow-x-auto">
       <div className="w-full overflow-x-auto">
@@ -34,25 +45,40 @@ const TicketTable: React.FC<TicketTableProps> = ({
           <thead>
             <tr className="bg-gray-700 text-white">
               {!isOnTheRace && !isAutoLink && (
-                <th className="border-2 border-white px-2 sm:px-4 py-2">{t("select")}</th>
+                <th className="border-2 border-white px-2 sm:px-4 py-2">
+                  {t("select")}
+                </th>
               )}
               {isOnTheRace && (
-                <th className="border-2 border-white px-2 sm:px-4 py-2">{t("role")}</th>
+                <th className="border-2 border-white px-2 sm:px-4 py-2">
+                  {t("role")}
+                </th>
               )}
-              <th className="border-2 border-white px-2 sm:px-4 py-2">{t("ticket")}</th>
+              <th className="border-2 border-white px-2 sm:px-4 py-2">
+                {t("ticket")}
+              </th>
               {isOnTheRace && (
-                <th className="border-2 border-white px-2 sm:px-4 py-2">{t("linkedPolitikoz")}</th>
+                <th className="border-2 border-white px-2 sm:px-4 py-2">
+                  {t("linkedPolitikoz")}
+                </th>
               )}
               {isOnTheRace ? (
-                <th className="border-2 border-white px-2 sm:px-4 py-2">{t("estimatedEarnings")}</th>
+                <th className="border-2 border-white px-2 sm:px-4 py-2">
+                  {t("estimatedEarnings")}
+                </th>
               ) : (
-                <th className="border-2 border-white px-2 sm:px-4 py-2">{t("singleUse")}</th>
+                <th className="border-2 border-white px-2 sm:px-4 py-2">
+                  {t("singleUse")}
+                </th>
               )}
             </tr>
           </thead>
           <tbody>
-            {paginatedTickets.map((ticket) => (
-              <tr key={ticket.id} className="text-center bg-gray-800 text-white">
+            {sortedTickets.map((ticket) => (
+              <tr
+                key={ticket.id}
+                className="text-center bg-gray-800 text-white"
+              >
                 {!isOnTheRace && !isAutoLink && (
                   <td className="border-2 border-white px-2 sm:px-4 py-2">
                     <input
