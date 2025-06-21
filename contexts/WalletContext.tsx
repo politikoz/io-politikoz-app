@@ -280,25 +280,46 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
   };
 
   const handleAcceptSwap = async (txHash: string, swapId: number, tier: number): Promise<{ success: boolean; error?: string }> => {
+    const url = `${process.env.NEXT_PUBLIC_VALIDATOR_API_URL}/swap/accept/${txHash}/${tier}/${swapId}`;
     try {
-        const { success, error } = await SwapService.acceptSwap(txHash, tier);
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
 
-        if (!success || error) {
+        const data = await response.json();
+
+        if (!response.ok) {
             return {
                 success: false,
-                error: error || 'Backend swap acceptance failed'
+                error: data.message || 'Failed to queue swap'
             };
         }
 
-        await updateStatus(swapId, SwapStatus.COMPLETED);
-        return { success: true };
+        console.log('RESPONSE validator API:', data); // Debug log
+
+        // If the swap was successfully queued
+        if (data.success) {
+            // Update the status to PENDING since it's in the queue
+            await updateStatus(swapId, SwapStatus.QUEUED);
+            return { 
+                success: true 
+            };
+        }
+
+        return {
+            success: false,
+            error: data.message || 'Failed to queue swap'
+        };
     } catch (error: any) {
         return {
             success: false,
-            error: error?.message || 'Failed to accept swap'
+            error: error?.message || 'Failed to queue swap'
         };
     }
-  };
+};
 
   const handleCancelSwap = async (txHash: string, swapId: number): Promise<{ success: boolean; error?: string; txHash?: string }> => {
     try {
@@ -324,7 +345,7 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
       // Improved UTxO search with better error handling
       let attempts = 0;
       const maxAttempts = 5; // Reduced from 20 to fail faster
-      const delayBetweenAttempts = 20000; // 5 seconds
+      const delayBetweenAttempts = 60000; // 5 seconds
       let swapUtxo = null;
 
       while (!swapUtxo && attempts < maxAttempts) {
@@ -334,14 +355,7 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
               // Then try through contract
               swapUtxo = await contract.getUtxoByTxHash(txHash);
 
-              if (swapUtxo) {
-                  console.log('UTxO found:', {
-                      attempt: attempts + 1,
-                      txHash: swapUtxo.input.txHash,
-                      outputIndex: swapUtxo.input.outputIndex,
-                      amount: swapUtxo.output.amount,
-                      timestamp: new Date().toISOString()
-                  });
+              if (swapUtxo) {                  
                   break;
               }
           } catch (utxoError) {
@@ -353,7 +367,6 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
           
           attempts++;
           if (attempts < maxAttempts) {
-              console.log(`Waiting ${delayBetweenAttempts/1000} seconds before next attempt...`);
               await new Promise(resolve => setTimeout(resolve, delayBetweenAttempts));
           }
       }

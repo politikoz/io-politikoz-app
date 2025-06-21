@@ -6,14 +6,31 @@ interface Props {
   setKozAmount: (amount: number) => void;
   max: number;
   min: number;
-  walletBalance?: number; // Novo: saldo da carteira
-  conversionRate?: number; // Novo: taxa de conversão ADA para KOZ
+  walletBalance?: number;
+  conversionRate?: number;
+  shouldReset?: boolean; // Add new prop
 }
 
-export default function SwapInput({ kozAmount, setKozAmount, max, min, walletBalance = 0, conversionRate = 0 }: Props) {
+export default function SwapInput({ 
+  kozAmount, 
+  setKozAmount, 
+  max, 
+  min, 
+  walletBalance = 0, 
+  conversionRate = 0,
+  shouldReset = false 
+}: Props) {
   const t = useTranslations("Swap");
   const [inputValue, setInputValue] = useState<string>("");
   const [debouncedValue, setDebouncedValue] = useState<number>(0);
+
+  // Add effect to handle reset
+  useEffect(() => {
+    if (shouldReset) {
+      setInputValue("");
+      setDebouncedValue(0);
+    }
+  }, [shouldReset]);
 
   // Calcular o valor máximo possível com base no saldo e taxa de conversão
   const calculateMaxPossible = useCallback(() => {

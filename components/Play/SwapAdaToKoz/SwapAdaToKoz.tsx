@@ -44,6 +44,7 @@ export default function SwapAdaToKoz() {
   const [isOwnerReferral, setIsOwnerReferral] = useState<boolean>(false);
   const [stakeAddress, setStakeAddress] = useState<string>('');
   const [walletBalance, setWalletBalance] = useState(0);
+  const [shouldResetInput, setShouldResetInput] = useState(false);
   const isMounted = useRef(false);
   const MIN_KOZ_AMOUNT = 200;
   const [showHistory, setShowHistory] = useState(false);
@@ -225,9 +226,11 @@ export default function SwapAdaToKoz() {
             
             if (acceptResult.success) {
               setKozAmount(0);
+              setShouldResetInput(true); // Set reset flag
               setTxStatus(prev => prev ? {
                 ...prev,
-                status: 'completed'
+                status: 'queued',
+                message: t('messages.swapQueued')
               } : null);
             } else {
               // Start cancellation process
@@ -317,6 +320,32 @@ export default function SwapAdaToKoz() {
     }
   };
 
+  // Add refresh interval effect
+  useEffect(() => {
+    let intervalId: NodeJS.Timeout;
+
+    // Only setup interval if history is being shown
+    if (showHistory) {
+      intervalId = setInterval(() => {
+        fetchHistory();
+      }, 10000); // Refresh every 10 seconds
+    }
+
+    // Cleanup on unmount or when history is hidden
+    return () => {
+      if (intervalId) {
+        clearInterval(intervalId);
+      }
+    };
+  }, [showHistory, fetchHistory]);
+
+  // Add effect to reset the flag
+  useEffect(() => {
+    if (shouldResetInput) {
+      setShouldResetInput(false);
+    }
+  }, [shouldResetInput]);
+
   // Main return - update the conditional rendering
   return (
     <div className="p-4 sm:p-6 w-full max-w-md sm:max-w-lg lg:max-w-xl mx-auto bg-gray-900 text-white border-2 border-yellow-500 rounded-lg shadow-lg">
@@ -358,6 +387,7 @@ export default function SwapAdaToKoz() {
                 min={MIN_KOZ_AMOUNT}
                 walletBalance={walletBalance}
                 conversionRate={conversionRate}
+                shouldReset={shouldResetInput} // Add reset prop
               />
               
               <SwapDetails 

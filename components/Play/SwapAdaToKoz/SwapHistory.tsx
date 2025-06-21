@@ -114,30 +114,28 @@ const SwapHistory = memo(function SwapHistory({ history, isLoading, onCancelSwap
                 </span>
               </div>
               <div className="text-center">
-                {entry.status === "PENDING" &&
-                  isPendingExpired(entry.createdAt) &&
-                  onCancelSwap && (
-                    <button
-                      onClick={() => onCancelSwap(entry.transactionHash, entry.id)}
-                      className="px-4 py-1.5 text-sm font-medium
-                        text-red-400 hover:text-red-300 
-                        bg-red-500/5 hover:bg-red-500/10
-                        border border-red-500/30 hover:border-red-400 
-                        rounded-full transition-all duration-200
-                        flex items-center justify-center mx-auto
-                        gap-1.5 min-w-[90px]"
+                {entry.status === "FAILED" && onCancelSwap && (
+                  <button
+                    onClick={() => onCancelSwap(entry.transactionHash, entry.id)}
+                    className="px-4 py-1.5 text-sm font-medium
+                      text-red-400 hover:text-red-300 
+                      bg-red-500/5 hover:bg-red-500/10
+                      border border-red-500/30 hover:border-red-400 
+                      rounded-full transition-all duration-200
+                      flex items-center justify-center mx-auto
+                      gap-1.5 min-w-[90px]"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      className="w-4 h-4"
                     >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                        className="w-4 h-4"
-                      >
-                        <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
-                      </svg>
-                      {t("history.cancel")}
-                    </button>
-                  )}
+                      <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
+                    </svg>
+                    {t("history.cancel")}
+                  </button>
+                )}
               </div>
             </div>
           ))

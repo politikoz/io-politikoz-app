@@ -957,9 +957,11 @@
       "completed": "Completed",
       "failed": "Failed",
       "canceled": "Canceled",
-      "cancel": "Cancel"
+      "cancel": "Refund",
+      "queued": "Queued"
     },
      "messages": {
+       "swapQueued": "Your swap has been queued for processing",
       "checkingWallet": "Checking wallet connection...",
       "swapButtonState": "Swap button state:",
       "walletNotConnected": "Wallet not connected",

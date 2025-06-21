@@ -1,5 +1,6 @@
 export enum SwapStatus {
   PENDING = 'PENDING',
+  QUEUED = 'QUEUED',
   PROCESSING = 'PROCESSING',
   COMPLETED = 'COMPLETED',
   CANCELED = 'CANCELED',

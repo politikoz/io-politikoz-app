@@ -9,10 +9,11 @@ export interface TransactionDetails {
 }
 
 export type TransactionStatusType = 
-    | 'connecting'
+    | 'connecting'    
     | 'signing'
     | 'submitting'
     | 'processing'
+    | 'queued'
     | 'accepting'
     | 'completed'
     | 'failed'
