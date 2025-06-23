@@ -13,8 +13,6 @@ export default function AuthPage() {
       <ConnectToKoz
         originPage={origin}
         originDisplay={display}
-        allowWallets={true}
-        allowSocials={true}
       />
     </div>
   );

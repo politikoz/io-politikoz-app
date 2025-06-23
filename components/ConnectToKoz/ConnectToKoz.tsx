@@ -1,36 +1,23 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
-import DiscordAuthButton from "./DiscordAuthButton";
 import ConnectToKozFooter from "./ConnectToKozFooter";
 import DynamicConnectWalletList from "./DynamicConnectWalletList";
 
 interface ConnectToKozProps {
   originPage?: string;
   originDisplay?: string;
-  allowWallets?: boolean;
-  allowSocials?: boolean;
 }
 
 export default function ConnectToKoz({
   originPage = "/",
   originDisplay = "HomePage",
-  allowWallets = true,
-  allowSocials = true,
 }: ConnectToKozProps) {
-  const [user, setUser] = useState<{
-    id: string;
-    username: string;
-    avatar: string;
-  } | null>(null);
-
   const locale = useLocale();
   const router = useRouter();
   const t = useTranslations("ConnectToKoz");
-
-  const redirectUri = `${process.env.NEXT_PUBLIC_BASE_URL}/${locale}/auth`;
 
   const handleBackToOrigin = () => {
     // Remove any existing locale prefix from originPage
@@ -60,29 +47,7 @@ export default function ConnectToKoz({
         </div>
 
         <div className="space-y-4">
-          {allowWallets && <DynamicConnectWalletList />}
-        </div>
-
-        {allowWallets && allowSocials && (
-          <div className="flex items-center my-4">
-            <div className="flex-grow h-[1px] bg-gray-600"></div>
-            <span className="mx-4 text-sm text-gray-400 font-bold">
-              {t("continueWith")}
-            </span>
-            <div className="flex-grow h-[1px] bg-gray-600"></div>
-          </div>
-        )}
-
-        <div className="space-y-4">
-          {allowSocials && (
-            <DiscordAuthButton
-              redirectUri={redirectUri}
-              onAuthSuccess={(userData) => {
-                console.log("Usuário autenticado com sucesso:", userData);
-                setUser(userData);
-              }}
-            />
-          )}
+          <DynamicConnectWalletList />
         </div>
 
         <div className="mt-6 text-center">

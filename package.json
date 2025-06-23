@@ -11,9 +11,9 @@
   "dependencies": {
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.2.0",
-    "@meshsdk/contract": "^1.9.0-beta.43",
-    "@meshsdk/core": "1.9.0-beta.43",
-    "@meshsdk/react": "1.9.0-beta.43",
+    "@meshsdk/contract": "1.9.0-beta.56",
+    "@meshsdk/core": "1.9.0-beta.56",
+    "@meshsdk/react": "1.9.0-beta.56",
     "@reduxjs/toolkit": "^2.4.0",
     "@tailwindcss/forms": "^0.5.9",
     "@tailwindcss/typography": "^0.5.15",
