@@ -1,0 +1,1129 @@
+{
+    "Header": {
+        "connect": "接続",
+        "connected": "接続済み",
+        "disconnect": "切断",
+        "documentation": "ドキュメント",
+        "downloadWallet": "ウォレットをダウンロード",
+        "explore": "探索",
+        "play": "プレイ",
+        "home": "ホーム"
+    },
+    "Common": {
+        "balance": "残高：",
+        "disconnect": "切断",
+        "downloadWallet": "ウォレットをダウンロード中...",
+        "noAddressFound": "アドレスが見つかりません",
+        "rewardAddress": "報酬アドレス：",
+        "poweredBy": "提供：",
+        "months": {
+            "january": "1月",
+            "february": "2月",
+            "march": "3月",
+            "april": "4月",
+            "may": "5月",
+            "june": "6月",
+            "july": "7月",
+            "august": "8月",
+            "september": "9月",
+            "october": "10月",
+            "november": "11月",
+            "december": "12月"
+        }
+    },
+    "NextElectionCountdown": {
+        "season": "シーズン {seasonNumber}",
+        "days": "日",
+        "hours": "時間",
+        "minutes": "分",
+        "seconds": "秒",
+        "electionSignText": "選挙が<br />近づいて<br />います！",
+        "prizesSignText": "{ADA} ADA<br />の<br />賞金"
+    },
+    "LastElectionLeaderboard": {
+        "electionOf": "選挙日",
+        "leaderboard": "リーダーボード",
+        "otherWinners": "他の{remainingWinnersCount}人の勝者",
+        "place": "順位",
+        "prize": "賞金",
+        "user": "ユーザー"
+    },
+    "Consent": {
+        "message": "このサイトを使用することにより、以下に同意したことになります：",
+        "termsLink": "利用規約",
+        "and": "および",
+        "privacyLink": "プライバシーポリシー"
+    },
+    "Privacy": {
+        "title": "プライバシーポリシー",
+        "close": "閉じる",
+        "sections": {
+            "intro": {
+                "title": "はじめに",
+                "content": "このプライバシーポリシーは、Politikozがプラットフォーム、アプリケーション、トークン、および関連サービスのユーザーから情報を収集、使用、保護する方法について説明します。サービスを利用することで、これらの慣行に同意したことになります。"
+            },
+            "collection": {
+                "title": "1. 収集する情報",
+                "content": "以下の種類の情報を収集・処理します：",
+                "points": {
+                    "wallet": "ウォレットアドレスとブロックチェーントランザクション",
+                    "usage": "利用データとプラットフォームとの対話",
+                    "cookies": "プラットフォームの機能のためのCookieおよび類似技術"
+                }
+            },
+            "usage": {
+                "title": "2. 情報の使用方法",
+                "content": "収集した情報は以下の目的で使用します：",
+                "points": {
+                    "service": "サービスの提供と維持",
+                    "improve": "プラットフォームの機能向上と最適化",
+                    "security": "プラットフォームのセキュリティ確保と不正防止",
+                    "communication": "プラットフォームに関する重要な更新の送信"
+                }
+            },
+            "sharing": {
+                "title": "3. 情報の共有",
+                "content": "個人情報は販売しません。以下の場合にデータを共有することがあります：",
+                "points": {
+                    "providers": "プラットフォームの運営を支援するサービスプロバイダーとの共有",
+                    "legal": "法律で要求される場合または権利保護のため",
+                    "aggregated": "分析目的での匿名化・集計形式での共有"
+                }
+            },
+            "security": {
+                "title": "4. データセキュリティ",
+                "content": "適切なセキュリティ対策を実施して情報を保護します。ただし、インターネット上の送信は完全に安全ではなく、絶対的なセキュリティは保証できません。"
+            },
+            "rights": {
+                "title": "5. あなたの権利",
+                "content": "あなたには以下の権利があります：",
+                "points": {
+                    "access": "個人情報へのアクセス",
+                    "correct": "データの訂正要請",
+                    "delete": "データの削除要請",
+                    "object": "特定のデータ処理への異議申し立て"
+                }
+            },
+            "contact": {
+                "title": "6. お問い合わせ先",
+                "content": "このポリシーに関するご質問は、ウェブサイトに記載されている公式チャネルを通じてお問い合わせください。"
+            }
+        }
+    },
+    "Terms": {
+        "title": "利用規約",
+        "close": "閉じる",
+        "sections": {
+            "intro": {
+                "title": "1. はじめに",
+                "content": "この利用規約は、Politikozおよびそれに関連するKOZトークン、アプリケーション、サービスの使用を規定します。プラットフォームを利用することにより、これらの条件に同意したことになります。"
+            },
+            "token": {
+                "title": "2. KOZトークン",
+                "content": "KOZトークンはPolitikozエコシステム内で複数の目的を果たすユーティリティトークンです：",
+                "points": {
+                    "utility": "プラットフォームへのアクセスと機能のアンロック",
+                    "governance": "ガバナンス決定への参加",
+                    "rewards": "プラットフォーム活動を通じた報酬の獲得"
+                }
+            },
+            "disclaimers": {
+                "title": "3. 免責事項",
+                "content": "KOZトークンはPolitikozプラットフォーム内での使用を目的としたユーティリティトークンです。これらは証券、投資商品、金融商品ではありません。ユーザーはKOZトークンの保有から金銭的リターンを期待すべきではありません。"
+            },
+            "responsibilities": {
+                "title": "4. ユーザーの責任",
+                "points": {
+                    "compliance": "ユーザーは自身の管轄地域の適用法令を遵守しなければなりません",
+                    "security": "ユーザーはウォレットと秘密鍵のセキュリティ維持に責任を負います",
+                    "conduct": "ユーザーは誠実にプラットフォームを利用し、悪意のある活動を避けなければなりません"
+                }
+            },
+            "contact": {
+                "title": "5. お問い合わせ先",
+                "content": "これらの利用規約に関するご質問は、ウェブサイトに記載されている公式チャネルを通じてお問い合わせください。"
+            }
+        }
+    },
+    "InfoSection": {
+        "cardData": {
+            "prizes": {
+                "title": "月間賞金",
+                "text": "350 ADAから 💎"
+            },
+            "freeEntries": {
+                "title": "無料\nエントリー",
+                "text": "ステークまたは参加 🤝"
+            },
+            "auditable": {
+                "title": "100%監査可能",
+                "text": "誰でも検証可能 🔍"
+            },
+            "treasury": {
+                "title": "60k ADA財務",
+                "text": "6回に分けて配布 🎯"
+            }
+        },
+        "learnMore": "Politikozについてもっと知る"
+    },
+    "ElectionDashboard": {
+        "nextElection": "次回選挙",
+        "lastElection": "前回選挙結果",
+        "totalPrize": "総賞金プール",
+        "month": "{month}の結果",
+        "days": "日",
+        "hours": "時間",
+        "minutes": "分",
+        "seconds": "秒"
+    },
+    "Footer": {
+        "links": {
+            "home": "ホーム",
+            "team": "チーム",
+            "stake": "ステーキング参加",
+            "treasury": "財務",
+            "terms": "利用規約",
+            "privacy": "プライバシーポリシー"
+        },
+        "joinCommunity": "コミュニティに参加しよう！",
+        "copyright": "Copyright © {year}. All rights reserved."
+    },
+    "Support": {
+        "formTitle": "サポート",
+        "nameLabel": "お名前",
+        "namePlaceholder": "お名前を入力",
+        "emailLabel": "メールアドレス",
+        "emailPlaceholder": "メールアドレスを入力",
+        "messageLabel": "メッセージ",
+        "messagePlaceholder": "ご用件をお書きください",
+        "attachmentsLabel": "添付ファイル",
+        "sending": "送信中...",
+        "send": "送信",
+        "successMessage": "メッセージが正常に送信されました！",
+        "errorMessage": "メッセージの送信に失敗しました。もう一度お試しください。",
+        "unexpectedError": "予期せぬエラーが発生しました。"
+    },
+    "Explore": {
+        "ActiveListing": {
+            "title": "販売中",
+            "price": "価格：{price}"
+        },
+        "BuyPolitikoz": {
+            "title": "Politikozをポケットに！",
+            "description": "Politikozを購入するごとに、<highlight>無料チケット10枚</highlight>を獲得して、将来の賞金抽選でチャンスを高めましょう！",
+            "cta": "JPG.Storeで購入"
+        },
+        "ExploreIntro": {
+            "title": "Politikozを発見",
+            "text1": "8つの政治クラスにまたがる10,000個のユニークNFTコレクション。各Politikozは固有の識別子を持ち、毎月の賞金抽選への永久エントリーとなります。",
+            "text2": "楽しみに参加し、Politikozを所有して、素晴らしい賞品を獲得するチャンスをお見逃しなく！",
+            "floor": "最低価格：{price}",
+            "cta": "JPG.Storeで購入"
+        },
+        "GrowingCommunity": {
+            "title": "成長するコミュニティ",
+            "total": "{total}人のPolitikozホルダーコミュニティに参加しよう！",
+            "social": "Xで{x}人のフォロワー、Discordで{discord}人のメンバーを持つコミュニティは繁栄を続けています。今日参加して、参加するだけでKOZトークンを獲得しましょう！",
+            "chartTitle": "保有者分布"
+        },
+        "Trades": {
+            "title": "最近の取引",
+            "price": "価格：{price}",
+            "buyer": "購入者",
+            "seller": "販売者"
+        }
+    },
+    "ConnectToKoz": {
+        "connectTo": "KOZの世界に<br />接続",
+        "continueWith": "または次で続行",
+        "backTo": "{page}に戻る",
+        "connect": "接続",
+        "LogoutModal": {
+            "title": "ログアウト確認",
+            "message": "切断してもよろしいですか？",
+            "cancel": "キャンセル",
+            "disconnect": "切断",
+            "wait": "{seconds}秒お待ちください"
+        },
+        "connectError": "{wallet}への接続に失敗しました。もう一度お試しください。",
+        "disconnect": "切断",
+        "downloadWallet": "ウォレットをダウンロード",
+        "wallet": "ウォレット",
+        "noAddress": "アドレスが見つかりません",
+        "agreeToTerms": "続行することで、<termsLink>利用規約</termsLink>および<privacyLink>プライバシーポリシー</privacyLink>に同意したことになります。"
+    },
+    "AuthError": {
+        "title": "認証失敗",
+        "message": "認証できません：{error}",
+        "ok": "OK",
+        "errors": {
+            "unknown": "予期せぬエラーが発生しました",
+            "walletNotConnected": "先にウォレットを接続してください"
+        }
+    },
+    "AutoLink": {
+        "Config": {
+            "title": "自動リンク設定",
+            "description": "自動リンク機能により、各選挙前に事前定義された設定に基づいてチケットを自動配布できます。これにより、手動操作なしでチケットを効率的に配分できます。戦略に応じて配布を調整し、システムに配分を任せましょう。",
+            "linkToSpecificPolitikoz": "特定のPolitikozにリンク",
+            "distributeToRandomPolitikoz": "ランダムなPolitikozに配布",
+            "linkToMyParty": "自分の党にリンク",
+            "distributeAmongParties": "政党間で配布",
+            "configuredAutoLinks": "設定済み自動リンク"
+        },
+        "DeleteConfirm": {
+            "title": "削除確認",
+            "message": "この{type}設定{id}を削除してもよろしいですか？",
+            "cancel": "キャンセル",
+            "confirm": "削除",
+            "deleting": "削除中...",
+            "deletingMessage": "設定を削除中です。お待ちください...",
+            "type": {
+                "party": "政党",
+                "politikoz": "politikoz",
+                "random": "ランダム配布"
+            },
+            "random": "設定"
+        },
+        "Distribution": {
+            "frontmanDescription": "標準FRONTMANとFRONTMANブースト選挙専用の間でチケットを割り当てます。ブースト版は報酬がブーストされた選挙でのみ使用されます。合計配分は100%を超えることはできません。",
+            "combinedFrontman": "合計",
+            "otherConfigs": "他の設定",
+            "thisConfig": "この設定",
+            "available": "利用可能"
+        },
+        "List": {
+            "empty": "設定が追加されていません。",
+            "politikozLabel": "Politikoz #{id}",
+            "partyLabel": "政党 {id}",
+            "randomLabel": "ランダム",
+            "delete": "削除"
+        },
+        "ModalParties": {
+            "title": "政党間で配布",
+            "selectPlaceholder": "政党を選択",
+            "selectedTitle": "選択された政党",
+            "cancel": "キャンセル",
+            "save": "保存"
+        },
+        "ModalRandom": {
+            "title": "ランダム配布を設定",
+            "description": "各選挙前に未割り当てのチケットをランダムなPolitikozに自動配布する割合を設定します。これにより、未使用のチケットを常に活用できます。",
+            "save": "保存",
+            "cancel": "キャンセル"
+        },
+        "ModalParty": {
+            "title": "政党配布を設定",
+            "description": "各選挙前に政党メンバーに自動配布するチケットの割合を設定します。これにより、あなたの政党のPolitikozをサポートし、勝利のチャンスを高め、選挙戦での政党の立場を強化できます。",
+            "save": "保存",
+            "cancel": "キャンセル"
+        },
+        "ModalPolitikoz": {
+            "title": "特定のPolitikozにリンク",
+            "description": "特定のPolitikozへの配分割合を設定します。選択された割合は、選択されたすべてのPolitikozに均等に配分されます。割合は追加のみ可能です - 減らすには設定を削除してください。",
+            "selectedTitle": "選択されたPolitikoz",
+            "noneSelected": "Politikozが選択されていません。",
+            "save": "保存",
+            "cancel": "キャンセル"
+        },
+        "Progress": {
+            "title": "割り当て済み合計割合"
+        }
+    },
+    "BuyTicket": {
+        "ticketTransactionSuccessButApiError": "チケット購入取引は成功しましたが、システムに登録されていません。トランザクションハッシュを添えてDiscordまたはサポートまでご報告ください。",
+        "title": "チケット購入",
+        "ticketsAddedSoon": "チケットは間もなくアカウントに追加されます（最大10分）。",
+        "date": "日付",
+        "pricePerTicket": "チケット単価：",
+        "yourBalance": "残高：",
+        "enterTicketAmount": "チケット枚数を入力",
+        "tickets": "チケット",
+        "processing": "処理中...",
+        "buyButton": "{amount} {amount, plural, one {チケット} other {チケット}}を購入",
+        "historyTitle": "購入履歴",
+        "viewHistory": "履歴を表示",
+        "noHistory": "購入履歴なし",
+        "perTicketFeeInfo": "手数料：チケットあたり + {fee} ADA",
+        "cancel": "キャンセル",
+        "connectWalletFirst": "先にウォレットを接続してください",
+        "serviceFeeInfo": "（チケットあたり+{fee} ADA手数料）",
+        "minimumFeeInfo": "最低手数料2.5 ADA（無料チケット3枚含む）",
+        "minimumFeeTooltip": "最初の2.5 ADAで最大25チケットまでカバーし、無料チケット3枚が含まれます。それ以降は追加チケットあたり+0.1 ADA。",
+        "history": {
+            "amount": "数量",
+            "transaction": "トランザクション",
+            "status": "ステータス",
+            "action": "アクション",
+            "ticketAmount": "{amount}チケット",
+            "kozAmount": "{amount} KOZ",
+            "validating": "検証中",
+            "completed": "完了",
+            "failed": "失敗",
+            "cancel": "キャンセル"
+        },
+        "transactionDetails": {
+            "title": "取引詳細",
+            "willReceive": "受け取る内容：",
+            "tickets": "チケット",
+            "freeTicketShort": "無料チケット",
+            "kozAmount": "KOZ数量：",
+            "minimumFee": "最低手数料：",
+            "additionalFee": "追加手数料：",
+            "networkFee": "ネットワーク手数料（概算）：",
+            "totalKoz": "必要KOZ合計：",
+            "totalAda": "必要ADA合計：",
+            "transactionId": "トランザクションID"
+        },
+        "status": {
+            "processing": "購入処理中...",
+            "completed": "購入完了！",
+            "failed": "購入失敗",
+            "default": "処理中...",
+            "pending": "保留中",
+            "cancelled": "キャンセル済"
+        },
+        "errors": {
+            "maxTicketsExceeded": "最大{max}チケットまで許可されています",
+            "insufficientBalance": "KOZ残高不足"
+        }
+    },
+    "ClaimKoz": {
+        "title": "KOZ報酬請求",
+        "description": "プラットフォーム活動を通じて蓄積されたKOZトークンを請求します。",
+        "totalAvailable": "請求可能合計",
+        "claimNow": "今すぐ請求",
+        "availableRewards": "利用可能な報酬",
+        "claimHistory": "請求履歴",
+        "claimSummary": "請求サマリー",
+        "totalClaim": "請求合計",
+        "fee": "手数料",
+        "destination": "送付先アドレス",
+        "cancel": "キャンセル",
+        "confirm": "請求確認"
+    },
+    "ElectionInfo": {
+        "executed": "実行日時",
+        "title": "選挙概要",
+        "prizeTitle": "選挙賞金",
+        "totalPrize": "総賞金",
+        "politikoz": "Politikoz",
+        "tickets": "チケット",
+        "politikozBreakdown": "Politikoz賞金内訳",
+        "ticketsBreakdown": "チケット賞金内訳",
+        "roadmapTitle": "選挙ウェーブ - ロードマップ",
+        "drawTitle": "ウェーブ抽選結果",
+        "waveLabel": "ウェーブ {number}",
+        "modalTitle": "ウェーブ {number} 詳細",
+        "modalDate": "日付",
+        "modalClose": "閉じる",
+        "elected": "当選",
+        "winner": "勝者",
+        "winners": "勝者",
+        "prizePerWinner": "勝者あたりの賞金",
+        "totalForRole": "役割ごとの合計",
+        "totalForType": "タイプごとの合計",
+        "modalExecutedAt": "実行日時",
+        "modalDetails": "トランザクション詳細",
+        "modalEpoch": "ブロックエポック",
+        "modalHeight": "ブロック高",
+        "modalStaminaDecrease": "スタミナ減少",
+        "modalMinStamina": "最低スタミナ",
+        "modalDrawPrecision": "抽選精度",
+        "modalFeePrecision": "手数料精度",
+        "modalNumbersToDraw": "抽選数",
+        "modalBonus": "トップランキングボーナス",
+        "modalBaseVote": "基本投票",
+        "modalBlockFee": "ブロック手数料",
+        "modalBlockOutput": "ブロック出力",
+        "modalTurn": "選挙ターン",
+        "noDrawsYet": "まだ抽選はありません",
+        "firstTurn": "第1ターン",
+        "secondTurn": "第2ターン",
+        "electionEnd": "選挙終了"
+    },
+    "ElectionResult": {
+        "map": "選挙マップ",
+        "candidates": "ユーザー候補者",
+        "grid": "グリッド表示",
+        "table": "テーブル表示",
+        "tree": "勝者ツリー",
+        "roleDistribution": "候補者役割分布",
+        "noDataAvailable": "データがありません",
+        "totalCandidates": "総候補者数：{count}",
+        "totalTickets": "総チケット数：{count}",
+        "chart": "分布",
+        "errorLoadingChart": "チャートデータ読み込みエラー",
+        "earningsEstimate": "収益見込み",
+        "legend": "凡例",
+        "tableTitle": "Politikoz & チケットテーブル",
+        "filterAllRoles": "全役割",
+        "filterWinning": "🏆 勝利中",
+        "filterNoStamina": "⚡ スタミナなし",
+        "filterUserOwned": "👤 所有中",
+        "status": "ステータス",
+        "politikoz": "Politikoz",
+        "role": "役割",
+        "place": "順位",
+        "earnings": "収益",
+        "prev": "◀ 前へ",
+        "next": "次へ ▶",
+        "page": "ページ {current} / {total}",
+        "politikozOverview": "Politikoz概要",
+        "groupWinning": "🏆 勝利ポジション（現時点で選挙が終了した場合）",
+        "groupOutOfStamina": "⚠️ 勝利ポジション（現時点で選挙が終了した場合）- 次のウェーブのスタミナ不足",
+        "groupLosing": "❌ 敗北ポジション",
+        "earningsDisplay": "収益：${amount}",
+        "noPoliticians": "このカテゴリーに政治家はいません",
+        "senateTitle": "選挙勝者 - 上院",
+        "title": "選挙結果",
+        "legendWinning": "勝利ポジション（維持された場合）",
+        "legendLosing": "敗北ポジション",
+        "legendPositionsToVictory": "勝利までのポジション",
+        "noData": "データがありません。",
+        "candidateVotes": "投票数",
+        "candidateLabel": "候補者 {index} / {total}",
+        "btnBack": "戻る",
+        "btnNext": "次へ"
+    },
+    "GovernanceSettings": {
+        "title": "ガバナンス設定",
+        "loading": "ルール読み込み中...",
+        "ticketBoostTitle": "チケットブースト設定",
+        "ticketBoostDescription": "各チケットタイプには固有のパワーブースト効果があります。Politikozにリンクすると、投票能力が向上し、選挙での勝利チャンスが増加します。",
+        "ticketBoostValue": "{value}%",
+        "votingPowerTitle": "投票力サマリー",
+        "votingPowerDescription": "あなたの投票力は保有するKOZトークンの量に基づきます。今後のアップデートでは、この力をガバナンス設定の変更投票に使用できるようになります。",
+        "votingPowerTotal": "総投票力",
+        "votingPowerUsed": "使用済み",
+        "votingPowerRemaining": "残り",
+        "votingPowerUsedFormatted": "{used} ({percent}%)",
+        "votingPowerRemainingFormatted": "{remaining} ({percent}%)",
+        "potShareTitle": "選挙ごとの選挙ポット配分",
+        "potShareDescription": "この設定は、各選挙ラウンドで配分される選挙ポットの割合を定義します。",
+        "potShareTotal": "選挙ごとの配布総ADA：",
+        "potShareTreasury": "現在の財務残高：",
+        "electionPotTitle": "選挙ポット配分",
+        "electionPotDescription": "このセクションでは、選挙ポットが当選ポジションとチケット役割にどのように配分されるかを定義します。各カテゴリーは総ポットの一定割合を受け取り、選挙ごとに特定のADA価値に相当します。",
+        "ticketLimitsTitle": "チケット制限",
+        "ticketLimitsDescription": "これらの制限は、バランシングエンジンが各タイプのチケット1枚を獲得するために必要なステーク量を決定する際の最小・最大ADA範囲を定義します。ステーキング条件に基づき、エンジンはこの範囲内の値を選択します。例えば、エンジンがCorruptに2000 ADAを選択した場合、5000 ADAを持つデリゲーターは2枚のCorruptチケットを獲得します。残りのステークは次のタイプに引き継がれます：Lobbyist → Briber → Laundererの順で、チケットが割り当てられなくなるまで続きます。",
+        "ticketLimitsNextRebalance": "次回リバランス時期：エポック{epoch}",
+        "ticketLimitsMin": "最小値：{amount} ADA",
+        "ticketLimitsMax": "最大値：{amount} ADA",
+        "ticketLimitsCurrent": "エンジンが選択した現在値：{amount} ADA",
+        "otherSettingsTitle": "その他の選挙設定",
+        "intervalTitle": "選挙間隔",
+        "intervalDescription": "次の選挙までに必要な間隔を定義します。1に設定すると、毎エポックで選挙が行われます。",
+        "intervalEvery": "毎{epochs}エポック",
+        "luckTitle": "ラッキーナンバー精度",
+        "luckDescription": "各Politikozに割り当てられるラッキーナンバーとしてユーザーが選択する必要のある桁数を決定します。",
+        "luckDigits": "{count}桁",
+        "jailTitle": "投獄数値精度",
+        "jailDescription": "当選後にPolitikozが投獄される確率を定義します。",
+        "jailChance": "{percent}%の確率",
+        "bailTitle": "エポックあたりの保釈金",
+        "bailDescription": "ランダムな刑期が終了する前に刑務所を出るために支払うコスト（KOZ単位）を定義します。",
+        "bailValue": "エポックあたり{amount} KOZ",
+        "bestDayTitle": "開始最適日",
+        "bestDayDescription": "新しい選挙サイクルを開始する望ましい曜日を定義します。",
+        "waveSettingsTitle": "選挙ウェーブ",
+        "waveSettingsDescription": "各ウェーブは、数値精度、ボーナス、スタミナ要件、実行前のタイミング間隔などの特定のルールを持つ選挙プロセスの段階を表します。",
+        "numbersToBeDrawn": "抽選する数字",
+        "numbersDrawnPrecision": "数値精度",
+        "numberFeePrecision": "手数料精度",
+        "percentBonusTicket": "チケットボーナス（%）",
+        "percentBonusTopRanking": "トップランキングボーナス（%）",
+        "decreaseInStamina": "スタミナ減少",
+        "minimumStamina": "必要最低スタミナ",
+        "waitInMinutesBeforeExecute": "実行前待機時間（分）",
+        "politikozTitle": "当選Politikoz",
+        "politikozDescription": "各選挙で当選する各役割のPolitikoz数を定義し、配分設定に基づいて当選役割あたりのADA配分を計算します。",
+        "electedLabel": "当選：{count}",
+        "perElectedLabel": "当選者あたりADA：{amount} ADA",
+        "ticketTitle": "当選チケット",
+        "ticketDescription": "各選挙で当選するチケットベースの役割数を定義し、配分設定に基づいて当選チケットあたりのADA配分を計算します。",
+        "ticketElectedLabel": "当選：{count}",
+        "ticketAdaLabel": "チケットあたりADA：{amount} ADA"
+    },
+    "HallView": {
+        "tour": "ツアーを開始",
+        "tokenomics": "トークノミクス",
+        "treasury": "財務ポット",
+        "team": "チーム",
+        "exit": "退出",
+        "backToHall": "← ホールに戻る"
+    },
+    "IncomeOutcome": {
+        "title": "収入と支出",
+        "incomeTitle": "収入",
+        "outcomeTitle": "支出",
+        "monthIncomeTitle": "今月 - 収入",
+        "monthOutcomeTitle": "今月 - 支出",
+        "yearIncomeTitle": "過去12ヶ月 - 収入",
+        "yearOutcomeTitle": "過去12ヶ月 - 支出",
+        "noIncome": "今月の収入はありません",
+        "noOutcome": "今月の支出はありません",
+        "summaryTitle": "サマリー（過去12ヶ月）",
+        "incomeSummary": "収入：{amount} KOZ",
+        "outcomeSummary": "支出：{amount} KOZ",
+        "months": [
+            "1月", "2月", "3月", "4月", "5月", "6月",
+            "7月", "8月", "9月", "10月", "11月", "12月"
+        ]
+    },
+    "InsideBuilding": {
+        "hall": "ホール",
+        "office": "オフィス",
+        "laundry": "ランドリー",
+        "party": "パーティー",
+        "arcade": "アーケードルーム - 近日公開",
+        "news": "ニュース"
+    },
+    "LaundryView": {
+        "stakeWithPlkoz": "PLKOZでステーク",
+        "ticketCalculator": "チケット計算機",
+        "claimKoz": "KOZ請求",
+        "comingSoon": "近日公開",
+        "exit": "退出",
+        "backToLaundry": "← ランドリーに戻る",
+        "connectWalletFirst": "先にウォレットを接続してください"
+    },
+    "NewsView": {
+        "joinDiscord": "Discordに参加",
+        "followX": "Xでフォロー",
+        "socialTasks": "ソーシャルタスク",
+        "discordRank": "Discord ランク",
+        "distributionPolicy": "配布ポリシー",
+        "claimKoz": "KOZ請求",
+        "exit": "退出",
+        "comingSoon": "近日公開",
+        "backToNews": "← ニュースに戻る"
+    },
+    "OfficeView": {
+        "incomeOutcome": "収入/支出",
+        "audit": "チケット検証",
+        "buyTickets": "チケット購入",
+        "myTickets": "マイチケット",
+        "calendar": "カレンダー",
+        "prizeInfo": "賞金情報",
+        "waveInfo": "ウェーブ情報",
+        "electionResults": "選挙結果",
+        "buyKoz": "KOZ購入",
+        "exit": "退出",
+        "backToOffice": "← オフィスに戻る"
+    },
+    "CurrentSeasonPromo": {
+        "season": "シーズン",
+        "seasonProgress": "シーズン進捗",
+        "seasonCompletedTitle": "シーズン{season}完了！",
+        "nextElectionAnnouncement": "一人のFRONTMANが歴史を作る！",
+        "prepareMessage": "次の選挙の準備をしましょう。伝説になるチャンスです。",
+        "prizePool": "ブースト賞金",
+        "boostedPrize": "ブースト賞金",
+        "earlyElection": "早期選挙 →",
+        "nextElection": "次回選挙",
+        "swapNow": "KOZトークンを入手",
+        "completeSeasonMessage": "このシーズンを完了して早期選挙をトリガーしよう！"
+    },
+    "PartyView": {
+        "info": {
+            "rankColumn": "#",
+            "partyColumn": "政党",
+            "winnersColumn": "当選者",
+            "percentageColumn": "%",
+            "rewardColumn": "報酬",
+            "treasuryPool": "財務プール",
+            "treasuryNote": "この金額は現在のシーズン中のチケット購入ごとに増加します",
+            "distributionMethod": "報酬は各シーズンの各政党の当選候補者の割合に応じて比例配分されます。",
+            "currentSeasonNote": "最終報酬はシーズン終了まで変動する可能性があります",
+            "partyRanking": "政党パフォーマンス",
+            "noRankingsAvailable": "まだランキングはありません",
+            "season": "シーズン {seasonNumber}",
+            "partyRankingDescription": "政党ごとの勝利候補者の割合",
+            "referralCode": "紹介コード",
+            "copyCode": "紹介コードをコピー",
+            "copied": "コピーしました！",
+            "referralRanking": "紹介ランキング",
+            "referralCodeDescription": "コードをシェアしよう！KOZスワップで使用すると両者が報酬を獲得できます！",
+            "rankingDescription": "トップ紹介者は毎シーズンKOZ報酬を獲得！",
+            "usesCount": "使用回数",
+            "position": "ポジション",
+            "you": "あなた",
+            "youGet": "ロビイスト",
+            "theyGet": "ランドラー",
+            "youReceive": "あなたの受取",
+            "theyReceive": "相手の受取"
+        },
+        "backToParty": "← パーティーに戻る",
+        "buttons": {
+            "myParty": "マイパーティー",
+            "createParty": "パーティー作成",
+            "myPolitikoz": "マイPolitikoz",
+            "campaignGame": "キャンペーンゲーム",
+            "governanceSettings": "ガバナンス設定",
+            "exit": "退出",
+            "comingSoon": "近日公開",
+            "connectWallet": "先にウォレットを接続"
+        },
+        "create": {
+            "title": "パーティー作成",
+            "siglaLabel": "パーティー略称",
+            "creating": "作成中...",
+            "nameLabel": "パーティー名",
+            "placeholderSigla": "XXXX",
+            "placeholderName": "パーティー名",
+            "createButton": "パーティー作成",
+            "errorDefault": "パーティーの作成に失敗しました",
+            "errorHasParty": "すでにパーティーを所有しています",
+            "typeLabel": "パーティータイプ"
+        },
+        "flag": {
+            "tryAgain": "再試行"
+        }
+    },
+    "JoinPolitikozTour": {
+        "title": "予算最適化ツアー™に参加",
+        "description": "コーヒーと怪しいコードで動く、Politikozのクイックツアー！完了すると、絶対に仕組まれていない報酬ルーレットを回せます。",
+        "startTourButton": "クイックツアー開始",
+        "rewardLabel": "無料エントリーが当たるかも！*",
+        "disclaimer": "*実際に何かが当たります。約束します。"
+    },
+    "Maintenance": {
+        "messages": {
+            "budgetReallocation": {
+                "title": "予算再配分",
+                "description": "サーバー予算が謎の「プール研究」に配分されました。イルカたちが高級スパ施設を必要とする理由を調査中です。すぐに戻ります！🏊‍♂️"
+            },
+            "coffeeCrisis": {
+                "title": "緊急コーヒーブレイク",
+                "description": "IT部門の金のドアノブに保守予算が使われたことが発覚し、サーバーがストライキ中です。高級コーヒー豆で交渉中。☕"
+            },
+            "secretMeeting": {
+                "title": "秘密会議",
+                "description": "サーバーがスイスでの必須「チーズ試食ワークショップ」に参加中のため、システムが一時的にダウンしています。ネットワークパフォーマンスに不可欠だと主張しています。🧀"
+            },
+            "budgetOptimization": {
+                "title": "予算最適化",
+                "description": "ホスティングプロバイダーが資金を「月面不動産プロジェクト」に投資していたことが発覚。次の満月までサービス復旧をお待ちください。🌕"
+            },
+            "investigation": {
+                "title": "技術調査",
+                "description": "パフォーマンス向上にRGBライトが必要な理由について、サーバーが議会公聴会に参加中です。官僚手続き終了後に復旧予定。💼"
+            }
+        },
+        "disclaimer": "ご心配なく、冗談です！簡単なメンテナンス後にすぐオンラインに戻ります。😉",
+        "retrying": "🤞 政治的駆け引きを試みています... 🤞",
+        "retryButtons": {
+            "bribeButton": "🤫 サーバーに賄賂を贈る",
+            "blackmailButton": "📸 サーバーの写真で脅す",
+            "lobbyButton": "🤝 システムアクセスのロビー活動",
+            "negotiateButton": "💼 官僚と交渉",
+            "pleadButton": "🙏 黙秘権を行使して再試行"
+        }
+    },
+    "PolitikozProfile": {
+        "MarketListings": {
+            "title": "Jpg.storeで利用可能",
+            "viewAllListings": "JPG.storeですべての出品を表示"
+        },
+        "errors": {
+            "release": "刑務所からの釈放に失敗しました。もう一度お試しください。",
+            "insufficientFunds": "釈放に必要なKOZトークンが不足しています。",
+            "transactionDeclined": "トランザクションがユーザーにより拒否されました。",
+            "walletNotConnected": "ウォレットが接続されていません。",
+            "transaction": "トランザクションに失敗しました。もう一度お試しください。",
+            "unexpected": "予期せぬエラーが発生しました。もう一度お試しください。"
+        },
+        "releaseSuccess": "{name}を刑務所から釈放しました！",
+        "releaseAllSuccess": "{count}人の囚人を釈放しました！",
+        "processing": "処理中...",
+        "transactionDeclined": "トランザクションが拒否されました",
+        "insufficientFunds": "残高不足",
+        "walletNotConnected": "ウォレット未接続",
+        "insufficientAda": "サービス手数料用のADAが不足しています",
+        "transactionFailed": "トランザクション処理に失敗しました",
+        "prisonSentence": "刑期",
+        "prisonersFromTab": "囚人",
+        "releaseAllInTab": "現在のタブのすべての囚人を釈放",
+        "epochSuffix": "エポック",
+        "releaseCost": "釈放費用",
+        "releaseDate": "釈放日",
+        "luckyNumberChangeSuccess": "ラッキーナンバーを更新しました！",
+        "luckyNumberChangeError": "ラッキーナンバーの更新に失敗しました",
+        "comingSoon": "近日公開",
+        "history": "履歴",
+        "distribution": "配布",
+        "ticketsForJuly": "XXXの選挙用チケット",
+        "linkTickets": "チケットをリンク",
+        "editLuckyNumber": "ラッキーナンバーを編集",
+        "edit": "編集",
+        "editForAllInTab": "タブ内のすべてを編集",
+        "cancel": "キャンセル",
+        "confirm": "確認",
+        "release": "釈放",
+        "releaseTitle": "囚人釈放",
+        "releaseConfirmStart": "釈放しますか",
+        "releaseConfirmMiddle": "に対して",
+        "releaseConfirmAllStart": "すべての囚人を釈放しますか",
+        "releaseConfirmAllMiddle": "囚人に対して",
+        "keepImprisoned": "収監を継続",
+        "confirmBribe": "はい、賄賂を支払う",
+        "releaseAllCheckbox": "すべての収監者を釈放",
+        "details": "詳細",
+        "tickets": "チケット",
+        "stamina": "スタミナ",
+        "noPolitikozAvailable": "このカテゴリーのPolitikozを所持していません",
+        "previous": "前へ",
+        "next": "次へ",
+        "restartList": "リストを再開",
+        "searchPlaceholder": "Politikozを検索...",
+        "power": "パワー",
+        "dirtyMoney": "不正資金",
+        "influence": "影響力",
+        "cleanMoney": "クリーンマネー",
+        "bribePower": "贈賄力",
+        "scapegoats": "スケープゴート",
+        "addTickets": "チケット追加",
+        "corruptDesc": "腐敗政治家は私利私欲のためにルールを曲げる。",
+        "lobbyistDesc": "ロビイストは密室で政策に影響を与える。",
+        "laundererDesc": "マネーロンダラーはシステムの不正資金を洗浄する。",
+        "briberDesc": "贈賄者は金で望みを叶える。",
+        "frontmenDesc": "実際の指導者が隠れている間、フロントマンが責任を取る。",
+        "close": "閉じる"
+    },
+    "Stake": {
+        "stakeTitle": "Politikozでステーク",
+        "stakeDescription": "私たちのプールであなたのADAをステークして報酬を獲得し、Politikozエコシステムをサポートしましょう。",
+        "stakeNow": "今すぐステーク",
+        "connectFirst": "先にウォレットを接続",
+        "stakeError": "ステーク委任中にエラーが発生しました",
+        "title": "PLKOZであなたのADAをステーク",
+        "description": "PLKOZプールに参加すると、他のプールと同様にADA報酬を獲得できます。さらに、チケットとKOZトークンを獲得して、毎月の抽選に参加してより多くのADAを獲得し、収益を増やすチャンスがあります。",
+        "availableBalance": "利用可能残高",
+        "estimatedTickets": "予想チケット数",
+        "connectToStart": "ステークを開始するには接続してください",
+        "connectButtonLabel": "ステークを開始するには接続",
+        "stakeButtonLabel": "今すぐステーク",
+        "kozBonus": "KOZボーナス",
+        "kozRewardsMessage": "毎月の請求で最大{amount} KOZの報酬を請求できます",
+        "stakeSuccess": "ステーク委任が成功しました！",
+        "errors": {
+            "transactionDeclined": "トランザクションがユーザーにより拒否されました",
+            "signingCanceled": "トランザクションの署名がキャンセルされました",
+            "insufficientFunds": "ウォレットの残高が不足しています",
+            "insufficientFundsWithAmount": "ウォレットの残高が不足しています。必要最小額：{amount} ADA",
+            "transactionFailed": "トランザクションに失敗しました。もう一度お試しください",
+            "unexpected": "予期せぬエラーが発生しました。もう一度お試しください",
+            "title": "トランザクション失敗"
+        },
+        "status": {
+            "staking": "ステーク中...",
+            "connectFirst": "先にウォレットを接続",
+            "waitingSignature": "トランザクション署名待ち...",
+            "pleaseConfirm": "ステークを完了するためにウォレットで確認してください"
+        },
+        "collateral": {
+            "amount": "+{amount} ADAの担保",
+            "info": "担保について学ぶ"
+        },
+        "collateralModal": {
+            "title": "担保とは？",
+            "description": "担保は、ウォレットが別途保持する少額のADA（通常5 ADA）です。これはCardanoのスマートコントラクトトランザクションに必要です。",
+            "explanation": "スマートコントラクトトランザクションが正しく機能することを保証する保証金のようなものです。ご心配なく - このADAの完全な管理権はあなたにあります！",
+            "walletInfo": "ウォレットが自動的に管理し、ウォレットの担保設定を削除することでいつでも取り戻すことができます。",
+            "closeButton": "了解！"
+        }
+    },
+    "AuthModal": {
+        "title": "ウォレット認証",
+        "description": "続行するにはウォレットで署名してください",
+        "walletPrompt": "トランザクションや手数料なし - 署名のみ",
+        "sessionInfo": "1時間有効、その後再度署名が必要"
+    },
+    "Swap": {
+        "title": "ADA → KOZ スワップ",
+        "rate": "固定レート：",
+        "available": "利用可能なKOZ：",
+        "amountLabel": "KOZ数量",
+        "costLabel": "コスト：",
+        "swapButton": "今すぐスワップ",
+        "historyTitle": "スワップ履歴",
+        "noHistory": "スワップ履歴がありません",
+        "date": "日付",
+        "viewHistory": "スワップ履歴を表示",
+        "connectWallet": "ウォレットを接続",
+        "processing": "処理中...",
+        "waitingForNextTier": "次のシーズン開始を待機中",
+        "tierWillBeAvailable": "シーズン{tier}の開始まで：",
+        "timer": {
+            "days": "日",
+            "hours": "時間",
+            "minutes": "分",
+            "seconds": "秒"
+        },
+        "transactionDetails": {
+            "title": "取引詳細",
+            "willReceive": "受け取る内容：",
+            "returnAmount": "+ {amount} ADA返金",
+            "swapAmount": "スワップ数量：",
+            "requiredReturn": "必要返金額：",
+            "serviceFee": "サービス手数料：",
+            "networkFee": "ネットワーク手数料（概算）：",
+            "totalRequired": "必要合計：",
+            "returnMessage": "（{amount} ADAが返金されます）",
+            "transactionId": "トランザクションID",
+            "referralCode": "紹介コード",
+            "optional": "任意",
+            "enterReferralCode": "紹介コードをお持ちの場合は入力してください",
+            "validate": "検証",
+            "invalidReferralCode": "この紹介コードは政治家の約束並みに怪しいです！🤥",
+            "referralValidationError": "紹介コードの検証エラー",
+            "validReferralCode": "ボーナスとして5枚のLaundererチケットを獲得！",
+            "ownReferralCode": "+1.5 ADAの'管理手数料'が追加されます。あなたは5枚のBriberチケットを獲得し、このコードを所有する'全く別人'は3枚のCorruptチケットを獲得します。",
+            "referralBribeCost": "+1.5 ADA賄賂手数料"
+        },
+        "history": {
+            "amount": "数量",
+            "transaction": "トランザクション",
+            "status": "状態",
+            "action": "アクション",
+            "adaAmount": "{amount} ADA",
+            "kozAmount": "{amount} KOZ",
+            "pending": "保留中",
+            "completed": "完了",
+            "failed": "失敗",
+            "canceled": "キャンセル済",
+            "cancel": "返金",
+            "queued": "キュー済"
+        },
+        "messages": {
+            "swapQueued": "スワップが処理キューに追加されました",
+            "checkingWallet": "ウォレット接続を確認中...",
+            "swapButtonState": "スワップボタンの状態：",
+            "walletNotConnected": "ウォレット未接続",
+            "transactionInProgress": "トランザクション処理中",
+            "buttonEnabled": "ボタン有効",
+            "connectionFailed": "接続試行{attempt}回目が失敗",
+            "validatingSwap": "トランザクションが送信されました。検証と承認を処理中 - このウィンドウを閉じても構いません、状態はスワップ履歴で確認できます。",
+            "cancelingSwap": "スワップが拒否されました - コントラクト残高の返金プロセスを開始中。このウィンドウを閉じても構いません、状態はスワップ履歴で確認できます。"
+        },
+        "status": {
+            "connecting": "ウォレット接続を確認中...",
+            "signing": "署名待ち...",
+            "submitting": "トランザクション送信中...",
+            "processing": "スワップ処理中...",
+            "accepting": "スワップ承認中...",
+            "cancelling": "スワップキャンセル中...",
+            "completed": "完了",
+            "failed": "失敗",
+            "default": "処理中..."
+        },
+        "notes": {
+            "returnNote": "スワップ後に{amount} ADAがウォレットに返金されます",
+            "networkNote": "ネットワーク手数料は概算であり、若干変動する可能性があります"
+        },
+        "tiers": {
+            "allTiersCompleted": "全シーズン完了！",
+            "waitForNextWave": "ご参加ありがとうございます。新しいシーズンの波が間もなく開始されます。お楽しみに！",
+            "modalDescription": "シーズンを完了して次の選挙をスーパーチャージ！シーズンが満たされると、そのBOOST賞金がFrontmanチケットのジャックポットに追加され、選挙が次のCardanoエポックに移動 - 勝者をより大きな勝者に、よりはやく！🏆",
+            "projectedTickets": "予想チケット",
+            "loading": "シーズン情報読み込み中...",
+            "currentTier": "現在のシーズン：{tier}",
+            "remaining": "残り",
+            "tierNumber": "シーズン{number}",
+            "supply": "供給量：{amount} KOZ",
+            "kozPrice": "1 KOZ = {price} ADA",
+            "modalTitle": "KOZトークンシーズン",
+            "viewAllTiers": "全シーズン情報を表示",
+            "currentTierLabel": "現在",
+            "ticketsLabel": "シーズンあたりのチケット",
+            "adaPerTicketLabel": "チケットあたりのADA",
+            "prizeLabel": "Frontmanブースト賞金",
+            "complete": "完了",
+            "clickToViewAllTiers": "クリックして全シーズンと賞金詳細を表示",
+            "frontmanBoostLabel": "Frontmanブースト総賞金",
+            "nextElectionLabel": "次回選挙開始時期",
+            "earlierByDays": "{days}日早く",
+            "earlyCompletionNote": "今日シーズンが完了すると、選挙が早く開始されます",
+            "status": {
+                "PENDING": "アクティブ",
+                "WAIT": "待機中",
+                "COMPLETED": "完了"
+            }
+        },
+        "errors": {
+            "minimumKozRequired": "最小スワップ額は{amount} KOZです",
+            "cancelling": "スワップをキャンセル中...",
+            "swapCancelled": "トランザクションは正常にキャンセルされました",
+            "cancelFailed": "トランザクションのキャンセルに失敗しました。サポートにお問い合わせください。",
+            "signatureDeclined": "トランザクション署名が拒否されました。スワップを続行する場合は、もう一度お試しください。",
+            "walletNotConnected": "先にウォレットを接続してください",
+            "invalidAmount": "無効なKOZ数量",
+            "swapFailed": "スワップの実行に失敗しました",
+            "insufficientBalance": "残高不足",
+            "connectionInitFailed": "接続の初期化に失敗しました",
+            "cancelSwapFailed": "スワップのキャンセルに失敗しました",
+            "invalidReferralCode": "無効な紹介コードです！スワップを続行できません。",
+            "referralValidationFailed": "紹介コードの検証に失敗しました。もう一度お試しください。"
+        }
+    },
+    "Team": {
+        "title": "チームの紹介",
+        "description": "私たちの情熱的で集中力のあるチームは小規模かもしれませんが、Cardanoブロックチェーンエコシステムに深く根ざしています。2019年からのADA投資家であり、2021年のPolitikoz NFTプロジェクトの創設者として、私たちのビジョンはNFTをはるかに超えています — コミュニティに長期的な価値を提供することを目指しています。",
+        "uxui": "UX/UI & ピクセルアート",
+        "uxuiDesc": "ピクセルアートデザイン、UI/UX、ユーザーテスト",
+        "fullstack": "フルスタック開発者",
+        "fullstackDesc": "バックエンド（Java）、フロントエンド（Next.js）、PostgreSQLデータベース、AWS開発",
+        "infra": "インフラストラクチャー & オペレーション",
+        "infraDesc": "サーバー管理、ステークプール運営、インフラ、システムテスト"
+    },
+    "TicketPolicy": {
+        "calculatorTitle": "チケット計算機",
+        "calculatorDescription": "ステーキング額を入力して、各層ごとに受け取れるチケット数とKOZボーナス報酬をシミュレートします。",
+        "adaAmount": "ステーキング額（ADA）：",
+        "calculate": "計算",
+        "resultsTitle": "チケットシミュレーション結果",
+        "tickets": "チケット",
+        "bonusTitle": "ボーナス報酬",
+        "bonusMessage": "{amount} KOZのボーナスを毎月請求できます。",
+        "stakeNow": "今すぐステーク",
+        "monthly": "毎月",
+        "ticketRule": "ルール：{amount} ADAごとに1チケット",
+        "exampleTitle": "チケット配布例",
+        "exampleIntro": "デリゲーターが12,000 ADAをステークしている場合：",
+        "exampleLine1": "Corruptチケット2枚獲得（2 × 5000 = 10,000 ADA使用）",
+        "exampleLine2": "残り：2,000 ADA → Lobbyist 1枚には不足（3,000 ADA必要）",
+        "exampleLine3": "次の層へ移動：Briberチケット2枚（2 × 1000）",
+        "exampleLine4": "残り：0 ADA → Laundererチケットは付与されず",
+        "exampleNote": "システムは常にCorrupt → Lobbyist → Briber → Laundererの順序に従い、残りのADAを引き継ぎます。",
+        "policyExplanation": "このポリシーは、各種類のチケット1枚を獲得するために必要なADA量を定義します。配布エンジンは階層順に動作し、",
+        "policyRollover": "デリゲーターのステークが現在の層に不足する場合、残りのADAは次の層に引き継がれます。",
+        "nextRebalance": "次回チケットポリシー再調整はエポック",
+        "titlePolicyView": "チケット配布ポリシー",
+        "loading": "チケットポリシー読み込み中...",
+        "ticketsLabel": "チケット"
+    },
+    "TicketProfile": {
+        "paymentMethod": "支払い方法",
+        "yourBalance": "残高：{balance} {currency}",
+        "tickets": "チケット",
+        "amountInCurrency": "{currency}での金額",
+        "pricePerTicket": "チケット単価：{price} {currency}",
+        "buyButton": "チケット購入",
+        "purchaseHistory": "購入履歴",
+        "ticketDescription": "リンクされたPolitikozの投票に{boostPercentage}%のブーストを提供し、当選した場合{adaReward} ADAを獲得するチャンスがあります。",
+        "alert": "Frontmanチケット{count}枚を{amount} {currency}で購入しました！",
+        "linkTicketsTitle": "チケットリンク",
+        "linkTicketsDescription": "アカウントにリンクするチケットを選択してください。",
+        "linkTicketsClose": "閉じる",
+        "previous": "前へ",
+        "next": "次へ",
+        "dynamicTicket": "リンクされたPolitikozの投票に{boostPercentage}%のブーストを提供し、当選した場合{adaReward} ADAを獲得するチャンスがあります。",
+        "next-race": "1枚以上のチケットが次回選挙の準備が整い、すでにPolitikozにリンクされています。",
+        "on-the-race": "1枚以上のチケットが現在選挙に参加中です。勝利した場合、ADA報酬が生成されます。",
+        "auto-link": "この設定により、利用可能なチケットが選挙サイクルごとに自動的にPolitikozにリンクされます。",
+        "selectAll": "すべて選択",
+        "deselectAll": "すべて選択解除",
+        "On the Race": "レース中",
+        "Next Race": "次回準備完了",
+        "Auto Link": "自動リンク",
+        "distribution": "配布",
+        "changePolitikoz": "リンクされたPolitikozを変更",
+        "linkTicket": "次回選挙用チケットをリンク",
+        "changeLuckyNumber": "ラッキーナンバーを変更",
+        "luckyNumberChangeError": "ラッキーナンバーの変更に失敗しました。もう一度お試しください。",
+        "luckyNumberChangeSuccess": "ラッキーナンバーを正常に変更しました！",
+        "selectedTickets": "選択されたチケット",
+        "cancel": "キャンセル",
+        "confirm": "確認",
+        "myTickets": "マイチケット",
+        "noTickets": "利用可能なチケットがありません",
+        "select": "選択",
+        "role": "役割",
+        "ticket": "チケット",
+        "linkedPolitikoz": "リンクされたPolitikoz",
+        "estimatedEarnings": "予想収益",
+        "singleUse": "一回限り使用",
+        "yes": "はい",
+        "no": "いいえ",
+        "notAvailable": "利用不可"
+    },
+    "Tokenomics": {
+        "title": "$KOZを紹介",
+        "subtitle": "Politikoz.ioのユーティリティコイン",
+        "overview": "Kozの世界は、内部経済を活性化することを唯一の目的としたユーティリティトークンを持ち、政党や政党連合の購入、Politikozへの賭け、その他今後発表される同様の機能を可能にします。",
+        "description": "$KOZは、プラットフォームの内部ダイナミクスを推進するために作られたPolitikoz.ioエコシステムのユーティリティトークンです。ガバナンスシステムへの参加、独占機能へのアクセス、ゲーム内メカニズムへの参加のための機能的な資産として機能し、新機能の導入とともにその用途は継続的に進化します。",
+        "policyIdLabel": "ポリシーID：",
+        "totalSupplyLabel": "総供給量：",
+        "transactionHistory": "取引履歴",
+        "mintBurnType": "タイプ",
+        "amount": "数量",
+        "transactionId": "取引ID",
+        "mint": "発行",
+        "burn": "焼却",
+        "mintBurnHistory": "発行/焼却履歴",
+        "currentAllocationLabel": "現在のトークン配分",
+        "initialAllocationLabel": "初期トークン配分",
+        "walletAddressesTitle": "KOZトークンアドレス",
+        "tableHeaders": {
+            "category": "カテゴリー",
+            "amount": "数量",
+            "notes": "備考",
+            "walletAddress": "ウォレットアドレス"
+        },
+        "categories": {
+            "politikozHolderDrop": "Politikozホルダードロップ",
+            "socialClaimTreasury": "ソーシャルクレーム財務",
+            "liquidityReserve": "流動性準備金",
+            "coinMachine": "コインマシン",
+            "coreTeam": "コアチーム",
+            "advisors": "アドバイザー",
+            "politikozHolders": "Politikozホルダー",
+            "liquidityForDex": "DEX用流動性",
+            "projectTreasury": "プロジェクト財務",
+            "stakingRewards": "ステーキング報酬",
+            "inCirculation": "流通中",
+            "muesliSwapDist": "MuesliSwap配布",
+            "vyfiDist": "VyFi配布",
+            "dripDropz": "DripDropz"
+        },
+        "notes": {
+            "holderDrop": "NFTホルダーへの1回限りの配布",
+            "socialClaims": "X（Twitter）、Discord等を通じた将来のエアドロップキャンペーン用",
+            "liquidity": "DEXペアと流動性サポート用",
+            "coinMachine": "トークン請求/販売メカニズム",
+            "projectTreasury": "ガバナンス、助成金、エコシステム開発",
+            "coreTeam": "未配布の予約分",
+            "advisors": "将来のアドバイザー配分用に予約"
+        }
+    },
+    "Treasury": {
+        "growthTitle": "財務成長",
+        "historyTitle": "財務履歴",
+        "date": "日付",
+        "description": "説明",
+        "amount": "数量",
+        "prev": "前へ",
+        "next": "次へ",
+        "page": "ページ",
+        "of": "中",
+        "overviewTitle": "選挙財務",
+        "overviewDescription": "財務はPolitikozプロジェクトの中核資金であり、選挙勝者への報酬とエコシステム施策のサポートに使用されます。主にPLKOZステークプール（固定費用＋マージン）が生成する報酬を通じて蓄積され、その100%がコミュニティに寄付されます。将来的に追加の収入源がプラットフォームに統合される予定です。"
+    },
+    "Audit": {
+        "howItWorks": "公平な選挙をどのように確保しているのか？",
+        "merkleExplanation": "これは私たちの魔法の木です！🌳 マークルツリーを、選挙における有効なチケットすべてのデジタル指紋と考えてください。選挙が始まると、この指紋がブロックチェーンに記録されます。技術的には開始後に新しいチケットを追加できますが、それらは木の指紋の一部とはなりません。つまり、選挙開始後に追加されたチケットは検証に失敗し、無効とみなされ、選挙の完全性が確保されます。🔒✨",
+        "sourceMention": "作成者のマークルツリーコードを使用しています",
+        "blockchainProof": "魔法の木の指紋（ルート）",
+        "validateTicket": "チケット番号が箱の中にあったか確認",
+        "ticketPlaceholder": "チケット番号を入力",
+        "validating": "確認中...",
+        "validate": "検証",
+        "validTicket": "✅ はい！この番号は抽選開始前に確実に箱の中にありました！",
+        "invalidTicket": "❌ 申し訳ありません、抽選開始時にこの番号は箱の中にありませんでした",
+        "proofDetails": "証明項目",
+        "ticketNumber": "チケット番号",
+        "selectElection": "検証する選挙を選択",
+        "transactionLabel": "選挙開始前にトランザクションに保存されたマークルルート"
+    }
+}

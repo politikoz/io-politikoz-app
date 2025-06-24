@@ -1,155 +1,1145 @@
 {
-
-    
     "Header": {
-      "connect": "Ikonekta",
-      "connected": "Nakakonekta",
-      "disconnect": "Idiskonekta",
-      "documentation": "Dokumentasyon",
-      "downloadWallet": "I-download ang Wallet",
-      "explore": "Galugarin",
-      "play": "Maglaro",
-      "home": "Home"
+        "connect": "Kumonekta",
+        "connected": "Nakakonekta",
+        "disconnect": "Idiskonekta",
+        "documentation": "Dokumentasyon",
+        "downloadWallet": "I-download ang Wallet",
+        "explore": "Galugarin",
+        "play": "Maglaro",
+        "home": "Home"
     },
     "Common": {
-      "balance": "Balanse:",
-      "disconnect": "Idiskonekta",
-      "downloadWallet": "I-download ang Wallet...",
-      "noAddressFound": "Walang nakitang address",
-      "rewardAddress": "Reward Address:",
-      "poweredBy": "Pinapagana ng",
-      "months": {
-        "january": "Enero",
-        "february": "Pebrero",
-        "march": "Marso",
-        "april": "Abril",
-        "may": "Mayo",
-        "june": "Hunyo",
-        "july": "Hulyo",
-        "august": "Agosto",
-        "september": "Setyembre",
-        "october": "Oktubre",
-        "november": "Nobyembre",
-        "december": "Disyembre"
-      }
+        "balance": "Balanse:",
+        "disconnect": "Idiskonekta",
+        "downloadWallet": "Dina-download ang Wallet...",    
+        "noAddressFound": "Walang nakitang address",    
+        "rewardAddress": "Address ng Gantimpala:",
+        "poweredBy": "Pinatatakbo Ng",
+        "months": {
+            "january": "Enero",
+            "february": "Pebrero",
+            "march": "Marso",
+            "april": "Abril",
+            "may": "Mayo",
+            "june": "Hunyo",
+            "july": "Hulyo",
+            "august": "Agosto",
+            "september": "Setyembre",
+            "october": "Oktubre",
+            "november": "Nobyembre",
+            "december": "Disyembre"
+        }       
     },
     "NextElectionCountdown": {
-      "days": "araw",
-      "hours": "oras",
-      "minutes": "minuto",
-      "seconds": "segundo",
-      "electionSignText": "ANG<br />HALALAN<br />AY<br />PAPALAPIT NA!",
-      "prizesSignText": "{ADA} ADA<br />SA<br />PREMYO"
+        "season": "SEASON {seasonNumber}",
+        "days": "araw",
+        "hours": "oras",
+        "minutes": "minuto",
+        "seconds": "segundo",
+        "electionSignText": "MALAPIT NA<br />ANG<br />HALALAN!",
+        "prizesSignText": "{ADA} ADA<br />SA<br />GANTIMPALA"
     },
     "LastElectionLeaderboard": {
-      "electionOf": "Halalan ng",
-      "leaderboard": "Leaderboard",
-      "otherWinners": "Iba pang {remainingWinnersCount} nanalo",
-      "place": "Lugar",
-      "prize": "Premyo",
-      "user": "Gumagamit"
+        "electionOf": "Halalan ng",
+        "leaderboard": "Talaan ng Nangunguna",
+        "otherWinners": "Iba pang {remainingWinnersCount} nanalo",
+        "place": "Pwesto",
+        "prize": "Gantimpala",
+        "user": "User"
     },
-    "InfoSection": {
-      "cardData": {
-        "prizes": {
-          "title": "+{amount} ADA BAWAT BUWAN",
-          "text": "Mga Regular na Premyo"
-        },
-        "freeEntries": {
-          "title": "LIBRENG ENTRIES",
-          "text": "Sumali nang walang bayad"
-        },
-        "auditable": {
-          "title": "100% MAAARING I-AUDIT",
-          "text": "Maaari para sa lahat"
-        },
-        "treasury": {
-          "title": "+{treasury} ADA TREASURY",
-          "text": "Palaging Lumalaki"
+    "Consent": {
+        "message": "Sa paggamit ng site na ito sumasang-ayon ka sa",
+        "termsLink": "Mga Tuntunin at Kondisyon",
+        "and": "at",
+        "privacyLink": "Patakaran sa Privacy"
+    },
+    "Privacy": {
+        "title": "Patakaran sa Privacy",
+        "close": "Isara",
+        "sections": {
+            "intro": {
+                "title": "Panimula",
+                "content": "Ang Patakaran sa Privacy na ito ay nagpapaliwanag kung paano nangongolekta, gumagamit, at nagpoprotekta ang Politikoz ng impormasyon mula sa mga user ng aming platform, applications, tokens, at kaugnay na serbisyo. Sa paggamit ng aming mga serbisyo, sumasang-ayon ka sa mga kasanayang ito."
+            },
+            "collection": {
+                "title": "1. Impormasyong Aming Kinokolekta",
+                "content": "Kami ay nangongolekta at nagpoproseso ng sumusunod na uri ng impormasyon:",
+                "points": {
+                    "wallet": "Mga address ng wallet at transaksyon sa blockchain",
+                    "usage": "Data ng paggamit at pakikipag-ugnayan sa platform",
+                    "cookies": "Cookies at katulad na teknolohiya para sa functionality ng platform"
+                }
+            },
+            "usage": {
+                "title": "2. Paano Namin Ginagamit ang Iyong Impormasyon",
+                "content": "Ginagamit namin ang nakolektang impormasyon para:",
+                "points": {
+                    "service": "Magbigay at magpanatili ng aming mga serbisyo",
+                    "improve": "Pagbutihin at i-optimize ang functionality ng platform",
+                    "security": "Tiyakin ang seguridad ng platform at maiwasan ang panloloko",
+                    "communication": "Magpadala ng mahahalagang update tungkol sa platform"
+                }
+            },
+            "sharing": {
+                "title": "3. Pagbabahagi ng Impormasyon",
+                "content": "Hindi namin ibinebenta ang iyong personal na impormasyon. Maaari kaming magbahagi ng data:",
+                "points": {
+                    "providers": "Sa mga service provider na tumutulong sa pagpapatakbo ng aming platform",
+                    "legal": "Kapag hinihingi ng batas o para protektahan ang aming mga karapatan",
+                    "aggregated": "Sa anonymous, pinagsama-samang anyo para sa analytics"
+                }
+            },
+            "security": {
+                "title": "4. Seguridad ng Data",
+                "content": "Nagpapatupad kami ng angkop na mga hakbang sa seguridad para protektahan ang iyong impormasyon. Gayunpaman, walang transmisyon sa internet ang ganap na ligtas, at hindi namin magagarantiya ang ganap na seguridad."
+            },
+            "rights": {
+                "title": "5. Iyong mga Karapatan",
+                "content": "Mayroon kang karapatang:",
+                "points": {
+                    "access": "I-access ang iyong personal na impormasyon",
+                    "correct": "Humiling ng mga pagwawasto sa iyong data",
+                    "delete": "Humiling ng pagbura ng iyong data",
+                    "object": "Tumutol sa ilang pagproseso ng data"
+                }
+            },
+            "contact": {
+                "title": "6. Impormasyon sa Pakikipag-ugnayan",
+                "content": "Para sa mga katanungan tungkol sa patakarang ito, mangyaring makipag-ugnayan sa amin sa pamamagitan ng aming mga opisyal na channel na nakalista sa website."
+            }
+        }
+    },
+    "Terms": {
+    "title": "Mga Tuntunin at Kondisyon",
+    "close": "Isara",
+    "sections": {
+      "intro": {
+        "title": "1. Panimula",
+        "content": "Ang mga Tuntunin at Kondisyong ito ay namamahala sa iyong paggamit ng Politikoz at ang kaugnay nitong KOZ token, applications, at mga serbisyo. Sa paggamit ng aming platform, sumasang-ayon ka sa mga tuntuning ito."
+      },
+      "token": {
+        "title": "2. KOZ Token",
+        "content": "Ang KOZ token ay isang utility token na nagsisilbi sa maraming layunin sa loob ng ecosystem ng Politikoz:",
+        "points": {
+          "utility": "Pag-access sa platform at pag-unlock ng mga feature",
+          "governance": "Pakikilahok sa mga desisyon sa pamamahala",
+          "rewards": "Pagkakakitaan ng mga gantimpala sa pamamagitan ng mga aktibidad sa platform"
         }
       },
-      "learnMore": "Alamin pa sa Gitbook"
-    },
-    "JoinPolitikozPaths": {
-  "buyPolitikoz": {
-    "header": "Siguraduhin ang Iyong Pwesto: Bumili Ngayon!",
-    "title": "Bumili ng Politikoz",
-    "description": "Sa pagbili ng Politikoz, sinisigurado mo ang iyong pagsali sa buwanang raffle magpakailanman, at may pagkakataon kang manalo ng magagandang premyo.",
-    "step1Title": "Bumili ng Politikoz",
-    "step1Text": "Bumili ng isa o higit pang Politikoz.",
-    "step2Title": "Gumawa ng Iyong Partido",
-    "step2Text": "Irehistro ang iyong political party para sa awtomatikong pagsali.",
-    "step3Title": "Dagdagan ang Iyong Tsansa",
-    "step3Text": "Mas maraming Politikoz, mas mataas ang tsansa mong manalo.",
-    "button": "Bumili Ngayon"
-  },
-  "buyKoz": {
-    "header": "Kunin ang Iyong KOZ Tokens: Palitan Ngayon!",
-    "title": "Kumuha ng KOZ Token",
-    "description": "Ang mga KOZ token ay nagbibigay sa iyo ng access sa mga feature ng platform at karapatang bumoto sa aming darating na DAO, na huhubog sa kinabukasan ng platform.",
-    "step1Title": "Ikonekta ang Iyong Wallet",
-    "step1Text": "Ikonekta ang iyong wallet upang magsimula.",
-    "step2Title": "Palitan ang ADA para sa KOZ",
-    "step2Text": "Palitan ang ADA para sa mga KOZ token.",
-    "step3Title": "Kumuha ng Mga Ticket",
-    "step3Text": "Gamitin ang KOZ para sumali sa mga raffle ng halalan.",
-    "button": "Palitan Ngayon"
-  },
-  "engageAndEarn": {
-    "header": "Walang Gastos, Walang Panganib: Sumali nang Libre!",
-    "title": "Makilahok at Kumita",
-    "description": "Sumali sa aming komunidad upang kumita ng KOZ Tokens at ipagpalit ang mga ito para sa libreng pagsali sa buwanang raffle.",
-    "step1Title": "I-link ang Iyong Mga Socials",
-    "step1Text": "I-link ang iyong X at Discord sa aming platform.",
-    "step2Title": "Kumita ng KOZ Tokens",
-    "step2Text": "Makilahok upang kumita ng KOZ Tokens bilang gantimpala.",
-    "step3Title": "Ipagpalit para sa Pagsali",
-    "step3Text": "Gamitin ang KOZ Tokens upang sumali sa buwanang raffle.",
-    "button": "Sumali Ngayon"
-  },
-  "stakeAndWin": {
-    "header": "Walang Gastos, Walang Panganib: Sumali nang Libre!",
-    "title": "Stake at Manalo",
-    "description": "I-stake ang iyong ADA sa amin at makakuha ng mga ticket para sa buwanang raffle habang patuloy na kumikita ng iyong karaniwang ADA rewards.",
-    "step1Title": "Ikonekta ang Iyong Wallet",
-    "step1Text": "Simulan sa pagkonekta ng iyong wallet sa aming platform.",
-    "step2Title": "Stake ADA",
-    "step2Text": "I-stake ang iyong ADA sa aming PLKOZ stake pool.",
-    "step3Title": "Kumuha ng Libreng Pagsali",
-    "step3Text": "Mas maraming ADA ang i-stake, mas maraming libreng pagsali ang makukuha mo.",
-    "button": "I-stake Ngayon"
-  },
-  "topBanner": {
-    "text": "SUMALI NA SA MUNDO NG KOZ. MANGOLEKTA, MAKIPAGPALITAN, AT KUMITA NG ADA."
-  }
-}
-,
-    "Footer": {
-      "links": {
-        "home": "Home",
-    "team": "Koponan",
-    "stake": "Stake kasama namin",
-    "treasury": "Ingatan",
-    "terms": "Mga Tuntunin ng Paggamit",
-    "privacy": "Patakaran sa Privacy"
+      "disclaimers": {
+        "title": "3. Mga Disclaimer",
+        "content": "Ang mga KOZ token ay mga utility token na inilaan para sa paggamit sa loob ng Politikoz platform. Hindi ito mga securities, investment, o financial instrument. Hindi dapat umasa ang mga user sa mga financial return mula sa pagtatago ng mga KOZ token."
       },
-      "joinCommunity": "Sumali sa aming komunidad!",
-      "copyright": "Copyright © {year}. Lahat ng karapatan ay nakalaan."
-    },
-    "Support": {
-      "formTitle": "Suporta",
-      "nameLabel": "Ang iyong Pangalan",
-      "namePlaceholder": "Ilagay ang iyong pangalan",
-      "emailLabel": "Email Address",
-      "emailPlaceholder": "Ilagay ang iyong email",
-      "messageLabel": "Mensahe",
-      "messagePlaceholder": "Paano ka namin matutulungan?",
-      "attachmentsLabel": "Mga Attachment",
-      "sending": "Nagpapadala...",
-      "send": "Ipadala",
-      "successMessage": "Matagumpay na naipadala ang iyong mensahe!",
-      "errorMessage": "Nabigo ang pagpapadala ng mensahe. Pakisubukang muli.",
-      "unexpectedError": "Nagkaroon ng di-inaasahang error."
+      "responsibilities": {
+        "title": "4. Mga Responsibilidad ng User",
+        "points": {
+          "compliance": "Dapat sumunod ang mga user sa lahat ng naaangkop na batas at regulasyon sa kanilang hurisdiksyon",
+          "security": "Responsibilidad ng mga user na panatilihin ang seguridad ng kanilang mga wallet at private key",
+          "conduct": "Dapat makipag-ugnayan ang mga user sa platform nang may mabuting hangarin at iwasan ang anumang malisyosong aktibidad"
+        }
+      },
+      "contact": {
+        "title": "5. Impormasyon sa Pakikipag-ugnayan",
+        "content": "Para sa mga katanungan tungkol sa mga tuntuning ito, mangyaring makipag-ugnayan sa amin sa pamamagitan ng aming mga opisyal na channel na nakalista sa website."
+      }
     }
+  },
+"InfoSection": {
+  "cardData": {
+    "prizes": {
+      "title": "BUWANANG GANTIMPALA",
+      "text": "Nagsisimula sa 350 ADA 💎"
+    },
+    "freeEntries": {
+      "title": "LIBRENG\nPAGPASOP",
+      "text": "Mag-stake o Makibahagi 🤝"
+    },
+    "auditable": {
+      "title": "100% MASISIYASAT",
+      "text": "Mabeberify ng Lahat 🔍"
+    },
+    "treasury": {
+      "title": "60k ADA TREASURY",
+      "text": "Ibubuhos sa 6 🎯"
+    }
+  },
+  "learnMore": "Alamin pa ang tungkol sa Politikoz"
+},
+"ElectionDashboard": {
+    "nextElection": "Susunod na Halalan",
+    "lastElection": "Resulta ng Huling Halalan",
+    "totalPrize": "Kabuuang Gantimpala",
+    "month": "Mga Resulta mula sa {month}",
+    "days": "ARAW",
+    "hours": "ORAS",
+    "minutes": "MIN",
+    "seconds": "SEG"
+},
+"Footer": {
+    "links": {
+      "home": "Home",
+      "team": "Koponan",
+      "stake": "Mag-stake Kasama Namin",
+      "treasury": "Treasury",
+      "terms": "Mga Tuntunin ng Paggamit",
+      "privacy": "Patakaran sa Privacy"
+    },
+    "joinCommunity": "Sumali sa aming komunidad!",
+    "copyright": "Copyright © {year}. Nakalaan ang lahat ng karapatan."
+},
+"Support": {
+    "formTitle": "Suporta",
+    "nameLabel": "Iyong Pangalan",
+    "namePlaceholder": "Ilagay ang iyong pangalan",
+    "emailLabel": "Email Address",
+    "emailPlaceholder": "Ilagay ang iyong email",
+    "messageLabel": "Mensahe",
+    "messagePlaceholder": "Paano kami makakatulong sa iyo?",
+    "attachmentsLabel": "Mga Kalakip",
+    "sending": "Ipinapadala...",
+    "send": "Ipadala",
+    "successMessage": "Matagumpay na naipadala ang iyong mensahe!",
+    "errorMessage": "Hindi maipadala ang mensahe. Pakisubukang muli.",
+    "unexpectedError": "May nangyaring hindi inaasahang error."
+},
+"Explore": {
+  "ActiveListing": {
+    "title": "Ibinebenta",
+    "price": "Presyo: {price}"
+  },
+  "BuyPolitikoz": {
+    "title": "Magkaroon ng Politikoz sa iyong bulsa!",
+    "description": "Para sa bawat Politikoz na bibilhin mo, makakatanggap ka ng <highlight>10 LIBRENG ticket</highlight> para mapataas ang iyong tsansa sa mga susunod na prize draw!",
+    "cta": "Bumili sa JPG.Store"
+  },
+  "ExploreIntro": {
+    "title": "Tuklasin ang Politikoz",
+    "text1": "Isang koleksyon ng 10,000 natatanging NFT sa 8 political class. Bawat Politikoz ay may natatanging identifier, na magsisilbing walang-hanggang pagpasok mo sa aming buwanang prize draw.",
+    "text2": "Huwag palampasin ang iyong pagkakataong sumali sa kasiyahan, magmay-ari ng Politikoz, at manalo ng mga kahanga-hangang gantimpala!",
+    "floor": "Floor Price: {price}",
+    "cta": "Bumili sa JPG.Store"
+  },
+  "GrowingCommunity": {
+    "title": "Lumalagong Komunidad",
+    "total": "Sumali sa aming lumalagong komunidad ng {total} Politikoz holders!",
+    "social": "May {x} followers sa X at {discord} Discord members, patuloy na lumalago ang komunidad—maging bahagi nito ngayon at kumita ng KOZ tokens habang nakikibahagi!",
+    "chartTitle": "Distribusyon ng mga Holder"
+  },
+  "Trades": {
+    "title": "Mga Huling Trade",
+    "price": "Presyo: {price}",
+    "buyer": "Bumili",
+    "seller": "Nagbenta"
   }
-  
+},
+"ConnectToKoz": {
+  "connectTo": "Kumonekta sa<br />World of KOZ",
+  "continueWith": "o magpatuloy gamit ang",
+  "backTo": "Bumalik sa {page}",
+  "connect": "Kumonekta",
+
+  "LogoutModal": {
+    "title": "Kumpirmahin ang Pag-logout",
+    "message": "Sigurado ka bang gusto mong idiskonekta?",
+    "cancel": "Kanselahin",
+    "disconnect": "Idiskonekta",
+    "wait": "Maghintay ng {seconds}s"
+  },
+
+  "connectError": "Hindi makonekta sa {wallet}. Pakisubukan muli.",
+  "disconnect": "Idiskonekta",
+  "downloadWallet": "I-download ang Wallet",
+  "wallet": "Wallet",
+  "noAddress": "Walang Nakitang Address",
+
+  "agreeToTerms": "Sa pagpapatuloy, sumasang-ayon ka sa aming <termsLink>Mga Tuntunin ng Paggamit</termsLink> at <privacyLink>Patakaran sa Privacy</privacyLink>."
+},
+"AuthError": {
+    "title": "Nabigo ang Pagpapatunay",
+    "message": "Hindi mapatunayan: {error}",
+    "ok": "OK",
+    "errors": {
+      "unknown": "May naganap na hindi inaasahang error",
+      "walletNotConnected": "Mangyaring ikonekta muna ang iyong wallet"
+    }
+},
+"AutoLink": {
+  "Config": {
+    "title": "Auto Link Configuration",
+    "description": "Ang Auto Link feature ay nagpapahintulot sa iyong awtomatikong ipamahagi ang iyong mga ticket batay sa mga naunang setting bago ang bawat halalan. Tinitiyak nito na ang iyong mga ticket ay naibibigay nang epektibo nang walang manu-manong interbensyon. Iayon ang distribusyon ayon sa iyong estratehiya at hayaang pangasiwaan ng sistema ang alokasyon para sa iyo.",
+    "linkToSpecificPolitikoz": "I-link sa Partikular na Politikoz",
+    "distributeToRandomPolitikoz": "Ipamahagi sa Random na Politikoz",
+    "linkToMyParty": "I-link sa Aking Partido",
+    "distributeAmongParties": "Ipamahagi sa mga Partido",
+    "configuredAutoLinks": "Mga Nakumpigurang Auto Link"
+  },
+  "DeleteConfirm": {
+      "title": "Kumpirmahin ang Pagbura",
+      "message": "Sigurado ka bang gusto mong burahin ang {type} configuration na ito {id}?",
+      "cancel": "Kanselahin",
+      "confirm": "Burahin",
+      "deleting": "Binubura...",
+      "deletingMessage": "Binubura ang configuration, mangyaring maghintay...",
+      "type": {
+        "party": "partido",
+        "politikoz": "politikoz",
+        "random": "random na distribusyon"
+      },
+      "random": "configuration"
+  },
+  "Distribution": {
+    "frontmanDescription": "Magtalaga ng mga ticket sa pagitan ng standard FRONTMAN at FRONTMAN BOOSTED ELECTION LAMANG. Ang boosted version ay gagamitin lamang sa mga halalan na may boosted na gantimpala. Ang pinagsama-samang alokasyon ay hindi maaaring lumampas sa 100%.",
+    "combinedFrontman": "Pinagsamang Kabuuan",
+    "otherConfigs": "Iba pang configs",
+    "thisConfig": "Config na ito",
+    "available": "Available"
+  },
+  "List": {
+    "empty": "Walang nadagdag na configurations.",
+    "politikozLabel": "Politikoz #{id}",
+    "partyLabel": "Partido {id}",
+    "randomLabel": "Random",
+    "delete": "Burahin"
+  },
+  "ModalParties": {
+    "title": "Ipamahagi sa mga Partido",
+    "selectPlaceholder": "Pumili ng Partido",
+    "selectedTitle": "Mga Napiling Partido",
+    "cancel": "Kanselahin",
+    "save": "I-save"
+  },
+  "ModalRandom": {
+      "title": "I-configure ang Random na Distribusyon",
+      "description": "I-configure ang porsyento ng mga ticket na awtomatikong ipapamahagi sa mga random na Politikoz bago ang bawat halalan. Tinitiyak nito na ang iyong mga hindi nakatalagang ticket ay palaging nagagamit.",
+      "save": "I-save",
+      "cancel": "Kanselahin"
+  },
+  "ModalParty": {
+      "title": "I-configure ang Distribusyon ng Partido",
+      "description": "I-configure ang porsyento ng mga ticket na awtomatikong ipapamahagi sa mga miyembro ng iyong partido bago ang bawat halalan. Pinapahintulutan ka nitong suportahan ang mga Politikoz ng iyong partido at dagdagan ang kanilang tsansa na manalo, na nagpapalakas sa posisyon ng iyong partido sa karera ng halalan.",
+      "save": "I-save",
+      "cancel": "Kanselahin"
+  },
+  "ModalPolitikoz": {
+      "title": "I-link sa Partikular na Politikoz",
+      "description": "I-configure ang porsyento ng distribusyon para sa partikular na Politikoz. Ang napiling porsyento ay pantay na ipapamahagi sa lahat ng napiling Politikoz. Maaari ka lamang magdagdag ng mga porsyento - para mabawasan, burahin ang configuration.",
+      "selectedTitle": "Mga Napiling Politikoz",
+      "noneSelected": "Walang napiling Politikoz.",
+      "save": "I-save",
+      "cancel": "Kanselahin"
+  },
+  "Progress": {
+    "title": "Kabuuang Nakatalagang Porsyento"
+  }
+},
+"BuyTicket": {
+    "ticketTransactionSuccessButApiError": "Matagumpay ang iyong transaksyon sa pagbili ng ticket ngunit hindi nairehistro sa aming sistema. Mangyaring ireport ito sa aming Discord o Support kasama ang iyong transaction hash.",
+    "title": "Bumili ng mga Ticket",
+    "ticketsAddedSoon": "Ang iyong mga ticket ay idadagdag sa iyong account sa lalong madaling panahon (maximum 10 minuto).",
+    "date": "Petsa",
+    "pricePerTicket": "Presyo bawat ticket:",
+    "yourBalance": "Iyong balanse:",
+    "enterTicketAmount": "Ilagay ang bilang ng mga ticket",
+    "tickets": "mga ticket",
+    "processing": "Pinoproseso...",
+    "buyButton": "Bumili ng {amount} {amount, plural, one {Ticket} other {Ticket}}",
+    "historyTitle": "Kasaysayan ng Pagbili",
+    "viewHistory": "Tingnan ang Kasaysayan",
+    "noHistory": "Walang kasaysayan ng pagbili",
+    "perTicketFeeInfo": "Service fee: + {fee} ADA bawat ticket",
+    "cancel": "Kanselahin",
+    "connectWalletFirst": "Mangyaring ikonekta muna ang iyong wallet",
+    "serviceFeeInfo": "(+{fee} ADA service fee bawat ticket)",
+    "minimumFeeInfo": "Minimum na service fee 2.5 ADA (kasama ang 3 LIBRENG ticket)",
+    "minimumFeeTooltip": "Ang unang 2.5 ADA ay sakop ang hanggang 25 ticket at kasama ang 3 LIBRENG ticket. Pagkatapos nito, +0.1 ADA bawat karagdagang ticket.",
+    "history": {
+      "amount": "Halaga",
+      "transaction": "Transaksyon",
+      "status": "Katayuan",
+      "action": "Aksyon",
+      "ticketAmount": "{amount} (na) Ticket",
+      "kozAmount": "{amount} KOZ",
+      "validating": "Pinapatunayan",
+      "completed": "Nakumpleto",
+      "failed": "Nabigo",
+      "cancel": "Kanselahin"
+    },
+    "transactionDetails": {
+      "title": "Mga Detalye ng Transaksyon",
+      "willReceive": "Matatanggap mo:",
+      "tickets": "Mga Ticket",
+      "freeTicketShort": " LIBRENG ticket",
+      "kozAmount": "Halaga ng KOZ:",
+      "minimumFee": "Minimum na Fee:",
+      "additionalFee": "Karagdagang Fee:",
+      "networkFee": "Network Fee (tinatayang):",
+      "totalKoz": "Kabuuang KOZ na Kailangan:",
+      "totalAda": "Kabuuang ADA na Kailangan:",
+      "transactionId": "Transaction ID"
+    },
+    "status": {
+      "processing": "Pinoproseso ang pagbili...",
+      "completed": "Nakumpleto ang pagbili!",
+      "failed": "Nabigo ang pagbili",
+      "default": "Pinoproseso...",
+      "pending": "Nakabinbin",
+      "cancelled": "Nakansela"
+    },
+    "errors": {
+      "maxTicketsExceeded": "Maximum na {max} ticket ang pinapayagan",
+      "insufficientBalance": "Hindi sapat ang KOZ balanse"
+    }
+},
+"ClaimKoz": {
+    "title": "Kunin ang KOZ Rewards",
+    "description": "Kunin ang iyong available na KOZ tokens na naipon sa pamamagitan ng mga aktibidad sa platform.",
+    "totalAvailable": "Kabuuang Available na Makukuha",
+    "claimNow": "Kunin Ngayon",
+    "availableRewards": "Available na Rewards",
+    "claimHistory": "Kasaysayan ng mga Kinuha",
+    "claimSummary": "Buod ng Pagkuha",
+    "totalClaim": "Kabuuang Kinuha",
+    "fee": "Fee",
+    "destination": "Address ng Destinasyon",
+    "cancel": "Kanselahin",
+    "confirm": "Kumpirmahin ang Pagkuha"
+},
+"ElectionInfo": {
+    "executed": "Naisakatuparan noong",
+    "title": "Pangkalahatang-ideya ng Halalan",
+    "prizeTitle": "Gantimpala sa Halalan",
+    "totalPrize": "Kabuuang Gantimpala",
+    "politikoz": "Politikoz",
+    "tickets": "Mga Ticket",
+    "politikozBreakdown": "Pagkakaiba-iba ng Gantimpala ng Politikoz",
+    "ticketsBreakdown": "Pagkakaiba-iba ng Gantimpala ng mga Ticket",
+    "roadmapTitle": "Mga Wave ng Halalan - Roadmap",
+    "drawTitle": "Mga Resulta ng Wave Draw",
+    "waveLabel": "Wave {number}",
+    "modalTitle": "Mga Detalye ng Wave {number}",
+    "modalDate": "Petsa",
+    "modalClose": "Isara",
+    "elected": "nahalal",
+    "winner": "nagwagi",
+    "winners": "mga nagwagi",
+    "prizePerWinner": "Gantimpala bawat nagwagi",
+    "totalForRole": "Kabuuan para sa papel",
+    "totalForType": "Kabuuan para sa uri",
+    "modalExecutedAt": "Naisakatuparan noong",
+    "modalDetails": "Mga Detalye ng Transaksyon",
+    "modalEpoch": "Block Epoch",
+    "modalHeight": "Block Height",
+    "modalStaminaDecrease": "Pagbaba ng Stamina",
+    "modalMinStamina": "Minimum na Stamina",
+    "modalDrawPrecision": "Draw Precision",
+    "modalFeePrecision": "Fee Precision",
+    "modalNumbersToDraw": "Mga Numerong Bubunutin",
+    "modalBonus": "Top Ranking Bonus",
+    "modalBaseVote": "Base Vote",
+    "modalBlockFee": "Block Fee",
+    "modalBlockOutput": "Block Output",
+    "modalTurn": "Turn ng Halalan",
+    "noDrawsYet": "Wala pang mga draw",
+    "firstTurn": "UNANG TURN",
+    "secondTurn": "IKALAWANG TURN",
+    "electionEnd": "KATAPUSAN NG HALALAN"
+},
+"ElectionResult": {
+    "map": "Mapa ng Halalan",
+    "candidates": "Mga Kandidato ng User",
+    "grid": "Grid View",
+    "table": "Table View",
+    "tree": "Puno ng mga Nagwagi",
+    "roleDistribution": "Distribusyon ng Papel ng Kandidato",
+    "noDataAvailable": "Walang available na datos",
+    "totalCandidates": "Kabuuang Kandidato: {count}",
+    "totalTickets": "Kabuuang Ticket: {count}",
+    "chart": "Distribusyon",
+    "errorLoadingChart": "Error sa pag-load ng datos ng chart",
+
+    "earningsEstimate": "Tantiya ng Kita",
+    "legend": "Legenda",
+
+    "tableTitle": "Talahanayan ng Politikoz at Ticket",
+    "filterAllRoles": "Lahat ng Papel",
+    "filterWinning": "🏆 Nananalo",
+    "filterNoStamina": "⚡ Walang Stamina",
+    "filterUserOwned": "👤 Pag-aari ng User",
+    "status": "Katayuan",
+    "politikoz": "Politikoz",
+    "role": "Papel",
+    "place": "Pwesto",
+    "earnings": "Kita",
+    "prev": "◀ Nakaraan",
+    "next": "Susunod ▶",
+    "page": "Pahina {current} ng {total}",
+
+    "politikozOverview": "Pangkalahatang-ideya ng Politikoz",
+    "groupWinning": "🏆 Nanalong Posisyon (kung matatapos na ang halalan)",
+    "groupOutOfStamina": "⚠️ Nanalong Posisyon (kung matatapos na ang halalan) - Walang Stamina para sa Susunod na Wave",
+    "groupLosing": "❌ Natatalo",
+    "earningsDisplay": "Kita: ${amount}",
+    "noPoliticians": "Walang mga pulitiko sa kategoryang ito",
+
+    "senateTitle": "Mga Nanalo sa Halalan - Senado",
+
+    "title": "Mga Resulta ng Halalan",
+    "legendWinning": "Nanalong Posisyon (kung mapapanatili)",
+    "legendLosing": "Natatalo",
+    "legendPositionsToVictory": "Mga posisyon para sa pagkapanalo",
+    "noData": "Walang available na datos.",
+    "candidateVotes": "Mga Boto",
+    "candidateLabel": "Kandidato {index} / {total}",
+    "btnBack": "Bumalik",
+    "btnNext": "Susunod"
+},
+"GovernanceSettings": {
+    "title": "Mga Setting ng Pamamahala",
+    "loading": "Naglo-load ng mga patakaran...",
+    "ticketBoostTitle": "Mga Setting ng Ticket Boost",
+    "ticketBoostDescription": "Bawat uri ng ticket ay may natatanging power boost effect. Kapag naka-link sa isang Politikoz, pinapalakas nito ang kanilang kakayahang bumoto, na nagpapataas ng kanilang tsansa na manalo sa mga halalan.",
+    "ticketBoostValue": "{value}%",
+    "votingPowerTitle": "Buod ng Kapangyarihan sa Pagboto",
+    "votingPowerDescription": "Ang iyong kapangyarihan sa pagboto ay batay sa dami ng KOZ tokens na hawak mo. Sa mga susunod na update, ang kapangyarihang ito ay gagamitin para bumoto sa mga pagbabago sa mga setting ng pamamahala.",
+    "votingPowerTotal": "Kabuuang Kapangyarihan sa Pagboto",
+    "votingPowerUsed": "Nagamit",
+    "votingPowerRemaining": "Naiwan",
+    "votingPowerUsedFormatted": "{used} ({percent}%)",
+    "votingPowerRemainingFormatted": "{remaining} ({percent}%)",
+
+    "potShareTitle": "Bahagi ng Pot ng Halalan kada Halalan",
+    "potShareDescription": "Ang setting na ito ay nagtatakda ng bahagi ng pot ng halalan na ipapamahagi sa bawat round ng halalan.",
+    "potShareTotal": "Kabuuang ADA na ipinamamahagi kada halalan:",
+    "potShareTreasury": "Kasalukuyang Balanse ng Treasury:",
+
+    "electionPotTitle": "Distribusyon ng Pot ng Halalan",
+    "electionPotDescription": "Ang seksyong ito ay nagtatakda kung paano ipinamamahagi ang Pot ng Halalan sa mga nahalal na posisyon at papel ng ticket. Bawat kategorya ay tumatanggap ng porsyento ng kabuuang pot, na tumutugma sa isang tiyak na halaga ng ADA kada halalan.",
+
+    "ticketLimitsTitle": "Mga Limitasyon ng Ticket",
+    "ticketLimitsDescription": "Ang mga limitasyong ito ay nagtatakda ng minimum at maximum na saklaw ng ADA na maaaring pagtrabahuhin ng balancing engine upang matukoy kung gaano karaming stake ang kailangan para makakuha ng 1 ticket ng bawat uri. Batay sa mga kondisyon ng staking, pumipili ang engine ng halaga sa loob ng saklaw na ito. Halimbawa, kung pipiliin ng engine ang 2000 ADA para sa Corrupt, ang isang delegator na may 5000 ADA ay makakakuha ng 2 Corrupt ticket. Ang natitirang stake ay ipapasa sa susunod na uri: Lobbyist → Briber → Launderer, at magpapatuloy hanggang sa walang ticket na maaaring italaga.",
+    "ticketLimitsNextRebalance": "Susunod na rebalance sa epoch: {epoch}",
+    "ticketLimitsMin": "Minimum na halaga: {amount} ADA",
+    "ticketLimitsMax": "Maximum na halaga: {amount} ADA",
+    "ticketLimitsCurrent": "Kasalukuyang halagang pinili ng engine: {amount} ADA",
+
+    "otherSettingsTitle": "Iba Pang Mga Setting ng Halalan",
+    "intervalTitle": "Agwat ng Halalan",
+    "intervalDescription": "Tinutukoy ang agwat na kailangan para sa susunod na halalan. Kung nakatakda sa 1, magkakaroon ng halalan tuwing epoch.",
+    "intervalEvery": "Bawat {epochs} (na) epoch",
+    "luckTitle": "Precision ng Lucky Number",
+    "luckDescription": "Tinutukoy ang bilang ng mga digit na dapat piliin ng user bilang lucky number na nakatakda sa bawat Politikoz.",
+    "luckDigits": "{count} (na) digit",
+    "jailTitle": "Precision ng Kulungan",
+    "jailDescription": "Tinutukoy ang porsyentong tsansa na ipadala sa kulungan ang isang Politikoz pagkatapos mahalal.",
+    "jailChance": "{percent}% tsansa",
+    "bailTitle": "Piyansa kada Epoch",
+    "bailDescription": "Tinutukoy ang halaga (sa KOZ) na babayaran kada nasentensyahang epoch upang makalabas sa kulungan bago matapos ang random na panahon ng pagkakakulong.",
+    "bailValue": "{amount} KOZ kada epoch",
+    "bestDayTitle": "Pinakamahusay na Araw para Magsimula",
+    "bestDayDescription": "Tinutukoy ang pinipiling araw ng linggo para magsimula ng bagong siklo ng halalan.",
+
+    "waveSettingsTitle": "Mga Wave ng Halalan",
+    "waveSettingsDescription": "Bawat wave ay kumakatawan sa isang yugto sa proseso ng halalan na may mga tiyak na patakaran tulad ng precision ng numero, mga bonus, kinakailangan sa stamina, at mga agwat ng oras bago ang pagpapatupad.",
+    "numbersToBeDrawn": "Mga Numerong Bubunutin",
+    "numbersDrawnPrecision": "Precision ng Numero",
+    "numberFeePrecision": "Precision ng Fee",
+    "percentBonusTicket": "Bonus ng Ticket (%)",
+    "percentBonusTopRanking": "Bonus ng Top Ranking (%)",
+    "decreaseInStamina": "Pagbaba ng Stamina",
+    "minimumStamina": "Kinakailangang Minimum na Stamina",
+    "waitInMinutesBeforeExecute": "Oras ng Paghihintay Bago ang Pagpapatupad (minuto)",
+
+    "politikozTitle": "Mga Nahalal na Politikoz",
+    "politikozDescription": "Tinutukoy kung ilang Politikoz ng bawat papel ang ihahalal sa bawat halalan at kinakalkula ang bahagi ng ADA kada nahalal na papel batay sa mga setting ng distribusyon.",
+    "electedLabel": "Nahalal: {count}",
+    "perElectedLabel": "ADA kada nahalal: {amount} ADA",
+
+    "ticketTitle": "Nahalal na Ticket",
+    "ticketDescription": "Tinutukoy ang bilang ng mga papel na batay sa ticket na ihahalal sa bawat halalan at kinakalkula ang bahagi ng ADA kada nahalal na ticket batay sa mga setting ng distribusyon.",
+    "ticketElectedLabel": "Nahalal: {count}",
+    "ticketAdaLabel": "ADA kada ticket: {amount} ADA"
+},
+"HallView": {
+  "tour": "Maglakbay",
+  "tokenomics": "Tokenomics",
+  "treasury": "Treasury Pot",
+  "team": "Koponan",
+  "exit": "Lumabas",
+  "backToHall": "← Balik sa Hall"
+},
+"IncomeOutcome": {
+  "title": "Kita at Gastos",
+  "incomeTitle": "Kita",
+  "outcomeTitle": "Gastos",
+  "monthIncomeTitle": "Sa Buwang Ito - Kita",
+  "monthOutcomeTitle": "Sa Buwang Ito - Gastos",
+  "yearIncomeTitle": "Huling 12 Buwan - Kita",
+  "yearOutcomeTitle": "Huling 12 Buwan - Gastos",
+  "noIncome": "Walang kita sa buwang ito",
+  "noOutcome": "Walang gastos sa buwang ito",
+  "summaryTitle": "Buod (Huling 12 Buwan)",
+  "incomeSummary": "Kita: {amount} KOZ",
+  "outcomeSummary": "Gastos: {amount} KOZ",
+  "months": [
+    "Enero", "Pebrero", "Marso", "Abril", "Mayo", "Hunyo",
+    "Hulyo", "Agosto", "Setyembre", "Oktubre", "Nobyembre", "Disyembre"
+  ]
+},
+"InsideBuilding": {
+  "hall": "HALL",
+  "office": "OPISINA",
+  "laundry": "LABAHAN",
+  "party": "PARTIDO",
+  "arcade": "ARCADE ROOM - MALAPIT NA",
+  "news": "BALITA"
+},
+"LaundryView": {
+  "stakeWithPlkoz": "Mag-stake sa PLKOZ",
+  "ticketCalculator": "Calculator ng Ticket",
+  "claimKoz": "Kunin ang KOZ",
+  "comingSoon": "Malapit Na",
+  "exit": "Lumabas",
+  "backToLaundry": "← Balik sa Labahan",
+  "connectWalletFirst": "Mangyaring ikonekta muna ang iyong wallet"
+},
+"NewsView": {
+  "joinDiscord": "Sumali sa aming Discord",
+  "followX": "Sundan kami sa X",
+  "socialTasks": "Mga Gawaing Panlipunan",
+  "discordRank": "Aking Discord Rank",
+  "distributionPolicy": "Patakaran sa Pamamahagi",
+  "claimKoz": "Kunin ang KOZ",
+  "exit": "Lumabas",
+  "comingSoon": "Malapit Na",
+  "backToNews": "← Balik sa Balita"
+},
+"OfficeView": {
+  "incomeOutcome": "Kita/Gastos",
+  "audit": "I-verify ang Ticket",
+  "buyTickets": "Bumili ng Tickets",
+  "myTickets": "Aking mga Ticket",
+  "calendar": "Kalendaryo",
+  "prizeInfo": "Impormasyon ng Premyo",
+  "waveInfo": "Impormasyon ng Wave",
+  "electionResults": "Mga Resulta ng Halalan",
+  "buyKoz": "Bumili ng KOZ",
+  "exit": "Lumabas",
+  "backToOffice": "← Balik sa Opisina"
+},
+"CurrentSeasonPromo": {
+  "season": "SEASON",
+  "seasonProgress": "Progreso ng Season",
+  "seasonCompletedTitle": "SEASON {season} KUMPLETO NA!",
+  "nextElectionAnnouncement": "Isang FRONTMAN ang gagawa ng kasaysayan!",
+  "prepareMessage": "Maghanda para sa susunod na halalan. Ang iyong pagkakataong maging mahusay.",
+  "prizePool": "Boost na Premyo",
+  "boostedPrize": "Mas Mataas na Premyo",
+  "earlyElection": "Maagang Halalan →",
+  "nextElection": "Susunod na Halalan",
+  "swapNow": "Kumuha ng KOZ Tokens",
+  "completeSeasonMessage": "Kumpletuhin ang season na ito para masimulan ang maagang halalan!"
+},
+"PartyView": {
+    "info": {
+       "rankColumn": "#",
+      "partyColumn": "Partido",
+      "winnersColumn": "Nahalal",
+      "percentageColumn": "%",
+      "rewardColumn": "Gantimpala",
+      "treasuryPool": "TREASURY POOL",
+      "treasuryNote": "Ang halagang ito ay lumalaki sa bawat pagbili ng ticket sa kasalukuyang season",
+      "distributionMethod": "Ang mga gantimpala ay ipapamahagi nang proporsyonal sa porsyento ng nahalal na kandidato ng bawat partido sa bawat season.",
+      "currentSeasonNote": "Maaaring magbago ang pinal na mga gantimpala hanggang matapos ang season",
+      "partyRanking": "Performance ng Partido",
+      "noRankingsAvailable": "Wala pang available na rankings",
+      "season": "SEASON {seasonNumber}",
+      "partyRankingDescription": "Porsyento ng mga nanalong kandidato ayon sa partido",
+      "referralCode": "Referral Code",
+      "copyCode": "Kopyahin ang referral code",
+      "copied": "Nakopya na!",
+      "referralRanking": "Ranking ng Referral",
+      "referralCodeDescription": "Ibahagi ang iyong code! Kapag ginamit sa KOZ swaps, pareho kayong makakakuha ng gantimpala!",      
+      "rankingDescription": "Ang mga nangungunang nag-refer ay kumikita ng KOZ rewards bawat season!",
+      "usesCount": "Bilang ng Paggamit",
+      "position": "Posisyon",
+      "you": "IKAW",
+      "youGet": "Mga Lobbyist",
+      "theyGet": "Mga Launderer",
+      "youReceive": "TATANGGAPIN MO",
+      "theyReceive": "TATANGGAPIN NILA"
+    },
+    "backToParty": "← Balik sa Partido",
+    "buttons": {
+      "myParty": "Aking Partido",
+      "createParty": "Lumikha ng Partido",
+      "myPolitikoz": "Aking Politikoz",
+      "campaignGame": "Laro ng Kampanya",
+      "governanceSettings": "Mga Setting ng Pamamahala",
+      "exit": "Lumabas",
+      "comingSoon": "Malapit Na",
+      "connectWallet": "Ikonekta Muna ang Wallet"
+    },
+    "create": {
+      "title": "Lumikha ng Partido",
+      "siglaLabel": "Acronym ng Partido",
+      "creating": "Ginagawa...",
+      "nameLabel": "Pangalan ng Partido",
+      "placeholderSigla": "XXXX",
+      "placeholderName": "Pangalan ng Partido",
+      "createButton": "Lumikha ng Partido",
+      "errorDefault": "Hindi malikha ang partido",
+      "errorHasParty": "Mayroon ka nang partido",
+      "typeLabel": "Uri ng Partido"
+    },
+    "flag": {
+      "tryAgain": "Subukan Muli"
+    }
+},
+"JoinPolitikozTour": {
+    "title": "Sumali sa Aming Budget-Optimized Tour™",
+    "description": "Isang mabilis na paglalakbay sa Politikoz, pinapatakbo ng kape at kahina-hinalang code! Tapusin ito para ikutin ang aming talagang-hindi-dayaang-gulong ng gantimpala.",
+    "startTourButton": "Simulan ang Mabilis na Tour",
+    "rewardLabel": "Baka Manalo ng LIBRENG ENTRIES!*",
+    "disclaimer": "*Talagang may mananalo ka. Pangako."
+},
+"Maintenance": {
+    "messages": {
+      "budgetReallocation": {
+        "title": "Muling Inilaan ang Budget",
+        "description": "Ang aming server budget ay misteryosong inilaan sa bagong 'pag-aaral ng swimming pool'. Kasalukuyan naming sinisiyasat kung bakit kailangan ng mga dolphin ang mga luxury spa treatment. Babalik kami agad! 🏊‍♂️"
+      },
+      "coffeeCrisis": {
+        "title": "Emergency Coffee Break",
+        "description": "Nag-strike ang aming mga server matapos malaman na ang kanilang maintenance budget ay ginastos sa mga gintong doorknob para sa IT department. Nakikipag-negosasyon kami gamit ang premium coffee beans. ☕"
+      },
+      "secretMeeting": {
+        "title": "Lihim na Pagpupulong",
+        "description": "Pansamantalang hindi gumagana ang mga sistema habang ang aming mga server ay dumadalo sa mandatory na 'cheese tasting workshop' sa Switzerland. Sinasabi nilang mahalaga ito para sa network performance. 🧀"
+      },
+      "budgetOptimization": {
+        "title": "Pag-optimize ng Budget",
+        "description": "Natuklasan ng aming hosting provider na ang kanilang pondo ay nai-invest sa 'lunar real estate project'. Naghihintay kami ng susunod na full moon para makuha muli ang aming mga serbisyo. 🌕"
+      },
+      "investigation": {
+        "title": "Technical na Imbestigasyon",
+        "description": "Ang mga server ay nakikilahok sa congressional hearing tungkol sa kung bakit nila kailangan ng RGB lighting para sa mas magandang performance. Inaasahan naming makabalik pagkatapos ng burukrasya. 💼"
+      }
+    },
+    "disclaimer": "Huwag mag-alala, nagbibiro lang kami! Babalik kami online sa lalong madaling panahon pagkatapos ng maikling maintenance. 😉",
+    "retrying": "🤞 Sinusubukang Gumawa ng Political Maneuver... 🤞",
+    "retryButtons": {
+      "bribeButton": "🤫 Subukang Suhulan ang Server",
+      "blackmailButton": "📸 Magblackmail Gamit ang mga Larawan ng Server",
+      "lobbyButton": "🤝 Mag-lobby para sa System Access",
+      "negotiateButton": "💼 Makipag-negosasyon sa mga Burukrata",
+      "pleadButton": "🙏 Gamitin ang Fifth Amendment at Subukan Muli"
+    }
+},
+"PolitikozProfile": {
+    "MarketListings": {
+      "title": "Available sa Jpg.store",
+      "viewAllListings": "Tingnan lahat ng listings sa JPG.store"
+    },
+    "errors": {
+      "release": "Hindi mapalaya mula sa kulungan. Pakisubukan muli.",
+      "insufficientFunds": "Hindi sapat ang KOZ tokens para sa paglaya.",
+      "transactionDeclined": "Tinanggihan ng user ang transaksyon.",
+      "walletNotConnected": "Hindi nakakonekta ang wallet.",
+      "transaction": "Nabigo ang transaksyon. Pakisubukan muli.",
+      "unexpected": "May nangyaring hindi inaasahang error. Pakisubukan muli."
+    },
+    "releaseSuccess": "Matagumpay na napalaya si {name} mula sa kulungan!",
+    "releaseAllSuccess": "Matagumpay na napalaya ang {count} bilanggo!",
+    "processing": "Pinoproseso...",
+    "transactionDeclined": "Tinanggihan ang transaksyon",
+    "insufficientFunds": "Hindi sapat ang pondo",
+    "walletNotConnected": "Hindi nakakonekta ang wallet",
+    "insufficientAda": "Hindi sapat ang ADA para sa service fee",
+    "transactionFailed": "Nabigo ang pagproseso ng transaksyon",
+    "prisonSentence": "Sentensya sa Kulungan",
+    "prisonersFromTab": "mga bilanggo",
+    "releaseAllInTab": "Palayain lahat ng bilanggo sa kasalukuyang tab",
+    "epochSuffix": "(mga) epoch",
+    "releaseCost": "Gastos sa Paglaya",
+    "releaseDate": "Petsa ng Paglaya",
+    "luckyNumberChangeSuccess": "Matagumpay na na-update ang lucky number!",
+    "luckyNumberChangeError": "Hindi ma-update ang lucky number",
+    "comingSoon": "Malapit Na",
+    "history": "Kasaysayan",
+    "distribution": "DISTRIBUSYON",
+    "ticketsForJuly": "MGA TICKET PARA SA HALALAN NG XXX",
+    "linkTickets": "I-link ang mga Ticket",
+    "editLuckyNumber": "I-edit ang Lucky Number",
+    "edit": "I-edit",
+    "editForAllInTab": "I-edit para sa lahat sa kasalukuyang tab",
+    "cancel": "Kanselahin",
+    "confirm": "Kumpirmahin",
+    "release": "Palayain",
+    "releaseTitle": "Pagpapalaya ng Bilanggo",
+    "releaseConfirmStart": "Gusto mo bang palayain",
+    "releaseConfirmMiddle": "para sa",
+    "releaseConfirmAllStart": "Gusto mo bang palayain ang lahat ng",
+    "releaseConfirmAllMiddle": "mga bilanggo para sa",
+    "keepImprisoned": "Panatilihing Nakakulong",
+    "confirmBribe": "Oo, Magbayad ng Suhol",
+    "releaseAllCheckbox": "Palayain lahat ng nakakulong",
+    "details": "MGA DETALYE",
+    "tickets": "MGA TICKET",
+    "stamina": "Stamina",
+    "noPolitikozAvailable": "Wala kang anumang Politikoz para sa kategoryang ito",
+    "previous": "Nakaraan",
+    "next": "Susunod",
+    "restartList": "I-restart ang Listahan",
+    "searchPlaceholder": "Maghanap ng Politikoz...",
+    "power": "KAPANGYARIHAN",
+    "dirtyMoney": "Maruming Pera",
+    "influence": "Impluwensya",
+    "cleanMoney": "Malinis na Pera",
+    "bribePower": "Kapangyarihan sa Pagsuhol",
+    "scapegoats": "Mga Sisisihin",
+    "addTickets": "MAGDAGDAG NG MGA TICKET",
+    "corruptDesc": "Ang mga corrupt na pulitiko ay binabago ang mga patakaran para sa personal na pakinabang.",
+    "lobbyistDesc": "Ang mga lobbyist ay nakaiimpluwensya sa mga patakaran sa likod ng saradong pinto.",
+    "laundererDesc": "Ang mga money launderer ay nilalinis ang maruming pera para sa sistema.",
+    "briberDesc": "Ang mga tagasuhol ay gumagamit ng pera para makuha ang gusto nila.",
+    "frontmenDesc": "Ang mga frontman ang nagdudusa habang nagtatago ang tunay na mga pinuno.",
+    "close": "Isara"
+},
+"Stake": {
+    "stakeTitle": "Mag-stake sa Politikoz",
+    "stakeDescription": "I-stake ang iyong ADA sa aming pool para kumita ng rewards at suportahan ang ecosystem ng Politikoz.",
+    "stakeNow": "Mag-stake Ngayon",
+    "connectFirst": "Ikonekta Muna ang Wallet",
+    "stakeError": "Error sa stake delegation",
+    "title": "I-stake ang Iyong ADA sa PLKOZ",
+    "description": "Kapag sumali ka sa aming PLKOZ pool, maaari kang kumita ng ADA rewards tulad ng ibang pool. Bukod dito, makakakuha ka ng mga ticket at KOZ token na nagbibigay-daan sa iyo na lumahok sa buwanang lottery para sa pagkakataong manalo ng mas maraming ADA at mas dagdagan pa ang iyong kita.",
+    "availableBalance": "Iyong Available na Balanse",
+    "estimatedTickets": "Tinatantyang mga Ticket",
+    "connectToStart": "Kumonekta para Magsimulang Mag-stake",
+    "connectButtonLabel": "Kumonekta para Magsimulang Mag-stake",
+    "stakeButtonLabel": "Mag-stake Ngayon",
+    "kozBonus": "KOZ Bonus",
+    "kozRewardsMessage": "Maaari kang mag-claim ng hanggang {amount} KOZ rewards sa pamamagitan ng buwanang claims",
+    "stakeSuccess": "Matagumpay ang stake delegation!",
+    "errors": {
+      "transactionDeclined": "Tinanggihan ng user ang transaksyon",
+      "signingCanceled": "Nakansela ang pagpirma ng transaksyon",
+      "insufficientFunds": "Hindi sapat ang pondo sa iyong wallet",
+      "insufficientFundsWithAmount": "Hindi sapat ang pondo sa iyong wallet. Kinakailangang minimum: {amount} ADA",
+      "transactionFailed": "Nabigo ang transaksyon. Pakisubukan muli",
+      "unexpected": "May nangyaring hindi inaasahang error. Pakisubukan muli",
+      "title": "Nabigo ang Transaksyon"
+    },
+    "status": {
+      "staking": "Nagse-stake...",
+      "connectFirst": "Ikonekta Muna ang Wallet",
+      "waitingSignature": "Naghihintay ng pirma sa transaksyon...",
+      "pleaseConfirm": "Mangyaring kumpirmahin sa iyong wallet para makumpleto ang staking"
+    },
+    "collateral": {
+      "amount": "+{amount} ADA collateral",
+      "info": "Alamin ang tungkol sa collateral"
+    },
+    "collateralModal": {
+      "title": "Ano ang Collateral?",
+      "description": "Ang collateral ay maliit na halaga ng ADA (kadalasan 5 ADA) na hiwalay na iniipon ng iyong wallet. Ito ay kinakailangan para sa mga smart contract transaction sa Cardano.",
+      "explanation": "Isipin ito bilang security deposit na nagtitiyak na maayos na gumagana ang mga smart contract transaction. Huwag mag-alala - ikaw pa rin ang may buong kontrol sa ADA na ito!",
+      "walletInfo": "Awtomatikong pinamamahalaan ito ng iyong wallet para sa iyo, at maaari mo itong makuha anumang oras sa pamamagitan ng pag-alis ng collateral setting sa iyong wallet.",
+      "closeButton": "Naintindihan!"
+    }
+},
+"AuthModal": {
+    "title": "I-verify ang Wallet",
+    "description": "Mangyaring pumirma gamit ang iyong wallet para magpatuloy",
+    "walletPrompt": "Walang transaksyon o bayarin - pirma lang",
+    "sessionInfo": "May bisa ng 1 oras bago kailanganin ng panibagong pirma"
+},
+"Swap": {
+    "title": "I-swap ang ADA → KOZ",
+    "rate": "Fixed na halaga:",
+    "available": "Available na KOZ:",
+    "amountLabel": "Halaga sa KOZ",
+    "costLabel": "Halaga:",
+    "swapButton": "Mag-swap Ngayon",
+    "historyTitle": "Kasaysayan ng Swap",
+    "noHistory": "Walang nahanap na kasaysayan ng swap",
+    "date": "Petsa",
+    "viewHistory": "Tingnan ang Kasaysayan ng Swap",
+    "connectWallet": "Ikonekta ang Wallet",
+    "processing": "Pinoproseso...",
+    "waitingForNextTier": "Naghihintay sa pagsisimula ng susunod na season",
+    "tierWillBeAvailable": "Season {tier} ay magiging available sa:",
+    "timer": {
+      "days": "Araw",
+      "hours": "Oras",
+      "minutes": "Minuto",
+      "seconds": "Segundo"
+    },
+    "transactionDetails": {
+      "title": "Mga Detalye ng Transaksyon",
+      "willReceive": "Matatanggap mo:",
+      "returnAmount": "+ {amount} ADA na ibabalik",
+      "swapAmount": "Halaga ng Swap:",
+      "requiredReturn": "Kinakailangang Halaga ng Ibabalik:",
+      "serviceFee": "Bayad sa Serbisyo:",
+      "networkFee": "Bayad sa Network (tinatayang):",
+      "totalRequired": "Kabuuang Kinakailangan:",
+      "returnMessage": "({amount} ADA ang ibabalik)",
+      "transactionId": "ID ng Transaksyon",
+      "referralCode": "Referral Code",
+      "optional": "Opsyonal",
+      "enterReferralCode": "Ilagay ang referral code kung mayroon ka",
+      "validate": "I-validate",
+      "invalidReferralCode": "Ang referral na ito ay tila kasing-lehitimo ng pangako ng pulitiko! 🤥",
+      "referralValidationError": "Error sa pag-validate ng referral code",
+      "validReferralCode": "Makakatanggap ka ng 5 Launderer Tickets bilang bonus!",
+      "ownReferralCode": "+1.5 ADA 'administrative fee' ang idinagdag. Makakakuha ka ng 5 Briber Tickets, at ang 'ganap na ibang tao' na may-ari ng code na ito ay makakakuha ng 3 Corrupt Tickets.",
+      "referralBribeCost": "+1.5 ADA bayad sa suhol"
+    },
+    "history": {
+      "amount": "Halaga",
+      "transaction": "Transaksyon",
+      "status": "Katayuan",
+      "action": "Aksyon",
+      "adaAmount": "{amount} ADA",
+      "kozAmount": "{amount} KOZ",
+      "pending": "Nakabinbin",
+      "completed": "Nakumpleto",
+      "failed": "Nabigo",
+      "canceled": "Nakansela",
+      "cancel": "I-refund",
+      "queued": "Nasa Pila"
+    },
+    "messages": {
+      "swapQueued": "Ang iyong swap ay nasa pila na para sa pagproseso",
+      "checkingWallet": "Sinusuri ang koneksyon ng wallet...",
+      "swapButtonState": "Katayuan ng swap button:",
+      "walletNotConnected": "Hindi nakakonekta ang wallet",
+      "transactionInProgress": "Kasalukuyang may transaksyon",
+      "buttonEnabled": "Naka-enable ang button",
+      "connectionFailed": "Nabigo ang pagsubok sa koneksyon {attempt}",
+      "validatingSwap": "Naisumite na ang transaksyon. Kasalukuyang nagva-validate at tinatanggap - maaari mong isara ang window na ito kung gusto mo, makikita ang katayuan sa kasaysayan ng swap.",
+      "cancelingSwap": "Hindi tinanggap ang swap - sinisimulan ang proseso ng pagkansela para i-refund ang balanse ng kontrata. Maaari mong isara ang window na ito kung gusto mo, makikita ang katayuan sa kasaysayan ng swap."
+    },
+    "status": {
+      "connecting": "Sinusuri ang koneksyon ng wallet...",
+      "signing": "Naghihintay ng pirma...",
+      "submitting": "Isinusumite ang transaksyon...",
+      "processing": "Pinoproseso ang swap...",
+      "accepting": "Tinatanggap ang swap...",
+      "cancelling": "Kinakansela ang swap...",
+      "completed": "Nakumpleto",
+      "failed": "Nabigo",
+      "default": "Pinoproseso..."
+    },
+    "notes": {
+      "returnNote": "{amount} ADA ang ibabalik sa iyong wallet pagkatapos ng swap",
+      "networkNote": "Ang bayad sa network ay tinatayang halaga at maaaring magbago nang kaunti"
+    },
+    "tiers": {
+      "allTiersCompleted": "Lahat ng Season ay Matagumpay na Nakumpleto!",
+      "waitForNextWave": "Salamat sa iyong partisipasyon. Isang bagong wave ng mga season ang magiging available sa lalong madaling panahon. Abangan!",
+      "modalDescription": "Kumpletuhin ang mga season para mas palakasin ang susunod na halalan! Kapag napuno ang isang season, ang BOOST prize nito ay idadagdag sa Frontman ticket jackpot, at ang halalan ay lilipat sa susunod na cardano epoch - ginagawang mas malaking nanalo ang nanalo, mas maaga! 🏆",
+      "projectedTickets": "Inaasahang mga Ticket",
+      "loading": "Naglo-load ng impormasyon ng season...",
+      "currentTier": "Kasalukuyang Season: {tier}",
+      "remaining": "natitira",
+      "tierNumber": "Season {number}",
+      "supply": "Supply: {amount} KOZ",
+      "kozPrice": "1 KOZ = {price} ADA",
+      "modalTitle": "Mga Season ng KOZ Token",
+      "viewAllTiers": "Tingnan ang lahat ng impormasyon ng season",
+      "currentTierLabel": "Kasalukuyan",
+      "ticketsLabel": "Mga ticket kada season",
+      "adaPerTicketLabel": "ADA kada ticket",
+      "prizeLabel": "Frontman Boost Prize",
+      "complete": "kumpleto",
+      "clickToViewAllTiers": "I-click para makita ang lahat ng season at mga detalye ng premyo",
+      "frontmanBoostLabel": "Kabuuang Frontman Boost Prize",
+      "nextElectionLabel": "Magsisimula ang Susunod na Halalan",
+      "earlierByDays": "{days} araw na mas maaga",
+      "earlyCompletionNote": "Kung makukumpleto ang season ngayon, magsisimula nang mas maaga ang halalan",
+      "status": {
+        "PENDING": "Aktibo",
+        "WAIT": "Naghihintay",
+        "COMPLETED": "Nakumpleto"
+      }
+    },
+    "errors": {
+      "minimumKozRequired": "Minimum na halaga ng swap ay {amount} KOZ",
+      "cancelling": "Kinakansela ang swap...",
+      "swapCancelled": "Matagumpay na nakansela ang transaksyon",
+      "cancelFailed": "Hindi makansela ang transaksyon. Mangyaring makipag-ugnayan sa support.",
+      "signatureDeclined": "Hindi tinanggap ang pirma sa transaksyon. Pakisubukan muli kung gusto mong magpatuloy sa swap.",
+      "walletNotConnected": "Mangyaring ikonekta muna ang iyong wallet",
+      "invalidAmount": "Hindi wastong halaga ng KOZ",
+      "swapFailed": "Hindi magsagawa ng swap",
+      "insufficientBalance": "Hindi sapat ang balanse",
+      "connectionInitFailed": "Hindi masimulan ang koneksyon",
+      "cancelSwapFailed": "Hindi makansela ang swap",
+      "invalidReferralCode": "Hindi wastong referral code! Hindi makakapagpatuloy ang swap.",
+      "referralValidationFailed": "Hindi ma-validate ang referral code. Pakisubukan muli."
+    }
+},
+"Team": {
+  "title": "Kilalanin ang Koponan",
+  "description": "Ang aming masigasig at nakatuon na koponan ay maaaring maliit, ngunit malalim ang aming ugat sa ecosystem ng Cardano Blockchain. Bilang mga mamumuhunan ng ADA mula 2019 at mga tagapagtatag ng Politikoz NFT project noong 2021, ang aming bisyon ay lampas sa NFTs — layunin naming maghatid ng pangmatagalang halaga sa aming komunidad.",
+  "uxui": "UX/UI at Pixel Art",
+  "uxuiDesc": "Pixel Art Design, UI/UX, User Testing.",
+  "fullstack": "Fullstack Developer",
+  "fullstackDesc": "Backend (Java), Frontend (Next.js), PostgreSQL Database, AWS Developer.",
+  "infra": "Imprastraktura at Operasyon",
+  "infraDesc": "Pamamahala ng Server, Stake Pool Operator, Imprastraktura, System Testing."
+},
+"TicketPolicy": {
+  "calculatorTitle": "Calculator ng Ticket",
+  "calculatorDescription": "Ilagay ang iyong halaga ng staking para makita kung ilang ticket ang matatanggap mo sa bawat tier at makita ang iyong bonus na gantimpala sa KOZ.",
+  "adaAmount": "Halaga ng Staking (ADA):",
+  "calculate": "Kalkulahin",
+  "resultsTitle": "Mga Resulta ng Simulation ng Ticket",
+  "tickets": "mga ticket",
+  "bonusTitle": "Bonus na Gantimpala",
+  "bonusMessage": "Makakatanggap ka ng bonus na {amount} KOZ, maaaring i-claim buwanan.",
+  "stakeNow": "Mag-stake Ngayon",
+  "monthly": "buwanan",
+  "ticketRule": "Patakaran: 1 ticket sa bawat {amount} ADA",
+  "exampleTitle": "Halimbawa ng Distribusyon ng Ticket",
+  "exampleIntro": "Halimbawa, may 12,000 ADA na naka-stake ang isang delegator:",
+  "exampleLine1": "Kumikita ng 2 Corrupt ticket (2 × 5000 = 10,000 ADA na nagamit)",
+  "exampleLine2": "Natitira: 2,000 ADA → Hindi sapat para sa 1 Lobbyist (kailangan ng 3,000 ADA)",
+  "exampleLine3": "Lilipat sa susunod na tier: 2 Briber ticket (2 × 1000)",
+  "exampleLine4": "Natitira: 0 ADA → Walang naibigay na Launderer ticket",
+  "exampleNote": "Ang sistema ay palaging sumusunod sa pagkakasunod-sunod: Corrupt → Lobbyist → Briber → Launderer at inilipat ang natitirang ADA.",
+  "policyExplanation": "Ang patakarang ito ay nagtatakda kung gaano karaming ADA ang kailangan para makakuha ng isang ticket ng bawat uri. Ang makina ng distribusyon ay gumagana sa nakatakdang pagkakasunod-sunod na nagsisimula sa",
+  "policyRollover": " Kapag hindi sapat ang stake ng delegator para sa kasalukuyang tier, ang natitirang ADA ay inililipat sa susunod.",
+  "nextRebalance": "Susunod na Rebalancing ng Patakaran ng Ticket sa epoch",
+  "titlePolicyView": "Patakaran sa Distribusyon ng Ticket",
+  "loading": "Naglo-load ng patakaran ng ticket...",
+  "ticketsLabel": "Mga Ticket"
+},
+"TicketProfile": {
+  "paymentMethod": "Paraan ng Pagbabayad",
+  "yourBalance": "Iyong Balanse: {balance} {currency}",
+  "tickets": "Mga Ticket",
+  "amountInCurrency": "Halaga sa {currency}",
+  "pricePerTicket": "Presyo kada Ticket: {price} {currency}",
+  "buyButton": "Bumili ng mga Ticket",
+  "purchaseHistory": "Kasaysayan ng Pagbili",
+  "ticketDescription": "Nagbibigay ng {boostPercentage}% boost sa mga boto para sa nakalink na Politikoz at may tsansa na kumita ng {adaReward} ADA kung mahalal.",
+  "alert": "Bumili ka ng {count} Frontman ticket para sa {amount} {currency}!",
+  "linkTicketsTitle": "I-LINK ANG MGA TICKET",
+  "linkTicketsDescription": "Pumili ng ticket na i-link sa iyong account.",
+  "linkTicketsClose": "ISARA",
+  "previous": "Nakaraan",
+  "next": "Susunod",
+  "dynamicTicket": "Nagbibigay ng {boostPercentage}% boost sa mga boto para sa nakalink na Politikoz at may tsansa na kumita ng {adaReward} ADA kung mahalal.",
+  "next-race": "May isa o higit pang ticket na handa na para sa susunod na halalan at nakalink na sa isang Politikoz.",
+  "on-the-race": "May isa o higit pang ticket na kasalukuyang lumalahok sa halalan. Kung manalo sila, magge-generate sila ng ADA rewards.",
+  "auto-link": "Ang setting na ito ay awtomatikong nag-li-link ng iyong mga available na ticket sa isang Politikoz sa bawat siklo ng halalan.",
+  "selectAll": "Piliin Lahat",
+  "deselectAll": "Alisin ang Pagkapili sa Lahat",
+  "On the Race": "Nasa Karera",
+  "Next Race": "Handa para sa Susunod",
+  "Auto Link": "Auto Link",
+  "distribution": "DISTRIBUSYON",
+  "changePolitikoz": "Baguhin ang Nakalink na Politikoz",
+  "linkTicket": "I-link ang Ticket para sa Susunod na Halalan",
+  "changeLuckyNumber": "Baguhin ang Lucky Number",
+  "luckyNumberChangeError": "Hindi nabago ang lucky number. Pakisubukan muli.",
+  "luckyNumberChangeSuccess": "Matagumpay na nabago ang lucky number!",
+  "selectedTickets": "Mga Napiling Ticket",
+  "cancel": "Kanselahin",
+  "confirm": "Kumpirmahin",
+  "myTickets": "Aking mga Ticket",
+  "noTickets": "Walang Available na Ticket",
+  "select": "Piliin",
+  "role": "Tungkulin",
+  "ticket": "Ticket",
+  "linkedPolitikoz": "Nakalink na Politikoz",
+  "estimatedEarnings": "Tinatantyang Kita",
+  "singleUse": "Isang Beses na Gamit",
+  "yes": "Oo",
+  "no": "Hindi",
+  "notAvailable": "N/A"
+},
+"Tokenomics": {
+  "title": "Kilalanin ang $KOZ",
+  "subtitle": "Isang Utility Coin para sa Politikoz.io",
+  "overview": "Ang mundo ng Koz ay magkakaroon ng utility token na may tanging layunin na palakasin ang internal na ekonomiya nito, na nagpapahintulot sa pagbili ng mga item tulad ng mga partido pulitikal at koalisyon ng partido, mga pusta para o laban sa isang Politikoz, at katulad na mga function na ibabalita sa takdang panahon.",
+  "description": "Ang $KOZ ay ang utility token ng ecosystem ng Politikoz.io, nilikha upang pakilusin ang internal na dinamika ng platform. Ito ay nagsisilbing functional asset para sa pakikipag-ugnayan sa mga sistema ng pamamahala, pag-access sa mga eksklusibong feature, at paglahok sa mga in-game mechanism, na patuloy na umuunlad ang utility habang ipinapakilala ang mga bagong feature.",
+  "policyIdLabel": "Policy ID: ",
+  "totalSupplyLabel": "Kabuuang Supply: ",
+  "transactionHistory": "Kasaysayan ng Transaksyon",
+  "mintBurnType": "Uri",
+  "amount": "Halaga",
+  "transactionId": "ID ng Transaksyon",
+  "mint": "Mint",
+  "burn": "Burn",
+  "mintBurnHistory": "Kasaysayan ng Mint/Burn",
+  "currentAllocationLabel": "Kasalukuyang Distribusyon ng Token",
+  "initialAllocationLabel": "Paunang Alokasyon ng Token",
+  "walletAddressesTitle": "Mga Address ng KOZ Token",
+  "tableHeaders": {
+    "category": "Kategorya",
+    "amount": "Halaga",
+    "notes": "Mga Tala",
+    "walletAddress": "Address ng Wallet"
+  },
+  "categories": {
+    "politikozHolderDrop": "Drop para sa mga May-hawak ng Politikoz",
+    "socialClaimTreasury": "Treasury ng Social Claim",
+    "liquidityReserve": "Reserba ng Liquidity",
+    "coinMachine": "Coin Machine",
+    "coreTeam": "Core Team",
+    "advisors": "Mga Tagapayo",
+    "politikozHolders": "Mga May-hawak ng Politikoz",
+    "liquidityForDex": "Liquidity para sa DEX",
+    "projectTreasury": "Treasury ng Proyekto",
+    "stakingRewards": "Mga Gantimpala sa Staking",
+    "inCirculation": "Nasa Sirkulasyon",
+    "muesliSwapDist": "Distribusyon ng MuesliSwap",
+    "vyfiDist": "Distribusyon ng VyFi",
+    "dripDropz": "DripDropz"
+  },
+  "notes": {
+    "holderDrop": "Isang beses na distribusyon para sa mga may-hawak ng NFT",
+    "socialClaims": "Para sa mga darating na kampanya ng airdrop sa X (Twitter), Discord, atbp.",
+    "liquidity": "Para sa mga DEX pair at suporta sa liquidity",
+    "coinMachine": "Mekanismo ng pag-claim/pagbebenta ng token",
+    "projectTreasury": "Pamamahala, mga grant, pagpapaunlad ng ecosystem",
+    "coreTeam": "Nakalaan, hindi pa naipapamahagi",
+    "advisors": "Nakalaan para sa darating na alokasyon ng mga tagapayo"
+  }
+},
+"Treasury": {
+  "growthTitle": "Paglago ng Treasury",
+  "historyTitle": "Kasaysayan ng Treasury",
+  "date": "Petsa",
+  "description": "Paglalarawan",
+  "amount": "Halaga",
+  "prev": "Nakaraan",
+  "next": "Susunod",
+  "page": "Pahina",
+  "of": "ng",
+  "overviewTitle": "Treasury ng Halalan",
+  "overviewDescription": "Ang Treasury ay ang pangunahing pondo ng proyektong Politikoz, na ginagamit para gantimpalaan ang mga nagwagi sa halalan at suportahan ang mga inisyatiba ng ecosystem. Ito ay pangunahing naipon sa pamamagitan ng mga gantimpala na nabuo ng aming PLKOZ Stake Pool (Fixed Cost + Margin), na 100% ibinibigay sa komunidad. Ang mga karagdagang pinagkukunan ng kita ay isasama sa platform sa hinaharap."
+},
+"Audit": {
+  "howItWorks": "Paano Namin Tinitiyak ang Patas na Halalan?",
+  "merkleExplanation": "Ito ang aming mahiwagang puno! 🌳 Isipin ang aming Merkle tree bilang digital na fingerprint ng lahat ng balidong ticket sa halalan. Kapag nagsimula na ang halalan, ang fingerprint na ito ay naitatala sa blockchain. Bagama't teknikal na maaaring magdagdag ng bagong ticket pagkatapos magsimula, hindi na sila magiging bahagi ng fingerprint ng puno. Ibig sabihin, anumang ticket na idinagdag pagkatapos magsimula ang halalan ay mabibigo sa verification at ituring na hindi wasto, na tinitiyak ang integridad ng halalan. 🔒✨",
+  "sourceMention": "Ginagamit namin ang Merkle tree code na ginawa ng",
+  "blockchainProof": "Fingerprint ng Mahiwagang Puno (Root)",
+  "validateTicket": "Suriin Kung ang Numero ng Ticket ay Nasa Kahon",
+  "ticketPlaceholder": "Ilagay ang numero ng ticket",
+  "validating": "Sinusuri...",
+  "validate": "I-verify",
+  "validTicket": "✅ Oo! Ang numerong ito ay talagang nasa kahon bago nagsimula ang bunutan!",
+  "invalidTicket": "❌ Paumanhin, ang numerong ito ay wala sa kahon nang nagsimula kami sa bunutan",
+  "proofDetails": "Detalye ng Patunay",
+  "ticketNumber": "Numero ng Ticket",
+  "selectElection": "Pumili ng halalan para i-verify",
+  "transactionLabel": "Merkle root na nakatago sa transaksyon bago nagsimula ang halalan"
+}
+}
+    

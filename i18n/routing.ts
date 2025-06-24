@@ -3,7 +3,7 @@ import { createNavigation } from "next-intl/navigation";
 
 export const routing = defineRouting({
   // A list of all locales that are supported DEFINIR EM MIDDLEWARE.TS TAMBEM
-  locales: ["en", "es", "fr", "pt", "de", "it", "nl", "no", "fil"] as const,
+  locales: ["en", "es", "fr", "pt", "de", "it", "nl", "no", "fil","ja"] as const,
 
   // Used when no locale matches
   defaultLocale: "en",
@@ -18,17 +18,19 @@ export const routing = defineRouting({
       nl: "/",
       no: "/",
       fil: "/",
+      ja: "/"
     },
     "/auth": {
-      en: "/auth",       // English
-      es: "/autenticar", // Español
-      fr: "/authentifier", // Français
-      pt: "/autenticar", // Português
-      de: "/authentifizieren", // Deutsch
-      it: "/autenticare", // Italiano
-      nl: "/authenticeren", // Nederlands
-      no: "/autentisere", // Norsk
-      fil: "/pagkilala"  // Filipino
+      en: "/auth",       
+      es: "/autenticar", 
+      fr: "/authentifier",
+      pt: "/autenticar", 
+      de: "/authentifizieren",
+      it: "/autenticare", 
+      nl: "/authenticeren",
+      no: "/autentisere", 
+      fil: "/pagkilala",
+      ja: "/認証"        // Japanese
     },
     "/explore": {
         en: "/explore", // English
@@ -40,6 +42,7 @@ export const routing = defineRouting({
         nl: "/verkennen", // Nederlands
         no: "/utforske", // Norsk
         fil: "/galugarin", // Filipino
+        ja: "/探索"        // Japanese
       },
       "/play": {
         en: "/play",    // English
@@ -50,7 +53,8 @@ export const routing = defineRouting({
         it: "/gioca",   // Italiano
         nl: "/spelen",  // Nederlands
         no: "/spille",  // Norsk
-        fil: "/maglaro" // Filipino
+        fil: "/maglaro", // Filipino
+        ja: "/プレイ"      // Japanese
       },
     "/hall": {
       "en": "/hall",
@@ -61,7 +65,8 @@ export const routing = defineRouting({
       "it": "/ingresso",
       "nl": "/ingang",
       "no": "/inngang",
-      "fil": "/pasukan"
+      "fil": "/pasukan",
+      "ja": "/ホール"      // Japanese
     },
       "/office": {
         en: "/office",
@@ -72,7 +77,8 @@ export const routing = defineRouting({
         it: "/ufficio",
         nl: "/kantoor",
         no: "/kontor",
-        fil: "/opisina"
+        fil: "/opisina",
+        ja: "/オフィス"    // Japanese
       },
       "/party": {
         en: "/party",
@@ -83,7 +89,8 @@ export const routing = defineRouting({
         it: "/partito",
         nl: "/partij",
         no: "/parti",
-        fil: "/partido"
+        fil: "/partido",
+        ja: "/政党"        // Japanese
       },
       "/news": {
         "en": "/news",
@@ -94,7 +101,8 @@ export const routing = defineRouting({
         "it": "/studio-notizie",
         "nl": "/nieuwsstudio",
         "no": "/nyhetsstudio",
-        "fil": "/balitastudyo"
+        "fil": "/balitastudyo",
+        ja: "/ニュース"    // Japanese
       },
       "/laundry": {
         en: "/laundry",
@@ -105,7 +113,8 @@ export const routing = defineRouting({
         it: "/lavanderia",
         nl: "/wasserij",
         no: "/vaskeri",
-        fil: "/labahan"
+        fil: "/labahan",
+        ja: "/ランドリー"  // Japanese
       },
     "/team": {
       en: "/team",
@@ -117,6 +126,7 @@ export const routing = defineRouting({
       nl: "/team",
       no: "/team",
       fil: "/koponan",
+      ja: "/チーム"      // Japanese
     },
     "/stake": {
       en: "/stake",
@@ -128,6 +138,7 @@ export const routing = defineRouting({
       nl: "/inzetten",
       no: "/stake",
       fil: "/stake",
+      ja: "/ステーク"    // Japanese
     },
     "/treasury": {
       en: "/treasury",
@@ -139,6 +150,7 @@ export const routing = defineRouting({
       nl: "/schatkist",
       no: "/skattekammer",
       fil: "/ingatang-yaman",
+      ja: "/財務"        // Japanese
     },
     "/terms": {
       en: "/terms",
@@ -150,6 +162,7 @@ export const routing = defineRouting({
       nl: "/voorwaarden",
       no: "/vilkår",
       fil: "/mga-tuntunin",
+      ja: "/利用規約"    // Japanese
     },
     "/privacy": {
       en: "/privacy",
@@ -161,6 +174,7 @@ export const routing = defineRouting({
       nl: "/privacy",
       no: "/personvern",
       fil: "/pribado",
+      ja: "/プライバシー" // Japanese
     },
     "/arcade": {
       en: "/arcade",       // English
@@ -171,7 +185,8 @@ export const routing = defineRouting({
       it: "/arcade",       // Italiano
       nl: "/arcade",       // Nederlands
       no: "/arkade",       // Norsk
-      fil: "/arkada"       // Filipino
+      fil: "/arkada",      // Filipino
+      ja: "/アーケード"    // Japanese
     },
     "/maintenance": {
       en: "/maintenance",     // English
@@ -182,7 +197,8 @@ export const routing = defineRouting({
       it: "/manutenzione",    // Italiano
       nl: "/onderhoud",       // Nederlands
       no: "/vedlikehold",     // Norsk
-      fil: "/pagpapanatili"   // Filipino
+      fil: "/pagpapanatili",  // Filipino
+      ja: "/メンテナンス"    // Japanese
     }
   }
 });
@@ -201,6 +217,7 @@ export const localeNames: Record<SupportedLocales, string> = {
   nl: "Nederlands",
   no: "Norsk",
   fil: "Filipino",
+  ja: "日本語", // Japanese
 };
 
 // Lightweight wrappers around Next.js' navigation APIs

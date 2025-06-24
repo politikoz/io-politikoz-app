@@ -1,154 +1,1078 @@
 {
-
     "Header": {
-      "connect": "Verbinden",
-      "connected": "Verbonden",
-      "disconnect": "Ontkoppelen",
-      "documentation": "Documentatie",
-      "downloadWallet": "Download Portemonnee",
-      "explore": "Verkennen",
-      "play": "Spelen",
-      "home": "Home"
+        "connect": "Verbinden",
+        "connected": "Verbonden",
+        "disconnect": "Verbinding verbreken",
+        "documentation": "Documentatie",
+        "downloadWallet": "Wallet Downloaden",
+        "explore": "Verkennen",
+        "play": "Spelen",
+        "home": "Home"
     },
     "Common": {
-      "balance": "Saldo:",
-      "disconnect": "Ontkoppelen",
-      "downloadWallet": "Download Portemonnee...",
-      "noAddressFound": "Geen adres gevonden",
-      "rewardAddress": "Beloningsadres:",
-      "poweredBy": "Aangedreven door",
-      "months": {
-        "january": "Januari",
-        "february": "Februari",
-        "march": "Maart",
-        "april": "April",
-        "may": "Mei",
-        "june": "Juni",
-        "july": "Juli",
-        "august": "Augustus",
-        "september": "September",
-        "october": "Oktober",
-        "november": "November",
-        "december": "December"
-      }
+        "balance": "Saldo:",
+        "disconnect": "Verbinding verbreken",
+        "downloadWallet": "Wallet Downloaden...",
+        "noAddressFound": "Geen adres gevonden",
+        "rewardAddress": "Beloningsadres:",
+        "poweredBy": "Aangedreven door",
+        "months": {
+            "january": "Januari",
+            "february": "Februari",
+            "march": "Maart",
+            "april": "April",
+            "may": "Mei",
+            "june": "Juni",
+            "july": "Juli",
+            "august": "Augustus",
+            "september": "September",
+            "october": "Oktober",
+            "november": "November",
+            "december": "December"
+        }
     },
     "NextElectionCountdown": {
-      "days": "dagen",
-      "hours": "uren",
-      "minutes": "minuten",
-      "seconds": "seconden",
-      "electionSignText": "DE<br />VERKIEZINGEN<br />KOMEN<br />ERAAN!",
-      "prizesSignText": "{ADA} ADA<br />IN<br />PRIJZEN"
+        "season": "SEIZOEN {seasonNumber}",
+        "days": "dagen",
+        "hours": "uren",
+        "minutes": "minuten",
+        "seconds": "seconden",
+        "electionSignText": "VERKIEZING<br />KOMT<br />ERAAN!",
+        "prizesSignText": "{ADA} ADA<br />AAN<br />PRIJZEN"
     },
     "LastElectionLeaderboard": {
-      "electionOf": "Verkiezing van",
-      "leaderboard": "Ranglijst",
-      "otherWinners": "Andere {remainingWinnersCount} winnaars",
-      "place": "Plaats",
-      "prize": "Prijs",
-      "user": "Gebruiker"
+        "electionOf": "Verkiezing van",
+        "leaderboard": "Ranglijst",
+        "otherWinners": "Andere {remainingWinnersCount} winnaars",
+        "place": "Plaats",
+        "prize": "Prijs",
+        "user": "Gebruiker"
+    },
+    "Consent": {
+        "message": "Door deze site te gebruiken ga je akkoord met de",
+        "termsLink": "Algemene Voorwaarden",
+        "and": "en",
+        "privacyLink": "Privacybeleid"
+    },
+    "Privacy": {
+        "title": "Privacybeleid",
+        "close": "Sluiten",
+        "sections": {
+            "intro": {
+                "title": "Introductie",
+                "content": "Dit Privacybeleid legt uit hoe Politikoz informatie verzamelt, gebruikt en beschermt van gebruikers van ons platform, applicaties, tokens en gerelateerde diensten. Door onze diensten te gebruiken, ga je akkoord met deze praktijken."
+            },
+            "collection": {
+                "title": "1. Informatie die we Verzamelen",
+                "content": "We verzamelen en verwerken de volgende soorten informatie:",
+                "points": {
+                    "wallet": "Wallet-adressen en blockchain-transacties",
+                    "usage": "Gebruiksgegevens en platform-interacties",
+                    "cookies": "Cookies en vergelijkbare technologieën voor platformfunctionaliteit"
+                }
+            },
+            "usage": {
+                "title": "2. Hoe we je Informatie Gebruiken",
+                "content": "We gebruiken de verzamelde informatie om:",
+                "points": {
+                    "service": "Onze diensten te leveren en te onderhouden",
+                    "improve": "Platformfunctionaliteit te verbeteren en optimaliseren",
+                    "security": "Platformbeveiliging te waarborgen en fraude te voorkomen",
+                    "communication": "Essentiële updates over het platform te versturen"
+                }
+            },
+            "sharing": {
+                "title": "3. Informatie Delen",
+                "content": "We verkopen je persoonlijke informatie niet. We kunnen gegevens delen:",
+                "points": {
+                    "providers": "Met dienstverleners die helpen bij het beheren van ons platform",
+                    "legal": "Wanneer wettelijk vereist of om onze rechten te beschermen",
+                    "aggregated": "In geanonimiseerde, geaggregeerde vorm voor analyses"
+                }
+            },
+            "security": {
+                "title": "4. Gegevensbeveiliging",
+                "content": "We implementeren passende beveiligingsmaatregelen om je informatie te beschermen. Echter, geen internettransmissie is volledig veilig, en we kunnen geen absolute veiligheid garanderen."
+            },
+            "rights": {
+                "title": "5. Je Rechten",
+                "content": "Je hebt het recht om:",
+                "points": {
+                    "access": "Toegang te krijgen tot je persoonlijke informatie",
+                    "correct": "Correcties aan te vragen voor je gegevens",
+                    "delete": "Verwijdering van je gegevens aan te vragen",
+                    "object": "Bezwaar te maken tegen bepaalde gegevensverwerking"
+                }
+            },
+            "contact": {
+                "title": "6. Contactinformatie",
+                "content": "Voor vragen over dit beleid, neem contact met ons op via onze officiële kanalen vermeld op de website."
+            }
+        }
+    },
+    "Terms": {
+        "title": "Algemene Voorwaarden",
+        "close": "Sluiten",
+        "sections": {
+            "intro": {
+                "title": "1. Introductie",
+                "content": "Deze Algemene Voorwaarden regelen je gebruik van Politikoz en de bijbehorende KOZ-token, applicaties en diensten. Door ons platform te gebruiken, ga je akkoord met deze voorwaarden."
+            },
+            "token": {
+                "title": "2. KOZ-Token",
+                "content": "De KOZ-token is een utility token die meerdere doelen dient binnen het Politikoz-ecosysteem:",
+                "points": {
+                    "utility": "Platformtoegang en functie-ontgrendeling",
+                    "governance": "Deelname aan bestuursbeslissingen",
+                    "rewards": "Beloningen verdienen via platformactiviteiten"
+                }
+            },
+            "disclaimers": {
+                "title": "3. Disclaimers",
+                "content": "KOZ-tokens zijn utility tokens bedoeld voor gebruik binnen het Politikoz-platform. Het zijn geen effecten, investeringen of financiële instrumenten. Gebruikers moeten geen financieel rendement verwachten van het bezitten van KOZ-tokens."
+            },
+            "responsibilities": {
+                "title": "4. Gebruikersverantwoordelijkheden",
+                "points": {
+                    "compliance": "Gebruikers moeten voldoen aan alle toepasselijke wet- en regelgeving in hun jurisdictie",
+                    "security": "Gebruikers zijn verantwoordelijk voor het handhaven van de beveiliging van hun wallets en private keys",
+                    "conduct": "Gebruikers moeten te goeder trouw met het platform omgaan en kwaadaardige activiteiten vermijden"
+                }
+            },
+            "contact": {
+                "title": "5. Contactinformatie",
+                "content": "Voor vragen over deze voorwaarden, neem contact met ons op via onze officiële kanalen vermeld op de website."
+            }
+        }
     },
     "InfoSection": {
-      "cardData": {
-        "prizes": {
-          "title": "+{amount} ADA MAANDELIJKS",
-          "text": "Reguliere prijzen"
+        "cardData": {
+            "prizes": {
+                "title": "MAANDELIJKSE PRIJZEN",
+                "text": "Vanaf 350 ADA 💎"
+            },
+            "freeEntries": {
+                "title": "GRATIS\nDEELNAME",
+                "text": "Stake of Doe Mee 🤝"
+            },
+            "auditable": {
+                "title": "100% CONTROLEERBAAR",
+                "text": "Verifieerbaar door Iedereen 🔍"
+            },
+            "treasury": {
+                "title": "60k ADA SCHATKIST",
+                "text": "Te verdelen in 6 🎯"
+            }
         },
-        "freeEntries": {
-          "title": "GRATIS TOEGANGEN",
-          "text": "Doe mee zonder kosten"
-        },
-        "auditable": {
-          "title": "100% AUDITEERBAAR",
-          "text": "Voor iedereen verifieerbaar"
-        },
-        "treasury": {
-          "title": "+{treasury} ADA SCHATKAMER",
-          "text": "Altijd groeiend"
-        }
-      },
-      "learnMore": "Lees meer op Gitbook"
+        "learnMore": "Leer meer over Politikoz"
     },
-    "JoinPolitikozPaths": {
-  "buyPolitikoz": {
-    "header": "Zeker je plek: Koop nu!",
-    "title": "Koop een Politikoz",
-    "description": "Door een Politikoz te kopen, verzeker je jouw deelname aan de maandelijkse lotingen voor altijd, met de kans om geweldige prijzen te winnen.",
-    "step1Title": "Koop een Politikoz",
-    "step1Text": "Koop één of meer Politikoz.",
-    "step2Title": "Creëer jouw partij",
-    "step2Text": "Registreer jouw politieke partij voor automatische deelname.",
-    "step3Title": "Vergroot je kansen",
-    "step3Text": "Meer Politikoz betekent meer kans om te winnen.",
-    "button": "Koop nu"
-  },
-  "buyKoz": {
-    "header": "Krijg je KOZ-tokens: Wissel nu!",
-    "title": "Verkrijg KOZ-tokens",
-    "description": "KOZ-tokens geven je toegang tot platformfuncties en stemrecht in onze toekomstige DAO, die de toekomst van het platform vormgeeft.",
-    "step1Title": "Verbind je wallet",
-    "step1Text": "Verbind je wallet om te beginnen.",
-    "step2Title": "Wissel ADA voor KOZ",
-    "step2Text": "Wissel ADA in voor KOZ-tokens.",
-    "step3Title": "Verkrijg tickets",
-    "step3Text": "Gebruik KOZ-tokens om deel te nemen aan de verkiezingsloten.",
-    "button": "Wissel nu"
-  },
-  "engageAndEarn": {
-    "header": "Geen kosten, geen risico: Doe gratis mee!",
-    "title": "Doe mee en verdien",
-    "description": "Doe mee aan onze community om KOZ-tokens te verdienen en ruil ze in voor gratis deelname aan de maandelijkse lotingen.",
-    "step1Title": "Koppel je socials",
-    "step1Text": "Koppel X en Discord aan ons platform.",
-    "step2Title": "Verdien KOZ-tokens",
-    "step2Text": "Neem deel om KOZ-tokens te verdienen als beloning.",
-    "step3Title": "Ruil voor deelname",
-    "step3Text": "Gebruik KOZ-tokens om deel te nemen aan de maandelijkse lotingen.",
-    "button": "Doe mee"
-  },
-  "stakeAndWin": {
-    "header": "Geen kosten, geen risico: Doe gratis mee!",
-    "title": "Stake en Win",
-    "description": "Stake je ADA bij ons en verdien tickets voor de maandelijkse lotingen terwijl je je reguliere ADA-beloningen blijft ontvangen.",
-    "step1Title": "Verbind je wallet",
-    "step1Text": "Begin met het verbinden van je wallet aan ons platform.",
-    "step2Title": "Stake ADA",
-    "step2Text": "Stake je ADA in onze PLKOZ stake-pool.",
-    "step3Title": "Krijg gratis deelname",
-    "step3Text": "Meer ADA staken betekent meer gratis deelname aan de lotingen.",
-    "button": "Stake nu"
-  },
-  "topBanner": {
-    "text": "DOE NU MEE AAN DE WERELD VAN KOZ. VERZAMEL, RUIL EN VERDIEN ADA."
-  }
-}
-,
+    "ElectionDashboard": {
+        "nextElection": "Volgende Verkiezing",
+        "lastElection": "Laatste Verkiezingsresultaten",
+        "totalPrize": "Totale Prijzenpot",
+        "month": "Resultaten van {month}",
+        "days": "DAGEN",
+        "hours": "UREN",
+        "minutes": "MIN",
+        "seconds": "SEC"
+    },
     "Footer": {
-      "links": {
-        "home": "Startpagina",
-    "team": "Team",
-    "stake": "Stake met ons",
-    "treasury": "Schatkamer",
-    "terms": "Gebruiksvoorwaarden",
-    "privacy": "Privacybeleid"
-      },
-      "joinCommunity": "Doe mee met onze community!",
-      "copyright": "Copyright © {year}. Alle rechten voorbehouden."
+        "links": {
+            "home": "Home",
+            "team": "Team",
+            "stake": "Stake met Ons",
+            "treasury": "Schatkist",
+            "terms": "Gebruiksvoorwaarden",
+            "privacy": "Privacybeleid"
+        },
+        "joinCommunity": "Word lid van onze community!",
+        "copyright": "Copyright © {year}. Alle rechten voorbehouden."
     },
     "Support": {
-      "formTitle": "Ondersteuning",
-      "nameLabel": "Uw Naam",
-      "namePlaceholder": "Voer uw naam in",
-      "emailLabel": "E-mailadres",
-      "emailPlaceholder": "Voer uw e-mailadres in",
-      "messageLabel": "Bericht",
-      "messagePlaceholder": "Hoe kunnen we u helpen?",
-      "attachmentsLabel": "Bijlagen",
-      "sending": "Verzenden...",
-      "send": "Versturen",
-      "successMessage": "Uw bericht is succesvol verzonden!",
-      "errorMessage": "Fout bij het verzenden van het bericht. Probeer het opnieuw.",
-      "unexpectedError": "Er is een onverwachte fout opgetreden."
+        "formTitle": "Ondersteuning",
+        "nameLabel": "Je Naam",
+        "namePlaceholder": "Vul je naam in",
+        "emailLabel": "E-mailadres",
+        "emailPlaceholder": "Vul je e-mailadres in",
+        "messageLabel": "Bericht",
+        "messagePlaceholder": "Hoe kunnen we je helpen?",
+        "attachmentsLabel": "Bijlagen",
+        "sending": "Versturen...",
+        "send": "Verstuur",
+        "successMessage": "Je bericht is succesvol verzonden!",
+        "errorMessage": "Bericht versturen mislukt. Probeer het opnieuw.",
+        "unexpectedError": "Er is een onverwachte fout opgetreden."
+    },
+    "Explore": {
+        "ActiveListing": {
+            "title": "Te Koop",
+            "price": "Prijs: {price}"
+        },
+        "BuyPolitikoz": {
+            "title": "Stop een Politikoz in je zak!",
+            "description": "Voor elke Politikoz die je koopt, ontvang je <highlight>10 GRATIS loten</highlight> om je kansen in toekomstige prijstrekkingen te vergroten!",
+            "cta": "Koop op JPG.Store"
+        },
+        "ExploreIntro": {
+            "title": "Ontdek Politikoz",
+            "text1": "Een verzameling van 10.000 unieke NFT's verdeeld over 8 politieke klassen. Elke Politikoz heeft een unieke identifier die dient als je eeuwige toegang tot onze maandelijkse prijstrekkingen.",
+            "text2": "Mis je kans niet om mee te doen, een Politikoz te bezitten en geweldige prijzen te winnen!",
+            "floor": "Bodemprijs: {price}",
+            "cta": "Koop op JPG.Store"
+        },
+        "GrowingCommunity": {
+            "title": "Groeiende Community",
+            "total": "Word lid van onze groeiende community van {total} Politikoz-houders!",
+            "social": "Met {x} volgers op X en {discord} Discord-leden blijft de community groeien—word er vandaag deel van en verdien KOZ-tokens terwijl je deelneemt!",
+            "chartTitle": "Houdersverdeling"
+        },
+        "Trades": {
+            "title": "Recente Transacties",
+            "price": "Prijs: {price}",
+            "buyer": "Koper",
+            "seller": "Verkoper"
+        }
+    },
+    "ConnectToKoz": {
+        "connectTo": "Verbind met<br />Wereld van KOZ",
+        "continueWith": "of ga verder met",
+        "backTo": "Terug naar {page}",
+        "connect": "Verbinden",
+        "LogoutModal": {
+            "title": "Uitloggen Bevestigen",
+            "message": "Weet je zeker dat je de verbinding wilt verbreken?",
+            "cancel": "Annuleren",
+            "disconnect": "Verbinding verbreken",
+            "wait": "Wacht {seconds}s"
+        },
+        "connectError": "Verbinding maken met {wallet} mislukt. Probeer het opnieuw.",
+        "disconnect": "Verbinding verbreken",
+        "downloadWallet": "Wallet Downloaden",
+        "wallet": "Wallet",
+        "noAddress": "Geen Adres Gevonden",
+        "agreeToTerms": "Door verder te gaan ga je akkoord met onze <termsLink>Gebruiksvoorwaarden</termsLink> en ons <privacyLink>Privacybeleid</privacyLink>."
+    },
+    "AuthError": {
+        "title": "Authenticatie Mislukt",
+        "message": "Kan niet authenticeren: {error}",
+        "ok": "OK",
+        "errors": {
+            "unknown": "Er is een onverwachte fout opgetreden",
+            "walletNotConnected": "Verbind eerst je wallet"
+        }
+    },
+    "AutoLink": {
+        "Config": {
+            "title": "Automatische Koppeling Configuratie",
+            "description": "De Automatische Koppeling functie stelt je in staat om je loten automatisch te verdelen op basis van vooraf gedefinieerde instellingen voor elke verkiezing. Dit zorgt ervoor dat je loten efficiënt worden toegewezen zonder handmatige interventie. Pas de verdeling aan volgens je strategie en laat het systeem de toewijzing voor je regelen.",
+            "linkToSpecificPolitikoz": "Koppel aan Specifieke Politikoz",
+            "distributeToRandomPolitikoz": "Verdeel over Willekeurige Politikoz",
+            "linkToMyParty": "Koppel aan Mijn Partij",
+            "distributeAmongParties": "Verdeel over Partijen",
+            "configuredAutoLinks": "Geconfigureerde Automatische Koppelingen"
+        }
+    },
+    "BuyTicket": {
+        "ticketTransactionSuccessButApiError": "Je ticketaankoop was succesvol maar niet geregistreerd in ons systeem. Meld dit via Discord of Support met je transactiehash.",
+        "title": "Koop Tickets",
+        "ticketsAddedSoon": "Je tickets worden binnenkort aan je account toegevoegd (max 10 minuten).",
+        "date": "Datum",
+        "pricePerTicket": "Prijs per ticket:",
+        "yourBalance": "Je saldo:",
+        "enterTicketAmount": "Voer aantal tickets in",
+        "tickets": "tickets",
+        "processing": "Verwerken...",
+        "buyButton": "Koop {amount} {amount, plural, one {Ticket} other {Tickets}}",
+        "historyTitle": "Aankoopgeschiedenis",
+        "viewHistory": "Bekijk Geschiedenis",
+        "noHistory": "Geen aankoopgeschiedenis",
+        "perTicketFeeInfo": "Servicekosten: + {fee} ADA per ticket",
+        "cancel": "Annuleren",
+        "connectWalletFirst": "Verbind eerst je wallet",
+        "serviceFeeInfo": "(+{fee} ADA servicekosten per ticket)",
+        "minimumFeeInfo": "Minimum servicekosten 2.5 ADA (inclusief 3 GRATIS tickets)",
+        "minimumFeeTooltip": "De eerste 2.5 ADA dekt tot 25 tickets en bevat 3 GRATIS tickets. Daarna +0.1 ADA per extra ticket.",
+        "history": {
+            "amount": "Aantal",
+            "transaction": "Transactie",
+            "status": "Status",
+            "action": "Actie",
+            "ticketAmount": "{amount} Ticket(s)",
+            "kozAmount": "{amount} KOZ",
+            "validating": "Valideren",
+            "completed": "Voltooid",
+            "failed": "Mislukt",
+            "cancel": "Annuleren"
+        },
+        "transactionDetails": {
+            "title": "Transactiedetails",
+            "willReceive": "Je ontvangt:",
+            "tickets": "Tickets",
+            "freeTicketShort": " GRATIS tickets",
+            "kozAmount": "KOZ Bedrag:",
+            "minimumFee": "Minimumkosten:",
+            "additionalFee": "Extra Kosten:",
+            "networkFee": "Netwerkkosten (schatting):",
+            "totalKoz": "Totaal KOZ Benodigd:",
+            "totalAda": "Totaal ADA Benodigd:",
+            "transactionId": "Transactie-ID"
+        },
+        "status": {
+            "processing": "Aankoop verwerken...",
+            "completed": "Aankoop voltooid!",
+            "failed": "Aankoop mislukt",
+            "default": "Verwerken...",
+            "pending": "In behandeling",
+            "cancelled": "Geannuleerd"
+        },
+        "errors": {
+            "maxTicketsExceeded": "Maximum {max} tickets toegestaan",
+            "insufficientBalance": "Onvoldoende KOZ saldo"
+        }
+    },
+    "ClaimKoz": {
+        "title": "Claim KOZ Beloningen",
+        "description": "Claim je beschikbare KOZ tokens verzameld via platformactiviteiten.",
+        "totalAvailable": "Totaal Beschikbaar om te Claimen",
+        "claimNow": "Nu Claimen",
+        "availableRewards": "Beschikbare Beloningen",
+        "claimHistory": "Claimgeschiedenis",
+        "claimSummary": "Claimoverzicht",
+        "totalClaim": "Totale Claim",
+        "fee": "Kosten",
+        "destination": "Bestemmingsadres",
+        "cancel": "Annuleren",
+        "confirm": "Bevestig Claim"
+    },
+    "ElectionInfo": {
+        "executed": "Uitgevoerd op",
+        "title": "Verkiezingsoverzicht",
+        "prizeTitle": "Verkiezingsprijs",
+        "totalPrize": "Totale Prijs",
+        "politikoz": "Politikoz",
+        "tickets": "Tickets",
+        "politikozBreakdown": "Politikoz Prijsverdeling",
+        "ticketsBreakdown": "Tickets Prijsverdeling",
+        "roadmapTitle": "Verkiezingsgolven - Roadmap",
+        "drawTitle": "Golf Trekking Resultaten",
+        "waveLabel": "Golf {number}",
+        "modalTitle": "Golf {number} Details",
+        "modalDate": "Datum",
+        "modalClose": "Sluiten",
+        "elected": "verkozen",
+        "winner": "winnaar",
+        "winners": "winnaars",
+        "prizePerWinner": "Prijs per winnaar",
+        "totalForRole": "Totaal voor rol",
+        "totalForType": "Totaal voor type",
+        "modalExecutedAt": "Uitgevoerd op",
+        "modalDetails": "Transactiedetails",
+        "modalEpoch": "Blok Epoch",
+        "modalHeight": "Blok Hoogte",
+        "modalStaminaDecrease": "Stamina Afname",
+        "modalMinStamina": "Minimum Stamina",
+        "modalDrawPrecision": "Trekkingsprecisie",
+        "modalFeePrecision": "Kostenprecisie",
+        "modalNumbersToDraw": "Te Trekken Nummers",
+        "modalBonus": "Top Ranking Bonus",
+        "modalBaseVote": "Basisstem",
+        "modalBlockFee": "Blokkosten",
+        "modalBlockOutput": "Blok Output",
+        "modalTurn": "Verkiezingsronde",
+        "noDrawsYet": "Nog geen trekkingen",
+        "firstTurn": "EERSTE RONDE",
+        "secondTurn": "TWEEDE RONDE",
+        "electionEnd": "EINDE VERKIEZING"
+    },
+    "ElectionResult": {
+        "map": "Verkiezingskaart",
+        "candidates": "Gebruikerskandidaten",
+        "grid": "Rasterweergave",
+        "table": "Tabelweergave",
+        "tree": "Winnaarsboom",
+        "roleDistribution": "Kandidaat Rolverdeling",
+        "noDataAvailable": "Geen gegevens beschikbaar",
+        "totalCandidates": "Totaal Kandidaten: {count}",
+        "totalTickets": "Totaal Tickets: {count}",
+        "chart": "Verdeling",
+        "errorLoadingChart": "Fout bij laden grafiekgegevens",
+        "earningsEstimate": "Inkomstenschatting",
+        "legend": "Legenda",
+        "tableTitle": "Politikoz & Tickets Tabel",
+        "filterAllRoles": "Alle Rollen",
+        "filterWinning": "🏆 Winnend",
+        "filterNoStamina": "⚡ Geen Stamina",
+        "filterUserOwned": "👤 Gebruikerseigendom",
+        "status": "Status",
+        "politikoz": "Politikoz",
+        "role": "Rol",
+        "place": "Plaats",
+        "earnings": "Inkomsten",
+        "prev": "◀ Vorige",
+        "next": "Volgende ▶",
+        "page": "Pagina {current} van {total}",
+        "politikozOverview": "Politikoz Overzicht",
+        "groupWinning": "🏆 Winnende Positie (als verkiezing nu zou eindigen)",
+        "groupOutOfStamina": "⚠️ Winnende Positie (als verkiezing nu zou eindigen) - Geen Stamina voor Volgende Golf",
+        "groupLosing": "❌ Verliezende Positie",
+        "earningsDisplay": "Inkomsten: ${amount}",
+        "noPoliticians": "Geen politici in deze categorie",
+        "senateTitle": "Verkiezingswinnaars - Senaat",
+        "title": "Verkiezingsresultaten",
+        "legendWinning": "Winnende Positie (indien behouden)",
+        "legendLosing": "Verliezende Positie",
+        "legendPositionsToVictory": "Posities tot overwinning",
+        "noData": "Geen gegevens beschikbaar.",
+        "candidateVotes": "Stemmen",
+        "candidateLabel": "Kandidaat {index} / {total}",
+        "btnBack": "Terug",
+        "btnNext": "Volgende"
+    },
+    "GovernanceSettings": {
+        "title": "Bestuursinstelling",
+        "loading": "Regels laden...",
+        "ticketBoostTitle": "Ticket Boost Instellingen",
+        "ticketBoostDescription": "Elk tickettype heeft een uniek krachtboost-effect. Wanneer gekoppeld aan een Politikoz, verbetert het hun stemcapaciteiten en vergroot hun kansen om verkiezingen te winnen.",
+        "ticketBoostValue": "{value}%",
+        "votingPowerTitle": "Stemkracht Overzicht",
+        "votingPowerDescription": "Je stemkracht is gebaseerd op de hoeveelheid KOZ tokens die je bezit. In toekomstige updates zal deze kracht worden gebruikt om te stemmen op wijzigingen in de bestuursinstellingen.",
+        "votingPowerTotal": "Totale Stemkracht",
+        "votingPowerUsed": "Gebruikt",
+        "votingPowerRemaining": "Resterend",
+        "votingPowerUsedFormatted": "{used} ({percent}%)",
+        "votingPowerRemainingFormatted": "{remaining} ({percent}%)",
+
+        "potShareTitle": "Verkiezingspot Aandeel per Verkiezing",
+        "potShareDescription": "Deze instelling bepaalt het deel van de verkiezingspot dat in elke verkiezingsronde wordt verdeeld.",
+        "potShareTotal": "Totaal ADA verdeeld per verkiezing:",
+        "potShareTreasury": "Huidige Schatkist Saldo:",
+
+        "electionPotTitle": "Verkiezingspot Verdeling",
+        "electionPotDescription": "Deze sectie definieert hoe de Verkiezingspot wordt verdeeld onder de verkozen posities en ticketrollen. Elke categorie ontvangt een percentage van de totale pot, wat overeenkomt met een specifieke ADA-waarde per verkiezing.",
+
+        "ticketLimitsTitle": "Ticketlimieten",
+        "ticketLimitsDescription": "Deze limieten bepalen het minimum- en maximumbereik van ADA waarbinnen de balanceringsengine kan werken om te bepalen hoeveel inzet nodig is voor 1 ticket van elk type. Op basis van inzetvoorwaarden kiest de engine een waarde binnen dit bereik. Bijvoorbeeld, als de engine 2000 ADA kiest voor Corrupt, krijgt een delegator met 5000 ADA 2 Corrupt tickets. Resterende inzet gaat naar het volgende type: Lobbyist → Briber → Launderer, totdat er geen ticket meer kan worden toegewezen.",
+        "ticketLimitsNextRebalance": "Volgende herbalancering bij epoch: {epoch}",
+        "ticketLimitsMin": "Min waarde: {amount} ADA",
+        "ticketLimitsMax": "Max waarde: {amount} ADA",
+        "ticketLimitsCurrent": "Huidige waarde geselecteerd door engine: {amount} ADA",
+
+        "otherSettingsTitle": "Andere Verkiezingsinstellingen",
+        "intervalTitle": "Verkiezingsinterval",
+        "intervalDescription": "Bepaalt het interval dat nodig is voor de volgende verkiezing. Als ingesteld op 1, vindt er elke epoch een verkiezing plaats.",
+        "intervalEvery": "Elke {epochs} epoch(s)",
+        "luckTitle": "Geluksgetal Precisie",
+        "luckDescription": "Bepaalt het aantal cijfers dat een gebruiker moet kiezen als het geluksgetal toegewezen aan elke Politikoz.",
+        "luckDigits": "{count} cijfer(s)",
+        "jailTitle": "Gevangenis Precisie",
+        "jailDescription": "Bepaalt de procentuele kans dat een Politikoz naar de gevangenis wordt gestuurd na verkiezing.",
+        "jailChance": "{percent}% kans",
+        "bailTitle": "Borg per Epoch",
+        "bailDescription": "Bepaalt de kosten (in KOZ) die per veroordeelde epoch betaald moeten worden om de gevangenis te verlaten voor het einde van de willekeurige strafperiode.",
+        "bailValue": "{amount} KOZ per epoch",
+        "bestDayTitle": "Beste Dag om te Starten",
+        "bestDayDescription": "Bepaalt de voorkeursdag van de week om een nieuwe verkiezingscyclus te starten.",
+
+        "waveSettingsTitle": "Verkiezingsgolven",
+        "waveSettingsDescription": "Elke golf vertegenwoordigt een fase in het verkiezingsproces met specifieke regels zoals nummerprecisie, bonussen, stamina-vereisten en tijdsintervallen voor uitvoering.",
+        "numbersToBeDrawn": "Te Trekken Nummers",
+        "numbersDrawnPrecision": "Nummer Precisie",
+        "numberFeePrecision": "Kostensprecisie",
+        "percentBonusTicket": "Ticket Bonus (%)",
+        "percentBonusTopRanking": "Top Ranking Bonus (%)",
+        "decreaseInStamina": "Stamina Afname",
+        "minimumStamina": "Minimaal Vereiste Stamina",
+        "waitInMinutesBeforeExecute": "Wachttijd Voor Uitvoering (minuten)",
+
+        "politikozTitle": "Verkozen Politikoz",
+        "politikozDescription": "Bepaalt hoeveel Politikoz van elke rol zullen worden verkozen in elke verkiezing en berekent het ADA-aandeel per verkozen rol op basis van de verdelingsinstellingen.",
+        "electedLabel": "Verkozen: {count}",
+        "perElectedLabel": "ADA per verkozen: {amount} ADA",
+
+        "ticketTitle": "Verkozen Tickets",
+        "ticketDescription": "Bepaalt het aantal ticket-gebaseerde rollen dat zal worden verkozen in elke verkiezing en berekent het ADA-aandeel per verkozen ticket op basis van de verdelingsinstellingen.",
+        "ticketElectedLabel": "Verkozen: {count}",
+        "ticketAdaLabel": "ADA per ticket: {amount} ADA"
+    },
+    "HallView": {
+        "tour": "Neem een rondleiding",
+        "tokenomics": "Tokenomics",
+        "treasury": "Schatkistpot",
+        "team": "Team",
+        "exit": "Afsluiten",
+        "backToHall": "← Terug naar Hal"
+    },
+    "IncomeOutcome": {
+        "title": "Inkomsten & Uitgaven",
+        "incomeTitle": "Inkomsten",
+        "outcomeTitle": "Uitgaven",
+        "monthIncomeTitle": "Deze Maand - Inkomsten",
+        "monthOutcomeTitle": "Deze Maand - Uitgaven",
+        "yearIncomeTitle": "Laatste 12 Maanden - Inkomsten",
+        "yearOutcomeTitle": "Laatste 12 Maanden - Uitgaven",
+        "noIncome": "Geen inkomsten deze maand",
+        "noOutcome": "Geen uitgaven deze maand",
+        "summaryTitle": "Samenvatting (Laatste 12 Maanden)",
+        "incomeSummary": "Inkomsten: {amount} KOZ",
+        "outcomeSummary": "Uitgaven: {amount} KOZ",
+        "months": [
+            "Januari", "Februari", "Maart", "April", "Mei", "Juni",
+            "Juli", "Augustus", "September", "Oktober", "November", "December"
+        ]
+    },
+    "InsideBuilding": {
+        "hall": "HAL",
+        "office": "KANTOOR",
+        "laundry": "WASSERIJ",
+        "party": "PARTIJ",
+        "arcade": "ARCADERUIMTE - BINNENKORT",
+        "news": "NIEUWS"
+    },
+    "LaundryView": {
+        "stakeWithPlkoz": "Stake met PLKOZ",
+        "ticketCalculator": "Ticketcalculator",
+        "claimKoz": "Claim KOZ",
+        "comingSoon": "Binnenkort Beschikbaar",
+        "exit": "Afsluiten",
+        "backToLaundry": "← Terug naar Wasserij",
+        "connectWalletFirst": "Verbind eerst je wallet"
+    },
+    "NewsView": {
+        "joinDiscord": "Word lid op Discord",
+        "followX": "Volg ons op X",
+        "socialTasks": "Sociale Taken",
+        "discordRank": "Mijn Discord Rang",
+        "distributionPolicy": "Distributiebeleid",
+        "claimKoz": "Claim KOZ",
+        "exit": "Afsluiten",
+        "comingSoon": "Binnenkort Beschikbaar",
+        "backToNews": "← Terug naar Nieuws"
+    },
+    "OfficeView": {
+        "incomeOutcome": "Inkomsten/Uitgaven",
+        "audit": "Verifieer Ticket",
+        "buyTickets": "Koop Tickets",
+        "myTickets": "Mijn Tickets",
+        "calendar": "Kalender",
+        "prizeInfo": "Prijsinfo",
+        "waveInfo": "Golfinfo",
+        "electionResults": "Verkiezingsresultaten",
+        "buyKoz": "Koop KOZ",
+        "exit": "Afsluiten",
+        "backToOffice": "← Terug naar Kantoor"
+    },
+    "CurrentSeasonPromo": {
+        "season": "SEIZOEN",
+        "seasonProgress": "Seizoensvoortgang",
+        "seasonCompletedTitle": "SEIZOEN {season} VOLTOOID!",
+        "nextElectionAnnouncement": "Eén FRONTMAN zal geschiedenis schrijven!",
+        "prepareMessage": "Maak je klaar voor de volgende verkiezing. Jouw kans om legendarisch te worden.",
+        "prizePool": "Boost Prijs",
+        "boostedPrize": "Verhoogde Prijs",
+        "earlyElection": "Vroege Verkiezing →",
+        "nextElection": "Volgende Verkiezing",
+        "swapNow": "Krijg KOZ Tokens",
+        "completeSeasonMessage": "Voltooi dit seizoen om een vroege verkiezing te activeren!"
+    },
+    "PartyView": {
+        "info": {
+            "rankColumn": "#",
+            "partyColumn": "Partij",
+            "winnersColumn": "Verkozen",
+            "percentageColumn": "%",
+            "rewardColumn": "Beloning",
+            "treasuryPool": "SCHATKISTPOT",
+            "treasuryNote": "Dit bedrag groeit met elke ticketaankoop tijdens het huidige seizoen",
+            "distributionMethod": "Beloningen worden proportioneel verdeeld naar het percentage verkozen kandidaten van elke partij per seizoen.",
+            "currentSeasonNote": "Definitieve beloningen kunnen variëren tot het einde van het seizoen",
+            "partyRanking": "Partijprestaties",
+            "noRankingsAvailable": "Nog geen ranglijsten beschikbaar",
+            "season": "SEIZOEN {seasonNumber}",
+            "partyRankingDescription": "Percentage winnende kandidaten per partij",
+            "referralCode": "Verwijzingscode",
+            "copyCode": "Kopieer verwijzingscode",
+            "copied": "Gekopieerd!",
+            "referralRanking": "Verwijzingsranglijst",
+            "referralCodeDescription": "Deel je code! Bij gebruik in KOZ-swaps krijgen beiden beloningen!",
+            "rankingDescription": "Topverwijzers verdienen KOZ-beloningen elk seizoen!",
+            "usesCount": "Gebruik",
+            "position": "Positie",
+            "you": "JIJ",
+            "youGet": "Lobbyisten",
+            "theyGet": "Witwassers",
+            "youReceive": "JIJ ONTVANGT",
+            "theyReceive": "ZIJ ONTVANGEN"
+        },
+        "backToParty": "← Terug naar Partij",
+        "buttons": {
+            "myParty": "Mijn Partij",
+            "createParty": "Maak Partij",
+            "myPolitikoz": "Mijn Politikoz",
+            "campaignGame": "Campagnespel",
+            "governanceSettings": "Bestuursinstellingen",
+            "exit": "Afsluiten",
+            "comingSoon": "Binnenkort Beschikbaar",
+            "connectWallet": "Verbind Eerst Wallet"
+        },
+        "create": {
+            "title": "Maak Partij",
+            "siglaLabel": "Partijafkorting",
+            "creating": "Aanmaken...",
+            "nameLabel": "Partijnaam",
+            "placeholderSigla": "XXXX",
+            "placeholderName": "Partijnaam",
+            "createButton": "Maak Partij",
+            "errorDefault": "Partij aanmaken mislukt",
+            "errorHasParty": "Je hebt al een partij",
+            "typeLabel": "Partijtype"
+        },
+        "flag": {
+            "tryAgain": "Probeer Opnieuw"
+        }
+    },
+    "JoinPolitikozTour": {
+        "title": "Neem Onze Budget-Geoptimaliseerde Tour™",
+        "description": "Een snelle rondleiding door Politikoz, aangedreven door koffie en twijfelachtige code! Voltooi het om aan ons totaal-niet-gemanipuleerde beloningswiel te draaien.",
+        "startTourButton": "Start Snelle Tour",
+        "rewardLabel": "Misschien GRATIS DEELNAMES Winnen!*",
+        "disclaimer": "*Je wint echt iets. Beloofd."
+    },
+    "Maintenance": {
+        "messages": {
+            "budgetReallocation": {
+                "title": "Budget Herverdeeld",
+                "description": "Ons serverbudget werd mysterieus toegewezen aan een nieuwe 'zwembadstudie'. We onderzoeken momenteel waarom dolfijnen luxe spa-behandelingen nodig hebben. Zo terug! 🏊‍♂️"
+            },
+            "coffeeCrisis": {
+                "title": "Nood Koffiepauze",
+                "description": "Onze servers zijn in staking nadat ze ontdekten dat hun onderhoudsbudget werd besteed aan gouden deurknoppen voor de IT-afdeling. We onderhandelen met premium koffiebonen. ☕"
+            },
+            "secretMeeting": {
+                "title": "Geheime Vergadering",
+                "description": "Systemen tijdelijk offline terwijl onze servers een verplichte 'kaasproeverij workshop' in Zwitserland bijwonen. Ze beweren dat het essentieel is voor de netwerkprestaties. 🧀"
+            },
+            "budgetOptimization": {
+                "title": "Budgetoptimalisatie",
+                "description": "Onze hostingprovider ontdekte dat hun fondsen waren geïnvesteerd in een 'maanvastgoedproject'. We wachten op de volgende volle maan om onze diensten te herstellen. 🌕"
+            },
+            "investigation": {
+                "title": "Technisch Onderzoek",
+                "description": "Servers nemen deel aan een hoorzitting over waarom ze RGB-verlichting nodig hebben voor betere prestaties. We verwachten terug te zijn na de bureaucratie. 💼"
+            }
+        },
+        "disclaimer": "Geen zorgen, we maken maar een grapje! We zijn zo terug na wat snel onderhoud. 😉",
+        "retrying": "🤞 Politieke Manoeuvre Uitvoeren... 🤞",
+        "retryButtons": {
+            "bribeButton": "🤫 Probeer de Server Om te Kopen",
+            "blackmailButton": "📸 Chanteer met Serverfoto's",
+            "lobbyButton": "🤝 Lobby voor Systeemtoegang",
+            "negotiateButton": "💼 Onderhandel met Bureaucraten",
+            "pleadButton": "🙏 Beroep je op je Zwijgrecht en Probeer Opnieuw"
+        }
+    },
+    "PolitikozProfile": {
+        "MarketListings": {
+            "title": "Beschikbaar in Jpg.store",
+            "viewAllListings": "Bekijk alle aanbiedingen in JPG.store"
+        },
+        "errors": {
+            "release": "Vrijlating uit gevangenis mislukt. Probeer het opnieuw.",
+            "insufficientFunds": "Onvoldoende KOZ tokens voor de vrijlating.",
+            "transactionDeclined": "Transactie is afgewezen door de gebruiker.",
+            "walletNotConnected": "Wallet is niet verbonden.",
+            "transaction": "Transactie mislukt. Probeer het opnieuw.",
+            "unexpected": "Er is een onverwachte fout opgetreden. Probeer het opnieuw."
+        },
+        "releaseSuccess": "Succesvol {name} vrijgelaten uit de gevangenis!",
+        "releaseAllSuccess": "Succesvol {count} gevangenen vrijgelaten!",
+        "processing": "Verwerken...",
+        "transactionDeclined": "Transactie is afgewezen",
+        "insufficientFunds": "Onvoldoende saldo",
+        "walletNotConnected": "Wallet niet verbonden",
+        "insufficientAda": "Onvoldoende ADA voor servicekosten",
+        "transactionFailed": "Transactie verwerken mislukt",
+        "prisonSentence": "Gevangenisstraf",
+        "prisonersFromTab": "gevangenen",
+        "releaseAllInTab": "Laat alle gevangenen in huidige tab vrij",
+        "epochSuffix": "epoch(s)",
+        "releaseCost": "Vrijlatingskosten",
+        "releaseDate": "Vrijlatingsdatum",
+        "luckyNumberChangeSuccess": "Geluksgetal succesvol bijgewerkt!",
+        "luckyNumberChangeError": "Geluksgetal bijwerken mislukt",
+        "comingSoon": "Binnenkort Beschikbaar",
+        "history": "Geschiedenis",
+        "distribution": "DISTRIBUTIE",
+        "ticketsForJuly": "TICKETS VOOR VERKIEZING VAN XXX",
+        "linkTickets": "Link Tickets",
+        "editLuckyNumber": "Bewerk Geluksgetal",
+        "edit": "Bewerken",
+        "editForAllInTab": "Bewerk voor alles in huidige tab",
+        "cancel": "Annuleren",
+        "confirm": "Bevestigen",
+        "release": "Vrijlaten",
+        "releaseTitle": "Gevangene Vrijlaten",
+        "releaseConfirmStart": "Wil je vrijlaten",
+        "releaseConfirmMiddle": "voor",
+        "releaseConfirmAllStart": "Wil je alle",
+        "releaseConfirmAllMiddle": "gevangenen vrijlaten voor",
+        "keepImprisoned": "Houd Gevangen",
+        "confirmBribe": "Ja, Betaal Steekpenning",
+        "releaseAllCheckbox": "Laat alle gevangenen vrij",
+        "details": "DETAILS",
+        "tickets": "TICKETS",
+        "stamina": "Stamina",
+        "noPolitikozAvailable": "Je hebt geen Politikoz voor deze categorie",
+        "previous": "Vorige",
+        "next": "Volgende",
+        "restartList": "Herstart Lijst",
+        "searchPlaceholder": "Zoek Politikoz...",
+        "power": "KRACHT",
+        "dirtyMoney": "Zwart Geld",
+        "influence": "Invloed",
+        "cleanMoney": "Schoon Geld",
+        "bribePower": "Omkopingskracht",
+        "scapegoats": "Zondebokken",
+        "addTickets": "TICKETS TOEVOEGEN",
+        "corruptDesc": "Corrupte politici buigen de regels voor eigen gewin.",
+        "lobbyistDesc": "Lobbyisten beïnvloeden beleid achter gesloten deuren.",
+        "laundererDesc": "Witwassers maken zwart geld schoon voor het systeem.",
+        "briberDesc": "Omkopers gebruiken geld om te krijgen wat ze willen.",
+        "frontmenDesc": "Frontmannen nemen de val terwijl echte leiders zich verstoppen.",
+        "close": "Sluiten"
+    },
+    "Stake": {
+        "stakeTitle": "Stake met Politikoz",
+        "stakeDescription": "Stake je ADA met onze pool om beloningen te verdienen en het Politikoz-ecosysteem te ondersteunen.",
+        "stakeNow": "Nu Staken",
+        "connectFirst": "Verbind Eerst Wallet",
+        "stakeError": "Fout tijdens stake-delegatie",
+        "title": "Stake Je ADA met PLKOZ",
+        "description": "Wanneer je lid wordt van onze PLKOZ-pool, kun je ADA-beloningen verdienen zoals bij elke andere pool. Daarnaast ontvang je tickets en KOZ-tokens waarmee je kunt deelnemen aan een maandelijkse loterij voor een kans om meer ADA te winnen en je inkomsten verder te verhogen.",
+        "availableBalance": "Je Beschikbare Saldo",
+        "estimatedTickets": "Geschatte Tickets",
+        "connectToStart": "Verbind om te Beginnen met Staken",
+        "connectButtonLabel": "Verbind om te Beginnen met Staken",
+        "stakeButtonLabel": "Nu Staken",
+        "kozBonus": "KOZ Bonus",
+        "kozRewardsMessage": "Je kunt tot {amount} KOZ-beloningen claimen via maandelijkse claims",
+        "stakeSuccess": "Stake-delegatie succesvol!",
+        "errors": {
+            "transactionDeclined": "Transactie is afgewezen door gebruiker",
+            "signingCanceled": "Transactie ondertekening is geannuleerd",
+            "insufficientFunds": "Onvoldoende saldo in je wallet",
+            "insufficientFundsWithAmount": "Onvoldoende saldo in je wallet. Vereist minimum: {amount} ADA",
+            "transactionFailed": "Transactie mislukt. Probeer het opnieuw",
+            "unexpected": "Er is een onverwachte fout opgetreden. Probeer het opnieuw",
+            "title": "Transactie Mislukt"
+        },
+        "status": {
+            "staking": "Staken...",
+            "connectFirst": "Verbind Eerst Wallet",
+            "waitingSignature": "Wachten op transactie handtekening...",
+            "pleaseConfirm": "Bevestig in je wallet om het staken te voltooien"
+        },
+        "collateral": {
+            "amount": "+{amount} ADA onderpand",
+            "info": "Meer over onderpand"
+        },
+        "collateralModal": {
+            "title": "Wat is Onderpand?",
+            "description": "Onderpand is een klein bedrag ADA (meestal 5 ADA) dat je wallet apart houdt. Het is vereist voor smart contract-transacties op Cardano.",
+            "explanation": "Zie het als een waarborg die ervoor zorgt dat smart contract-transacties correct werken. Geen zorgen - je behoudt volledige controle over deze ADA!",
+            "walletInfo": "Je wallet beheert dit automatisch voor je, en je kunt het op elk moment terugkrijgen door de onderpandinstelling in je wallet te verwijderen.",
+            "closeButton": "Begrepen!"
+        }
+    },
+    "AuthModal": {
+        "title": "Verifieer Wallet",
+        "description": "Teken met je wallet om door te gaan",
+        "walletPrompt": "Geen transactie of kosten - alleen een handtekening",
+        "sessionInfo": "Geldig voor 1 uur voordat een nieuwe handtekening nodig is"
+    },
+    "Swap": {
+        "title": "Wissel ADA → KOZ",
+        "rate": "Vaste koers:",
+        "available": "KOZ Beschikbaar:",
+        "amountLabel": "Bedrag in KOZ",
+        "costLabel": "Kosten:",
+        "swapButton": "Nu Wisselen",
+        "historyTitle": "Wisselgeschiedenis",
+        "noHistory": "Geen wisselgeschiedenis gevonden",
+        "date": "Datum",
+        "viewHistory": "Bekijk Wisselgeschiedenis",
+        "connectWallet": "Verbind Wallet",
+        "processing": "Verwerken...",
+        "waitingForNextTier": "Wachten tot volgend seizoen start",
+        "tierWillBeAvailable": "Seizoen {tier} zal beschikbaar zijn in:",
+        "timer": {
+            "days": "Dagen",
+            "hours": "Uren",
+            "minutes": "Minuten",
+            "seconds": "Seconden"
+        },
+        "transactionDetails": {
+            "title": "Transactiedetails",
+            "willReceive": "Je ontvangt:",
+            "returnAmount": "+ {amount} ADA retour",
+            "swapAmount": "Wisselbedrag:",
+            "requiredReturn": "Vereist Retourbedrag:",
+            "serviceFee": "Servicekosten:",
+            "networkFee": "Netwerkkosten (schatting):",
+            "totalRequired": "Totaal Vereist:",
+            "returnMessage": "({amount} ADA wordt teruggestort)",
+            "transactionId": "Transactie-ID",
+            "referralCode": "Verwijzingscode",
+            "optional": "Optioneel",
+            "enterReferralCode": "Voer verwijzingscode in als je er een hebt",
+            "validate": "Valideren",
+            "invalidReferralCode": "Deze verwijzing lijkt net zo legitiem als een politieke belofte! 🤥",
+            "referralValidationError": "Fout bij valideren verwijzingscode",
+            "validReferralCode": "Je ontvangt 5 Launderer Tickets als bonus!",
+            "ownReferralCode": "+1.5 ADA 'administratiekosten' toegevoegd. Je krijgt 5 Briber Tickets, en de 'totaal andere persoon' die deze code bezit krijgt 3 Corrupt Tickets.",
+            "referralBribeCost": "+1.5 ADA steekpenningskosten"
+        },
+        "history": {
+            "amount": "Bedrag",
+            "transaction": "Transactie",
+            "status": "Status",
+            "action": "Actie",
+            "adaAmount": "{amount} ADA",
+            "kozAmount": "{amount} KOZ",
+            "pending": "In Behandeling",
+            "completed": "Voltooid",
+            "failed": "Mislukt",
+            "canceled": "Geannuleerd",
+            "cancel": "Terugbetalen",
+            "queued": "In Wachtrij"
+        },
+        "messages": {
+            "swapQueued": "Je wissel staat in de wachtrij voor verwerking",
+            "checkingWallet": "Wallet-verbinding controleren...",
+            "swapButtonState": "Wissel-knop status:",
+            "walletNotConnected": "Wallet niet verbonden",
+            "transactionInProgress": "Transactie wordt uitgevoerd",
+            "buttonEnabled": "Knop ingeschakeld",
+            "connectionFailed": "Verbindingspoging {attempt} mislukt",
+            "validatingSwap": "Transactie verstuurd. Validatie en acceptatie in uitvoering - je kunt dit venster sluiten als je wilt, de status zal beschikbaar zijn in de wisselgeschiedenis.",
+            "cancelingSwap": "Wissel geweigerd - annuleringsproces gestart om contractsaldo terug te betalen. Je kunt dit venster sluiten als je wilt, de status zal beschikbaar zijn in de wisselgeschiedenis."
+        },
+        "status": {
+            "connecting": "Wallet-verbinding controleren...",
+            "signing": "Wachten op handtekening...",
+            "submitting": "Transactie versturen...",
+            "processing": "Wissel verwerken...",
+            "accepting": "Wissel accepteren...",
+            "cancelling": "Wissel annuleren...",
+            "completed": "Voltooid",
+            "failed": "Mislukt",
+            "default": "Verwerken..."
+        },
+        "notes": {
+            "returnNote": "{amount} ADA wordt na de wissel teruggestort in je wallet",
+            "networkNote": "Netwerkkosten zijn een schatting en kunnen licht variëren"
+        },
+        "tiers": {
+            "allTiersCompleted": "Alle Seizoenen Succesvol Voltooid!",
+            "waitForNextWave": "Bedankt voor je deelname. Een nieuwe golf van seizoenen komt binnenkort beschikbaar. Blijf op de hoogte!",
+            "modalDescription": "Voltooi seizoenen om de volgende verkiezing te boosten! Wanneer een seizoen is gevuld, wordt de BOOST-prijs toegevoegd aan de Frontman ticket jackpot, en verschuift de verkiezing naar de volgende cardano-epoch - waardoor winnaars nog grotere winnaars worden, nog sneller! 🏆",
+            "projectedTickets": "Verwachte Tickets",
+            "loading": "Seizoensinformatie laden...",
+            "currentTier": "Huidig Seizoen: {tier}",
+            "remaining": "resterend",
+            "tierNumber": "Seizoen {number}",
+            "supply": "Aanbod: {amount} KOZ",
+            "kozPrice": "1 KOZ = {price} ADA",
+            "modalTitle": "KOZ Token Seizoenen",
+            "viewAllTiers": "Bekijk alle seizoensinformatie",
+            "currentTierLabel": "Huidig",
+            "ticketsLabel": "Tickets per seizoen",
+            "adaPerTicketLabel": "ADA per ticket",
+            "prizeLabel": "Frontman Boost Prijs",
+            "complete": "voltooid",
+            "clickToViewAllTiers": "Klik om alle seizoenen en prijsdetails te bekijken",
+            "frontmanBoostLabel": "Frontman Boost Totale Prijs",
+            "nextElectionLabel": "Volgende Verkiezing Zou Starten",
+            "earlierByDays": "{days} dagen eerder",
+            "earlyCompletionNote": "Als seizoen vandaag voltooid wordt, start verkiezing eerder",
+            "status": {
+                "PENDING": "Actief",
+                "WAIT": "Wachtend",
+                "COMPLETED": "Voltooid"
+            }
+        },
+        "errors": {
+            "minimumKozRequired": "Minimum wisselbedrag is {amount} KOZ",
+            "cancelling": "Wissel annuleren...",
+            "swapCancelled": "Transactie is succesvol geannuleerd",
+            "cancelFailed": "Transactie annuleren mislukt. Neem contact op met support.",
+            "signatureDeclined": "Transactiehandtekening is geweigerd. Probeer het opnieuw als je door wilt gaan met de wissel.",
+            "walletNotConnected": "Verbind eerst je wallet",
+            "invalidAmount": "Ongeldig KOZ bedrag",
+            "swapFailed": "Wissel uitvoeren mislukt",
+            "insufficientBalance": "Onvoldoende saldo",
+            "connectionInitFailed": "Verbinding initialiseren mislukt",
+            "cancelSwapFailed": "Wissel annuleren mislukt",
+            "invalidReferralCode": "Ongeldige verwijzingscode! De wissel kan niet doorgaan.",
+            "referralValidationFailed": "Verwijzingscode valideren mislukt. Probeer het opnieuw."
+        }
+    },
+    "Team": {
+        "title": "Ontmoet het Team",
+        "description": "Ons gepassioneerde en gefocuste team is misschien klein, maar we zijn diep geworteld in het Cardano Blockchain-ecosysteem. Als ADA-investeerders sinds 2019 en oprichters van het Politikoz NFT-project in 2021, gaat onze visie veel verder dan NFT's — we streven ernaar om langdurige waarde te leveren aan onze gemeenschap.",
+        "uxui": "UX/UI & Pixelkunst",
+        "uxuiDesc": "Pixelkunst Design, UI/UX, Gebruikerstesten.",
+        "fullstack": "Fullstack Ontwikkelaar",
+        "fullstackDesc": "Backend (Java), Frontend (Next.js), PostgreSQL Database, AWS Ontwikkelaar.",
+        "infra": "Infrastructuur & Operaties",
+        "infraDesc": "Serverbeheer, Stake Pool Operator, Infrastructuur, Systeemtesten."
+    },
+    "TicketPolicy": {
+        "calculatorTitle": "Ticketcalculator",
+        "calculatorDescription": "Voer je stakingbedrag in om te simuleren hoeveel tickets je per niveau zou ontvangen en zie je bonusbeloning in KOZ.",
+        "adaAmount": "Stakingbedrag (ADA):",
+        "calculate": "Bereken",
+        "resultsTitle": "Gesimuleerde Ticketresultaten",
+        "tickets": "tickets",
+        "bonusTitle": "Bonusbeloning",
+        "bonusMessage": "Je ontvangt een bonus van {amount} KOZ, maandelijks te claimen.",
+        "stakeNow": "Nu Staken",
+        "monthly": "maandelijks",
+        "ticketRule": "Regel: 1 ticket per {amount} ADA",
+        "exampleTitle": "Voorbeeld van Ticketverdeling",
+        "exampleIntro": "Stel dat een delegator 12.000 ADA heeft gestaakt:",
+        "exampleLine1": "Verdient 2 Corrupt tickets (2 × 5000 = 10.000 ADA gebruikt)",
+        "exampleLine2": "Resterend: 2.000 ADA → Niet genoeg voor 1 Lobbyist (vereist 3.000 ADA)",
+        "exampleLine3": "Naar volgend niveau: 2 Briber tickets (2 × 1000)",
+        "exampleLine4": "Resterend: 0 ADA → Geen Launderer ticket toegekend",
+        "exampleNote": "Het systeem volgt altijd de volgorde: Corrupt → Lobbyist → Briber → Launderer en rolt resterende ADA door.",
+        "policyExplanation": "Dit beleid definieert hoeveel ADA nodig is om één ticket van elk type te verdienen. De distributiemotor werkt in een getrapte volgorde beginnend vanaf",
+        "policyRollover": " Wanneer de stake van een delegator niet genoeg is voor het huidige niveau, wordt de resterende ADA doorgerold naar het volgende.",
+        "nextRebalance": "Volgende Ticketbeleid Herbalancering bij epoch",
+        "titlePolicyView": "Ticketdistributiebeleid",
+        "loading": "Ticketbeleid laden...",
+        "ticketsLabel": "Tickets"
+    },
+    "TicketProfile": {
+        "paymentMethod": "Betaalmethode",
+        "yourBalance": "Je Saldo: {balance} {currency}",
+        "tickets": "Tickets",
+        "amountInCurrency": "Bedrag in {currency}",
+        "pricePerTicket": "Prijs per Ticket: {price} {currency}",
+        "buyButton": "Koop Tickets",
+        "purchaseHistory": "Aankoopgeschiedenis",
+        "ticketDescription": "Geeft een {boostPercentage}% boost in stemmen voor de gekoppelde Politikoz en heeft een kans om {adaReward} ADA te verdienen indien verkozen.",
+        "alert": "Je hebt {count} Frontman tickets gekocht voor {amount} {currency}!",
+        "linkTicketsTitle": "KOPPEL TICKETS",
+        "linkTicketsDescription": "Selecteer een ticket om te koppelen aan je account.",
+        "linkTicketsClose": "SLUITEN",
+        "previous": "Vorige",
+        "next": "Volgende",
+        "dynamicTicket": "Geeft een {boostPercentage}% boost in stemmen voor de gekoppelde Politikoz en heeft een kans om {adaReward} ADA te verdienen indien verkozen.",
+        "next-race": "Een of meer tickets zijn klaar voor de volgende verkiezing en zijn al gekoppeld aan een Politikoz.",
+        "on-the-race": "Een of meer tickets nemen momenteel deel aan een verkiezing. Als ze winnen, genereren ze ADA-beloningen.",
+        "auto-link": "Deze instelling koppelt automatisch je beschikbare tickets aan een Politikoz elke verkiezingscyclus.",
+        "selectAll": "Selecteer Alles",
+        "deselectAll": "Deselecteer Alles",
+        "On the Race": "In de Race",
+        "Next Race": "Klaar voor Volgende",
+        "Auto Link": "Automatisch Koppelen",
+        "distribution": "DISTRIBUTIE",
+        "changePolitikoz": "Wijzig Gekoppelde Politikoz",
+        "linkTicket": "Koppel Ticket voor Volgende Verkiezing",
+        "changeLuckyNumber": "Wijzig Geluksgetal",
+        "luckyNumberChangeError": "Geluksgetal wijzigen mislukt. Probeer het opnieuw.",
+        "luckyNumberChangeSuccess": "Geluksgetal succesvol gewijzigd!",
+        "selectedTickets": "Geselecteerde Tickets",
+        "cancel": "Annuleren",
+        "confirm": "Bevestigen",
+        "myTickets": "Mijn Tickets",
+        "noTickets": "Geen Tickets Beschikbaar",
+        "select": "Selecteer",
+        "role": "Rol",
+        "ticket": "Ticket",
+        "linkedPolitikoz": "Gekoppelde Politikoz",
+        "estimatedEarnings": "Geschatte Inkomsten",
+        "singleUse": "Eenmalig Gebruik",
+        "yes": "Ja",
+        "no": "Nee",
+        "notAvailable": "N/B"
+    },
+    "Tokenomics": {
+        "title": "Ontmoet $KOZ",
+        "subtitle": "Een Utility Coin voor Politikoz.io",
+        "overview": "De wereld van Koz zal een utility token hebben met als enig doel het stimuleren van zijn interne economie, waarmee items zoals politieke partijen en partijcoalities kunnen worden gekocht, weddenschappen voor of tegen een Politikoz kunnen worden geplaatst, en vergelijkbare functies die later worden aangekondigd.",
+        "description": "$KOZ is de utility token van het Politikoz.io ecosysteem, gemaakt om de interne dynamiek van het platform aan te drijven. Het dient als functioneel middel voor betrokkenheid bij bestuurssystemen, toegang tot exclusieve functies en deelname aan in-game mechanismen, waarbij de bruikbaarheid zich blijft ontwikkelen naarmate nieuwe functies worden geïntroduceerd.",
+        "policyIdLabel": "Beleid-ID: ",
+        "totalSupplyLabel": "Totale Voorraad: ",
+        "transactionHistory": "Transactiegeschiedenis",
+        "mintBurnType": "Type",
+        "amount": "Bedrag",
+        "transactionId": "Transactie-ID",
+        "mint": "Aanmaken",
+        "burn": "Verbranden",
+        "mintBurnHistory": "Aanmaak/Verbrand Geschiedenis",
+        "currentAllocationLabel": "Huidige Tokenverdeling",
+        "initialAllocationLabel": "Initiële Tokenverdeling",
+        "walletAddressesTitle": "KOZ Token Adressen",
+        "tableHeaders": {
+            "category": "Categorie",
+            "amount": "Bedrag",
+            "notes": "Notities",
+            "walletAddress": "Wallet Adres"
+        },
+        "categories": {
+            "politikozHolderDrop": "Politikoz Houder Drop",
+            "socialClaimTreasury": "Sociale Claim Schatkist",
+            "liquidityReserve": "Liquiditeitsreserve",
+            "coinMachine": "Muntmachine",
+            "coreTeam": "Kernteam",
+            "advisors": "Adviseurs",
+            "politikozHolders": "Politikoz Houders",
+            "liquidityForDex": "Liquiditeit voor DEX",
+            "projectTreasury": "Projectschatkist",
+            "stakingRewards": "Stakingbeloningen",
+            "inCirculation": "In Circulatie",
+            "muesliSwapDist": "MuesliSwap Distributie",
+            "vyfiDist": "VyFi Distributie",
+            "dripDropz": "DripDropz"
+        },
+        "notes": {
+            "holderDrop": "Eenmalige distributie voor NFT-houders",
+            "socialClaims": "Voor toekomstige airdrop campagnes via X (Twitter), Discord, etc.",
+            "liquidity": "Voor DEX-paren en liquiditeitsondersteuning",
+            "coinMachine": "Token claim/verkoop mechanisme",
+            "projectTreasury": "Bestuur, subsidies, ecosysteemontwikkeling",
+            "coreTeam": "Gereserveerd, nog niet gedistribueerd",
+            "advisors": "Gereserveerd voor toekomstige adviseurstoewijzing"
+        }
+    },
+    "Treasury": {
+        "growthTitle": "Schatkistgroei",
+        "historyTitle": "Schatkistgeschiedenis",
+        "date": "Datum",
+        "description": "Beschrijving",
+        "amount": "Bedrag",
+        "prev": "Vorige",
+        "next": "Volgende",
+        "page": "Pagina",
+        "of": "van",
+        "overviewTitle": "Verkiezingsschatkist",
+        "overviewDescription": "De Schatkist is het kernfonds van het Politikoz-project, gebruikt om verkiezingswinnaars te belonen en ecosysteeminitiatieven te ondersteunen. Het wordt voornamelijk opgebouwd door de beloningen gegenereerd door onze PLKOZ Stake Pool (Vaste Kosten + Marge), die 100% worden gedoneerd aan de gemeenschap. Extra inkomstenbronnen zullen in de toekomst worden geïntegreerd in het platform."
+    },
+    "Audit": {
+        "howItWorks": "Hoe Zorgen We voor Eerlijke Verkiezingen?",
+        "merkleExplanation": "Het is onze magische boom! 🌳 Zie onze Merkle-boom als een digitale vingerafdruk van alle geldige tickets in de verkiezing. Zodra de verkiezing start, wordt deze vingerafdruk vastgelegd op de blockchain. Hoewel er technisch gezien nieuwe tickets kunnen worden toegevoegd na de start, zullen ze geen deel uitmaken van de vingerafdruk van de boom. Dit betekent dat elk ticket dat na het begin van de verkiezing wordt toegevoegd, de verificatie niet zal doorstaan en als ongeldig zal worden beschouwd, wat de integriteit van de verkiezing waarborgt. 🔒✨",
+        "sourceMention": "We gebruiken de Merkle-boomcode gemaakt door",
+        "blockchainProof": "Magische Boom Vingerafdruk(Root)",
+        "validateTicket": "Controleer of het Ticketnummer In De Doos Zat",
+        "ticketPlaceholder": "Voer ticketnummer in",
+        "validating": "Controleren...",
+        "validate": "Verifiëren",
+        "validTicket": "✅ Ja! Dit nummer zat zeker in de doos voordat de trekking begon!",
+        "invalidTicket": "❌ Sorry, dit nummer zat niet in de doos toen we met de trekking begonnen",
+        "proofDetails": "Bewijsitem",
+        "ticketNumber": "Ticketnummer",
+        "selectElection": "Selecteer een verkiezing om te verifiëren",
+        "transactionLabel": "Merkle-root opgeslagen in transactie voor de verkiezing begon"
     }
-  }
-  
+}

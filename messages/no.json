@@ -1,154 +1,1139 @@
 {
-
     "Header": {
-      "connect": "Koble til",
-      "connected": "Tilkoblet",
-      "disconnect": "Koble fra",
-      "documentation": "Dokumentasjon",
-      "downloadWallet": "Last ned lommebok",
-      "explore": "Utforsk",
-      "play": "Spill",
-      "home": "Hjem"
+        "connect": "Koble til",
+        "connected": "Tilkoblet",
+        "disconnect": "Koble fra",
+        "documentation": "Dokumentasjon",
+        "downloadWallet": "Last ned lommebok",
+        "explore": "Utforsk",
+        "play": "Spill",
+        "home": "Hjem"
     },
     "Common": {
-      "balance": "Saldo:",
-      "disconnect": "Koble fra",
-      "downloadWallet": "Last ned lommebok...",
-      "noAddressFound": "Ingen adresse funnet",
-      "rewardAddress": "Belønningsadresse:",
-      "poweredBy": "Drevet av",
-      "months": {
-        "january": "Januar",
-        "february": "Februar",
-        "march": "Mars",
-        "april": "April",
-        "may": "Mai",
-        "june": "Juni",
-        "july": "Juli",
-        "august": "August",
-        "september": "September",
-        "october": "Oktober",
-        "november": "November",
-        "december": "Desember"
-      }
+        "balance": "Saldo:",
+        "disconnect": "Koble fra",
+        "downloadWallet": "Laster ned lommebok...",
+        "noAddressFound": "Ingen adresse funnet",
+        "rewardAddress": "Belønningsadresse:",
+        "poweredBy": "Drevet av",
+        "months": {
+            "january": "Januar",
+            "february": "Februar",
+            "march": "Mars",
+            "april": "April",
+            "may": "Mai",
+            "june": "Juni",
+            "july": "Juli",
+            "august": "August",
+            "september": "September",
+            "october": "Oktober",
+            "november": "November",
+            "december": "Desember"
+        }
     },
     "NextElectionCountdown": {
-      "days": "dager",
-      "hours": "timer",
-      "minutes": "minutter",
-      "seconds": "sekunder",
-      "electionSignText": "VALGET<br />ER<br />NÆRT!",
-      "prizesSignText": "{ADA} ADA<br />I<br />PREMIER"
+        "season": "SESONG {seasonNumber}",
+        "days": "dager",
+        "hours": "timer",
+        "minutes": "minutter",
+        "seconds": "sekunder",
+        "electionSignText": "VALGET<br />ER<br />NÆRT!",
+        "prizesSignText": "{ADA} ADA<br />I<br />PREMIER"
     },
     "LastElectionLeaderboard": {
-      "electionOf": "Valg av",
-      "leaderboard": "Rangering",
-      "otherWinners": "Andre {remainingWinnersCount} vinnere",
-      "place": "Plassering",
-      "prize": "Premie",
-      "user": "Bruker"
+        "electionOf": "Valg av",
+        "leaderboard": "Resultattavle",
+        "otherWinners": "Andre {remainingWinnersCount} vinnere",
+        "place": "Plassering",
+        "prize": "Premie",
+        "user": "Bruker"
+    },
+    "Consent": {
+        "message": "Ved å bruke denne nettsiden godtar du",
+        "termsLink": "Vilkår og betingelser",
+        "and": "og",
+        "privacyLink": "Personvernerklæring"
+    },
+    "Privacy": {
+        "title": "Personvernerklæring",
+        "close": "Lukk",
+        "sections": {
+            "intro": {
+                "title": "Introduksjon",
+                "content": "Denne personvernerklæringen forklarer hvordan Politikoz samler inn, bruker og beskytter informasjon fra brukere av vår plattform, applikasjoner, tokens og relaterte tjenester. Ved å bruke våre tjenester godtar du disse praksisene."
+            },
+            "collection": {
+                "title": "1. Informasjon vi samler inn",
+                "content": "Vi samler inn og behandler følgende typer informasjon:",
+                "points": {
+                    "wallet": "Lommebokadresser og blokkjedetransaksjoner",
+                    "usage": "Bruksdata og plattforminteraksjoner",
+                    "cookies": "Informasjonskapsler og lignende teknologier for plattformfunksjonalitet"
+                }
+            },
+            "usage": {
+                "title": "2. Hvordan vi bruker informasjonen din",
+                "content": "Vi bruker den innsamlede informasjonen til å:",
+                "points": {
+                    "service": "Tilby og vedlikeholde våre tjenester",
+                    "improve": "Forbedre og optimalisere plattformfunksjonalitet",
+                    "security": "Sikre plattformsikkerhet og forebygge svindel",
+                    "communication": "Sende viktige oppdateringer om plattformen"
+                }
+            },
+            "sharing": {
+                "title": "3. Informasjonsdeling",
+                "content": "Vi selger ikke din personlige informasjon. Vi kan dele data:",
+                "points": {
+                    "providers": "Med tjenesteleverandører som hjelper med å drifte plattformen vår",
+                    "legal": "Når det kreves av loven eller for å beskytte våre rettigheter",
+                    "aggregated": "I anonymisert, aggregert form for analyse"
+                }
+            },
+            "security": {
+                "title": "4. Datasikkerhet",
+                "content": "Vi implementerer passende sikkerhetstiltak for å beskytte din informasjon. Ingen internettoverføring er imidlertid helt sikker, og vi kan ikke garantere absolutt sikkerhet."
+            },
+            "rights": {
+                "title": "5. Dine rettigheter",
+                "content": "Du har rett til å:",
+                "points": {
+                    "access": "Få tilgang til din personlige informasjon",
+                    "correct": "Be om korrigeringer av dine data",
+                    "delete": "Be om sletting av dine data",
+                    "object": "Protestere mot viss databehandling"
+                }
+            },
+            "contact": {
+                "title": "6. Kontaktinformasjon",
+                "content": "For spørsmål om denne policyen, vennligst kontakt oss gjennom våre offisielle kanaler listet på nettsiden."
+            }
+        }
+    },
+    "Terms": {
+        "title": "Vilkår og betingelser",
+        "close": "Lukk",
+        "sections": {
+            "intro": {
+                "title": "1. Introduksjon",
+                "content": "Disse vilkårene og betingelsene regulerer din bruk av Politikoz og dens tilknyttede KOZ-token, applikasjoner og tjenester. Ved å bruke vår plattform godtar du disse vilkårene."
+            },
+            "token": {
+                "title": "2. KOZ-token",
+                "content": "KOZ-tokenet er et brukstoken som tjener flere formål innenfor Politikoz-økosystemet:",
+                "points": {
+                    "utility": "Plattformtilgang og funksjonslåsing",
+                    "governance": "Deltakelse i styringsavgjørelser",
+                    "rewards": "Tjene belønninger gjennom plattformaktiviteter"
+                }
+            },
+            "disclaimers": {
+                "title": "3. Ansvarsfraskrivelser",
+                "content": "KOZ-tokens er brukstokens ment for bruk innenfor Politikoz-plattformen. De er ikke verdipapirer, investeringer eller finansielle instrumenter. Brukere bør ikke forvente økonomisk avkastning fra å holde KOZ-tokens."
+            },
+            "responsibilities": {
+                "title": "4. Brukeransvar",
+                "points": {
+                    "compliance": "Brukere må overholde alle gjeldende lover og forskrifter i sin jurisdiksjon",
+                    "security": "Brukere er ansvarlige for å opprettholde sikkerheten til sine lommebøker og private nøkler",
+                    "conduct": "Brukere må engasjere seg med plattformen i god tro og unngå ondsinnede aktiviteter"
+                }
+            },
+            "contact": {
+                "title": "5. Kontaktinformasjon",
+                "content": "For spørsmål om disse vilkårene, vennligst kontakt oss gjennom våre offisielle kanaler listet på nettsiden."
+            }
+        }
     },
     "InfoSection": {
-      "cardData": {
-        "prizes": {
-          "title": "+{amount} ADA MÅNEDLIG",
-          "text": "Regelmessige premier"
-        },
-        "freeEntries": {
-          "title": "GRATIS INNGANGER",
-          "text": "Bli med uten kostnad"
-        },
-        "auditable": {
-          "title": "100% REVISJONSBAR",
-          "text": "Verifiserbart for alle"
-        },
-        "treasury": {
-          "title": "+{treasury} ADA SKATTKAMMER",
-          "text": "Vokser stadig"
-        }
-      },
-      "learnMore": "Lær mer på Gitbook"
+  "cardData": {
+    "prizes": {
+      "title": "MÅNEDLIGE PREMIER",
+      "text": "Starter på 350 ADA 💎"
     },
-    "JoinPolitikozPaths": {
-  "buyPolitikoz": {
-    "header": "Sikre din plass: Kjøp nå!",
-    "title": "Kjøp en Politikoz",
-    "description": "Ved å kjøpe en Politikoz sikrer du din deltakelse i de månedlige trekningene for alltid, med muligheten til å vinne fantastiske premier.",
-    "step1Title": "Kjøp en Politikoz",
-    "step1Text": "Kjøp én eller flere Politikoz.",
-    "step2Title": "Opprett ditt parti",
-    "step2Text": "Registrer ditt politiske parti for automatisk deltakelse.",
-    "step3Title": "Øk sjansene dine",
-    "step3Text": "Jo flere Politikoz du har, desto større er sjansen for å vinne.",
-    "button": "Kjøp nå"
+    "freeEntries": {
+      "title": "GRATIS\nDELTAKELSE",
+      "text": "Sats eller Delta 🤝"
+    },
+    "auditable": {
+      "title": "100% REVIDERBAR",
+      "text": "Verifiserbar av Alle 🔍"
+    },
+    "treasury": {
+      "title": "60k ADA SKATTKAMMER",
+      "text": "Skal trekkes i 6 🎯"
+    }
   },
-  "buyKoz": {
-    "header": "Få dine KOZ-tokens: Bytt nå!",
-    "title": "Få KOZ-tokens",
-    "description": "KOZ-tokens gir deg tilgang til plattformfunksjoner og stemmerett i vår fremtidige DAO, som former plattformens fremtid.",
-    "step1Title": "Koble til lommeboken din",
-    "step1Text": "Koble til lommeboken din for å starte.",
-    "step2Title": "Bytt ADA mot KOZ",
-    "step2Text": "Bytt ADA mot KOZ-tokens.",
-    "step3Title": "Få billetter",
-    "step3Text": "Bruk KOZ-tokens for å delta i valgtrekningene.",
-    "button": "Bytt nå"
-  },
-  "engageAndEarn": {
-    "header": "Ingen kostnad, ingen risiko: Bli med gratis!",
-    "title": "Delta og tjen",
-    "description": "Bli med i vårt fellesskap for å tjene KOZ-tokens og bytte dem mot gratis deltakelser i de månedlige trekningene.",
-    "step1Title": "Koble til dine sosiale medier",
-    "step1Text": "Koble X og Discord til plattformen vår.",
-    "step2Title": "Tjen KOZ-tokens",
-    "step2Text": "Delta aktivt for å tjene KOZ-tokens som belønning.",
-    "step3Title": "Bytt til deltakelser",
-    "step3Text": "Bruk KOZ-tokens for å delta i de månedlige trekningene.",
-    "button": "Bli med nå"
-  },
-  "stakeAndWin": {
-    "header": "Ingen kostnad, ingen risiko: Bli med gratis!",
-    "title": "Stake og Vinn",
-    "description": "Stake ADA hos oss og få billetter til de månedlige trekningene samtidig som du fortsatt mottar dine vanlige ADA-belønninger.",
-    "step1Title": "Koble til lommeboken din",
-    "step1Text": "Begynn med å koble til lommeboken din til vår plattform.",
-    "step2Title": "Stake ADA",
-    "step2Text": "Stake din ADA i vår PLKOZ stake-pool.",
-    "step3Title": "Få gratis deltakelser",
-    "step3Text": "Jo mer ADA du staker, desto flere gratis deltakelser får du.",
-    "button": "Stake nå"
-  },
-  "topBanner": {
-    "text": "BLI MED I VERDEN AV KOZ NÅ. SAMLE, BYTT OG TJEN ADA."
-  }
-}
-,
-    "Footer": {
-      "links": {
-        "home": "Hjem",
+  "learnMore": "Lær mer om Politikoz"
+},
+"ElectionDashboard": {
+  "nextElection": "Neste Valg",
+  "lastElection": "Forrige Valgresultater",
+  "totalPrize": "Total Premiepott",
+  "month": "Resultater fra {month}",
+  "days": "DAGER",
+  "hours": "TIMER",
+  "minutes": "MIN",
+  "seconds": "SEK"
+},
+"Footer": {
+  "links": {
+    "home": "Hjem",
     "team": "Team",
-    "stake": "Stake med oss",
+    "stake": "Sats med Oss",
     "treasury": "Skattkammer",
     "terms": "Bruksvilkår",
-    "privacy": "Personvernregler"
-      },
-      "joinCommunity": "Bli med i vårt fellesskap!",
-      "copyright": "Copyright © {year}. Alle rettigheter forbeholdt."
-    },
-    "Support": {
-      "formTitle": "Støtte",
-      "nameLabel": "Ditt Navn",
-      "namePlaceholder": "Skriv inn ditt navn",
-      "emailLabel": "E-postadresse",
-      "emailPlaceholder": "Skriv inn din e-post",
-      "messageLabel": "Melding",
-      "messagePlaceholder": "Hvordan kan vi hjelpe deg?",
-      "attachmentsLabel": "Vedlegg",
-      "sending": "Sender...",
-      "send": "Send",
-      "successMessage": "Meldingen din ble sendt vellykket!",
-      "errorMessage": "Feil ved sending av melding. Vennligst prøv igjen.",
-      "unexpectedError": "En uventet feil oppsto."
-    }
+    "privacy": "Personvern"
+  },
+  "joinCommunity": "Bli med i vårt fellesskap!",
+  "copyright": "Opphavsrett © {year}. Alle rettigheter forbeholdt."
+},
+"Support": {
+  "formTitle": "Kundestøtte",
+  "nameLabel": "Ditt Navn",
+  "namePlaceholder": "Skriv inn ditt navn",
+  "emailLabel": "E-postadresse",
+  "emailPlaceholder": "Skriv inn din e-post",
+  "messageLabel": "Melding",
+  "messagePlaceholder": "Hvordan kan vi hjelpe deg?",
+  "attachmentsLabel": "Vedlegg",
+  "sending": "Sender...",
+  "send": "Send",
+  "successMessage": "Din melding er sendt!",
+  "errorMessage": "Kunne ikke sende meldingen. Vennligst prøv igjen.",
+  "unexpectedError": "En uventet feil oppstod."
+},
+"Explore": {
+  "ActiveListing": {
+    "title": "Til Salgs",
+    "price": "Pris: {price}"
+  },
+  "BuyPolitikoz": {
+    "title": "Få en Politikoz i lommen!",
+    "description": "For hver Politikoz du kjøper, får du <highlight>10 GRATIS lodd</highlight> for å øke sjansene dine i fremtidige premieutdelinger!",
+    "cta": "Kjøp på JPG.Store"
+  },
+  "ExploreIntro": {
+    "title": "Oppdag Politikoz",
+    "text1": "En samling av 10 000 unike NFT-er fordelt på 8 politiske klasser. Hver Politikoz har en unik identifikator som gir deg evig deltakelse i våre månedlige premieutdelinger.",
+    "text2": "Ikke gå glipp av sjansen til å bli med på moroa, eie en Politikoz, og vinne fantastiske premier!",
+    "floor": "Gulvpris: {price}",
+    "cta": "Kjøp på JPG.Store"
+  },
+  "GrowingCommunity": {
+    "title": "Voksende Fellesskap",
+    "total": "Bli med i vårt voksende fellesskap av {total} Politikoz-eiere!",
+    "social": "Med {x} følgere på X og {discord} Discord-medlemmer fortsetter fellesskapet å vokse—bli en del av det i dag og tjen KOZ-tokens mens du deltar!",
+    "chartTitle": "Eierfordeling"
+  },
+  "Trades": {
+    "title": "Nylige Handler",
+    "price": "Pris: {price}",
+    "buyer": "Kjøper",
+    "seller": "Selger"
   }
-  
+},
+"ConnectToKoz": {
+  "connectTo": "Koble til<br />Verden av KOZ",
+  "continueWith": "eller fortsett med",
+  "backTo": "Tilbake til {page}",
+  "connect": "Koble til",
+  "LogoutModal": {
+    "title": "Bekreft Utlogging",
+    "message": "Er du sikker på at du vil koble fra?",
+    "cancel": "Avbryt",
+    "disconnect": "Koble fra",
+    "wait": "Vent {seconds}s"
+  },
+  "connectError": "Kunne ikke koble til {wallet}. Vennligst prøv igjen.",
+  "disconnect": "Koble fra",
+  "downloadWallet": "Last ned Lommebok",
+  "wallet": "Lommebok",
+  "noAddress": "Ingen Adresse Funnet",
+  "agreeToTerms": "Ved å fortsette godtar du våre <termsLink>Bruksvilkår</termsLink> og vår <privacyLink>Personvernerklæring</privacyLink>."
+},
+"AuthError": {
+  "title": "Autentisering Mislyktes",
+  "message": "Kunne ikke autentisere: {error}",
+  "ok": "OK",
+  "errors": {
+    "unknown": "En uventet feil oppstod",
+    "walletNotConnected": "Vennligst koble til lommeboken din først"
+  }
+},
+"AutoLink": {
+  "Config": {
+    "title": "Automatisk Lenke-konfigurasjon",
+    "description": "Automatisk lenke-funksjonen lar deg automatisk distribuere loddene dine basert på forhåndsdefinerte innstillinger før hvert valg. Dette sikrer at loddene dine allokeres effektivt uten manuell innblanding. Juster distribusjonen i henhold til din strategi og la systemet håndtere allokeringen for deg.",
+    "linkToSpecificPolitikoz": "Lenk til en Spesifikk Politikoz",
+    "distributeToRandomPolitikoz": "Distribuer til Tilfeldig Politikoz",
+    "linkToMyParty": "Lenk til Mitt Parti",
+    "distributeAmongParties": "Distribuer Mellom Partier",
+    "configuredAutoLinks": "Konfigurerte Automatiske Lenker"
+  },
+  "DeleteConfirm": {
+    "title": "Bekreft Sletting",
+    "message": "Er du sikker på at du vil slette denne {type} konfigurasjonen {id}?",
+    "cancel": "Avbryt",
+    "confirm": "Slett",
+    "deleting": "Sletter...",
+    "deletingMessage": "Sletter konfigurasjon, vennligst vent...",
+    "type": {
+      "party": "parti",
+      "politikoz": "politikoz",
+      "random": "tilfeldig distribusjon"
+    },
+    "random": "konfigurasjon"
+  },
+  "Distribution": {
+    "frontmanDescription": "Tildel lodd mellom standard FRONTMAN og KUN FRONTMAN BOOSTED VALG. Den boostede versjonen vil kun bli brukt i valg med boostede belønninger. Kombinert allokering kan ikke overstige 100%.",
+    "combinedFrontman": "Kombinert Total",
+    "otherConfigs": "Andre konfigurasjoner",
+    "thisConfig": "Denne konfigurasjonen",
+    "available": "Tilgjengelig"
+  },
+  "List": {
+    "empty": "Ingen konfigurasjoner lagt til.",
+    "politikozLabel": "Politikoz #{id}",
+    "partyLabel": "Parti {id}",
+    "randomLabel": "Tilfeldig",
+    "delete": "Slett"
+  },
+  "ModalParties": {
+    "title": "Distribuer Mellom Partier",
+    "selectPlaceholder": "Velg et Parti",
+    "selectedTitle": "Valgte Partier",
+    "cancel": "Avbryt",
+    "save": "Lagre"
+  },
+  "ModalRandom": {
+    "title": "Konfigurer Tilfeldig Distribusjon",
+    "description": "Konfigurer prosentandelen av lodd som automatisk vil bli distribuert til tilfeldige Politikoz før hvert valg. Dette sikrer at dine ubrukte lodd alltid blir brukt.",
+    "save": "Lagre",
+    "cancel": "Avbryt"
+  },
+  "ModalParty": {
+    "title": "Konfigurer Partidistribusjon",
+    "description": "Konfigurer prosentandelen av lodd som automatisk vil bli distribuert til dine partimedlemmer før hvert valg. Dette lar deg støtte ditt partis Politikoz og øke deres vinnersjanser, som styrker partiets posisjon i valgkampen.",
+    "save": "Lagre",
+    "cancel": "Avbryt"
+  },
+  "ModalPolitikoz": {
+    "title": "Lenk til Spesifikk Politikoz",
+    "description": "Konfigurer prosentvis distribusjon for spesifikke Politikoz. Den valgte prosenten vil bli likt fordelt mellom alle valgte Politikoz. Du kan kun legge til prosenter - for å redusere, slett konfigurasjonen.",
+    "selectedTitle": "Valgte Politikoz",
+    "noneSelected": "Ingen Politikoz valgt.",
+    "save": "Lagre",
+    "cancel": "Avbryt"
+  },
+  "Progress": {
+    "title": "Total Allokert Prosent"
+  }
+},
+"BuyTicket": {
+    "ticketTransactionSuccessButApiError": "Kjøpstransaksjonen din var vellykket, men ble ikke registrert i systemet vårt. Vennligst rapporter dette via Discord eller Support med transaksjons-hashen din.",
+    "title": "Kjøp Lodd",
+    "ticketsAddedSoon": "Loddene dine vil bli lagt til kontoen din snart (maks 10 minutter).",
+    "date": "Dato",
+    "pricePerTicket": "Pris per lodd:",
+    "yourBalance": "Din saldo:",
+    "enterTicketAmount": "Skriv inn antall lodd",
+    "tickets": "lodd",
+    "processing": "Behandler...",
+    "buyButton": "Kjøp {amount} {amount, plural, one {Lodd} other {Lodd}}",
+    "historyTitle": "Kjøpshistorikk",
+    "viewHistory": "Se Historikk",
+    "noHistory": "Ingen kjøpshistorikk",
+    "perTicketFeeInfo": "Servicegebyr: + {fee} ADA per lodd",
+    "cancel": "Avbryt",
+    "connectWalletFirst": "Vennligst koble til lommeboken din først",
+    "serviceFeeInfo": "(+{fee} ADA servicegebyr per lodd)",
+    "minimumFeeInfo": "Minimum servicegebyr 2.5 ADA (inkluderer 3 GRATIS lodd)",
+    "minimumFeeTooltip": "De første 2.5 ADA dekker opptil 25 lodd og inkluderer 3 GRATIS lodd. Deretter +0.1 ADA per ekstra lodd.",
+    "history": {
+      "amount": "Antall",
+      "transaction": "Transaksjon",
+      "status": "Status",
+      "action": "Handling",
+      "ticketAmount": "{amount} Lodd",
+      "kozAmount": "{amount} KOZ",
+      "validating": "Validerer",
+      "completed": "Fullført",
+      "failed": "Mislyktes",
+      "cancel": "Avbryt"
+    },
+    "transactionDetails": {
+      "title": "Transaksjonsdetaljer",
+      "willReceive": "Du vil motta:",
+      "tickets": "Lodd",
+      "freeTicketShort": " GRATIS lodd",
+      "kozAmount": "KOZ Mengde:",
+      "minimumFee": "Minimumsgebyr:",
+      "additionalFee": "Tilleggsgebyr:",
+      "networkFee": "Nettverksgebyr (est.):",
+      "totalKoz": "Total KOZ Påkrevd:",
+      "totalAda": "Total ADA Påkrevd:",
+      "transactionId": "Transaksjons-ID"
+    },
+    "status": {
+      "processing": "Behandler kjøp...",
+      "completed": "Kjøp fullført!",
+      "failed": "Kjøp mislyktes",
+      "default": "Behandler...",
+      "pending": "Venter",
+      "cancelled": "Avbrutt"
+    },
+    "errors": {
+      "maxTicketsExceeded": "Maksimum {max} lodd tillatt",
+      "insufficientBalance": "Utilstrekkelig KOZ-saldo"
+    }
+},
+"ClaimKoz": {
+    "title": "Krev KOZ-belønninger",
+    "description": "Krev dine tilgjengelige KOZ-tokens opptjent gjennom plattformaktiviteter.",
+    "totalAvailable": "Totalt Tilgjengelig å Kreve",
+    "claimNow": "Krev Nå",
+    "availableRewards": "Tilgjengelige Belønninger",
+    "claimHistory": "Krevingshistorikk",
+    "claimSummary": "Krevingsoversikt",
+    "totalClaim": "Total Kreving",
+    "fee": "Gebyr",
+    "destination": "Destinasjonsadresse",
+    "cancel": "Avbryt",
+    "confirm": "Bekreft Kreving"
+},
+"ElectionInfo": {
+    "executed": "Utført",
+    "title": "Valgoversikt",
+    "prizeTitle": "Valgpremie",
+    "totalPrize": "Total Premie",
+    "politikoz": "Politikoz",
+    "tickets": "Lodd",
+    "politikozBreakdown": "Politikoz Premiefordeling",
+    "ticketsBreakdown": "Lodd Premiefordeling",
+    "roadmapTitle": "Valgbølger - Veikart",
+    "drawTitle": "Bølgetrekningsresultater",
+    "waveLabel": "Bølge {number}",
+    "modalTitle": "Bølge {number} Detaljer",
+    "modalDate": "Dato",
+    "modalClose": "Lukk",
+    "elected": "valgt",
+    "winner": "vinner",
+    "winners": "vinnere",
+    "prizePerWinner": "Premie per vinner",
+    "totalForRole": "Totalt for rolle",
+    "totalForType": "Totalt for type",
+    "modalExecutedAt": "Utført",
+    "modalDetails": "Transaksjonsdetaljer",
+    "modalEpoch": "Blokkepoke",
+    "modalHeight": "Blokkhøyde",
+    "modalStaminaDecrease": "Utholdenhetsnedgang",
+    "modalMinStamina": "Minimum Utholdenhet",
+    "modalDrawPrecision": "Trekningspresisjon",
+    "modalFeePrecision": "Gebyrpresisjon",
+    "modalNumbersToDraw": "Tall å Trekke",
+    "modalBonus": "Topprangering Bonus",
+    "modalBaseVote": "Basestemme",
+    "modalBlockFee": "Blokkgebyr",
+    "modalBlockOutput": "Blokkutgang",
+    "modalTurn": "Valgrunde",
+    "noDrawsYet": "Ingen trekninger ennå",
+    "firstTurn": "FØRSTE RUNDE",
+    "secondTurn": "ANDRE RUNDE",
+    "electionEnd": "SLUTT PÅ VALGET"
+},
+"ElectionResult": {
+    "map": "Valgkart",
+    "candidates": "Brukerkandidater",
+    "grid": "Rutenettvisning",
+    "table": "Tabellvisning",
+    "tree": "Vinnertre",
+    "roleDistribution": "Kandidatrollefordeling",
+    "noDataAvailable": "Ingen data tilgjengelig",
+    "totalCandidates": "Totalt Antall Kandidater: {count}",
+    "totalTickets": "Totalt Antall Lodd: {count}",
+    "chart": "Fordeling",
+    "errorLoadingChart": "Feil ved lasting av diagramdata",
+    "earningsEstimate": "Inntektsestimat",
+    "legend": "Tegnforklaring",
+    "tableTitle": "Politikoz & Lodd Tabell",
+    "filterAllRoles": "Alle Roller",
+    "filterWinning": "🏆 Vinner",
+    "filterNoStamina": "⚡ Ingen Utholdenhet",
+    "filterUserOwned": "👤 Brukereide",
+    "status": "Status",
+    "politikoz": "Politikoz",
+    "role": "Rolle",
+    "place": "Plassering",
+    "earnings": "Inntjening",
+    "prev": "◀ Forrige",
+    "next": "Neste ▶",
+    "page": "Side {current} av {total}",
+    "politikozOverview": "Politikoz Oversikt",
+    "groupWinning": "🏆 Vinnerposisjon (hvis valget sluttet nå)",
+    "groupOutOfStamina": "⚠️ Vinnerposisjon (hvis valget sluttet nå) - Ingen Utholdenhet for Neste Bølge",
+    "groupLosing": "❌ Taperposisjon",
+    "earningsDisplay": "Inntjening: ${amount}",
+    "noPoliticians": "Ingen politikere i denne kategorien",
+    "senateTitle": "Valgvinnere - Senat",
+    "title": "Valgresultater",
+    "legendWinning": "Vinnerposisjon (hvis opprettholdt)",
+    "legendLosing": "Taperposisjon",
+    "legendPositionsToVictory": "Posisjoner til seier",
+    "noData": "Ingen data tilgjengelig.",
+    "candidateVotes": "Stemmer",
+    "candidateLabel": "Kandidat {index} / {total}",
+    "btnBack": "Tilbake",
+    "btnNext": "Neste"
+},
+"GovernanceSettings": {
+    "title": "Styringsinnstillinger",
+    "loading": "Laster regler...",
+    "ticketBoostTitle": "Lodd-boost Innstillinger",
+    "ticketBoostDescription": "Hver loddtype har en unik kraft-boost effekt. Når koblet til en Politikoz, forbedrer det deres stemmemuligheter og øker sjansene for å vinne valg.",
+    "ticketBoostValue": "{value}%",
+    "votingPowerTitle": "Stemmekraft Sammendrag",
+    "votingPowerDescription": "Din stemmekraft er basert på mengden KOZ-tokens du har. I fremtidige oppdateringer vil denne kraften brukes til å stemme på endringer i styringsinnstillingene.",
+    "votingPowerTotal": "Total Stemmekraft",
+    "votingPowerUsed": "Brukt",
+    "votingPowerRemaining": "Gjenværende",
+    "votingPowerUsedFormatted": "{used} ({percent}%)",
+    "votingPowerRemainingFormatted": "{remaining} ({percent}%)",
+
+    "potShareTitle": "Valgpott-andel per Valg",
+    "potShareDescription": "Denne innstillingen definerer andelen av valgpotten som vil bli distribuert i hver valgrunde.",
+    "potShareTotal": "Total ADA distribuert per valg:",
+    "potShareTreasury": "Nåværende Skattkammerbalanse:",
+
+    "electionPotTitle": "Valgpott-distribusjon",
+    "electionPotDescription": "Denne seksjonen definerer hvordan Valgpotten distribueres mellom de valgte posisjonene og loddrollene. Hver kategori mottar en prosentandel av totalpotten, som tilsvarer en spesifikk ADA-verdi per valg.",
+
+    "ticketLimitsTitle": "Loddgrenser",
+    "ticketLimitsDescription": "Disse grensene definerer minimum og maksimum ADA-område som balanseringsmotoren kan jobbe innenfor for å bestemme hvor mye innsats som trengs for å tjene 1 lodd av hver type. Basert på innsatsforhold velger motoren en verdi innenfor dette området. For eksempel, hvis motoren velger 2000 ADA for Corrupt, får en delegator med 5000 ADA 2 Corrupt-lodd. Gjenværende innsats går til neste type: Lobbyist → Briber → Launderer, og fortsetter til ingen flere lodd kan tildeles.",
+    "ticketLimitsNextRebalance": "Neste rebalansering ved epoke: {epoch}",
+    "ticketLimitsMin": "Minimumsverdi: {amount} ADA",
+    "ticketLimitsMax": "Maksimumsverdi: {amount} ADA",
+    "ticketLimitsCurrent": "Nåværende verdi valgt av motoren: {amount} ADA",
+
+    "otherSettingsTitle": "Andre Valginnstillinger",
+    "intervalTitle": "Valgintervall",
+    "intervalDescription": "Definerer intervallet som trengs for neste valg. Hvis satt til 1, vil et valg skje hver epoke.",
+    "intervalEvery": "Hver {epochs} epoke(r)",
+    "luckTitle": "Lykketall-presisjon",
+    "luckDescription": "Bestemmer antall sifre en bruker må velge som lykketallet tildelt hver Politikoz.",
+    "luckDigits": "{count} siffer",
+    "jailTitle": "Fengsel-presisjon",
+    "jailDescription": "Definerer prosentvis sjanse for at en Politikoz blir sendt til fengsel etter å ha blitt valgt.",
+    "jailChance": "{percent}% sjanse",
+    "bailTitle": "Kausjon per Epoke",
+    "bailDescription": "Definerer kostnaden (i KOZ) som må betales per dømt epoke for å forlate fengselet før den tilfeldige straffetiden ender.",
+    "bailValue": "{amount} KOZ per epoke",
+    "bestDayTitle": "Beste Dag å Starte",
+    "bestDayDescription": "Definerer foretrukket ukedag for å starte en ny valgsyklus.",
+
+    "waveSettingsTitle": "Valgbølger",
+    "waveSettingsDescription": "Hver bølge representerer et stadium i valgprosessen med spesifikke regler som tallpresisjon, bonuser, utholdenhetsrequirer, og tidsintervaller før utførelse.",
+    "numbersToBeDrawn": "Tall som skal Trekkes",
+    "numbersDrawnPrecision": "Tallpresisjon",
+    "numberFeePrecision": "Gebyrpresisjon",
+    "percentBonusTicket": "Lodd-bonus (%)",
+    "percentBonusTopRanking": "Topprangering-bonus (%)",
+    "decreaseInStamina": "Utholdenhetsnedgang",
+    "minimumStamina": "Minimum Utholdenhet Påkrevd",
+    "waitInMinutesBeforeExecute": "Ventetid Før Utførelse (minutter)",
+
+    "politikozTitle": "Valgte Politikoz",
+    "politikozDescription": "Definerer hvor mange Politikoz av hver rolle som vil bli valgt i hvert valg og beregner ADA-andelen per valgt rolle basert på distribusjonsinnstillingene.",
+    "electedLabel": "Valgt: {count}",
+    "perElectedLabel": "ADA per valgt: {amount} ADA",
+
+    "ticketTitle": "Valgte Lodd",
+    "ticketDescription": "Definerer antall loddbaserte roller som vil bli valgt i hvert valg og beregner ADA-andelen per valgt lodd basert på distribusjonsinnstillingene.",
+    "ticketElectedLabel": "Valgt: {count}",
+    "ticketAdaLabel": "ADA per lodd: {amount} ADA"
+},
+"HallView": {
+    "tour": "Ta en omvisning",
+    "tokenomics": "Tokenomics",
+    "treasury": "Skattkammerpott",
+    "team": "Team",
+    "exit": "Avslutt",
+    "backToHall": "← Tilbake til Hall"
+},
+"IncomeOutcome": {
+    "title": "Inntekt & Utgift",
+    "incomeTitle": "Inntekt",
+    "outcomeTitle": "Utgift",
+    "monthIncomeTitle": "Denne Måned - Inntekt",
+    "monthOutcomeTitle": "Denne Måned - Utgift",
+    "yearIncomeTitle": "Siste 12 Måneder - Inntekt",
+    "yearOutcomeTitle": "Siste 12 Måneder - Utgift",
+    "noIncome": "Ingen inntekt denne måneden",
+    "noOutcome": "Ingen utgift denne måneden",
+    "summaryTitle": "Sammendrag (Siste 12 Måneder)",
+    "incomeSummary": "Inntekt: {amount} KOZ",
+    "outcomeSummary": "Utgift: {amount} KOZ",
+    "months": [
+        "Januar", "Februar", "Mars", "April", "Mai", "Juni",
+        "Juli", "August", "September", "Oktober", "November", "Desember"
+    ]
+},
+"InsideBuilding": {
+    "hall": "HALL",
+    "office": "KONTOR",
+    "laundry": "VASKERI",
+    "party": "PARTI",
+    "arcade": "SPILLEROM - KOMMER SNART",
+    "news": "NYHETER"
+},
+"LaundryView": {
+    "stakeWithPlkoz": "Sats med PLKOZ",
+    "ticketCalculator": "Loddkalkulator",
+    "claimKoz": "Krev KOZ",
+    "comingSoon": "Kommer Snart",
+    "exit": "Avslutt",
+    "backToLaundry": "← Tilbake til Vaskeri",
+    "connectWalletFirst": "Vennligst koble til lommeboken din først"
+},
+"NewsView": {
+    "joinDiscord": "Bli med på Discord",
+    "followX": "Følg oss på X",
+    "socialTasks": "Sosiale Oppgaver",
+    "discordRank": "Min Discord-rang",
+    "distributionPolicy": "Distribusjonspolicy",
+    "claimKoz": "Krev KOZ",
+    "exit": "Avslutt",
+    "comingSoon": "Kommer Snart",
+    "backToNews": "← Tilbake til Nyheter"
+},
+"OfficeView": {
+    "incomeOutcome": "Inntekt/Utgift",
+    "audit": "Verifiser Lodd",
+    "buyTickets": "Kjøp Lodd",
+    "myTickets": "Mine Lodd",
+    "calendar": "Kalender",
+    "prizeInfo": "Premieinfo",
+    "waveInfo": "Bølgeinfo",
+    "electionResults": "Valgresultater",
+    "buyKoz": "Kjøp KOZ",
+    "exit": "Avslutt",
+    "backToOffice": "← Tilbake til Kontor"
+},
+"CurrentSeasonPromo": {
+    "season": "SESONG",
+    "seasonProgress": "Sesongfremgang",
+    "seasonCompletedTitle": "SESONG {season} FULLFØRT!",
+    "nextElectionAnnouncement": "En FRONTMANN vil skrive historie!",
+    "prepareMessage": "Gjør deg klar for neste valg. Din sjanse til å bli legendarisk.",
+    "prizePool": "Boost-premie",
+    "boostedPrize": "Boostet Premie",
+    "earlyElection": "Tidlig Valg →",
+    "nextElection": "Neste Valg",
+    "swapNow": "Få KOZ-tokens",
+    "completeSeasonMessage": "Fullfør denne sesongen for å utløse et tidlig valg!"
+},
+"PartyView": {
+    "info": {
+        "rankColumn": "#",
+        "partyColumn": "Parti",
+        "winnersColumn": "Valgt",
+        "percentageColumn": "%",
+        "rewardColumn": "Belønning",
+        "treasuryPool": "SKATTKAMMERPOTT",
+        "treasuryNote": "Dette beløpet vokser med hvert loddkjøp i løpet av gjeldende sesong",
+        "distributionMethod": "Belønninger vil bli distribuert proporsjonalt med hvert partis prosentandel av valgte kandidater hver sesong.",
+        "currentSeasonNote": "Endelige belønninger kan variere frem til sesongslutt",
+        "partyRanking": "Partiytelse",
+        "noRankingsAvailable": "Ingen rangeringer tilgjengelig ennå",
+        "season": "SESONG {seasonNumber}",
+        "partyRankingDescription": "Prosentandel av vinnende kandidater per parti",
+        "referralCode": "Referansekode",
+        "copyCode": "Kopier referansekode",
+        "copied": "Kopiert!",
+        "referralRanking": "Referanserangering",
+        "referralCodeDescription": "Del koden din! Når den brukes i KOZ-bytter, får begge belønninger!",
+        "rankingDescription": "Topp-henvisere tjener KOZ-belønninger hver sesong!",
+        "usesCount": "Bruk",
+        "position": "Posisjon",
+        "you": "DEG",
+        "youGet": "Lobbyister",
+        "theyGet": "Vaskere",
+        "youReceive": "DU MOTTAR",
+        "theyReceive": "DE MOTTAR"
+    },
+    "backToParty": "← Tilbake til Parti",
+    "buttons": {
+        "myParty": "Mitt Parti",
+        "createParty": "Opprett Parti",
+        "myPolitikoz": "Min Politikoz",
+        "campaignGame": "Valgkampspill",
+        "governanceSettings": "Styringsinnstillinger",
+        "exit": "Avslutt",
+        "comingSoon": "Kommer Snart",
+        "connectWallet": "Koble til Lommebok Først"
+    },
+    "create": {
+        "title": "Opprett Parti",
+        "siglaLabel": "Partiakronym",
+        "creating": "Oppretter...",
+        "nameLabel": "Partinavn",
+        "placeholderSigla": "XXXX",
+        "placeholderName": "Partinavn",
+        "createButton": "Opprett Parti",
+        "errorDefault": "Kunne ikke opprette parti",
+        "errorHasParty": "Du har allerede et parti",
+        "typeLabel": "Partitype"
+    },
+    "flag": {
+        "tryAgain": "Prøv Igjen"
+    }
+},
+"JoinPolitikozTour": {
+    "title": "Ta Vår Budsjettoptimerte Omvisning™",
+    "description": "En rask omvisning gjennom Politikoz, drevet av kaffe og tvilsom kode! Fullfør den for å spinne vårt helt-ikke-rigget belønningshjul.",
+    "startTourButton": "Start Rask Omvisning",
+    "rewardLabel": "Kanskje Vinn GRATIS LODD!*",
+    "disclaimer": "*Du vil faktisk vinne noe. Vi lover."
+},
+"Maintenance": {
+    "messages": {
+        "budgetReallocation": {
+            "title": "Budsjett Reallokert",
+            "description": "Vårt serverbudsjett ble mystisk allokert til en ny 'svømmebasseng-studie'. Vi undersøker for øyeblikket hvorfor delfiner trenger luksuriøse spa-behandlinger. Tilbake snart! 🏊‍♂️"
+        },
+        "coffeeCrisis": {
+            "title": "Akutt Kaffepause",
+            "description": "Våre servere er i streik etter å ha oppdaget at vedlikeholdsbudsjettet ble brukt på gulldørhåndtak til IT-avdelingen. Vi forhandler med premium kaffebønner. ☕"
+        },
+        "secretMeeting": {
+            "title": "Hemmelig Møte",
+            "description": "Systemene er midlertidig nede mens våre servere deltar på en obligatorisk 'ostesmakings-workshop' i Sveits. De hevder det er essensielt for nettverksytelsen. 🧀"
+        },
+        "budgetOptimization": {
+            "title": "Budsjettoptimalisering",
+            "description": "Vår hostingleverandør oppdaget at deres midler ble investert i et 'måneeiendom-prosjekt'. Vi venter på neste fullmåne for å gjenopprette våre tjenester. 🌕"
+        },
+        "investigation": {
+            "title": "Teknisk Undersøkelse",
+            "description": "Serverne deltar i en kongresshøring om hvorfor de trenger RGB-belysning for bedre ytelse. Vi forventer å være tilbake etter byråkratiet. 💼"
+        }
+    },
+    "disclaimer": "Ikke bekymre deg, vi bare tuller! Vi er tilbake online snart etter litt raskt vedlikehold. 😉",
+    "retrying": "🤞 Forsøker en Politisk Manøver... 🤞",
+    "retryButtons": {
+        "bribeButton": "🤫 Forsøk å Bestikke Serveren",
+        "blackmailButton": "📸 Utpress med Server-bilder",
+        "lobbyButton": "🤝 Lobby for Systemtilgang",
+        "negotiateButton": "💼 Forhandle med Byråkrater",
+        "pleadButton": "🙏 Påberope seg Femte og Prøv Igjen"
+    }
+},
+"PolitikozProfile": {
+    "MarketListings": {
+        "title": "Tilgjengelig på Jpg.store",
+        "viewAllListings": "Se alle annonser på JPG.store"
+    },
+    "errors": {
+        "release": "Kunne ikke løslate fra fengsel. Vennligst prøv igjen.",
+        "insufficientFunds": "Utilstrekkelige KOZ-tokens for løslatelse.",
+        "transactionDeclined": "Transaksjonen ble avvist av brukeren.",
+        "walletNotConnected": "Lommebok er ikke tilkoblet.",
+        "transaction": "Transaksjonen mislyktes. Vennligst prøv igjen.",
+        "unexpected": "En uventet feil oppstod. Vennligst prøv igjen."
+    },
+    "releaseSuccess": "Vellykket løslatelse av {name} fra fengsel!",
+    "releaseAllSuccess": "Vellykket løslatelse av {count} fanger!",
+    "processing": "Behandler...",
+    "transactionDeclined": "Transaksjonen ble avvist",
+    "insufficientFunds": "Utilstrekkelige midler",
+    "walletNotConnected": "Lommebok ikke tilkoblet",
+    "insufficientAda": "Utilstrekkelig ADA for servicegebyr",
+    "transactionFailed": "Kunne ikke behandle transaksjon",
+    "prisonSentence": "Fengselsstraff",
+    "prisonersFromTab": "fanger",
+    "releaseAllInTab": "Løslat alle fanger i gjeldende fane",
+    "epochSuffix": "epoke(r)",
+    "releaseCost": "Løslatelseskostnad",
+    "releaseDate": "Løslatelsesdato",
+    "luckyNumberChangeSuccess": "Lykketall oppdatert!",
+    "luckyNumberChangeError": "Kunne ikke oppdatere lykketall",
+    "comingSoon": "Kommer Snart",
+    "history": "Historikk",
+    "distribution": "DISTRIBUSJON",
+    "ticketsForJuly": "LODD FOR VALG AV XXX",
+    "linkTickets": "Lenk Lodd",
+    "editLuckyNumber": "Rediger Lykketall",
+    "edit": "Rediger",
+    "editForAllInTab": "Rediger for alle i gjeldende fane",
+    "cancel": "Avbryt",
+    "confirm": "Bekreft",
+    "release": "Løslat",
+    "releaseTitle": "Fangeløslatelse",
+    "releaseConfirmStart": "Vil du løslate",
+    "releaseConfirmMiddle": "for",
+    "releaseConfirmAllStart": "Vil du løslate alle",
+    "releaseConfirmAllMiddle": "fanger for",
+    "keepImprisoned": "Hold Fengslet",
+    "confirmBribe": "Ja, Betal Bestikkelse",
+    "releaseAllCheckbox": "Løslat alle fengslede",
+    "details": "DETALJER",
+    "tickets": "LODD",
+    "stamina": "Utholdenhet",
+    "noPolitikozAvailable": "Du har ingen Politikoz i denne kategorien",
+    "previous": "Forrige",
+    "next": "Neste",
+    "restartList": "Start Liste På Nytt",
+    "searchPlaceholder": "Søk Politikoz...",
+    "power": "KRAFT",
+    "dirtyMoney": "Skitne Penger",
+    "influence": "Innflytelse",
+    "cleanMoney": "Rene Penger",
+    "bribePower": "Bestikkelseskraft",
+    "scapegoats": "Syndebukker",
+    "addTickets": "LEGG TIL LODD",
+    "corruptDesc": "Korrupte politikere bøyer reglene for personlig vinning.",
+    "lobbyistDesc": "Lobbyister påvirker politikk bak lukkede dører.",
+    "laundererDesc": "Hvitvasker renser skitne penger for systemet.",
+    "briberDesc": "Bestikkere bruker penger for å få det de vil.",
+    "frontmenDesc": "Frontmenn tar fallet mens de virkelige lederne gjemmer seg.",
+    "close": "Lukk"
+},
+"Stake": {
+    "stakeTitle": "Sats med Politikoz",
+    "stakeDescription": "Sats din ADA med vår pool for å tjene belønninger og støtte Politikoz-økosystemet.",
+    "stakeNow": "Sats Nå",
+    "connectFirst": "Koble til Lommebok Først",
+    "stakeError": "Feil under satsdelegering",
+    "title": "Sats Din ADA med PLKOZ",
+    "description": "Når du blir med i vår PLKOZ-pool, kan du tjene ADA-belønninger som med enhver annen pool. I tillegg får du lodd og KOZ-token som lar deg delta i et månedlig lotteri med sjanse til å vinne mer ADA og øke inntjeningen din ytterligere.",
+    "availableBalance": "Din Tilgjengelige Saldo",
+    "estimatedTickets": "Estimerte Lodd",
+    "connectToStart": "Koble til for å Begynne Satsing",
+    "connectButtonLabel": "Koble til for å Begynne Satsing",
+    "stakeButtonLabel": "Sats Nå",
+    "kozBonus": "KOZ-bonus",
+    "kozRewardsMessage": "Du kan kreve opptil {amount} KOZ-belønninger gjennom månedlige krav",
+    "stakeSuccess": "Satsdelegering vellykket!",
+    "errors": {
+        "transactionDeclined": "Transaksjonen ble avvist av bruker",
+        "signingCanceled": "Transaksjonsignering ble avbrutt",
+        "insufficientFunds": "Utilstrekkelige midler i lommeboken din",
+        "insufficientFundsWithAmount": "Utilstrekkelige midler i lommeboken din. Påkrevd minimum: {amount} ADA",
+        "transactionFailed": "Transaksjonen mislyktes. Vennligst prøv igjen",
+        "unexpected": "En uventet feil oppstod. Vennligst prøv igjen",
+        "title": "Transaksjon Mislyktes"
+    },
+    "status": {
+        "staking": "Satser...",
+        "connectFirst": "Koble til Lommebok Først",
+        "waitingSignature": "Venter på transaksjonsignatur...",
+        "pleaseConfirm": "Vennligst bekreft i lommeboken din for å fullføre satsing"
+    },
+    "collateral": {
+        "amount": "+{amount} ADA sikkerhet",
+        "info": "Lær om sikkerhet"
+    },
+    "collateralModal": {
+        "title": "Hva er Sikkerhet?",
+        "description": "Sikkerhet er en liten mengde ADA (vanligvis 5 ADA) som lommeboken din holder separat. Det er påkrevd for smartkontrakt-transaksjoner på Cardano.",
+        "explanation": "Tenk på det som et sikkerhetsdepositum som sikrer at smartkontrakt-transaksjoner fungerer riktig. Ikke bekymre deg - du beholder full kontroll over denne ADA-en!",
+        "walletInfo": "Lommeboken din håndterer dette automatisk for deg, og du kan få det tilbake når som helst ved å fjerne sikkerhetsinnstillingen i lommeboken din.",
+        "closeButton": "Forstått!"
+    }
+},
+"AuthModal": {
+    "title": "Verifiser Lommebok",
+    "description": "Vennligst signer med lommeboken din for å fortsette",
+    "walletPrompt": "Ingen transaksjon eller gebyrer - bare en signatur",
+    "sessionInfo": "Gyldig i 1 time før ny signatur er nødvendig"
+},
+"Swap": {
+    "title": "Bytt ADA → KOZ",
+    "rate": "Fast kurs:",
+    "available": "KOZ Tilgjengelig:",
+    "amountLabel": "Beløp i KOZ",
+    "costLabel": "Kostnad:",
+    "swapButton": "Bytt Nå",
+    "historyTitle": "Byttehistorikk",
+    "noHistory": "Ingen byttehistorikk funnet",
+    "date": "Dato",
+    "viewHistory": "Se Byttehistorikk",
+    "connectWallet": "Koble til Lommebok",
+    "processing": "Behandler...",
+    "waitingForNextTier": "Venter på at neste sesong skal starte",
+    "tierWillBeAvailable": "Sesong {tier} vil være tilgjengelig om:",
+    "timer": {
+        "days": "Dager",
+        "hours": "Timer",
+        "minutes": "Minutter",
+        "seconds": "Sekunder"
+    },
+    "transactionDetails": {
+        "title": "Transaksjonsdetaljer",
+        "willReceive": "Du vil motta:",
+        "returnAmount": "+ {amount} ADA tilbake",
+        "swapAmount": "Byttebeløp:",
+        "requiredReturn": "Påkrevd Returbeløp:",
+        "serviceFee": "Servicegebyr:",
+        "networkFee": "Nettverksgebyr (est.):",
+        "totalRequired": "Totalt Påkrevd:",
+        "returnMessage": "({amount} ADA vil bli returnert)",
+        "transactionId": "Transaksjons-ID",
+        "referralCode": "Referansekode",
+        "optional": "Valgfritt",
+        "enterReferralCode": "Skriv inn referansekode hvis du har en",
+        "validate": "Valider",
+        "invalidReferralCode": "Denne referansen virker like legitim som et politikerløfte! 🤥",
+        "referralValidationError": "Feil ved validering av referansekode",
+        "validReferralCode": "Du vil motta 5 Launderer-lodd som bonus!",
+        "ownReferralCode": "+1.5 ADA 'administrasjonsgebyr' lagt til. Du får 5 Briber-lodd, og den 'helt forskjellige personen' som eier denne koden får 3 Corrupt-lodd.",
+        "referralBribeCost": "+1.5 ADA bestikkelsesgebyr"
+    },
+    "history": {
+        "amount": "Beløp",
+        "transaction": "Transaksjon",
+        "status": "Status",
+        "action": "Handling",
+        "adaAmount": "{amount} ADA",
+        "kozAmount": "{amount} KOZ",
+        "pending": "Venter",
+        "completed": "Fullført",
+        "failed": "Mislyktes",
+        "canceled": "Avbrutt",
+        "cancel": "Refunder",
+        "queued": "I Kø"
+    },
+    "messages": {
+        "swapQueued": "Byttet ditt er satt i kø for behandling",
+        "checkingWallet": "Sjekker lommeboktilkobling...",
+        "swapButtonState": "Bytteknapp-status:",
+        "walletNotConnected": "Lommebok ikke tilkoblet",
+        "transactionInProgress": "Transaksjon pågår",
+        "buttonEnabled": "Knapp aktivert",
+        "connectionFailed": "Tilkoblingsforsøk {attempt} mislyktes",
+        "validatingSwap": "Transaksjon sendt. Validering og aksept pågår - du kan lukke dette vinduet hvis du vil, statusen vil være tilgjengelig i byttehistorikken.",
+        "cancelingSwap": "Bytte avvist - starter kanselleringsprosess for å refundere kontraktsaldo. Du kan lukke dette vinduet hvis du vil, statusen vil være tilgjengelig i byttehistorikken."
+    },
+    "status": {
+        "connecting": "Sjekker lommeboktilkobling...",
+        "signing": "Venter på signatur...",
+        "submitting": "Sender transaksjon...",
+        "processing": "Behandler bytte...",
+        "accepting": "Aksepterer bytte...",
+        "cancelling": "Avbryter bytte...",
+        "completed": "Fullført",
+        "failed": "Mislyktes",
+        "default": "Behandler..."
+    },
+    "notes": {
+        "returnNote": "{amount} ADA vil bli returnert til lommeboken din etter byttet",
+        "networkNote": "Nettverksgebyr er omtrentlig og kan variere noe"
+    },
+    "tiers": {
+        "allTiersCompleted": "Alle Sesonger Fullført!",
+        "waitForNextWave": "Takk for din deltakelse. En ny bølge av sesonger vil være tilgjengelig snart. Følg med!",
+        "modalDescription": "Fullfør sesonger for å gi ekstra kraft til neste valg! Når en sesong er fylt, legges BOOST-premien til i Frontman-loddets jackpot, og valget flyttes til neste cardano-epoke - som gjør vinneren til en enda større vinner, enda tidligere! 🏆",
+        "projectedTickets": "Prosjekterte Lodd",
+        "loading": "Laster sesonginformasjon...",
+        "currentTier": "Nåværende Sesong: {tier}",
+        "remaining": "gjenstående",
+        "tierNumber": "Sesong {number}",
+        "supply": "Tilbud: {amount} KOZ",
+        "kozPrice": "1 KOZ = {price} ADA",
+        "modalTitle": "KOZ Token Sesonger",
+        "viewAllTiers": "Se all sesonginformasjon",
+        "currentTierLabel": "Nåværende",
+        "ticketsLabel": "Lodd per sesong",
+        "adaPerTicketLabel": "ADA per lodd",
+        "prizeLabel": "Frontman Boost-premie",
+        "complete": "fullført",
+        "clickToViewAllTiers": "Klikk for å se alle sesonger og premiedetaljer",
+        "frontmanBoostLabel": "Frontman Boost Total Premie",
+        "nextElectionLabel": "Neste Valg Ville Starte",
+        "earlierByDays": "{days} dager tidligere",
+        "earlyCompletionNote": "Hvis sesongen fullføres i dag, starter valget tidligere",
+        "status": {
+            "PENDING": "Aktiv",
+            "WAIT": "Venter",
+            "COMPLETED": "Fullført"
+        }
+    },
+    "errors": {
+        "minimumKozRequired": "Minimum byttebeløp er {amount} KOZ",
+        "cancelling": "Avbryter bytte...",
+        "swapCancelled": "Transaksjonen ble avbrutt",
+        "cancelFailed": "Kunne ikke avbryte transaksjonen. Vennligst kontakt support.",
+        "signatureDeclined": "Transaksjonsignatur ble avvist. Vennligst prøv igjen hvis du vil fortsette med byttet.",
+        "walletNotConnected": "Vennligst koble til lommeboken din først",
+        "invalidAmount": "Ugyldig KOZ-beløp",
+        "swapFailed": "Kunne ikke utføre bytte",
+        "insufficientBalance": "Utilstrekkelig saldo",
+        "connectionInitFailed": "Tilkoblingsinitialisering mislyktes",
+        "cancelSwapFailed": "Kunne ikke avbryte bytte",
+        "invalidReferralCode": "Ugyldig referansekode! Byttet kan ikke fortsette.",
+        "referralValidationFailed": "Kunne ikke validere referansekode. Vennligst prøv igjen."
+    }
+},
+ "Team": {
+  "title": "Meet the Team",
+  "description": "Our passionate and focused team may be small, but we are deeply rooted in the Cardano Blockchain ecosystem. As ADA investors since 2019 and founders of the Politikoz NFT project in 2021, our vision goes far beyond NFTs — we aim to deliver long-term value to our community.",
+  "uxui": "UX/UI & Pixel Art",
+  "uxuiDesc": "Pixel Art Design, UI/UX, User Testing.",
+  "fullstack": "Fullstack Developer",
+  "fullstackDesc": "Backend (Java), Frontend (Next.js), PostgreSQL Database, AWS Developer.",
+  "infra": "Infrastructure & Operations",
+  "infraDesc": "Server Management, Stake Pool Operator, Infrastructure, System Testing."
+},
+"TicketPolicy": {
+  "calculatorTitle": "Ticket Calculator",
+  "calculatorDescription": "Enter your staking amount to simulate how many tickets you would receive per tier and see your bonus reward in KOZ.",
+  "adaAmount": "Staking Amount (ADA):",
+  "calculate": "Calculate",
+  "resultsTitle": "Simulated Ticket Results",
+  "tickets": "tickets",
+  "bonusTitle": "Bonus Reward",
+  "bonusMessage": "You will receive a bonus of {amount} KOZ, claimable monthly.",
+  "stakeNow": "Stake Now",
+  "monthly": "monthly",
+  "ticketRule": "Rule: 1 ticket every {amount} ADA",
+  "exampleTitle": "Example of Ticket Distribution",
+  "exampleIntro": "Suppose a delegator has 12,000 ADA staked:",
+  "exampleLine1": "Earns 2 Corrupt tickets (2 × 5000 = 10,000 ADA used)",
+  "exampleLine2": "Remaining: 2,000 ADA → Not enough for 1 Lobbyist (requires 3,000 ADA)",
+  "exampleLine3": "Move to next tier: 2 Briber tickets (2 × 1000)",
+  "exampleLine4": "Remaining: 0 ADA → No Launderer ticket awarded",
+  "exampleNote": "The system always follows the order: Corrupt → Lobbyist → Briber → Launderer and rolls down remaining ADA.",
+  "policyExplanation": "This policy defines how much ADA is needed to earn one ticket of each type. The distribution engine works in a tiered order starting from",
+  "policyRollover": " When a delegator’s stake is not enough for the current tier, the remaining ADA is carried over to the next one.",
+  "nextRebalance": "Next Ticket Policy Rebalance at epoch",
+  "titlePolicyView": "Ticket Distribution Policy",
+  "loading": "Loading ticket policy...",
+  "ticketsLabel": "Tickets"
+},
+"TicketProfile": {
+  "paymentMethod": "Payment Method",
+  "yourBalance": "Your Balance: {balance} {currency}",
+  "tickets": "Tickets",
+  "amountInCurrency": "Amount in {currency}",
+  "pricePerTicket": "Price per Ticket: {price} {currency}",
+  "buyButton": "Buy Tickets",
+  "purchaseHistory": "Purchase History",
+  "ticketDescription": "Provides a {boostPercentage}% boost in votes for the linked Politikoz and has a chance to earn {adaReward} ADA if elected.",
+  "alert": "You bought {count} Frontman tickets for {amount} {currency}!",
+  "linkTicketsTitle": "LINK TICKETS",
+  "linkTicketsDescription": "Select a ticket to link with your account.",
+  "linkTicketsClose": "CLOSE",
+  "previous": "Previous",
+  "next": "Next",
+  "dynamicTicket": "Provides a {boostPercentage}% boost in votes for the linked Politikoz and has a chance to earn {adaReward} ADA if elected.",
+  "next-race": "One or more tickets are ready for the next election and have already been linked to a Politikoz.",
+  "on-the-race": "One or more tickets are currently participating in an election. If they win, they will generate ADA rewards.",
+  "auto-link": "This setting automatically links your available tickets to a Politikoz every election cycle.",
+  "selectAll": "Select All",
+  "deselectAll": "Deselect All",
+  "On the Race": "On the Race",
+  "Next Race": "Ready for Next One",
+  "Auto Link": "Auto Link",
+  "distribution": "DISTRIBUTION",
+  "changePolitikoz": "Change Politikoz Linked",
+  "linkTicket": "Link Ticket for Next Election",
+  "changeLuckyNumber": "Change Lucky Number",
+  "luckyNumberChangeError": "Failed to change lucky number. Please try again.",
+  "luckyNumberChangeSuccess": "Lucky number changed successfully!",
+  "selectedTickets": "Selected Tickets",
+  "cancel": "Cancel",
+  "confirm": "Confirm",
+  "myTickets": "My Tickets",
+  "noTickets": "No Tickets Available",
+  "select": "Select",
+  "role": "Role",
+  "ticket": "Ticket",
+  "linkedPolitikoz": "Politikoz Linked",
+  "estimatedEarnings": "Estimated Earnings",
+  "singleUse": "Single Use",
+  "yes": "Yes",
+  "no": "No",
+  "notAvailable": "N/A"
+},
+"Tokenomics": {
+  "title": "Meet $KOZ",
+  "subtitle": "A Utility Coin for Politikoz.io",
+  "overview": "The world of Koz will have a utility token with the sole purpose of boosting its internal economy, allowing the purchase of items such as political parties and party coalitions, bets for or against a Politikoz, and similar functions to be announced in due course.",  
+  "description": "$KOZ is the utility token of the Politikoz.io ecosystem, created to drive the internal dynamics of the platform. It serves as a functional asset for engaging with governance systems, accessing exclusive features, and participating in in-game mechanisms, with its utility continuously evolving as new features are introduced.",  
+  "policyIdLabel": "Policy ID: ",
+  "totalSupplyLabel": "Total Supply: ",
+  "transactionHistory": "Transaction History",
+  "mintBurnType": "Type",
+  "amount": "Amount",
+  "transactionId": "Transaction ID",
+  "mint": "Mint",
+  "burn": "Burn",
+  "mintBurnHistory": "Mint/Burn History",
+  "currentAllocationLabel": "Current Token Distribution",
+  "initialAllocationLabel": "Initial Token Allocation",
+  "walletAddressesTitle": "KOZ Token Addresses",
+  "tableHeaders": {
+    "category": "Category",
+    "amount": "Amount",
+    "notes": "Notes",
+    "walletAddress": "Wallet Address"
+  },
+  "categories": {
+    "politikozHolderDrop": "Politikoz Holder Drop",
+    "socialClaimTreasury": "Social Claim Treasury",
+    "liquidityReserve": "Liquidity Reserve",
+    "coinMachine": "Coin Machine",
+    "coreTeam": "Core Team",
+    "advisors": "Advisors",
+    "politikozHolders": "Politikoz Holders",
+    "liquidityForDex": "Liquidity for DEX",
+    "projectTreasury": "Project Treasury",
+    "stakingRewards": "Staking Rewards",
+    "inCirculation": "In Circulation",
+    "muesliSwapDist": "MuesliSwap Distribution",
+    "vyfiDist": "VyFi Distribution",
+    "dripDropz": "DripDropz"
+  },
+  "notes": {
+    "holderDrop": "One-time distribution for NFT holders",
+    "socialClaims": "For future airdrop campaigns via X (Twitter), Discord, etc.",
+    "liquidity": "For DEX pairs and liquidity support",
+    "coinMachine": "Token claim/sale mechanism",
+    "projectTreasury": "Governance, grants, ecosystem development",
+    "coreTeam": "Reserved, not yet distributed",
+    "advisors": "Reserved for future advisor allocation"
+  }
+},
+"Treasury": {
+  "growthTitle": "Treasury Growth",
+
+  "historyTitle": "Treasury History",
+  "date": "Date",
+  "description": "Description",
+  "amount": "Amount",
+  "prev": "Prev",
+  "next": "Next",
+  "page": "Page",
+  "of": "of",
+  "overviewTitle": "Election Treasury",
+  "overviewDescription": "The Treasury is the core fund of the Politikoz project, used to reward election winners and support ecosystem initiatives. It is primarily accumulated through the rewards generated by our PLKOZ Stake Pool (Fixed Cost + Margin), which are 100% donated to the community. Additional income sources will be integrated into the platform in the future."
+
+},
+"Audit": {
+      "howItWorks": "How Do We Ensure Fair Elections?",
+      "merkleExplanation": "It's our magic tree! 🌳 Think of our Merkle tree as a digital fingerprint of all valid tickets in the election. Once the election starts, this fingerprint is recorded on the blockchain. While technically new tickets could be added after the start, they won't be part of the tree's fingerprint. This means any ticket added after the election begins will fail verification and be considered invalid, ensuring election integrity. 🔒✨",
+      "sourceMention": "We use the Merkle tree code created by",
+      "blockchainProof": "Magic Tree Fingerprint(Root)",
+      "validateTicket": "Check If the Ticket Number Was In The Box",
+      "ticketPlaceholder": "Enter ticket number",
+      "validating": "Checking...",
+      "validate": "Verify",
+      "validTicket": "✅ Yes! This number was definitely in the box before the draw started!",
+      "invalidTicket": "❌ Sorry, this number wasn't in the box when we started the draw",
+      "proofDetails": "Proof Item",
+      "ticketNumber": "Ticket Number",
+      "selectElection": "Select an election to verify",
+      "transactionLabel": "Merkle root stored in transaction before the election started"
+    }
+
+}

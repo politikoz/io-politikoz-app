@@ -9,6 +9,7 @@ import Footer from '@/components/Footer/Footer';
 import { SupportedLocales } from "@/i18n/routing";
 import { ClientProviders } from '@/providers/ClientProviders';
 import ConsentBanner from "@/components/Legal/ConsentBanner";
+import GoogleAnalytics from '@/components/Analytics/GoogleAnalytics';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -39,6 +40,7 @@ export default async function LocaleLayout({
           <Header />
           <main className="flex flex-col flex-1">
             {children}
+            <GoogleAnalytics />
           </main>
           <Footer />          
         </ClientProviders>

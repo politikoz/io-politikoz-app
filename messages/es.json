@@ -1,155 +1,1136 @@
 {
- 
-    
     "Header": {
-      "connect": "Conectar",
-      "connected": "Conectado",
-      "disconnect": "Desconectar",
-      "documentation": "Documentación",
-      "downloadWallet": "Descargar billetera",
-      "explore": "Explorar",
-      "play": "Jugar",
-      "home": "Inicio"
+        "connect": "Conectar",
+        "connected": "Conectado",
+        "disconnect": "Desconectar",
+        "documentation": "Documentación",
+        "downloadWallet": "Descargar Wallet",
+        "explore": "Explorar",
+        "play": "Jugar",
+        "home": "Inicio"
     },
     "Common": {
-      "balance": "Saldo:",
-      "disconnect": "Desconectar",
-      "downloadWallet": "Descargar billetera...",
-      "noAddressFound": "No se encontró dirección",
-      "rewardAddress": "Dirección de Recompensa:",
-      "poweredBy": "Impulsado por",
-      "months": {
-        "january": "Enero",
-        "february": "Febrero",
-        "march": "Marzo",
-        "april": "Abril",
-        "may": "Mayo",
-        "june": "Junio",
-        "july": "Julio",
-        "august": "Agosto",
-        "september": "Septiembre",
-        "october": "Octubre",
-        "november": "Noviembre",
-        "december": "Diciembre"
-      }
+        "balance": "Saldo:",
+        "disconnect": "Desconectar",
+        "downloadWallet": "Descargar Wallet...",
+        "noAddressFound": "No se encontró dirección",
+        "rewardAddress": "Dirección de Recompensa:",
+        "poweredBy": "Impulsado por",
+        "months": {
+            "january": "Enero",
+            "february": "Febrero",
+            "march": "Marzo",
+            "april": "Abril",
+            "may": "Mayo",
+            "june": "Junio",
+            "july": "Julio",
+            "august": "Agosto",
+            "september": "Septiembre",
+            "october": "Octubre",
+            "november": "Noviembre",
+            "december": "Diciembre"
+        }
     },
     "NextElectionCountdown": {
-      "days": "días",
-      "hours": "horas",
-      "minutes": "minutos",
-      "seconds": "segundos",
-      "electionSignText": "¡LAS<br />ELECCIONES<br />ESTÁN<br />CERCA!",
-      "prizesSignText": "{ADA} ADA<br />EN<br />PREMIOS"
+        "season": "TEMPORADA {seasonNumber}",
+        "days": "días",
+        "hours": "horas",
+        "minutes": "minutos",
+        "seconds": "segundos",
+        "electionSignText": "¡LA ELECCIÓN<br />ESTÁ<br />CERCA!",
+        "prizesSignText": "{ADA} ADA<br />EN<br />PREMIOS"
     },
     "LastElectionLeaderboard": {
-      "electionOf": "Elección de",
-      "leaderboard": "Tabla de posiciones",
-      "otherWinners": "Otros {remainingWinnersCount} ganadores",
-      "place": "Lugar",
-      "prize": "Premio",
-      "user": "Usuario"
+        "electionOf": "Elección de",
+        "leaderboard": "Tabla de Clasificación",
+        "otherWinners": "Otros {remainingWinnersCount} ganadores",
+        "place": "Posición",
+        "prize": "Premio",
+        "user": "Usuario"
+    },
+    "Consent": {
+        "message": "Al usar este sitio, aceptas los",
+        "termsLink": "Términos y Condiciones",
+        "and": "y la",
+        "privacyLink": "Política de Privacidad"
+    },
+    "Privacy": {
+        "title": "Política de Privacidad",
+        "close": "Cerrar",
+        "sections": {
+            "intro": {
+                "title": "Introducción",
+                "content": "Esta Política de Privacidad explica cómo Politikoz recopila, usa y protege la información de los usuarios de nuestra plataforma, aplicaciones, tokens y servicios relacionados. Al usar nuestros servicios, aceptas estas prácticas."
+            },
+            "collection": {
+                "title": "1. Información que Recopilamos",
+                "content": "Recopilamos y procesamos los siguientes tipos de información:",
+                "points": {
+                    "wallet": "Direcciones de wallet y transacciones blockchain",
+                    "usage": "Datos de uso e interacciones con la plataforma",
+                    "cookies": "Cookies y tecnologías similares para la funcionalidad de la plataforma"
+                }
+            },
+            "usage": {
+                "title": "2. Cómo Usamos tu Información",
+                "content": "Usamos la información recopilada para:",
+                "points": {
+                    "service": "Proporcionar y mantener nuestros servicios",
+                    "improve": "Mejorar y optimizar la funcionalidad de la plataforma",
+                    "security": "Garantizar la seguridad de la plataforma y prevenir fraudes",
+                    "communication": "Enviar actualizaciones esenciales sobre la plataforma"
+                }
+            },
+            "sharing": {
+                "title": "3. Compartir Información",
+                "content": "No vendemos tu información personal. Podemos compartir datos:",
+                "points": {
+                    "providers": "Con proveedores de servicios que ayudan a operar nuestra plataforma",
+                    "legal": "Cuando lo requiera la ley o para proteger nuestros derechos",
+                    "aggregated": "En forma anónima y agregada para análisis"
+                }
+            },
+            "security": {
+                "title": "4. Seguridad de Datos",
+                "content": "Implementamos medidas de seguridad apropiadas para proteger tu información. Sin embargo, ninguna transmisión por Internet es completamente segura, y no podemos garantizar una seguridad absoluta."
+            },
+            "rights": {
+                "title": "5. Tus Derechos",
+                "content": "Tienes derecho a:",
+                "points": {
+                    "access": "Acceder a tu información personal",
+                    "correct": "Solicitar correcciones de tus datos",
+                    "delete": "Solicitar la eliminación de tus datos",
+                    "object": "Oponerte a cierto procesamiento de datos"
+                }
+            },
+            "contact": {
+                "title": "6. Información de Contacto",
+                "content": "Para preguntas sobre esta política, contáctanos a través de nuestros canales oficiales listados en el sitio web."
+            }
+        }
+    },
+    "Terms": {
+        "title": "Términos y Condiciones",
+        "close": "Cerrar",
+        "sections": {
+            "intro": {
+                "title": "1. Introducción",
+                "content": "Estos Términos y Condiciones rigen tu uso de Politikoz y su token KOZ asociado, aplicaciones y servicios. Al usar nuestra plataforma, aceptas estos términos."
+            },
+            "token": {
+                "title": "2. Token KOZ",
+                "content": "El token KOZ es un token utilitario que sirve para múltiples propósitos dentro del ecosistema Politikoz:",
+                "points": {
+                    "utility": "Acceso a la plataforma y desbloqueo de funciones",
+                    "governance": "Participación en decisiones de gobernanza",
+                    "rewards": "Obtención de recompensas a través de actividades en la plataforma"
+                }
+            },
+            "disclaimers": {
+                "title": "3. Descargos de Responsabilidad",
+                "content": "Los tokens KOZ son tokens utilitarios destinados para uso dentro de la plataforma Politikoz. No son valores, inversiones ni instrumentos financieros. Los usuarios no deben esperar rendimientos financieros por mantener tokens KOZ."
+            },
+            "responsibilities": {
+                "title": "4. Responsabilidades del Usuario",
+                "points": {
+                    "compliance": "Los usuarios deben cumplir con todas las leyes y regulaciones aplicables en su jurisdicción",
+                    "security": "Los usuarios son responsables de mantener la seguridad de sus wallets y claves privadas",
+                    "conduct": "Los usuarios deben interactuar con la plataforma de buena fe y evitar cualquier actividad maliciosa"
+                }
+            },
+            "contact": {
+                "title": "5. Información de Contacto",
+                "content": "Para preguntas sobre estos términos, contáctanos a través de nuestros canales oficiales listados en el sitio web."
+            }
+        }
     },
     "InfoSection": {
-      "cardData": {
-        "prizes": {
-          "title": "+{amount} ADA MENSUALES",
-          "text": "Premios regulares"
+        "cardData": {
+            "prizes": {
+                "title": "PREMIOS MENSUALES",
+                "text": "Comenzando en 350 ADA 💎"
+            },
+            "freeEntries": {
+                "title": "ENTRADAS\nGRATIS",
+                "text": "Stakea o Participa 🤝"
+            },
+            "auditable": {
+                "title": "100% AUDITABLE",
+                "text": "Verificable por Todos 🔍"
+            },
+            "treasury": {
+                "title": "TESORERÍA 60k ADA",
+                "text": "A sortear en 6 🎯"
+            }
         },
-        "freeEntries": {
-          "title": "ENTRADAS GRATUITAS",
-          "text": "Únete sin costo"
-        },
-        "auditable": {
-          "title": "100% AUDITABLE",
-          "text": "Verificable por todos"
-        },
-        "treasury": {
-          "title": "+{treasury} ADA TESORO",
-          "text": "Siempre creciendo"
-        }
-      },
-      "learnMore": "Aprende más en Gitbook"
+        "learnMore": "Aprende más sobre Politikoz"
     },
-    "JoinPolitikozPaths": {
-  "buyPolitikoz": {
-    "header": "¡Asegura tu lugar: Compra ahora!",
-    "title": "Compra un Politikoz",
-    "description": "Al comprar un Politikoz, garantizas tu participación en los sorteos mensuales para siempre, con la oportunidad de ganar increíbles premios.",
-    "step1Title": "Compra un Politikoz",
-    "step1Text": "Compra uno o más Politikoz.",
-    "step2Title": "Crea tu partido",
-    "step2Text": "Registra tu partido político para una inscripción automática.",
-    "step3Title": "Aumenta tus posibilidades",
-    "step3Text": "Más Politikoz significa más posibilidades de ganar.",
-    "button": "Compra ahora"
-  },
-  "buyKoz": {
-    "header": "Obtén tus tokens KOZ: ¡Intercambia ahora!",
-    "title": "Obtén tokens KOZ",
-    "description": "Los tokens KOZ te dan acceso a las funcionalidades de la plataforma y poder de voto en nuestro futuro DAO, moldeando el futuro de la plataforma.",
-    "step1Title": "Conecta tu billetera",
-    "step1Text": "Conecta tu billetera para comenzar.",
-    "step2Title": "Intercambia ADA por KOZ",
-    "step2Text": "Intercambia ADA por tokens KOZ.",
-    "step3Title": "Obtén boletos",
-    "step3Text": "Usa tokens KOZ para participar en los sorteos electorales.",
-    "button": "Intercambia ahora"
-  },
-  "engageAndEarn": {
-    "header": "Sin costo, sin riesgo: ¡Únete gratis!",
-    "title": "Participa y gana",
-    "description": "Únete a nuestra comunidad para ganar tokens KOZ y canjéalos por participaciones gratuitas en los sorteos mensuales.",
-    "step1Title": "Conecta tus redes sociales",
-    "step1Text": "Conecta X y Discord a nuestra plataforma.",
-    "step2Title": "Gana tokens KOZ",
-    "step2Text": "Interactúa para ganar tokens KOZ como recompensa.",
-    "step3Title": "Canjea por participaciones",
-    "step3Text": "Usa tokens KOZ para participar en los sorteos mensuales.",
-    "button": "Únete ahora"
-  },
-  "stakeAndWin": {
-    "header": "Sin costo, sin riesgo: ¡Únete gratis!",
-    "title": "Haz Stake y Gana",
-    "description": "Haz stake con tu ADA en nuestra plataforma y gana boletos para los sorteos mensuales mientras sigues recibiendo tus recompensas regulares de ADA.",
-    "step1Title": "Conecta tu billetera",
-    "step1Text": "Empieza conectando tu billetera a nuestra plataforma.",
-    "step2Title": "Haz Stake con ADA",
-    "step2Text": "Haz stake con tu ADA en nuestro pool de staking PLKOZ.",
-    "step3Title": "Obtén participaciones gratuitas",
-    "step3Text": "Cuantos más ADA hagas stake, más participaciones gratuitas obtendrás para los sorteos.",
-    "button": "Haz Stake ahora"
-  },
-  "topBanner": {
-    "text": "ÚNETE AL MUNDO DE KOZ AHORA. COLECCIONA, INTERCAMBIA Y GANA ADA."
-  }
-}
-,
+    "ElectionDashboard": {
+        "nextElection": "Próxima Elección",
+        "lastElection": "Resultados Última Elección",
+        "totalPrize": "Pozo Total de Premios",
+        "month": "Resultados de {month}",
+        "days": "DÍAS",
+        "hours": "HORAS",
+        "minutes": "MINS",
+        "seconds": "SEGS"
+    },
     "Footer": {
-      "links": {
-        "home": "Inicio",
-    "team": "Equipo",
-    "stake": "Haz Stake con Nosotros",
-    "treasury": "Tesorería",
-    "terms": "Términos de Uso",
-    "privacy": "Política de Privacidad"
-      },
-      "joinCommunity": "¡Únete a nuestra comunidad!",
-      "copyright": "Copyright © {year}. Todos los derechos reservados."
+        "links": {
+            "home": "Inicio",
+            "team": "Equipo",
+            "stake": "Stakea con Nosotros",
+            "treasury": "Tesorería",
+            "terms": "Términos de Uso",
+            "privacy": "Política de Privacidad"
+        },
+        "joinCommunity": "¡Únete a nuestra comunidad!",
+        "copyright": "Copyright © {year}. Todos los derechos reservados."
     },
     "Support": {
-      "formTitle": "Soporte",
-      "nameLabel": "Tu Nombre",
-      "namePlaceholder": "Introduce tu nombre",
-      "emailLabel": "Dirección de Correo",
-      "emailPlaceholder": "Introduce tu correo",
-      "messageLabel": "Mensaje",
-      "messagePlaceholder": "¿Cómo podemos ayudarte?",
-      "attachmentsLabel": "Adjuntos",
-      "sending": "Enviando...",
-      "send": "Enviar",
-      "successMessage": "¡Tu mensaje ha sido enviado con éxito!",
-      "errorMessage": "Error al enviar el mensaje. Por favor, inténtalo de nuevo.",
-      "unexpectedError": "Ha ocurrido un error inesperado."
+        "formTitle": "Soporte",
+        "nameLabel": "Tu Nombre",
+        "namePlaceholder": "Ingresa tu nombre",
+        "emailLabel": "Correo Electrónico",
+        "emailPlaceholder": "Ingresa tu correo electrónico",
+        "messageLabel": "Mensaje",
+        "messagePlaceholder": "¿Cómo podemos ayudarte?",
+        "attachmentsLabel": "Adjuntos",
+        "sending": "Enviando...",
+        "send": "Enviar",
+        "successMessage": "¡Tu mensaje ha sido enviado exitosamente!",
+        "errorMessage": "Error al enviar el mensaje. Por favor, intenta de nuevo.",
+        "unexpectedError": "Ha ocurrido un error inesperado."
+    },
+    "Explore": {
+        "ActiveListing": {
+            "title": "En Venta",
+            "price": "Precio: {price}"
+        },
+        "BuyPolitikoz": {
+            "title": "¡Pon un Politikoz en tu bolsillo!",
+            "description": "Por cada Politikoz que compres, recibirás <highlight>10 tickets GRATIS</highlight> para aumentar tus posibilidades en futuros sorteos de premios!",
+            "cta": "Comprar en JPG.Store"
+        },
+        "ExploreIntro": {
+            "title": "Descubre Politikoz",
+            "text1": "Una colección de 10.000 NFTs únicos en 8 clases políticas. Cada Politikoz tiene un identificador único, que sirve como tu entrada eterna a nuestros sorteos mensuales de premios.",
+            "text2": "¡No pierdas la oportunidad de unirte a la diversión, ser dueño de un Politikoz y ganar premios increíbles!",
+            "floor": "Precio Mínimo: {price}",
+            "cta": "Comprar en JPG.Store"
+        },
+        "GrowingCommunity": {
+            "title": "Comunidad en Crecimiento",
+            "total": "¡Únete a nuestra creciente comunidad de {total} poseedores de Politikoz!",
+            "social": "Con {x} seguidores en X y {discord} miembros en Discord, la comunidad sigue prosperando—¡únete hoy y gana tokens KOZ mientras participas!",
+            "chartTitle": "Distribución de Poseedores"
+        },
+        "Trades": {
+            "title": "Intercambios Recientes",
+            "price": "Precio: {price}",
+            "buyer": "Comprador",
+            "seller": "Vendedor"
+        }
+    },
+    "ConnectToKoz": {
+        "connectTo": "Conectar al<br />Mundo de KOZ",
+        "continueWith": "o continuar con",
+        "backTo": "Volver a {page}",
+        "connect": "Conectar",
+        "LogoutModal": {
+            "title": "Confirmar Cierre de Sesión",
+            "message": "¿Estás seguro de que quieres desconectarte?",
+            "cancel": "Cancelar",
+            "disconnect": "Desconectar",
+            "wait": "Espera {seconds}s"
+        },
+        "connectError": "Error al conectar con {wallet}. Por favor, intenta de nuevo.",
+        "disconnect": "Desconectar",
+        "downloadWallet": "Descargar Wallet",
+        "wallet": "Wallet",
+        "noAddress": "No se Encontró Dirección",
+        "agreeToTerms": "Al continuar, aceptas nuestros <termsLink>Términos de Uso</termsLink> y nuestra <privacyLink>Política de Privacidad</privacyLink>."
+    },
+    "AuthError": {
+        "title": "Fallo de Autenticación",
+        "message": "No se pudo autenticar: {error}",
+        "ok": "Aceptar",
+        "errors": {
+            "unknown": "Ocurrió un error inesperado",
+            "walletNotConnected": "Por favor, conecta tu wallet primero"
+        }
+    },
+    "AutoLink": {
+        "Config": {
+            "title": "Configuración de Auto Link",
+            "description": "La función Auto Link te permite distribuir automáticamente tus tickets según configuraciones predefinidas antes de cada elección. Esto asegura que tus tickets se asignen eficientemente sin intervención manual. Ajusta la distribución según tu estrategia y deja que el sistema maneje la asignación por ti.",
+            "linkToSpecificPolitikoz": "Vincular a un Politikoz Específico",
+            "distributeToRandomPolitikoz": "Distribuir a Politikoz Aleatorio",
+            "linkToMyParty": "Vincular a Mi Partido",
+            "distributeAmongParties": "Distribuir Entre Partidos",
+            "configuredAutoLinks": "Auto Links Configurados"
+        },
+        "DeleteConfirm": {
+            "title": "Confirmar Eliminación",
+            "message": "¿Estás seguro de que quieres eliminar esta configuración de {type} {id}?",
+            "cancel": "Cancelar",
+            "confirm": "Eliminar",
+            "deleting": "Eliminando...",
+            "deletingMessage": "Eliminando configuración, por favor espera...",
+            "type": {
+                "party": "partido",
+                "politikoz": "politikoz",
+                "random": "distribución aleatoria"
+            },
+            "random": "configuración"
+        },
+        "Distribution": {
+            "frontmanDescription": "Asigna tickets entre FRONTMAN estándar y FRONTMAN SOLO ELECCIÓN IMPULSADA. La versión impulsada solo se usará en elecciones con recompensas aumentadas. La asignación combinada no puede exceder el 100%.",
+            "combinedFrontman": "Total Combinado",
+            "otherConfigs": "Otras configs",
+            "thisConfig": "Esta config",
+            "available": "Disponible"
+        },
+        "List": {
+            "empty": "No hay configuraciones añadidas.",
+            "politikozLabel": "Politikoz #{id}",
+            "partyLabel": "Partido {id}",
+            "randomLabel": "Aleatorio",
+            "delete": "Eliminar"
+        },
+        "ModalParties": {
+            "title": "Distribuir Entre Partidos",
+            "selectPlaceholder": "Seleccionar un Partido",
+            "selectedTitle": "Partidos Seleccionados",
+            "cancel": "Cancelar",
+            "save": "Guardar"
+        },
+        "ModalRandom": {
+            "title": "Configurar Distribución Aleatoria",
+            "description": "Configura el porcentaje de tickets que se distribuirán automáticamente a Politikoz aleatorios antes de cada elección. Esto asegura que tus tickets no asignados siempre se utilicen.",
+            "save": "Guardar",
+            "cancel": "Cancelar"
+        },
+        "ModalParty": {
+            "title": "Configurar Distribución del Partido",
+            "description": "Configura el porcentaje de tickets que se distribuirán automáticamente a los miembros de tu partido antes de cada elección. Esto te permite apoyar a los Politikoz de tu partido y aumentar sus posibilidades de ganar, fortaleciendo la posición de tu partido en la carrera electoral.",
+            "save": "Guardar",
+            "cancel": "Cancelar"
+        },
+        "ModalPolitikoz": {
+            "title": "Vincular a Politikoz Específico",
+            "description": "Configura la distribución porcentual para Politikoz específicos. El porcentaje seleccionado se distribuirá equitativamente entre todos los Politikoz seleccionados. Solo puedes añadir porcentajes - para reducir, elimina la configuración.",
+            "selectedTitle": "Politikoz Seleccionados",
+            "noneSelected": "No hay Politikoz seleccionados.",
+            "save": "Guardar",
+            "cancel": "Cancelar"
+        },
+        "Progress": {
+            "title": "Porcentaje Total Asignado"
+        }
+    },
+    "BuyTicket": {
+        "ticketTransactionSuccessButApiError": "Tu transacción de compra de tickets fue exitosa pero no se registró en nuestro sistema. Por favor, reporta esto a través de nuestro Discord o Soporte con tu hash de transacción.",
+        "title": "Comprar Tickets",
+        "ticketsAddedSoon": "Tus tickets se añadirán a tu cuenta en breve (máx. 10 minutos).",
+        "date": "Fecha",
+        "pricePerTicket": "Precio por ticket:",
+        "yourBalance": "Tu saldo:",
+        "enterTicketAmount": "Ingresa número de tickets",
+        "tickets": "tickets",
+        "processing": "Procesando...",
+        "buyButton": "Comprar {amount} {amount, plural, one {Ticket} other {Tickets}}",
+        "historyTitle": "Historial de Compras",
+        "viewHistory": "Ver Historial",
+        "noHistory": "Sin historial de compras",
+        "perTicketFeeInfo": "Tarifa de servicio: + {fee} ADA por ticket",
+        "cancel": "Cancelar",
+        "connectWalletFirst": "Por favor, conecta primero tu wallet",
+        "serviceFeeInfo": "(+{fee} ADA tarifa de servicio por ticket)",
+        "minimumFeeInfo": "Tarifa mínima de servicio 2.5 ADA (incluye 3 tickets GRATIS)",
+        "minimumFeeTooltip": "Los primeros 2.5 ADA cubren hasta 25 tickets e incluyen 3 tickets GRATIS. Después, +0.1 ADA por ticket adicional.",
+        "history": {
+            "amount": "Cantidad",
+            "transaction": "Transacción",
+            "status": "Estado",
+            "action": "Acción",
+            "ticketAmount": "{amount} Ticket(s)",
+            "kozAmount": "{amount} KOZ",
+            "validating": "Validando",
+            "completed": "Completado",
+            "failed": "Fallido",
+            "cancel": "Cancelar"
+        },
+        "transactionDetails": {
+            "title": "Detalles de la Transacción",
+            "willReceive": "Recibirás:",
+            "tickets": "Tickets",
+            "freeTicketShort": " tickets GRATIS",
+            "kozAmount": "Cantidad KOZ:",
+            "minimumFee": "Tarifa Mínima:",
+            "additionalFee": "Tarifa Adicional:",
+            "networkFee": "Tarifa de Red (est.):",
+            "totalKoz": "Total KOZ Requerido:",
+            "totalAda": "Total ADA Requerido:",
+            "transactionId": "ID de Transacción"
+        },
+        "status": {
+            "processing": "Procesando compra...",
+            "completed": "¡Compra completada!",
+            "failed": "Compra fallida",
+            "default": "Procesando...",
+            "pending": "Pendiente",
+            "cancelled": "Cancelada"
+        },
+        "errors": {
+            "maxTicketsExceeded": "Máximo {max} tickets permitidos",
+            "insufficientBalance": "Saldo KOZ insuficiente"
+        }
+    },
+    "ClaimKoz": {
+        "title": "Reclamar Recompensas KOZ",
+        "description": "Reclama tus tokens KOZ disponibles acumulados a través de las actividades de la plataforma.",
+        "totalAvailable": "Total Disponible para Reclamar",
+        "claimNow": "Reclamar Ahora",
+        "availableRewards": "Recompensas Disponibles",
+        "claimHistory": "Historial de Reclamos",
+        "claimSummary": "Resumen de Reclamo",
+        "totalClaim": "Reclamo Total",
+        "fee": "Tarifa",
+        "destination": "Dirección de Destino",
+        "cancel": "Cancelar",
+        "confirm": "Confirmar Reclamo"
+    },
+    "ElectionInfo": {
+        "executed": "Ejecutado el",
+        "title": "Resumen de la Elección",
+        "prizeTitle": "Premio de la Elección",
+        "totalPrize": "Premio Total",
+        "politikoz": "Politikoz",
+        "tickets": "Tickets",
+        "politikozBreakdown": "Desglose de Premios Politikoz",
+        "ticketsBreakdown": "Desglose de Premios Tickets",
+        "roadmapTitle": "Olas Electorales - Hoja de Ruta",
+        "drawTitle": "Resultados del Sorteo de la Ola",
+        "waveLabel": "Ola {number}",
+        "modalTitle": "Detalles de la Ola {number}",
+        "modalDate": "Fecha",
+        "modalClose": "Cerrar",
+        "elected": "elegido",
+        "winner": "ganador",
+        "winners": "ganadores",
+        "prizePerWinner": "Premio por ganador",
+        "totalForRole": "Total por rol",
+        "totalForType": "Total por tipo",
+        "modalExecutedAt": "Ejecutado el",
+        "modalDetails": "Detalles de la Transacción",
+        "modalEpoch": "Época del Bloque",
+        "modalHeight": "Altura del Bloque",
+        "modalStaminaDecrease": "Disminución de Stamina",
+        "modalMinStamina": "Stamina Mínima",
+        "modalDrawPrecision": "Precisión del Sorteo",
+        "modalFeePrecision": "Precisión de Tarifa",
+        "modalNumbersToDraw": "Números a Sortear",
+        "modalBonus": "Bonus por Ranking Superior",
+        "modalBaseVote": "Voto Base",
+        "modalBlockFee": "Tarifa del Bloque",
+        "modalBlockOutput": "Salida del Bloque",
+        "modalTurn": "Turno de Elección",
+        "noDrawsYet": "Aún no hay sorteos",
+        "firstTurn": "PRIMER TURNO",
+        "secondTurn": "SEGUNDO TURNO",
+        "electionEnd": "FIN DE LA ELECCIÓN"
+    },
+    "ElectionResult": {
+        "map": "Mapa Electoral",
+        "candidates": "Candidatos Usuario",
+        "grid": "Vista Cuadrícula",
+        "table": "Vista Tabla",
+        "tree": "Árbol de Ganadores",
+        "roleDistribution": "Distribución de Roles de Candidatos",
+        "noDataAvailable": "No hay datos disponibles",
+        "totalCandidates": "Total Candidatos: {count}",
+        "totalTickets": "Total Tickets: {count}",
+        "chart": "Distribución",
+        "errorLoadingChart": "Error al cargar datos del gráfico",
+        "earningsEstimate": "Estimación de Ganancias",
+        "legend": "Leyenda",
+        "tableTitle": "Tabla de Politikoz y Tickets",
+        "filterAllRoles": "Todos los Roles",
+        "filterWinning": "🏆 Ganando",
+        "filterNoStamina": "⚡ Sin Stamina",
+        "filterUserOwned": "👤 Propios del Usuario",
+        "status": "Estado",
+        "politikoz": "Politikoz",
+        "role": "Rol",
+        "place": "Lugar",
+        "earnings": "Ganancias",
+        "prev": "◀ Anterior",
+        "next": "Siguiente ▶",
+        "page": "Página {current} de {total}",
+        "politikozOverview": "Resumen de Politikoz",
+        "groupWinning": "🏆 Posición Ganadora (si la elección terminara ahora)",
+        "groupOutOfStamina": "⚠️ Posición Ganadora (si la elección terminara ahora) - Sin Stamina para la Siguiente Ola",
+        "groupLosing": "❌ Posición Perdedora",
+        "earningsDisplay": "Ganancias: ${amount}",
+        "noPoliticians": "No hay políticos en esta categoría",
+        "senateTitle": "Ganadores de la Elección - Senado",
+        "title": "Resultados de la Elección",
+        "legendWinning": "Posición Ganadora (si se mantiene)",
+        "legendLosing": "Posición Perdedora",
+        "legendPositionsToVictory": "Posiciones para la victoria",
+        "noData": "No hay datos disponibles.",
+        "candidateVotes": "Votos",
+        "candidateLabel": "Candidato {index} / {total}",
+        "btnBack": "Atrás",
+        "btnNext": "Siguiente"
+    },
+    "GovernanceSettings": {
+        "title": "Configuración de Gobernanza",
+        "loading": "Cargando reglas...",
+        "ticketBoostTitle": "Configuración de Impulso de Tickets",
+        "ticketBoostDescription": "Cada tipo de ticket tiene un efecto único de impulso de poder. Cuando se vincula a un Politikoz, mejora sus capacidades de voto, aumentando sus posibilidades de ganar elecciones.",
+        "ticketBoostValue": "{value}%",
+        "votingPowerTitle": "Resumen de Poder de Voto",
+        "votingPowerDescription": "Tu poder de voto se basa en la cantidad de tokens KOZ que posees. En futuras actualizaciones, este poder se utilizará para votar cambios en la configuración de gobernanza.",
+        "votingPowerTotal": "Poder de Voto Total",
+        "votingPowerUsed": "Usado",
+        "votingPowerRemaining": "Restante",
+        "votingPowerUsedFormatted": "{used} ({percent}%)",
+        "votingPowerRemainingFormatted": "{remaining} ({percent}%)",
+
+        "potShareTitle": "Parte del Bote por Elección",
+        "potShareDescription": "Esta configuración define la porción del bote electoral que se distribuirá en cada ronda de elección.",
+        "potShareTotal": "Total ADA distribuido por elección:",
+        "potShareTreasury": "Saldo Actual de Tesorería:",
+
+        "electionPotTitle": "Distribución del Bote Electoral",
+        "electionPotDescription": "Esta sección define cómo se distribuye el Bote Electoral entre las posiciones electas y roles de tickets. Cada categoría recibe un porcentaje del bote total, que corresponde a un valor específico de ADA por elección.",
+
+        "ticketLimitsTitle": "Límites de Tickets",
+        "ticketLimitsDescription": "Estos límites definen el rango mínimo y máximo de ADA en el que el motor de equilibrado puede trabajar para determinar cuánto stake se necesita para ganar 1 ticket de cada tipo. Según las condiciones de staking, el motor elige un valor dentro de este rango. Por ejemplo, si el motor elige 2000 ADA para Corrupt, un delegador con 5000 ADA obtiene 2 tickets Corrupt. El stake restante pasa al siguiente tipo: Lobbyist → Briber → Launderer, continuando hasta que no se pueda asignar ningún ticket.",
+        "ticketLimitsNextRebalance": "Próximo reequilibrio en época: {epoch}",
+        "ticketLimitsMin": "Valor mínimo: {amount} ADA",
+        "ticketLimitsMax": "Valor máximo: {amount} ADA",
+        "ticketLimitsCurrent": "Valor actual seleccionado por el motor: {amount} ADA",
+
+        "otherSettingsTitle": "Otras Configuraciones Electorales",
+        "intervalTitle": "Intervalo de Elección",
+        "intervalDescription": "Define el intervalo necesario para la próxima elección. Si se establece en 1, ocurrirá una elección cada época.",
+        "intervalEvery": "Cada {epochs} época(s)",
+        "luckTitle": "Precisión del Número de Suerte",
+        "luckDescription": "Determina el número de dígitos que un usuario debe elegir como número de suerte asignado a cada Politikoz.",
+        "luckDigits": "{count} dígito(s)",
+        "jailTitle": "Precisión del Número de Cárcel",
+        "jailDescription": "Define el porcentaje de probabilidad de que un Politikoz sea enviado a la cárcel después de ser elegido.",
+        "jailChance": "{percent}% de probabilidad",
+        "bailTitle": "Fianza por Época",
+        "bailDescription": "Define el costo (en KOZ) a pagar por época sentenciada para salir de la cárcel antes de que termine el período de sentencia aleatorio.",
+        "bailValue": "{amount} KOZ por época",
+        "bestDayTitle": "Mejor Día para Empezar",
+        "bestDayDescription": "Define el día preferido de la semana para comenzar un nuevo ciclo electoral.",
+
+        "waveSettingsTitle": "Olas Electorales",
+        "waveSettingsDescription": "Cada ola representa una etapa en el proceso electoral con reglas específicas como precisión numérica, bonificaciones, requisitos de stamina e intervalos de tiempo antes de la ejecución.",
+        "numbersToBeDrawn": "Números a Sortear",
+        "numbersDrawnPrecision": "Precisión de Números",
+        "numberFeePrecision": "Precisión de Tarifa",
+        "percentBonusTicket": "Bonus de Ticket (%)",
+        "percentBonusTopRanking": "Bonus de Ranking Superior (%)",
+        "decreaseInStamina": "Disminución de Stamina",
+        "minimumStamina": "Stamina Mínima Requerida",
+        "waitInMinutesBeforeExecute": "Tiempo de Espera Antes de Ejecución (minutos)",
+
+        "politikozTitle": "Politikoz Electos",
+        "politikozDescription": "Define cuántos Politikoz de cada rol serán elegidos en cada elección y calcula la parte de ADA por rol electo según la configuración de distribución.",
+        "electedLabel": "Electos: {count}",
+        "perElectedLabel": "ADA por electo: {amount} ADA",
+
+        "ticketTitle": "Tickets Electos",
+        "ticketDescription": "Define el número de roles basados en tickets que serán elegidos en cada elección y calcula la parte de ADA por ticket electo según la configuración de distribución.",
+        "ticketElectedLabel": "Electos: {count}",
+        "ticketAdaLabel": "ADA por ticket: {amount} ADA"
+    },
+    "HallView": {
+        "tour": "Hacer un tour",
+        "tokenomics": "Tokenomics",
+        "treasury": "Bote de Tesorería",
+        "team": "Equipo",
+        "exit": "Salir",
+        "backToHall": "← Volver al Hall"
+    },
+    "IncomeOutcome": {
+        "title": "Ingresos y Gastos",
+        "incomeTitle": "Ingresos",
+        "outcomeTitle": "Gastos",
+        "monthIncomeTitle": "Este Mes - Ingresos",
+        "monthOutcomeTitle": "Este Mes - Gastos",
+        "yearIncomeTitle": "Últimos 12 Meses - Ingresos",
+        "yearOutcomeTitle": "Últimos 12 Meses - Gastos",
+        "noIncome": "Sin ingresos este mes",
+        "noOutcome": "Sin gastos este mes",
+        "summaryTitle": "Resumen (Últimos 12 Meses)",
+        "incomeSummary": "Ingresos: {amount} KOZ",
+        "outcomeSummary": "Gastos: {amount} KOZ",
+        "months": [
+            "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+            "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+        ]
+    },
+    "InsideBuilding": {
+        "hall": "VESTÍBULO",
+        "office": "OFICINA",
+        "laundry": "LAVANDERÍA",
+        "party": "PARTIDO",
+        "arcade": "SALA DE JUEGOS - PRÓXIMAMENTE",
+        "news": "NOTICIAS"
+    },
+    "LaundryView": {
+        "stakeWithPlkoz": "Stakear con PLKOZ",
+        "ticketCalculator": "Calculadora de Tickets",
+        "claimKoz": "Reclamar KOZ",
+        "comingSoon": "Próximamente",
+        "exit": "Salir",
+        "backToLaundry": "← Volver a Lavandería",
+        "connectWalletFirst": "Por favor, conecta primero tu wallet"
+    },
+    "NewsView": {
+        "joinDiscord": "Únete a Discord",
+        "followX": "Síguenos en X",
+        "socialTasks": "Tareas Sociales",
+        "discordRank": "Mi Rango Discord",
+        "distributionPolicy": "Política de Distribución",
+        "claimKoz": "Reclamar KOZ",
+        "exit": "Salir",
+        "comingSoon": "Próximamente",
+        "backToNews": "← Volver a Noticias"
+    },
+    "OfficeView": {
+        "incomeOutcome": "Ingresos/Gastos",
+        "audit": "Verificar Ticket",
+        "buyTickets": "Comprar Tickets",
+        "myTickets": "Mis Tickets",
+        "calendar": "Calendario",
+        "prizeInfo": "Info Premios",
+        "waveInfo": "Info Olas",
+        "electionResults": "Resultados Electorales",
+        "buyKoz": "Comprar KOZ",
+        "exit": "Salir",
+        "backToOffice": "← Volver a Oficina"
+    },
+    "CurrentSeasonPromo": {
+        "season": "TEMPORADA",
+        "seasonProgress": "Progreso de Temporada",
+        "seasonCompletedTitle": "¡TEMPORADA {season} COMPLETADA!",
+        "nextElectionAnnouncement": "¡Un FRONTMAN hará historia!",
+        "prepareMessage": "Prepárate para la próxima elección. Tu oportunidad de ser legendario.",
+        "prizePool": "Premio Impulsado",
+        "boostedPrize": "Premio Potenciado",
+        "earlyElection": "Elección Anticipada →",
+        "nextElection": "Próxima Elección",
+        "swapNow": "Obtener Tokens KOZ",
+        "completeSeasonMessage": "¡Completa esta temporada para activar una elección anticipada!"
+    },
+    "PartyView": {
+        "info": {
+            "rankColumn": "#",
+            "partyColumn": "Partido",
+            "winnersColumn": "Electos",
+            "percentageColumn": "%",
+            "rewardColumn": "Recompensa",
+            "treasuryPool": "FONDO DE TESORERÍA",
+            "treasuryNote": "Esta cantidad crece con cada compra de ticket durante la temporada actual",
+            "distributionMethod": "Las recompensas se distribuirán proporcionalmente al porcentaje de candidatos electos de cada partido cada temporada.",
+            "currentSeasonNote": "Las recompensas finales pueden variar hasta el final de la temporada",
+            "partyRanking": "Rendimiento del Partido",
+            "noRankingsAvailable": "Aún no hay clasificaciones disponibles",
+            "season": "TEMPORADA {seasonNumber}",
+            "partyRankingDescription": "Porcentaje de candidatos ganadores por partido",
+            "referralCode": "Código de Referido",
+            "copyCode": "Copiar código de referido",
+            "copied": "¡Copiado!",
+            "referralRanking": "Ranking de Referidos",
+            "referralCodeDescription": "¡Comparte tu código! ¡Cuando se use en intercambios KOZ, ambos reciben recompensas!",
+            "rankingDescription": "¡Los mejores referidores ganan recompensas KOZ cada temporada!",
+            "usesCount": "Usos",
+            "position": "Posición",
+            "you": "TÚ",
+            "youGet": "Lobbyists",
+            "theyGet": "Launderers",
+            "youReceive": "TÚ RECIBES",
+            "theyReceive": "ELLOS RECIBEN"
+        },
+        "backToParty": "← Volver al Partido",
+        "buttons": {
+            "myParty": "Mi Partido",
+            "createParty": "Crear Partido",
+            "myPolitikoz": "Mis Politikoz",
+            "campaignGame": "Juego de Campaña",
+            "governanceSettings": "Configuración de Gobernanza",
+            "exit": "Salir",
+            "comingSoon": "Próximamente",
+            "connectWallet": "Conectar Wallet Primero"
+        },
+        "create": {
+            "title": "Crear Partido",
+            "siglaLabel": "Acrónimo del Partido",
+            "creating": "Creando...",
+            "nameLabel": "Nombre del Partido",
+            "placeholderSigla": "XXXX",
+            "placeholderName": "Nombre del Partido",
+            "createButton": "Crear Partido",
+            "errorDefault": "Error al crear partido",
+            "errorHasParty": "Ya tienes un partido",
+            "typeLabel": "Tipo de Partido"
+        },
+        "flag": {
+            "tryAgain": "Intentar de Nuevo"
+        }
+    },
+    "JoinPolitikozTour": {
+        "title": "Toma Nuestro Tour Optimizado para el Presupuesto™",
+        "description": "¡Un tour rápido por Politikoz, impulsado por café y código cuestionable! Complétalo para girar nuestra ruleta de recompensas totalmente-no-amañada.",
+        "startTourButton": "Comenzar Tour Rápido",
+        "rewardLabel": "¡Tal vez Ganes ENTRADAS GRATIS!*",
+        "disclaimer": "*En realidad ganarás algo. Lo prometemos."
+    },
+    "Maintenance": {
+        "messages": {
+            "budgetReallocation": {
+                "title": "Presupuesto Reasignado",
+                "description": "Nuestro presupuesto del servidor fue misteriosamente asignado a un nuevo 'estudio de piscinas'. Actualmente investigamos por qué los delfines necesitan tratamientos de spa de lujo. ¡Volvemos pronto! 🏊‍♂️"
+            },
+            "coffeeCrisis": {
+                "title": "Pausa de Café de Emergencia",
+                "description": "Nuestros servidores están en huelga después de descubrir que su presupuesto de mantenimiento se gastó en pomos de oro para el departamento de TI. Estamos negociando con granos de café premium. ☕"
+            },
+            "secretMeeting": {
+                "title": "Reunión Secreta",
+                "description": "Sistemas temporalmente fuera de servicio mientras nuestros servidores asisten a un 'taller de degustación de quesos' obligatorio en Suiza. Afirman que es esencial para el rendimiento de la red. 🧀"
+            },
+            "budgetOptimization": {
+                "title": "Optimización de Presupuesto",
+                "description": "Nuestro proveedor de hosting descubrió que sus fondos fueron invertidos en un 'proyecto inmobiliario lunar'. Esperamos a la próxima luna llena para recuperar nuestros servicios. 🌕"
+            },
+            "investigation": {
+                "title": "Investigación Técnica",
+                "description": "Los servidores están participando en una audiencia del congreso sobre por qué necesitan iluminación RGB para mejor rendimiento. Esperamos volver después de la burocracia. 💼"
+            }
+        },
+        "disclaimer": "¡No te preocupes, solo bromeamos! Volveremos en línea pronto después de un mantenimiento rápido. 😉",
+        "retrying": "🤞 Intentando una Maniobra Política... 🤞",
+        "retryButtons": {
+            "bribeButton": "🤫 Intentar Sobornar al Servidor",
+            "blackmailButton": "📸 Chantajear con Fotos del Servidor",
+            "lobbyButton": "🤝 Hacer Lobby por Acceso al Sistema",
+            "negotiateButton": "💼 Negociar con Burócratas",
+            "pleadButton": "🙏 Acogerse a la Quinta y Reintentar"
+        }
+    },
+    "PolitikozProfile": {
+        "MarketListings": {
+            "title": "Disponible en Jpg.store",
+            "viewAllListings": "Ver todos los listados en JPG.store"
+        },
+        "errors": {
+            "release": "Error al liberar de prisión. Por favor, inténtalo de nuevo.",
+            "insufficientFunds": "Tokens KOZ insuficientes para la liberación.",
+            "transactionDeclined": "La transacción fue rechazada por el usuario.",
+            "walletNotConnected": "El wallet no está conectado.",
+            "transaction": "La transacción falló. Por favor, inténtalo de nuevo.",
+            "unexpected": "Ocurrió un error inesperado. Por favor, inténtalo de nuevo."
+        },
+        "releaseSuccess": "¡{name} liberado de prisión con éxito!",
+        "releaseAllSuccess": "¡{count} prisioneros liberados con éxito!",
+        "processing": "Procesando...",
+        "transactionDeclined": "Transacción rechazada",
+        "insufficientFunds": "Fondos insuficientes",
+        "walletNotConnected": "Wallet no conectado",
+        "insufficientAda": "ADA insuficiente para la tarifa de servicio",
+        "transactionFailed": "Error al procesar la transacción",
+        "prisonSentence": "Sentencia de Prisión",
+        "prisonersFromTab": "prisioneros",
+        "releaseAllInTab": "Liberar todos los prisioneros en la pestaña actual",
+        "epochSuffix": "época(s)",
+        "releaseCost": "Costo de Liberación",
+        "releaseDate": "Fecha de Liberación",
+        "luckyNumberChangeSuccess": "¡Número de la suerte actualizado con éxito!",
+        "luckyNumberChangeError": "Error al actualizar el número de la suerte",
+        "comingSoon": "Próximamente",
+        "history": "Historial",
+        "distribution": "DISTRIBUCIÓN",
+        "ticketsForJuly": "TICKETS PARA LA ELECCIÓN DE XXX",
+        "linkTickets": "Vincular Tickets",
+        "editLuckyNumber": "Editar Número de la Suerte",
+        "edit": "Editar",
+        "editForAllInTab": "Editar para todos en la pestaña actual",
+        "cancel": "Cancelar",
+        "confirm": "Confirmar",
+        "release": "Liberar",
+        "releaseTitle": "Liberación de Prisionero",
+        "releaseConfirmStart": "¿Quieres liberar a",
+        "releaseConfirmMiddle": "por",
+        "releaseConfirmAllStart": "¿Quieres liberar a todos",
+        "releaseConfirmAllMiddle": "prisioneros por",
+        "keepImprisoned": "Mantener Encarcelado",
+        "confirmBribe": "Sí, Pagar Soborno",
+        "releaseAllCheckbox": "Liberar todos los encarcelados",
+        "details": "DETALLES",
+        "tickets": "TICKETS",
+        "stamina": "Stamina",
+        "noPolitikozAvailable": "No tienes ningún Politikoz para esta categoría",
+        "previous": "Anterior",
+        "next": "Siguiente",
+        "restartList": "Reiniciar Lista",
+        "searchPlaceholder": "Buscar Politikoz...",
+        "power": "PODER",
+        "dirtyMoney": "Dinero Sucio",
+        "influence": "Influencia",
+        "cleanMoney": "Dinero Limpio",
+        "bribePower": "Poder de Soborno",
+        "scapegoats": "Chivos Expiatorios",
+        "addTickets": "AÑADIR TICKETS",
+        "corruptDesc": "Los políticos corruptos tuercen las reglas para beneficio personal.",
+        "lobbyistDesc": "Los cabilderos influyen en las políticas a puerta cerrada.",
+        "laundererDesc": "Los lavadores de dinero limpian el dinero sucio para el sistema.",
+        "briberDesc": "Los sobornadores usan el dinero para conseguir lo que quieren.",
+        "frontmenDesc": "Los testaferros se llevan la culpa mientras los verdaderos líderes se esconden.",
+        "close": "Cerrar"
+    },
+    "Stake": {
+        "stakeTitle": "Stakea con Politikoz",
+        "stakeDescription": "Stakea tus ADA con nuestro pool para ganar recompensas y apoyar el ecosistema Politikoz.",
+        "stakeNow": "Stakear Ahora",
+        "connectFirst": "Conecta el Wallet Primero",
+        "stakeError": "Error durante la delegación de stake",
+        "title": "Stakea tus ADA con PLKOZ",
+        "description": "Cuando te unes a nuestro pool PLKOZ, puedes ganar recompensas ADA como en cualquier otro pool. Además, recibirás tickets y tokens KOZ que te permiten participar en una lotería mensual con la oportunidad de ganar más ADA y aumentar aún más tus ganancias.",
+        "availableBalance": "Tu Saldo Disponible",
+        "estimatedTickets": "Tickets Estimados",
+        "connectToStart": "Conecta para Comenzar a Stakear",
+        "connectButtonLabel": "Conecta para Comenzar a Stakear",
+        "stakeButtonLabel": "Stakear Ahora",
+        "kozBonus": "Bonus KOZ",
+        "kozRewardsMessage": "Puedes reclamar hasta {amount} recompensas KOZ mediante reclamos mensuales",
+        "stakeSuccess": "¡Delegación de stake exitosa!",
+        "errors": {
+            "transactionDeclined": "La transacción fue rechazada por el usuario",
+            "signingCanceled": "La firma de la transacción fue cancelada",
+            "insufficientFunds": "Fondos insuficientes en tu wallet",
+            "insufficientFundsWithAmount": "Fondos insuficientes en tu wallet. Mínimo requerido: {amount} ADA",
+            "transactionFailed": "La transacción falló. Por favor, intenta de nuevo",
+            "unexpected": "Ocurrió un error inesperado. Por favor, intenta de nuevo",
+            "title": "Transacción Fallida"
+        },
+        "status": {
+            "staking": "Stakeando...",
+            "connectFirst": "Conecta el Wallet Primero",
+            "waitingSignature": "Esperando firma de transacción...",
+            "pleaseConfirm": "Por favor confirma en tu wallet para completar el staking"
+        },
+        "collateral": {
+            "amount": "+{amount} ADA de colateral",
+            "info": "Aprende sobre el colateral"
+        },
+        "collateralModal": {
+            "title": "¿Qué es el Colateral?",
+            "description": "El colateral es una pequeña cantidad de ADA (usualmente 5 ADA) que tu wallet mantiene separadamente. Es requerido para transacciones de contratos inteligentes en Cardano.",
+            "explanation": "Piensa en ello como un depósito de seguridad que asegura que las transacciones de contratos inteligentes funcionen correctamente. ¡No te preocupes - mantienes el control total de estos ADA!",
+            "walletInfo": "Tu wallet gestiona esto automáticamente por ti, y puedes recuperarlo en cualquier momento eliminando la configuración de colateral en tu wallet.",
+            "closeButton": "¡Entendido!"
+        }
+    },
+    "AuthModal": {
+        "title": "Verificar Wallet",
+        "description": "Por favor firma con tu wallet para continuar",
+        "walletPrompt": "Sin transacción ni tarifas - solo una firma",
+        "sessionInfo": "Válido por 1 hora antes de que se necesite otra firma"
+    },
+    "Swap": {
+        "title": "Intercambiar ADA → KOZ",
+        "rate": "Tasa fija:",
+        "available": "KOZ Disponible:",
+        "amountLabel": "Cantidad en KOZ",
+        "costLabel": "Costo:",
+        "swapButton": "Intercambiar Ahora",
+        "historyTitle": "Historial de Intercambios",
+        "noHistory": "No se encontró historial de intercambios",
+        "date": "Fecha",
+        "viewHistory": "Ver Historial de Intercambios",
+        "connectWallet": "Conectar Wallet",
+        "processing": "Procesando...",
+        "waitingForNextTier": "Esperando a que comience la próxima temporada",
+        "tierWillBeAvailable": "La Temporada {tier} estará disponible en:",
+        "timer": {
+            "days": "Días",
+            "hours": "Horas",
+            "minutes": "Minutos",
+            "seconds": "Segundos"
+        },
+        "transactionDetails": {
+            "title": "Detalles de la Transacción",
+            "willReceive": "Recibirás:",
+            "returnAmount": "+ {amount} ADA de retorno",
+            "swapAmount": "Cantidad a Intercambiar:",
+            "requiredReturn": "Cantidad de Retorno Requerida:",
+            "serviceFee": "Tarifa de Servicio:",
+            "networkFee": "Tarifa de Red (est.):",
+            "totalRequired": "Total Requerido:",
+            "returnMessage": "({amount} ADA serán retornados)",
+            "transactionId": "ID de Transacción",
+            "referralCode": "Código de Referido",
+            "optional": "Opcional",
+            "enterReferralCode": "Ingresa un código de referido si tienes uno",
+            "validate": "Validar",
+            "invalidReferralCode": "¡Este referido parece tan legítimo como una promesa de político! 🤥",
+            "referralValidationError": "Error al validar el código de referido",
+            "validReferralCode": "¡Recibirás 5 Tickets Launderer de bonus!",
+            "ownReferralCode": "+1.5 ADA de 'tarifa administrativa' añadida. Obtendrás 5 Tickets Briber, y la 'persona totalmente diferente' que posee este código recibe 3 Tickets Corrupt.",
+            "referralBribeCost": "+1.5 ADA de tarifa de soborno"
+        },
+        "history": {
+            "amount": "Cantidad",
+            "transaction": "Transacción",
+            "status": "Estado",
+            "action": "Acción",
+            "adaAmount": "{amount} ADA",
+            "kozAmount": "{amount} KOZ",
+            "pending": "Pendiente",
+            "completed": "Completado",
+            "failed": "Fallido",
+            "canceled": "Cancelado",
+            "cancel": "Reembolso",
+            "queued": "En Cola"
+        },
+        "messages": {
+            "swapQueued": "Tu intercambio ha sido puesto en cola para procesamiento",
+            "checkingWallet": "Verificando conexión del wallet...",
+            "swapButtonState": "Estado del botón de intercambio:",
+            "walletNotConnected": "Wallet no conectado",
+            "transactionInProgress": "Transacción en progreso",
+            "buttonEnabled": "Botón habilitado",
+            "connectionFailed": "Intento de conexión {attempt} fallido",
+            "validatingSwap": "Transacción enviada. Validación y aceptación en progreso - puedes cerrar esta ventana si quieres, el estado estará disponible en el historial de intercambios.",
+            "cancelingSwap": "Intercambio rechazado - iniciando proceso de cancelación para reembolsar el saldo del contrato. Puedes cerrar esta ventana si quieres, el estado estará disponible en el historial de intercambios."
+        },
+        "status": {
+            "connecting": "Verificando conexión del wallet...",
+            "signing": "Esperando firma...",
+            "submitting": "Enviando transacción...",
+            "processing": "Procesando intercambio...",
+            "accepting": "Aceptando intercambio...",
+            "cancelling": "Cancelando intercambio...",
+            "completed": "Completado",
+            "failed": "Fallido",
+            "default": "Procesando..."
+        },
+        "notes": {
+            "returnNote": "{amount} ADA serán retornados a tu wallet después del intercambio",
+            "networkNote": "La tarifa de red es aproximada y puede variar ligeramente"
+        },
+        "tiers": {
+            "allTiersCompleted": "¡Todas las Temporadas Completadas con Éxito!",
+            "waitForNextWave": "Gracias por tu participación. Una nueva ola de temporadas estará disponible pronto. ¡Mantente atento!",
+            "modalDescription": "¡Completa temporadas para potenciar la próxima elección! Cuando una temporada se llena, su premio BOOST se suma al bote del ticket Frontman, y la elección se mueve a la siguiente época de cardano - ¡haciendo al ganador aún más ganador, aún más pronto! 🏆",
+            "projectedTickets": "Tickets Proyectados",
+            "loading": "Cargando información de temporada...",
+            "currentTier": "Temporada Actual: {tier}",
+            "remaining": "restante",
+            "tierNumber": "Temporada {number}",
+            "supply": "Suministro: {amount} KOZ",
+            "kozPrice": "1 KOZ = {price} ADA",
+            "modalTitle": "Temporadas de Token KOZ",
+            "viewAllTiers": "Ver información de todas las temporadas",
+            "currentTierLabel": "Actual",
+            "ticketsLabel": "Tickets por temporada",
+            "adaPerTicketLabel": "ADA por ticket",
+            "prizeLabel": "Premio Boost Frontman",
+            "complete": "completo",
+            "clickToViewAllTiers": "Clic para ver todos los detalles de temporadas y premios",
+            "frontmanBoostLabel": "Premio Total Boost Frontman",
+            "nextElectionLabel": "La Próxima Elección Comenzaría",
+            "earlierByDays": "{days} días antes",
+            "earlyCompletionNote": "Si la temporada se completa hoy, la elección comienza antes",
+            "status": {
+                "PENDING": "Activa",
+                "WAIT": "En Espera",
+                "COMPLETED": "Completada"
+            }
+        },
+        "errors": {
+            "minimumKozRequired": "La cantidad mínima de intercambio es {amount} KOZ",
+            "cancelling": "Cancelando intercambio...",
+            "swapCancelled": "La transacción fue cancelada exitosamente",
+            "cancelFailed": "Error al cancelar la transacción. Por favor, contacta al soporte.",
+            "signatureDeclined": "La firma de la transacción fue rechazada. Por favor, intenta de nuevo si deseas proceder con el intercambio.",
+            "walletNotConnected": "Por favor, conecta tu wallet primero",
+            "invalidAmount": "Cantidad KOZ inválida",
+            "swapFailed": "Error al realizar el intercambio",
+            "insufficientBalance": "Saldo insuficiente",
+            "connectionInitFailed": "Error en la inicialización de la conexión",
+            "cancelSwapFailed": "Error al cancelar el intercambio",
+            "invalidReferralCode": "¡Código de referido inválido! El intercambio no puede proceder.",
+            "referralValidationFailed": "Error al validar el código de referido. Por favor, intenta de nuevo."
+        }
+    },
+    "Team": {
+        "title": "Conoce al Equipo",
+        "description": "Nuestro equipo apasionado y enfocado puede ser pequeño, pero estamos profundamente arraigados en el ecosistema Blockchain de Cardano. Como inversores de ADA desde 2019 y fundadores del proyecto NFT Politikoz en 2021, nuestra visión va más allá de los NFTs — aspiramos a entregar valor a largo plazo a nuestra comunidad.",
+        "uxui": "UX/UI y Pixel Art",
+        "uxuiDesc": "Diseño Pixel Art, UI/UX, Pruebas de Usuario.",
+        "fullstack": "Desarrollador Fullstack",
+        "fullstackDesc": "Backend (Java), Frontend (Next.js), Base de Datos PostgreSQL, Desarrollador AWS.",
+        "infra": "Infraestructura y Operaciones",
+        "infraDesc": "Gestión de Servidores, Operador de Stake Pool, Infraestructura, Pruebas de Sistema."
+    },
+    "TicketPolicy": {
+        "calculatorTitle": "Calculadora de Tickets",
+        "calculatorDescription": "Ingresa tu cantidad de staking para simular cuántos tickets recibirías por nivel y ver tu recompensa bonus en KOZ.",
+        "adaAmount": "Cantidad de Staking (ADA):",
+        "calculate": "Calcular",
+        "resultsTitle": "Resultados Simulados de Tickets",
+        "tickets": "tickets",
+        "bonusTitle": "Recompensa Bonus",
+        "bonusMessage": "Recibirás un bonus de {amount} KOZ, reclamable mensualmente.",
+        "stakeNow": "Stakear Ahora",
+        "monthly": "mensual",
+        "ticketRule": "Regla: 1 ticket cada {amount} ADA",
+        "exampleTitle": "Ejemplo de Distribución de Tickets",
+        "exampleIntro": "Supongamos que un delegador tiene 12,000 ADA stakeados:",
+        "exampleLine1": "Gana 2 tickets Corrupt (2 × 5000 = 10,000 ADA usados)",
+        "exampleLine2": "Restante: 2,000 ADA → No suficiente para 1 Lobbyist (requiere 3,000 ADA)",
+        "exampleLine3": "Pasa al siguiente nivel: 2 tickets Briber (2 × 1000)",
+        "exampleLine4": "Restante: 0 ADA → No se otorga ticket Launderer",
+        "exampleNote": "El sistema siempre sigue el orden: Corrupt → Lobbyist → Briber → Launderer y transfiere los ADA restantes.",
+        "policyExplanation": "Esta política define cuántos ADA se necesitan para ganar un ticket de cada tipo. El motor de distribución funciona en orden por niveles comenzando desde",
+        "policyRollover": " Cuando el stake de un delegador no es suficiente para el nivel actual, los ADA restantes se transfieren al siguiente.",
+        "nextRebalance": "Próximo Reequilibrio de Política de Tickets en época",
+        "titlePolicyView": "Política de Distribución de Tickets",
+        "loading": "Cargando política de tickets...",
+        "ticketsLabel": "Tickets"
+    },
+    "TicketProfile": {
+        "paymentMethod": "Método de Pago",
+        "yourBalance": "Tu Saldo: {balance} {currency}",
+        "tickets": "Tickets",
+        "amountInCurrency": "Cantidad en {currency}",
+        "pricePerTicket": "Precio por Ticket: {price} {currency}",
+        "buyButton": "Comprar Tickets",
+        "purchaseHistory": "Historial de Compras",
+        "ticketDescription": "Proporciona un impulso del {boostPercentage}% en votos para el Politikoz vinculado y tiene la oportunidad de ganar {adaReward} ADA si es elegido.",
+        "alert": "¡Compraste {count} tickets Frontman por {amount} {currency}!",
+        "linkTicketsTitle": "VINCULAR TICKETS",
+        "linkTicketsDescription": "Selecciona un ticket para vincular con tu cuenta.",
+        "linkTicketsClose": "CERRAR",
+        "previous": "Anterior",
+        "next": "Siguiente",
+        "dynamicTicket": "Proporciona un impulso del {boostPercentage}% en votos para el Politikoz vinculado y tiene la oportunidad de ganar {adaReward} ADA si es elegido.",
+        "next-race": "Uno o más tickets están listos para la próxima elección y ya han sido vinculados a un Politikoz.",
+        "on-the-race": "Uno o más tickets están participando actualmente en una elección. Si ganan, generarán recompensas ADA.",
+        "auto-link": "Esta configuración vincula automáticamente tus tickets disponibles a un Politikoz en cada ciclo electoral.",
+        "selectAll": "Seleccionar Todo",
+        "deselectAll": "Deseleccionar Todo",
+        "On the Race": "En Carrera",
+        "Next Race": "Listo para la Siguiente",
+        "Auto Link": "Vinculación Automática",
+        "distribution": "DISTRIBUCIÓN",
+        "changePolitikoz": "Cambiar Politikoz Vinculado",
+        "linkTicket": "Vincular Ticket para Próxima Elección",
+        "changeLuckyNumber": "Cambiar Número de la Suerte",
+        "luckyNumberChangeError": "Error al cambiar el número de la suerte. Por favor, intenta de nuevo.",
+        "luckyNumberChangeSuccess": "¡Número de la suerte cambiado exitosamente!",
+        "selectedTickets": "Tickets Seleccionados",
+        "cancel": "Cancelar",
+        "confirm": "Confirmar",
+        "myTickets": "Mis Tickets",
+        "noTickets": "No Hay Tickets Disponibles",
+        "select": "Seleccionar",
+        "role": "Rol",
+        "ticket": "Ticket",
+        "linkedPolitikoz": "Politikoz Vinculado",
+        "estimatedEarnings": "Ganancias Estimadas",
+        "singleUse": "Uso Único",
+        "yes": "Sí",
+        "no": "No",
+        "notAvailable": "N/D"
+    },
+    "Tokenomics": {
+        "title": "Conoce $KOZ",
+        "subtitle": "Una Moneda Utilitaria para Politikoz.io",
+        "overview": "El mundo de Koz tendrá un token utilitario con el único propósito de impulsar su economía interna, permitiendo la compra de elementos como partidos políticos y coaliciones de partidos, apuestas a favor o en contra de un Politikoz, y funciones similares que se anunciarán oportunamente.",
+        "description": "$KOZ es el token utilitario del ecosistema Politikoz.io, creado para impulsar las dinámicas internas de la plataforma. Sirve como activo funcional para interactuar con sistemas de gobernanza, acceder a características exclusivas y participar en mecanismos del juego, con su utilidad evolucionando continuamente a medida que se introducen nuevas funciones.",
+        "policyIdLabel": "ID de Política: ",
+        "totalSupplyLabel": "Suministro Total: ",
+        "transactionHistory": "Historial de Transacciones",
+        "mintBurnType": "Tipo",
+        "amount": "Cantidad",
+        "transactionId": "ID de Transacción",
+        "mint": "Creación",
+        "burn": "Quema",
+        "mintBurnHistory": "Historial de Creación/Quema",
+        "currentAllocationLabel": "Distribución Actual de Tokens",
+        "initialAllocationLabel": "Asignación Inicial de Tokens",
+        "walletAddressesTitle": "Direcciones de Token KOZ",
+        "tableHeaders": {
+            "category": "Categoría",
+            "amount": "Cantidad",
+            "notes": "Notas",
+            "walletAddress": "Dirección de Wallet"
+        },
+        "categories": {
+            "politikozHolderDrop": "Entrega a Poseedores de Politikoz",
+            "socialClaimTreasury": "Tesorería de Reclamos Sociales",
+            "liquidityReserve": "Reserva de Liquidez",
+            "coinMachine": "Máquina de Monedas",
+            "coreTeam": "Equipo Principal",
+            "advisors": "Asesores",
+            "politikozHolders": "Poseedores de Politikoz",
+            "liquidityForDex": "Liquidez para DEX",
+            "projectTreasury": "Tesorería del Proyecto",
+            "stakingRewards": "Recompensas de Staking",
+            "inCirculation": "En Circulación",
+            "muesliSwapDist": "Distribución MuesliSwap",
+            "vyfiDist": "Distribución VyFi",
+            "dripDropz": "DripDropz"
+        },
+        "notes": {
+            "holderDrop": "Distribución única para poseedores de NFT",
+            "socialClaims": "Para futuras campañas de airdrop vía X (Twitter), Discord, etc.",
+            "liquidity": "Para pares DEX y soporte de liquidez",
+            "coinMachine": "Mecanismo de reclamo/venta de tokens",
+            "projectTreasury": "Gobernanza, subvenciones, desarrollo del ecosistema",
+            "coreTeam": "Reservado, aún no distribuido",
+            "advisors": "Reservado para futura asignación a asesores"
+        }
+    },
+    "Treasury": {
+        "growthTitle": "Crecimiento de la Tesorería",
+        "historyTitle": "Historial de Tesorería",
+        "date": "Fecha",
+        "description": "Descripción",
+        "amount": "Cantidad",
+        "prev": "Anterior",
+        "next": "Siguiente",
+        "page": "Página",
+        "of": "de",
+        "overviewTitle": "Tesorería Electoral",
+        "overviewDescription": "La Tesorería es el fondo principal del proyecto Politikoz, usado para recompensar a los ganadores de elecciones y apoyar iniciativas del ecosistema. Se acumula principalmente a través de las recompensas generadas por nuestro Pool de Stake PLKOZ (Costo Fijo + Margen), que son donadas al 100% a la comunidad. Se integrarán fuentes de ingresos adicionales a la plataforma en el futuro."
+    },
+    "Audit": {
+        "howItWorks": "¿Cómo Aseguramos Elecciones Justas?",
+        "merkleExplanation": "¡Es nuestro árbol mágico! 🌳 Piensa en nuestro árbol de Merkle como una huella digital de todos los tickets válidos en la elección. Una vez que comienza la elección, esta huella se registra en la blockchain. Aunque técnicamente se podrían añadir nuevos tickets después del inicio, no serán parte de la huella del árbol. Esto significa que cualquier ticket añadido después de que comience la elección fallará en la verificación y será considerado inválido, asegurando la integridad electoral. 🔒✨",
+        "sourceMention": "Utilizamos el código del árbol de Merkle creado por",
+        "blockchainProof": "Huella del Árbol Mágico (Raíz)",
+        "validateTicket": "Verificar Si el Número de Ticket Estaba En la Caja",
+        "ticketPlaceholder": "Ingresa el número de ticket",
+        "validating": "Verificando...",
+        "validate": "Verificar",
+        "validTicket": "✅ ¡Sí! ¡Este número definitivamente estaba en la caja antes de que comenzara el sorteo!",
+        "invalidTicket": "❌ Lo siento, este número no estaba en la caja cuando comenzamos el sorteo",
+        "proofDetails": "Elemento de Prueba",
+        "ticketNumber": "Número de Ticket",
+        "selectElection": "Selecciona una elección para verificar",
+        "transactionLabel": "Raíz de Merkle almacenada en la transacción antes de que comenzara la elección"
     }
   }
-  
