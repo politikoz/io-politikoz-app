@@ -71,7 +71,6 @@ export default function ConnectWalletList() {
         })
       );
     } catch (error) {
-      console.error(`Failed to connect to ${walletName}:`, error);
       alert(t("connectError", { wallet: walletName }));
     }
   };

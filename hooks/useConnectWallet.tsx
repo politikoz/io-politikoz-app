@@ -38,8 +38,7 @@ export function useConnectWallet() {
       }
 
       return false;
-    } catch (error) {
-      console.error('Failed to connect wallet:', error);
+    } catch (error) {    
       return false;
     } finally {
       setIsConnecting(false);
@@ -55,9 +54,7 @@ export function useConnectWallet() {
 
       if (rewardAddress) {
         localStorage.setItem("stakeAddress", rewardAddress);
-        if (process.env.NODE_ENV === "development") {
-          console.log("Stored stake address:", rewardAddress);
-        }
+        
       }
     }
   }, [isConnected, name, rewardAddress]);
@@ -76,11 +73,7 @@ export function useConnectWallet() {
           const addresses = await wallet.getRewardAddresses();
           if (addresses && addresses[0]) {
             localStorage.setItem("stakeAddress", addresses[0]);
-            setRewardAddress(addresses[0]);
-            
-            if (process.env.NODE_ENV === "development") {
-              console.log("New stake address obtained:", addresses[0]);
-            }
+            setRewardAddress(addresses[0]);           
           }
         } catch (error) {
           console.error("Failed to get reward addresses:", error);
@@ -97,7 +90,6 @@ export function useConnectWallet() {
       const wasConnected = localStorage.getItem("connected") === "true";
       
       if (storedWalletName && wasConnected && !isConnected && !isConnecting) {
-        console.log("Attempting to reconnect to stored wallet:", storedWalletName);
         await connect(storedWalletName);
       }
     };
@@ -108,19 +100,16 @@ export function useConnectWallet() {
   useEffect(() => {
     if (meshConnected && wallet) {
       setIsConnected(true);
-      console.log('Wallet connected:', { name, meshConnected });
     } else if (!meshConnected && !localStorage.getItem("stakeAddress")) {
       // Só limpa se realmente não houver uma sessão válida
       setIsConnected(false);
       setAdaBalance(0);
       localStorage.removeItem("connected");
       localStorage.removeItem("walletName");
-      console.log('Wallet disconnected');
     }
   }, [meshConnected, wallet, name]);
 
   const handleDisconnect = () => {
-    console.log("Disconnecting wallet...");
     setIsConnected(false);
     setAdaBalance(0);
     meshDisconnect();

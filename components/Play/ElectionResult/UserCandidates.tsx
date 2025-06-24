@@ -31,10 +31,6 @@ export default function UserCandidates() {
   const [candidatesIndices, setCandidatesIndices] = useState<{ [key: string]: number }>({});
 
   useEffect(() => {
-    console.log('API Response:', response);
-  }, [response]);
-
-  useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth <= 768);
     checkMobile();
     window.addEventListener("resize", checkMobile);
@@ -58,7 +54,6 @@ export default function UserCandidates() {
   const getBackgroundColor = (role: string) => {
     const normalizedRole = role.toLowerCase();
     const roleColor = roleColors.find(t => t.name === normalizedRole);
-    console.log('Role:', role, 'NormalizedRole:', normalizedRole, 'Color:', roleColor?.color);
     return roleColor?.color || "#FF8281"; // fallback color
   };
 
@@ -67,14 +62,11 @@ export default function UserCandidates() {
 
   if (isLoading) return <div className="text-white text-center">Loading...</div>;
   if (error) {
-    console.error('Error loading candidates:', error);
     return <div className="text-red-500 text-center">{t("errorLoading")}</div>;
   }
   
-  console.log('Response data:', response);
 
   if (!response?.data || response.data.length === 0) {
-    console.log('No data available, response:', response);
     return <p className="text-white text-center">{t("noData")}</p>;
   }
 

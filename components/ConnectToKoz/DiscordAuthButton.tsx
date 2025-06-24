@@ -43,7 +43,6 @@ export default function DiscordAuthButton({
       setUser(null);
       setHasFetched(false);
       setIsModalOpen(false);
-      console.log("Usuário desconectado com sucesso.");
     } catch (error) {
       console.error("Erro ao desconectar:", error);
     }

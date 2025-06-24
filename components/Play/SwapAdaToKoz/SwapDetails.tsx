@@ -102,18 +102,13 @@ export default function SwapDetails({
             if (!stakeAddress) {
                 setReferralError(t("transactionDetails.referralValidationError"));
                 return;
-            }
-            
-            // Log para depuração (remova para produção)
-            console.log('Validando com stakeAddress:', stakeAddress);
+            }            
             
             // Chamar a validação com o stakeAddress
             const { valid, isOwner } = await validateReferralMutation.mutateAsync({
                 referralCode,
                 stakeAddress
             });
-
-            console.log('Validação concluída:', { valid, isOwner });
             
             if (valid) {
                 setValidReferral(true);

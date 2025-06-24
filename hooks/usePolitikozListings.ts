@@ -8,25 +8,13 @@ export function usePolitikozListings(tabName: string, quantity: number = 4) {
     queryKey: ['politikozListings', tabName, quantity],
     queryFn: async () => {
       try {
-        console.log('[usePolitikozListings] Fetching with params:', { 
-          cargo: tabName, 
-          quantity,
-          url: `/api/v1/party/listings?cargo=${tabName}&quantity=${quantity}`
-        });
 
         const response = await api.get<PolitikozListing[]>(
           `/api/v1/party/listings?cargo=${tabName}&quantity=${quantity}`
         );
 
-        console.log('[usePolitikozListings] API Response:', {
-          status: response.status,
-          data: response.data,
-          hasData: !!response.data?.length
-        });
-
         return response.data;
       } catch (error) {
-        console.error('[usePolitikozListings] API Error:', error);
         throw error; // Let the error propagate instead of returning empty array
       }
     },

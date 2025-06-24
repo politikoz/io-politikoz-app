@@ -118,10 +118,6 @@ const ElectoralMap: React.FC = () => {
       normalizeRoleName(item.name) === normalizedRoleKey
     );
     
-    // Log para depuração (pode remover depois)
-    console.log(`Comparando: ${roleKey} (${normalizedRoleKey}) com resultados da API`, 
-      matchingItem ? `Encontrado: ${matchingItem.name} com valor ${matchingItem.value}` : 'Não encontrado');
-    
     // Se encontrou, usar seus valores; caso contrário, criar um item com valor zero
     return matchingItem || {
       name: roleKey,

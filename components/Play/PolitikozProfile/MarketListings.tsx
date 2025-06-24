@@ -14,15 +14,6 @@ export default function MarketListings({ cargo }: MarketListingsProps) {
   const t = useTranslations('PolitikozProfile.MarketListings');
   const { data: listings, isLoading, error } = usePolitikozListings(cargo, 4); // Force 4 items
 
-  console.log('[MarketListings]', {
-    cargo,
-    hasListings: !!listings?.length,
-    listingsCount: listings?.length,
-    listings,
-    isLoading,
-    error
-  });
-
   if (!listings?.length) {
     return null;
   }

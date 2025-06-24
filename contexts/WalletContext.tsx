@@ -135,24 +135,20 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
       }
   
       const unregisteredKeys = await wallet.getUnregisteredPubStakeKeys();
-      const isStakeKeyRegistered = !(unregisteredKeys && unregisteredKeys.pubStakeKeys.length > 0);
-  
-      console.log('Stake status:', { isStakeKeyRegistered, unregisteredKeys });
+      const isStakeKeyRegistered = !(unregisteredKeys && unregisteredKeys.pubStakeKeys.length > 0); 
   
       const txBuilder = new MeshTxBuilder({
         fetcher: provider,
         verbose: true
       });
   
-      if (isStakeKeyRegistered) {
-        console.log('Delegating to pool...');
+      if (isStakeKeyRegistered) {   
         unsignedTx = await txBuilder
           .delegateStakeCertificate(rewardAddresses[0], poolId)
           .selectUtxosFrom(utxos)    
           .changeAddress(address)
           .complete();
       } else {
-        console.log('Registering stake key and delegating...');
         unsignedTx = await txBuilder
           .registerStakeCertificate(rewardAddresses[0])
           .delegateStakeCertificate(rewardAddresses[0], poolId)
@@ -298,7 +294,6 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
             };
         }
 
-        console.log('RESPONSE validator API:', data); // Debug log
 
         // If the swap was successfully queued
         if (data.success) {
@@ -350,7 +345,6 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
 
       while (!swapUtxo && attempts < maxAttempts) {
           try {
-              console.log(`Attempt ${attempts + 1}/${maxAttempts} to find UTxO for tx: ${txHash}`);
                                   
               // Then try through contract
               swapUtxo = await contract.getUtxoByTxHash(txHash);
@@ -375,18 +369,15 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
           throw new Error(`UTxO not found after ${maxAttempts} attempts. The transaction may still be processing or may not exist.`);
       }
 
-      // Create and sign cancellation transaction
-      console.log('Creating unsigned cancel transaction...');
+      // Create and sign cancellation transaction 
       const unsignedTx = await contract.cancelSwap(swapUtxo);
 
-      console.log('Signing cancel transaction...');
       const signedTx = await wallet.signTx(unsignedTx);
 
       if (!signedTx) {
           throw new Error('Failed to sign cancellation transaction');
       }
 
-      console.log('Submitting cancel transaction...');
       const cancelTxHash = await wallet.submitTx(signedTx);
 
       // Update swap status to CANCELED using the provided swapId
@@ -397,15 +388,7 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
           txHash: cancelTxHash
       };
 
-    } catch (error: any) {
-        console.error('Swap cancellation failed:', {
-            error,
-            code: error?.code,
-            info: error?.info,
-            message: error instanceof Error ? error.message : 'Unknown error',
-            originalTxHash: txHash,
-            timestamp: new Date().toISOString()
-        });
+    } catch (error: any) {        
 
         return {
             success: false,
@@ -470,7 +453,6 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
       };
 
     } catch (error: any) {
-      console.error('Buy tickets transaction failed:', error);
       return {
         success: false,
         error: error?.message || 'Failed to process transaction'
@@ -648,7 +630,6 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
       };
 
     } catch (error: any) {
-      console.error('Token minting failed:', error);
       return {
         success: false,
         error: error?.message || 'Failed to mint tokens'
@@ -662,7 +643,6 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
     try {
       const kozTokenId = process.env.NEXT_PUBLIC_KOZ_TOKEN_UNIT || '';
       if (!kozTokenId) {
-        console.warn('KOZ token ID not configured in environment variables');
         return 0;
       }
 
@@ -716,17 +696,14 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
     const syncWalletState = async () => {
       const storedWalletName = localStorage.getItem("walletName");
       
-      if (meshConnected && !isConnected && storedWalletName) {
-        console.log('Restoring wallet connection...');
+      if (meshConnected && !isConnected && storedWalletName) {    
         setIsConnected(true);
         setWalletName(storedWalletName);
         const balance = await getBalance();
-        await getKozBalance(); // Also get KOZ balance when restoring wallet
-        console.log('Wallet restored with balance:', balance);
+        await getKozBalance(); // Also get KOZ balance when restoring wallet    
       }
       
       if (!meshConnected && isConnected) {
-        console.log('Cleaning up disconnected wallet state');
         disconnect();
       }
     };

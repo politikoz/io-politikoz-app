@@ -44,8 +44,7 @@ const AutoLinkList: React.FC<Props> = ({ config, onDelete, isDeleting }) => {
 
     try {
       await onDelete(showDeleteConfirm.type, showDeleteConfirm.id);
-    } catch (error) {
-      console.error('Delete failed:', error);
+    } catch (error) {   
       setShowDeleteConfirm(prev => prev ? { ...prev, isDeleting: false } : null);
     } finally {
       // Aguarda um pequeno delay antes de fechar o modal

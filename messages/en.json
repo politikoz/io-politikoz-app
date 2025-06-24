@@ -799,6 +799,16 @@
       "title": "Available in Jpg.store",
       "viewAllListings": "View all listings in JPG.store" 
     },
+    "errors": {
+      "release": "Failed to release from prison. Please try again.",
+      "insufficientFunds": "Insufficient KOZ tokens for the release.",
+      "transactionDeclined": "Transaction was declined by the user.",
+      "walletNotConnected": "Wallet is not connected.",
+      "transaction": "Transaction failed. Please try again.",
+      "unexpected": "An unexpected error occurred. Please try again."      
+    },
+     "releaseSuccess": "Successfully released {name} from prison!",
+    "releaseAllSuccess": "Successfully released {count} prisoners!",
     "processing": "Processing...",
     "transactionDeclined": "Transaction was declined",
     "insufficientFunds": "Insufficient funds",

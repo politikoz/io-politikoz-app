@@ -119,12 +119,7 @@ export default function PolitikozProfileView() {
               <ProfileHeader
                 {...filteredPolitikoz[currentIndex]}
                 onRelease={(releaseAll) => {
-                  // Implement release logic here
-                  console.log("Release prisoner", releaseAll);
-                }}
-                handleLuckyChange={(newLucky) => {
-                  // Implement lucky number change logic here
-                  console.log("Change lucky number to", newLucky);
+              
                 }}
                 totalImprisoned={totalImprisoned}
                 politikozIds={filteredPolitikozIds}

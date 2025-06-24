@@ -25,8 +25,7 @@ export function useSwapHistory({ enabled = false }: UseSwapHistoryProps = {}) {
                 params: { stakeAddress }
             });
 
-            if (!Array.isArray(response.data)) {
-                console.error('Invalid response format:', response.data);
+            if (!Array.isArray(response.data)) {              
                 throw new Error('Invalid response format from server');
             }
 

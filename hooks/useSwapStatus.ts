@@ -15,8 +15,7 @@ export function useSwapStatus() {
             return true;
         } catch (err) {
             const message = err instanceof Error ? err.message : 'Failed to update swap status';
-            setError(message);
-            console.error('Failed to update swap status:', err);
+            setError(message);          
             return false;
         } finally {
             setIsUpdating(false);

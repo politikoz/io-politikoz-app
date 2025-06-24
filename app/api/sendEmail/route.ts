@@ -9,9 +9,7 @@ export const config = {
 };
 
 export async function POST(req: Request): Promise<Response> {
-  console.log("Rota /api/sendEmail acessada.");
-
-  const fields: Record<string, string> = {};
+    const fields: Record<string, string> = {};
   const attachments: { filename: string; content: Buffer }[] = [];
 
   try {
@@ -21,12 +19,10 @@ export async function POST(req: Request): Promise<Response> {
 
     return await new Promise((resolve, reject) => {
       busboy.on("field", (name, value) => {
-        console.log(`Campo recebido: ${name} = ${value}`);
         fields[name] = value;
       });
 
       busboy.on("file", (name, file, info: FileInfo) => {
-        console.log(`Arquivo recebido: ${info.filename}`);
         const chunks: Buffer[] = [];
 
         file.on("data", (data) => {
@@ -39,13 +35,10 @@ export async function POST(req: Request): Promise<Response> {
       });
 
       busboy.on("finish", async () => {
-        console.log("Finalizado o processamento dos dados.");
-        console.log("Campos:", fields);
 
         const { name, email, message } = fields;
 
         if (!name || !email || !message) {
-          console.error("Erro de validação: campos ausentes.");
           resolve(
             NextResponse.json({ error: "All fields are required" }, { status: 400 })
           );
@@ -62,8 +55,6 @@ export async function POST(req: Request): Promise<Response> {
               pass: process.env.EMAIL_PASS,
             },
           });
-
-          console.log("Tentando enviar e-mail...");
           await transporter.sendMail({
             from: `"${process.env.EMAIL_FROM_NAME}" <${process.env.EMAIL_USER}>`,
             to: process.env.EMAIL_TO,
@@ -72,10 +63,8 @@ export async function POST(req: Request): Promise<Response> {
             attachments,
           });
 
-          console.log("E-mail enviado com sucesso!");
           resolve(NextResponse.json({ success: "Email sent successfully!" }));
         } catch (error) {
-          console.error("Erro ao enviar e-mail:", error);
           resolve(
             NextResponse.json(
               { error: "Failed to send email. Please try again later." },
@@ -115,7 +104,6 @@ export async function POST(req: Request): Promise<Response> {
           })
         )
         .catch((error) => {
-          console.error("Erro no fluxo de processamento:", error);
           reject(
             NextResponse.json(
               { error: "Failed to process the request" },
@@ -125,7 +113,6 @@ export async function POST(req: Request): Promise<Response> {
         });
     });
   } catch (error) {
-    console.error("Erro ao processar a requisição:", error);
     return NextResponse.json(
       { error: "Failed to process the request" },
       { status: 500 }

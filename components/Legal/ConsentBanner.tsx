@@ -32,7 +32,8 @@ const ConsentBanner: React.FC = () => {
       window.localStorage.setItem(CONSENT_KEY, new Date().toISOString());
       setShowBanner(false);
     } catch (error) {
-      console.error("Error saving consent:", error);
+      // Silently fail if localStorage is not available
+      // Banner will show again on next page load
     }
   };
 

@@ -98,7 +98,7 @@ export default function PartyInfo({ party, referralRanking }: PartyInfoProps) {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000); // Reset after 2 seconds
     } catch (err) {
-      console.error('Failed to copy:', err);
+     setCopied(false);
     }
   };
 

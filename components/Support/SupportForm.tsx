@@ -58,8 +58,7 @@ const SupportForm: React.FC<SupportFormProps> = ({ onClose }) => {
       } else {
         setResponseMessage(result.error || t("errorMessage"));
       }
-    } catch (error) {
-      console.error("Error:", error);
+    } catch (error) {    
       setResponseMessage(t("unexpectedError"));
     } finally {
       setIsSubmitting(false);

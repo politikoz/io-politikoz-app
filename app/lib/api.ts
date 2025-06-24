@@ -51,37 +51,4 @@ api.interceptors.response.use(
     }
 );
 
-// Development logging
-if (process.env.NODE_ENV === 'development') {
-    api.interceptors.request.use(function (config) {
-        console.log('API Request:', {
-            url: config.url,
-            method: config.method,
-            headers: config.headers,
-            data: config.data,
-            params: config.params
-        });
-        return config;
-    });
-
-    api.interceptors.response.use(function (response) {
-        console.log('API Response:', {
-            status: response.status,
-            data: response.data
-        });
-        return response;
-    }, function (error) {
-        console.error('API Error:', {
-            status: error?.response?.status,
-            data: error?.response?.data,
-            config: {
-                url: error?.config?.url,
-                method: error?.config?.method,
-                headers: error?.config?.headers
-            }
-        });
-        return Promise.reject(error);
-    });
-}
-
 export default api;

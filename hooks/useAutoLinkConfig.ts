@@ -36,11 +36,6 @@ export function useAutoLinkConfig() {
       if (!stakeAddress) {
         throw new Error('No stake address found');
       }
-
-      console.log('Sending config to API:', {
-        stakeAddress,
-        config: updatedConfig
-      });
       
       const response = await api.put('/api/v1/office/tickets/config', {
         stakeAddress,
@@ -83,15 +78,12 @@ export function useAutoLinkConfig() {
     // Check session from cookie
     const session = getSession();
     if (!session?.jwt) {
-      console.error('[useAutoLinkConfig] No valid session found in cookie');
       throw new Error('Authentication required');
     }
     
     try {
-      console.log('[useAutoLinkConfig] Saving config with session:', !!session);
       return await updateConfigMutation.mutateAsync(newConfig);
     } catch (error: any) {
-      console.error('[useAutoLinkConfig] Error saving config:', error);
       throw error;
     }
   };
@@ -99,7 +91,6 @@ export function useAutoLinkConfig() {
   const handleDelete = async ({ entityType, entityId }: { entityType: 'party' | 'politikoz' | 'random', entityId: string }) => {
     const session = getSession();
     if (!session?.jwt) {
-      console.error('[useAutoLinkConfig] No valid session found in cookie');
       throw new Error('Authentication required');
     }
 

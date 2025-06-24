@@ -17,8 +17,7 @@ export function useCreateUser() {
     try {
       await createUserMutation.mutateAsync(stakeAddress);
       return true;
-    } catch (error) {
-      console.error('Failed to create user:', error);
+    } catch (error) {      
       return false;
     }
   };

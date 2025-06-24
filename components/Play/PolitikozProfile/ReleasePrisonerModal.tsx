@@ -4,6 +4,7 @@ import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { useWalletContext } from "@/contexts/WalletContext";
+import { useReleasePrisoner } from "@/hooks/useReleasePrisoner";
 
 interface ReleasePrisonerModalProps {
   isOpen: boolean;
@@ -14,7 +15,7 @@ interface ReleasePrisonerModalProps {
   prisonEpochs: number;
   totalPrisoners: number;
   totalReleaseCost: number;
-  assetNames: string[]; // Add this prop to receive all prisoner asset names
+  assetNames: string[];
 }
 
 export default function ReleasePrisonerModal({
@@ -30,54 +31,76 @@ export default function ReleasePrisonerModal({
 }: ReleasePrisonerModalProps) {
   const t = useTranslations("PolitikozProfile");
   const [releaseAll, setReleaseAll] = useState(false);
-  const { handleReleasePrisoner } = useWalletContext();
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
+  const { handleReleasePrisoner } = useWalletContext();
+  const { releasePrisoner, isReleasing } = useReleasePrisoner();
   const [error, setError] = useState<string | null>(null);
 
-  // Reset error when modal opens/closes
+  // Reset error and success message when modal opens/closes
   useEffect(() => {
     if (isOpen) {
       setError(null);
+      setSuccessMessage(null);
     }
   }, [isOpen]);
 
   const handleClose = () => {
     setError(null);
-    setIsProcessing(false);
+    setSuccessMessage(null);
     onClose();
   };
 
   const handleConfirm = async () => {
     try {
-      setIsProcessing(true);
       setError(null);
+      setSuccessMessage(null);
+      setIsProcessing(true);
+      const selectedAssetNames = releaseAll ? assetNames : [prisonerName];
+      const cost = releaseAll ? totalReleaseCost : releaseCost;
 
-      const result = await handleReleasePrisoner(
-        releaseAll ? totalReleaseCost : releaseCost,
-        releaseAll ? assetNames : [prisonerName]
-      );
+      // First, handle wallet transaction
+      const walletResult = await handleReleasePrisoner(cost, selectedAssetNames);
 
-      if (result.success) {
-        onConfirm(releaseAll);
-        handleClose();
+      if (walletResult.success) {
+        try {
+          // After successful payment, call the backend to release prisoners
+          await releasePrisoner(selectedAssetNames);
+
+          // Set success message and wait for it to be displayed
+          const message = releaseAll
+            ? t("releaseAllSuccess", { count: selectedAssetNames.length })
+            : t("releaseSuccess", { name: prisonerName });
+
+          setSuccessMessage(message);
+
+          // Call onConfirm
+          onConfirm(releaseAll);
+
+          // Use Promise to ensure message is shown before closing
+          await new Promise((resolve) => setTimeout(resolve, 3000));
+          handleClose();
+        } catch (backendError: any) {
+          setError(t("errors.release"));
+        }
       } else {
-        // Map error codes to translations
-        switch (result.error) {
+        // Map wallet error codes to translations
+        switch (walletResult.error) {
           case "insufficientFunds":
-            setError(t("insufficientFunds"));
+            setError(t("errors.insufficientFunds"));
             break;
           case "transactionDeclined":
-            setError(t("transactionDeclined"));
+            setError(t("errors.transactionDeclined"));
             break;
           case "walletNotConnected":
-            setError(t("walletNotConnected"));
+            setError(t("errors.walletNotConnected"));
             break;
           default:
-            setError(t("transactionFailed"));
+            setError(t("errors.transaction"));
         }
       }
-    } catch (error) {
-      setError(t("transactionFailed"));
+    } catch (error: any) {
+      setError(t("errors.unexpected"));
     } finally {
       setIsProcessing(false);
     }
@@ -93,7 +116,14 @@ export default function ReleasePrisonerModal({
             {t("releaseTitle")}
           </DialogTitle>
 
-          {error && (
+          {/* Show success message with higher priority */}
+          {successMessage && (
+            <div className="mt-2 p-2 bg-green-600 text-white text-sm font-bold rounded mb-4">
+              {successMessage}
+            </div>
+          )}
+
+          {error && !successMessage && (
             <div className="mt-2 p-2 bg-red-600 text-white text-xs rounded mb-4">
               {error}
             </div>
@@ -130,9 +160,9 @@ export default function ReleasePrisonerModal({
             </div>
           )}
 
-          <div className="flex justify-between">
+          <div className="flex justify-between mt-4">
             <button
-              onClick={onClose}
+              onClick={handleClose}
               disabled={isProcessing}
               className="border-2 border-white px-4 py-1 bg-black text-white shadow-[4px_4px_0px_black] hover:bg-gray-800 disabled:opacity-50"
             >
@@ -140,7 +170,7 @@ export default function ReleasePrisonerModal({
             </button>
             <button
               onClick={handleConfirm}
-              disabled={isProcessing}
+              disabled={isProcessing || !!successMessage}
               className="border-2 border-white px-4 py-1 bg-green-600 text-white shadow-[4px_4px_0px_black] hover:bg-green-700 disabled:opacity-50"
             >
               {isProcessing ? t("processing") : t("confirmBribe")}
