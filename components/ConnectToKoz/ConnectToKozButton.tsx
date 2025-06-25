@@ -38,7 +38,10 @@ export default function ConnectToKozButton({
 
     // Se temos um stakeAddress e está conectado, criar/atualizar usuário
     if (storedStakeAddress && storedConnected) {
-      createUser(storedStakeAddress).catch(console.error);
+      createUser(storedStakeAddress).catch(() => {
+        // Silent fail in production
+        // You could add error tracking here if needed
+      });
     }
   }, []); // Run only once on mount
 
@@ -52,7 +55,10 @@ export default function ConnectToKozButton({
         if (event.detail.connected) {
           const stakeAddress = localStorage.getItem("stakeAddress");
           if (stakeAddress) {
-            createUser(stakeAddress).catch(console.error);
+            createUser(stakeAddress).catch(() => {
+              // Silent fail in production
+              // You could add error tracking here if needed
+            });
           }
         }
       } else if (event instanceof StorageEvent) {

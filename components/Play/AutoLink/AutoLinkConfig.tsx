@@ -83,7 +83,7 @@ export default function AutoLinkConfig() {
       // A configuração já vem corretamente montada do modal
       await saveConfig(newConfig);
     } catch (error) {
-      console.error('Error saving config:', error);
+      
     }
   };
 
@@ -91,7 +91,7 @@ export default function AutoLinkConfig() {
     try {
       await deleteConfig({ entityType, entityId });
     } catch (error) {
-      console.error('Error deleting config:', error);
+      
     }
   };
 

@@ -66,7 +66,7 @@ export default function ChangeLuckyNumberModal({
         setShowSuccess(false);
       }, 3000);
     } catch (error) {
-      console.error('API Response Error:', error);
+      
     }
   };
 

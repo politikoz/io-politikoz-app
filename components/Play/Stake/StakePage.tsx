@@ -90,7 +90,7 @@ export default function StakePage() {
           setTicketCalculation(result);
         }
       } catch (error) {
-        console.error('Balance update failed:', error);
+        
       }
     };
 

@@ -30,7 +30,7 @@ const TicketActions: React.FC<TicketActionsProps> = ({
       setSelectedTickets([]);
       setIsChangeLuckyNumberOpen(false);
     } catch (error) {
-      console.error('Failed to change lucky number:', error);
+      
     }
   };
 

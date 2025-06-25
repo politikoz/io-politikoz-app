@@ -35,7 +35,7 @@ export default function AutoLinkRandomModal({ isOpen, closeModal, onSave }: Auto
       setTicketDistribution({});
       closeModal();
     } catch (error) {
-      console.error('Error saving config:', error);
+      
     } finally {
       setIsSaving(false);
     }

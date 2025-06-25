@@ -58,7 +58,7 @@ export default function AutoLinkPolitikozModal({ isOpen, closeModal, onSave }: A
       setTicketDistribution({});
       closeModal();
     } catch (error) {
-      console.error('Error saving config:', error);
+      
     } finally {
       setIsSaving(false);
     }

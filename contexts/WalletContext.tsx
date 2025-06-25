@@ -257,7 +257,7 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
 
           swapHistory = response || undefined;
         } catch (officeError) {
-          console.error('Failed to record swap in office:', officeError);
+          
         }
       }
 
@@ -353,10 +353,7 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
                   break;
               }
           } catch (utxoError) {
-              console.warn('UTxO search attempt failed:', {
-                  attempt: attempts + 1,
-                  error: utxoError instanceof Error ? utxoError.message : 'Unknown error'
-              });
+              
           }
           
           attempts++;

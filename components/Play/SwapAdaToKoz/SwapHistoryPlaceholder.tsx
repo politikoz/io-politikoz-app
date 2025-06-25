@@ -12,7 +12,7 @@ const SwapHistoryPlaceholder = memo(function SwapHistoryPlaceholder({ onShowHist
     try {
       await onShowHistory();
     } catch (error) {
-      console.error('Failed to show history:', error);
+      
     }
   };
 

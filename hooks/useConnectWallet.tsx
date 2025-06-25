@@ -76,7 +76,7 @@ export function useConnectWallet() {
             setRewardAddress(addresses[0]);           
           }
         } catch (error) {
-          console.error("Failed to get reward addresses:", error);
+          
         }
       }
     };

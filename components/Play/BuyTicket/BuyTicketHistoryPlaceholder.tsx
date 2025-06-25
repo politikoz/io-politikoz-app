@@ -12,7 +12,7 @@ const BuyTicketHistoryPlaceholder = memo(function BuyTicketHistoryPlaceholder({ 
     try {
       await onShowHistory();
     } catch (error) {
-      console.error('Failed to show history:', error);
+      
     }
   };
 

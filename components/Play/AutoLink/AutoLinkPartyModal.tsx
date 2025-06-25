@@ -29,7 +29,7 @@ export default function AutoLinkPartyModal({ isOpen, closeModal, onSave }: AutoL
       setTicketDistribution({});
       closeModal();
     } catch (error) {
-      console.error('Error saving config:', error);
+      
     } finally {
       setIsSaving(false);
     }

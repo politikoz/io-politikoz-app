@@ -65,7 +65,7 @@ export default function AutoLinkPartiesModal({ isOpen, closeModal, onSave }: Aut
       setTicketDistribution({});
       closeModal();
     } catch (error) {
-      console.error('Error saving config:', error);
+      
     } finally {
       setIsSaving(false);
     }

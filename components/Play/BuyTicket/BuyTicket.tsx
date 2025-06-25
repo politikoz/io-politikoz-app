@@ -65,7 +65,7 @@ export default function BuyTicket() {
           const address = rewardAddresses?.[0] || '';
           stakeAddressRef.current = address;
         } catch (error) {
-          console.error("Failed to get stake address:", error);
+          
         }
       }
     };
