@@ -2,11 +2,11 @@ import { createContext, useContext, useState, useEffect, ReactNode } from 'react
 import { useWallet } from "@meshsdk/react";
 import { MeshSwapContract } from "@meshsdk/contract";
 import { BlockfrostProvider, MeshTxBuilder, ForgeScript, resolveScriptHash, stringToHex } from '@meshsdk/core';
-import { SwapService } from '@/services/SwapService';
 import { TransactionStatus } from '@/types/transaction';
 import { useOfficeSwap } from '@/hooks/useOfficeSwap';
 import { useSwapStatus } from '@/hooks/useSwapStatus';
 import { SwapHistoryDTO, SwapStatus } from '@/types/swap';
+import { initializeWallet } from "@/components/ConnectToKoz/MeshWallet";
 
 const BLOCKFROST_API_KEY = process.env.NEXT_PUBLIC_BLOCKFROST_API_KEY || '';
 const provider = new BlockfrostProvider(BLOCKFROST_API_KEY);
@@ -52,60 +52,121 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
   const [balance, setBalance] = useState(0);
   const [walletName, setWalletName] = useState<string | null>(null);
   const [kozBalance, setKozBalance] = useState(0);
+  const [currentWallet, setCurrentWallet] = useState<any>(null); // NOVO STATE
   const { createSwap } = useOfficeSwap();
   const { updateStatus } = useSwapStatus();
 
   const connect = async (name: string): Promise<boolean> => {
     try {
-      await meshConnect(name);
-      await new Promise(resolve => setTimeout(resolve, 100));
-      
-      if (meshConnected) {
+      if (name.toLowerCase() === "mesh") {
+        console.log("Connecting to Mesh Web3Wallet...");
+        // Mesh Web3Wallet flow
+        const { wallet: meshWeb3Wallet } = await initializeWallet();
         setIsConnected(true);
-        setWalletName(name);
-        localStorage.setItem("connected", "true");
-        localStorage.setItem("walletName", name);
-        await getBalance();
+        setWalletName("mesh");
+        setCurrentWallet(meshWeb3Wallet);
+        await getBalance(meshWeb3Wallet);
+        await getKozBalance(meshWeb3Wallet);
         return true;
+      } else {
+        console.log("Connecting to other...");
+        await meshConnect(name);
+        await new Promise(resolve => setTimeout(resolve, 100));
+        if (meshConnected) {
+          setIsConnected(true);
+          setWalletName(name);
+          setCurrentWallet(wallet);
+          localStorage.setItem("connected", "true");
+          localStorage.setItem("walletName", name);
+          await getBalance(wallet);
+          await getKozBalance(wallet);
+          return true;
+        }
+        return false;
       }
-      return false;
     } catch (error) {
+      setCurrentWallet(null);
       return false;
     }
   };
 
   const disconnect = () => {
-    meshDisconnect();
-    setIsConnected(false);
-    setBalance(0);
-    setWalletName(null);
-    localStorage.removeItem("connected");
-    localStorage.removeItem("walletName");
+    if (walletName === "mesh") {
+      // Desconectar Web3Wallet (social login)
+      setIsConnected(false);
+      setBalance(0);
+      setWalletName(null);
+      setCurrentWallet(null);
+      localStorage.removeItem("connected");
+      localStorage.removeItem("walletName");
+      localStorage.removeItem("stakeAddress");
+      window.dispatchEvent(
+        new CustomEvent("walletConnectionChange", {
+          detail: { connected: false, walletName: null, stakeAddress: null },
+        })
+      );
+    } else {
+      // Desconectar wallets padrão (Nami, Eternl, Flint, etc)
+      meshDisconnect();
+      setIsConnected(false);
+      setBalance(0);
+      setWalletName(null);
+      setCurrentWallet(null);
+      localStorage.removeItem("connected");
+      localStorage.removeItem("walletName");
+      localStorage.removeItem("stakeAddress");
+    }
   };
 
-  const getBalance = async (): Promise<number> => {
-    if (!wallet || !isConnected) return 0;
-
+  // Use sempre currentWallet nas funções abaixo
+  const getBalance = async (customWallet?: any): Promise<number> => {
+    const usedWallet = customWallet || currentWallet;
+    if (!usedWallet || !isConnected) return 0;
     try {
-      const lovelace = await wallet.getLovelace();
-      wallet.signData
+      const lovelace = await usedWallet.getLovelace();
       const adaAmount = parseInt(lovelace) / 1_000_000;
       setBalance(adaAmount);
       return adaAmount;
     } catch (error) {
+      setBalance(0);
       return 0;
     }
   };
 
-  const getCollateral = async (): Promise<number> => {
-    if (!wallet || !isConnected) return 0;
-
+  const getKozBalance = async (customWallet?: any): Promise<number> => {
+    const usedWallet = customWallet || currentWallet;
+    
+    if (!usedWallet || !isConnected) return 0;
     try {
-      const collateralUtxos = await wallet.getCollateral();
-      const totalCollateral = collateralUtxos.reduce((sum, utxo) => {
+      const kozTokenId = process.env.NEXT_PUBLIC_KOZ_TOKEN_UNIT || '';
+      if (!kozTokenId) return 0;
+      const assets = await usedWallet.getAssets();
+      const kozAsset = assets.find((asset: any) =>
+        asset.unit === kozTokenId ||
+        asset.unit.startsWith(kozTokenId)
+      );
+      if (kozAsset) {
+        const kozAmount = parseInt(kozAsset.quantity);
+        setKozBalance(kozAmount);
+        return kozAmount;
+      }
+      setKozBalance(0);
+      return 0;
+    } catch {
+      setKozBalance(0);
+      return 0;
+    }
+  };
+
+  // Nas demais funções, troque "wallet" por "currentWallet"
+  // Exemplo:
+  const getCollateral = async (): Promise<number> => {
+    if (!currentWallet || !isConnected) return 0;
+    try {
+      const collateralUtxos = await currentWallet.getCollateral();
+      const totalCollateral = collateralUtxos.reduce((sum: number, utxo: any) => {
         return sum + parseInt(utxo.output.amount[0].quantity);
       }, 0) / 1_000_000;
-
       return totalCollateral;
     } catch (error) {
       return 0;
@@ -113,28 +174,28 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
   };
 
   const handleStake = async (): Promise<string | null> => {
-    if (!wallet || !isConnected) {
+    if (!currentWallet || !isConnected) {
       throw new Error("Wallet not connected");
     }
 
     let unsignedTx = null;
     
     try {
-      const address = await wallet.getChangeAddress();
-      const rewardAddresses = await wallet.getRewardAddresses();
+      const address = await currentWallet.getChangeAddress();
+      const rewardAddresses = await currentWallet.getRewardAddresses();
       
       if (!rewardAddresses?.[0]) {
         throw new Error("No reward address available");
       }
   
-      const utxos = await wallet.getUtxos();
+      const utxos = await currentWallet.getUtxos();
   
       const poolId = process.env.NEXT_PUBLIC_BECH32_POOL_ID;
       if (!poolId) {
         throw new Error("Pool ID not configured");
       }
   
-      const unregisteredKeys = await wallet.getUnregisteredPubStakeKeys();
+      const unregisteredKeys = await currentWallet.getUnregisteredPubStakeKeys();
       const isStakeKeyRegistered = !(unregisteredKeys && unregisteredKeys.pubStakeKeys.length > 0); 
   
       const txBuilder = new MeshTxBuilder({
@@ -157,8 +218,8 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
           .complete();
       }
       
-      const signedTx = await wallet.signTx(unsignedTx);
-      const txHash = await wallet.submitTx(signedTx);
+      const signedTx = await currentWallet.signTx(unsignedTx);
+      const txHash = await currentWallet.submitTx(signedTx);
       return txHash;
     } catch (error) {
       return null;
@@ -176,7 +237,7 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
     let swapHistory: SwapHistoryDTO | undefined;
     
     try {
-      if (!wallet || !isConnected) {
+      if (!currentWallet || !isConnected) {
         throw new Error('Wallet not connected');
       }
 
@@ -200,7 +261,7 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
       const contract = new MeshSwapContract({
         mesh: meshTxBuilder,
         fetcher: provider,
-        wallet: wallet,
+        wallet: currentWallet,
         networkId: 0
       });        
 
@@ -223,7 +284,7 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
       ];
 
       const unsignedTx = await contract.initiateSwap(assetToProvide, assetToReceive);
-      const signedTx = await wallet.signTx(unsignedTx);
+      const signedTx = await currentWallet.signTx(unsignedTx);
 
       if (!signedTx) {
         throw new Error('Signing returned null or undefined');
@@ -234,7 +295,7 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
         status: 'submitting'
       } : null);
 
-      const txHash = await wallet.submitTx(signedTx);
+      const txHash = await currentWallet.submitTx(signedTx);
       submittedTxHash = txHash;
 
       setTxStatus(prev => prev ? {
@@ -245,7 +306,7 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
 
       if (txHash) {
         try {
-          const rewardAddress = await wallet.getRewardAddresses();
+          const rewardAddress = await currentWallet.getRewardAddresses();
           const response = await createSwap({
             stakeAddress: rewardAddress[0],
             transactionHash: txHash,
@@ -318,7 +379,7 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
 
   const handleCancelSwap = async (txHash: string, swapId: number): Promise<{ success: boolean; error?: string; txHash?: string }> => {
     try {
-      if (!wallet || !isConnected) {
+      if (!currentWallet || !isConnected) {
         throw new Error('Wallet not connected');
       }
 
@@ -333,7 +394,7 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
       const contract = new MeshSwapContract({
           mesh: meshTxBuilder,
           fetcher: localProvider,
-          wallet: wallet,
+          wallet: currentWallet,
           networkId: 0
       });
 
@@ -369,13 +430,13 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
       // Create and sign cancellation transaction 
       const unsignedTx = await contract.cancelSwap(swapUtxo);
 
-      const signedTx = await wallet.signTx(unsignedTx);
+      const signedTx = await currentWallet.signTx(unsignedTx);
 
       if (!signedTx) {
           throw new Error('Failed to sign cancellation transaction');
       }
 
-      const cancelTxHash = await wallet.submitTx(signedTx);
+      const cancelTxHash = await currentWallet.submitTx(signedTx);
 
       // Update swap status to CANCELED using the provided swapId
       await updateStatus(swapId, SwapStatus.CANCELED);
@@ -400,12 +461,12 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
     serviceFee: number
   ): Promise<{ success: boolean; error?: string; txHash?: string }> => {
     try {
-      if (!wallet || !isConnected) {
+      if (!currentWallet || !isConnected) {
         throw new Error('Wallet not connected');
       }
 
-      const utxos = await wallet.getUtxos();
-      const changeAddress = await wallet.getChangeAddress();
+      const utxos = await currentWallet.getUtxos();
+      const changeAddress = await currentWallet.getChangeAddress();
 
       // Convert amounts to lovelace (1 ADA = 1,000,000 lovelace)
       const serviceFeeQuantity = (serviceFee * 1_000_000).toString();
@@ -436,13 +497,13 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
         .selectUtxosFrom(utxos)
         .complete();
 
-      const signedTx = await wallet.signTx(unsignedTx);
+      const signedTx = await currentWallet.signTx(unsignedTx);
 
       if (!signedTx) {
         throw new Error('Failed to sign transaction');
       }
 
-      const txHash = await wallet.submitTx(signedTx);
+      const txHash = await currentWallet.submitTx(signedTx);
 
       return {
         success: true,
@@ -462,14 +523,14 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
     assetNames: string[]
   ): Promise<{ success: boolean; error?: string; txHash?: string }> => {
     try {
-      if (!wallet || !isConnected) {
+      if (!currentWallet || !isConnected) {
         return {
           success: false,
           error: 'walletNotConnected'
         };
       }
 
-      const lovelace = await wallet.getLovelace();
+      const lovelace = await currentWallet.getLovelace();
       const adaBalance = parseInt(lovelace) / 1_000_000;
       
       if (adaBalance < 1) {
@@ -479,8 +540,8 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
         };
       }
 
-      const utxos = await wallet.getUtxos();
-      const changeAddress = await wallet.getChangeAddress();
+      const utxos = await currentWallet.getUtxos();
+      const changeAddress = await currentWallet.getChangeAddress();
       const serviceFeeQuantity = "1000000";
       const kozQuantity = kozAmount.toString();
 
@@ -508,7 +569,7 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
           .selectUtxosFrom(utxos)
           .complete();
 
-        const signedTx = await wallet.signTx(unsignedTx);
+        const signedTx = await currentWallet.signTx(unsignedTx);
 
         if (!signedTx) {
           return {
@@ -517,7 +578,7 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
           };
         }
 
-        const txHash = await wallet.submitTx(signedTx);
+        const txHash = await currentWallet.submitTx(signedTx);
 
         return {
           success: true,
@@ -562,12 +623,12 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
 
   const handleMintTKOZ = async (): Promise<{ success: boolean; error?: string; txHash?: string }> => {
     try {
-      if (!wallet || !isConnected) {
+      if (!currentWallet || !isConnected) {
         throw new Error('Wallet not connected');
       }
 
-      const utxos = await wallet.getUtxos();
-      const changeAddress = await wallet.getChangeAddress();
+      const utxos = await currentWallet.getUtxos();
+      const changeAddress = await currentWallet.getChangeAddress();
       
       // Create forging script with change address
       const forgingScript = ForgeScript.withOneSignature(changeAddress);
@@ -612,14 +673,14 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
         .complete();
 
       // Sign transaction
-      const signedTx = await wallet.signTx(unsignedTx);
+      const signedTx = await currentWallet.signTx(unsignedTx);
       
       if (!signedTx) {
         throw new Error('Failed to sign minting transaction');
       }
 
       // Submit transaction
-      const txHash = await wallet.submitTx(signedTx);
+      const txHash = await currentWallet.submitTx(signedTx);
 
       return {
         success: true,
@@ -634,43 +695,10 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  const getKozBalance = async (): Promise<number> => {
-    if (!wallet || !isConnected) return 0;
-
-    try {
-      const kozTokenId = process.env.NEXT_PUBLIC_KOZ_TOKEN_UNIT || '';
-      if (!kozTokenId) {
-        return 0;
-      }
-
-      const assets = await wallet.getAssets();
-      
-      // Find KOZ token in the assets list
-      const kozAsset = assets.find(asset => 
-        asset.unit === kozTokenId || // Exact match
-        asset.unit.startsWith(kozTokenId) // Policy ID match with any asset name
-      );
-      
-      if (kozAsset) {
-        const kozAmount = parseInt(kozAsset.quantity);
-        setKozBalance(kozAmount);
-        return kozAmount;
-      }
-      
-      // If no KOZ tokens found, return 0
-      setKozBalance(0);
-      return 0;
-    } catch (error) {
-      // Silent error in production
-      setKozBalance(0);
-      return 0;
-    }
-  };
-
   // Update value object to include the new method and state
   const value: WalletContextType = {
     isConnected,
-    wallet,
+    wallet: currentWallet,
     walletName,
     connect,
     disconnect,
