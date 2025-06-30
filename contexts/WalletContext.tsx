@@ -2,7 +2,6 @@ import { createContext, useContext, useState, useEffect, ReactNode } from 'react
 import { useWallet } from "@meshsdk/react";
 import { MeshSwapContract } from "@meshsdk/contract";
 import { BlockfrostProvider, MeshTxBuilder, ForgeScript, resolveScriptHash, stringToHex } from '@meshsdk/core';
-import { SwapService } from '@/services/SwapService';
 import { TransactionStatus } from '@/types/transaction';
 import { useOfficeSwap } from '@/hooks/useOfficeSwap';
 import { useSwapStatus } from '@/hooks/useSwapStatus';

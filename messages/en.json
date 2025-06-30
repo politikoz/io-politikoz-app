@@ -31,6 +31,10 @@
         "december": "December"
     }       
 },
+"AuthPage": {
+   "tour": "Tour",
+  "exploreWithoutConnecting": "Explore without connecting"     
+},
 "NextElectionCountdown": {
   "season": "SEASON {seasonNumber}",
     "days": "days",

@@ -16,7 +16,7 @@ export const tourSteps: Record<string, TourStepData[]> = {
       message: "Our draws are called Elections and all winning numbers come from the Cardano blockchain—so every draw is fair!",
     },       
     {
-      message: "Ready? Connect your wallet and get some free tickets to start!",
+      message: "Let me show you around! Feel free to connect your wallet first and get some free tickets to start.",
       redirectTo: "/auth?origin=/office",      
     },
   ],  
@@ -32,30 +32,30 @@ officeNotConnected: [
   { message: "Let's check how it works now!",
     redirectTo: "/office?section=my-tickets"},
 ],
-myTicketsConnected: [
+myTicketsConnected: [  
   {
-    message: "This is where you can view all your tickets.",
+    message: "You’ve just received some free tickets to get started!",
   },
   {
-    message: "By the way, you’ve just received some free tickets to get started!",
+    message: "Every ticket can only be used once: after it enters a draw, it is discarded.",
   },
   {
-    message: "By default, all tickets are single use: they go to the next draw (except Frontman, saved for boosted Elections) and are then discarded.",
+    message: "By default, all your tickets (except Frontman, which is saved for boosted Elections) are set to be used 100% in the next Election.",
   },
   {
-    message: "But you can change how your tickets are used at any time in Auto Link. Don't forget to configure it the way you prefer!", 
+    message: "You can change this anytime in Auto Link—for example, you might choose to use only 50% of your LAUNDERER tickets in the next draw.", 
     redirectTo: "/office?section=buy-koz",
   },
 ],
-myTicketsNotConnected: [
-  {
-    message: "This is where you can view all your tickets.",
+myTicketsNotConnected: [  
+   {
+    message: "Every ticket can only be used once: after it enters a draw, it is discarded.",
   },
   {
-    message: "By default, all tickets are single use: they go to the next draw (except Frontman, saved for boosted Elections) and are then discarded.",
+    message: "By default, all your tickets (except Frontman, which is saved for boosted Elections) are set to be used 100% in the next Election.",
   },
   {
-    message: "But you can change how your tickets are used at any time in Auto Link. Don't forget to configure it the way you prefer!",     
+    message: "You can change this anytime in Auto Link—for example, you might choose to use only 50% of your LAUNDERER tickets in the next draw.",     
   },
     {
     message: "By the way, when you connect your wallet, you will receive a welcome gift with some free tickets to get started!",
@@ -95,10 +95,10 @@ buyKoz: [
 ],
 createParty: [
   {
-    message: "Here you create a party and see all your politikoz.",
+    message: "Here you create a party and see all your Politikoz.",
   },
   {
-    message: "Parties let your politikoz join Elections and compete for big prizes.",
+    message: "Parties let your Politikoz join Elections and compete for big prizes.",
   },
   {
     message: "You'll also get a Referral Code.Share it and both get rewards when someone buys KOZ.",
@@ -157,22 +157,23 @@ stakePage: [
     message: "Stake your ADA with PLKOZ to earn ADA rewards just like any other pool.",
   },
   {
-    message: "Plus, you'll get tickets to join our monthly draws for a chance to win even more ADA and boost your earnings.",
+    message: "Plus, you'll get FREE tickets to join our Elections for a chance to win even more ADA and boost your earnings.",
   },
   {
     message: (
-      <span>
-        Want to stay updated?{" "}
-        <a
-          href="https://x.com/PolitikozNft"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline text-blue-400 hover:text-blue-200 font-bold"
-        >
-          Follow us on X!
-        </a>
-      </span>
-    ),
+  <span>
+    Want to stay updated and never miss free gifts?
+    <br />
+    <a
+      href="https://x.com/PolitikozNft"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="underline text-blue-400 hover:text-blue-200 font-bold"
+    >
+      Follow us on X!
+    </a>
+  </span>
+),
     keepTourActive: false
   },
 ],
@@ -181,25 +182,26 @@ ticketPolicyView: [
     message: "Stake your ADA with PLKOZ to earn ADA rewards just like any other pool.",
   },
   {
-    message: "Plus, you'll get tickets to join our monthly lottery for a chance to win even more ADA and boost your earnings.",
+    message: "Plus, you'll get FREE tickets to join our Elections for a chance to win even more ADA and boost your earnings.",
   },
   {
     message: "Don't forget your welcome gift: get free tickets just by connecting your wallet!",
   },
   {
     message: (
-      <span>
-        Want to stay updated?{" "}
-        <a
-          href="https://x.com/PolitikozNft"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline text-blue-400 hover:text-blue-200 font-bold"
-        >
-          Follow us on X!
-        </a>
-      </span>
-    ),
+  <span>
+    Want to stay updated and never miss free gifts?
+    <br />
+    <a
+      href="https://x.com/PolitikozNft"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="underline text-blue-400 hover:text-blue-200 font-bold"
+    >
+      Follow us on X!
+    </a>
+  </span>
+),
     keepTourActive: false
   },
 ],

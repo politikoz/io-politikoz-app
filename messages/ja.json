@@ -31,6 +31,10 @@
             "december": "12月"
         }
     },
+    "AuthPage": {
+  "tour": "ツアー",
+  "exploreWithoutConnecting": "接続せずに探索する"
+},
     "NextElectionCountdown": {
         "season": "シーズン {seasonNumber}",
         "days": "日",

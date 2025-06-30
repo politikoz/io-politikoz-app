@@ -31,6 +31,10 @@
             "december": "Disyembre"
         }       
     },
+    "AuthPage": {
+  "tour": "Tour",
+  "exploreWithoutConnecting": "Mag-explore nang hindi kumokonekta"
+},
     "NextElectionCountdown": {
         "season": "SEASON {seasonNumber}",
         "days": "araw",
