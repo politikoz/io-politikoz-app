@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { useWalletContext } from "@/contexts/WalletContext";
 import { useTour } from "@/contexts/TourContext";
 import SwapHeader from "./SwapHeader";
@@ -66,44 +66,39 @@ export default function SwapAdaToKoz() {
   const kozAvailable = tiersDashboard?.currentTier?.remainingKozSupply ?? 0;
 
   // Manter initialize simples, apenas para configuração inicial
-  const initialize = async () => {
-    if (isMounted.current) return;
-    
-    try {
-      setIsLoading(true);
-      setTxStatus({
-        status: 'connecting',
-        details: {
-          adaAmount: 0,
-          kozAmount: 0,
-          returnAmount: 2,
-          serviceFee: 0.5,
-          networkFee: 0.18,
-          total: 2.68
-        }
-      });
-
-      await new Promise(resolve => setTimeout(resolve, 500));
-      
-      if (!showHistory) {
-        await fetchHistory();
+  const initialize = useCallback(async () => {
+  if (isMounted.current) return;
+  try {
+    setIsLoading(true);
+    setTxStatus({
+      status: 'connecting',
+      details: {
+        adaAmount: 0,
+        kozAmount: 0,
+        returnAmount: 2,
+        serviceFee: 0.5,
+        networkFee: 0.18,
+        total: 2.68
       }
-    } catch (error) {
-      // Erro silencioso em produção
-    } finally {
-      setIsLoading(false);
-      setError(null);
-      setTxStatus(null);
+    });
+    await new Promise(resolve => setTimeout(resolve, 500));
+    if (!showHistory) {
+      await fetchHistory();
     }
-    
-    isMounted.current = true;
-  };
+  } catch (error) {
+    // Erro silencioso em produção
+  } finally {
+    setIsLoading(false);
+    setError(null);
+    setTxStatus(null);
+  }
+  isMounted.current = true;
+}, [fetchHistory, showHistory]);
 
   // Efeito apenas para montagem
   useEffect(() => {
-    initialize();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  initialize();
+}, [initialize]);
 
   // Efeito para mudanças em isConnected
   useEffect(() => {
@@ -140,14 +135,14 @@ export default function SwapAdaToKoz() {
   }, [kozAmount, conversionRate]);
 
   useEffect(() => {
-    if (kozAmount > 0) {
-      const exactAdaAmount = kozAmount / conversionRate;
-      const roundedAdaAmount = Math.ceil(exactAdaAmount * 100) / 100; // Round up to 2 decimal places
-      if (roundedAdaAmount !== adaAmount) {
-        setAdaAmount(roundedAdaAmount);
-      }
+  if (kozAmount > 0) {
+    const exactAdaAmount = kozAmount / conversionRate;
+    const roundedAdaAmount = Math.ceil(exactAdaAmount * 100) / 100;
+    if (roundedAdaAmount !== adaAmount) {
+      setAdaAmount(roundedAdaAmount);
     }
-  }, [kozAmount, conversionRate]);
+  }
+}, [kozAmount, conversionRate, adaAmount]);
 
   // Atualizar a função para aceitar o parâmetro isOwner
   const handleReferralCodeChange = (code: string, isOwner: boolean = false) => {

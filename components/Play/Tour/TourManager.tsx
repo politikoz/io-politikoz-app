@@ -32,8 +32,8 @@ export default function TourManager({ section, onClose }: TourManagerProps) {
           isLast={stepIndex === steps.length - 1}
           onClose={onClose}
           redirectTo={steps[stepIndex].redirectTo}
-          stepIndex={stepIndex}           // NOVO
-          totalSteps={steps.length}       // NOVO
+          stepIndex={stepIndex}
+          totalSteps={steps.length}
         />
       </div>
     </div>

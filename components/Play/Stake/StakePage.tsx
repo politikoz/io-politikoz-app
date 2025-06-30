@@ -81,26 +81,25 @@ export default function StakePage() {
   }, [isConnected]);
 
   useEffect(() => {
-    const updateBalanceAndTickets = async () => {
-      if (!isConnected) return;
+  const updateBalanceAndTickets = async () => {
+    if (!isConnected) return;
 
-      try {
-        const currentBalance = await getBalance();
-        const currentCollateral = await getCollateral();
-        
-        setCollateralAmount(currentCollateral);
-        
-        if (currentBalance > 0) {
-          const result = calculateTickets(currentBalance, currentPolicy);
-          setTicketCalculation(result);
-        }
-      } catch (error) {
-        
+    try {
+      const currentBalance = await getBalance();
+      const currentCollateral = await getCollateral();
+      
+      setCollateralAmount(currentCollateral);
+      
+      if (currentBalance > 0) {
+        const result = calculateTickets(currentBalance, currentPolicy);
+        setTicketCalculation(result);
       }
-    };
+    } catch (error) {
+    }
+  };
 
-    updateBalanceAndTickets();
-  }, [isConnected, walletBalance, currentPolicy]);
+  updateBalanceAndTickets();
+}, [isConnected, walletBalance, currentPolicy, getBalance, getCollateral]);
 
   const onStake = async () => {
     if (!isConnected || !walletBalance) return;

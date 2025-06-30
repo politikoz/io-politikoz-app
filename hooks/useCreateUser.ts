@@ -1,26 +1,27 @@
 import { useMutation } from '@tanstack/react-query';
 import api from '@/app/lib/api';
 import { CreateUserResponse } from '@/types/user';
+import { useCallback } from "react";
 
 export function useCreateUser() {
   const createUserMutation = useMutation({
     mutationFn: async (stakeAddress: string) => {
       const response = await api.post<CreateUserResponse>(
         `/api/v1/connect/connect?stakeAddress=${stakeAddress}`,
-        {} // empty body since we're using query parameter
+        {}
       );
       return response.data;
     }
   });
 
-  const createUser = async (stakeAddress: string) => {
+  const createUser = useCallback(async (stakeAddress: string) => {
     try {
       await createUserMutation.mutateAsync(stakeAddress);
       return true;
     } catch (error) {      
       return false;
     }
-  };
+  }, [createUserMutation]);
 
   return {
     createUser,

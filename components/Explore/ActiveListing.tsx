@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import { useTranslations } from "next-intl";
@@ -54,12 +55,14 @@ const ActiveListing: React.FC<ActiveListingProps> = ({ listings }) => {
               className="bg-[#2C2C2C] w-[160px] p-4 rounded-md shadow-lg flex-shrink-0"
             >
               <div className="relative w-full h-full mb-2 bg-[#555555] flex items-center justify-center text-[14px] text-gray-300">
-                <img
-                  src={imageUrl}
-                  alt={`Politikoz#${listing.name}`}
-                  className="w-full h-full object-cover rounded-md"
-                  style={{ imageRendering: "pixelated" }}
-                />
+                <Image
+                src={imageUrl}
+                alt={`Politikoz#${listing.name}`}
+                width={160}
+                height={160}
+                className="w-full h-full object-cover rounded-md"
+                style={{ imageRendering: "pixelated" }}
+              />
               </div>
               <h3 className="text-[14px] font-bold text-[#FFD700] mb-1">
                 {`Politikoz#${listing.name}`}

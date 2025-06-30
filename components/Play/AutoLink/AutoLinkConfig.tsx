@@ -76,7 +76,7 @@ export default function AutoLinkConfig() {
     const finalPercentage = (totalUsed / (totalTypes * 100)) * 100;
 
     return finalPercentage;
-  }, [config, TICKET_TYPES]);
+  }, [config]);
 
   const handleSaveConfig = async (newConfig: AutoLinkConfigData) => {
     try {

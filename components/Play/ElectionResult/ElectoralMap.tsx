@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { usePartyStats } from "@/hooks/usePartyStats";
 import { generateUniqueColor, validateAndFixColors } from "@/utils/colorUtils";
 import { useRoleTotals } from "@/hooks/useRoleTotals";
@@ -40,26 +40,6 @@ const formatRoleName = (role: string): string => {
   return role.split('_').map(word => 
     word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
   ).join(' ');
-};
-
-// Renderização personalizada de labels
-const renderCustomLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, name }: any) => {
-  const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
-  const x = cx + radius * Math.cos(-midAngle * Math.PI / 180);
-  const y = cy + radius * Math.sin(-midAngle * Math.PI / 180);
-
-  return percent > 0.05 ? (
-    <text 
-      x={x} 
-      y={y} 
-      fill="white" 
-      textAnchor="middle" 
-      dominantBaseline="middle" 
-      style={{ fontSize: '10px', fontWeight: 'bold', textShadow: '1px 1px 2px black' }}
-    >
-      {formatRoleName(name)}
-    </text>
-  ) : null;
 };
 
 const irregularMap = 
@@ -155,7 +135,7 @@ const ElectoralMap: React.FC = () => {
   }
 
   // Update distributeRegions to skip zero percentage players
-  const distributeRegions = (players: Player[]) => {
+  const distributeRegions = useCallback((players: Player[]) => {
     // Filter out zero percentage players for map distribution
     const activePlayers = players.filter(player => player.percentage > 0);
     
@@ -188,7 +168,7 @@ const ElectoralMap: React.FC = () => {
     }
 
     return playerMap;
-  };
+  }, []);
 
   useEffect(() => {
     if (statsData?.players) {
@@ -225,10 +205,10 @@ const ElectoralMap: React.FC = () => {
   }, [statsData?.players]);
 
   useEffect(() => {
-    if (statsData?.players) {
-      setPlayerMap(distributeRegions(statsData.players));
-    }
-  }, [statsData]);
+  if (statsData?.players) {
+    setPlayerMap(distributeRegions(statsData.players));
+  }
+}, [statsData, distributeRegions]);
 
   const isLoading = isStatsLoading || isRoleTotalsLoading;
 

@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import React from "react";
 import { useUserGridView } from "@/hooks/useUserGridView";
 import { GridPolitikoz } from "@/types/UserGridViewData";
+import Image from "next/image";
 
 const roleColors = [
   { name: 'President', color: '#6EAA5E' },
@@ -158,10 +159,13 @@ function PolitikozGroup({ title, politikoz, showEarnings, outOfStamina }: Politi
                 {getPlaceSuffix(p.place)}
               </div>
 
-              <img
+              <Image
                 src={`/images/assets/${p.image}.png`}
                 alt={p.name}
+                width={64}
+                height={64}
                 className="w-16 h-16 rounded-md mb-1 mt-3"
+                priority={true}
               />
 
               <div className="text-center">

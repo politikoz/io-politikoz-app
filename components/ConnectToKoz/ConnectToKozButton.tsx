@@ -36,14 +36,11 @@ export default function ConnectToKozButton({
 
     setIsConnected(storedConnected && !!storedWalletName);
 
-    // Se temos um stakeAddress e está conectado, criar/atualizar usuário
     if (storedStakeAddress && storedConnected) {
-      createUser(storedStakeAddress).catch(() => {
-        // Silent fail in production
-        // You could add error tracking here if needed
-      });
+      createUser(storedStakeAddress).catch(() => {});
     }
-  }, []); // Run only once on mount
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Connection change handler
   useEffect(() => {
@@ -78,7 +75,7 @@ export default function ConnectToKozButton({
       window.removeEventListener("walletConnectionChange", handleConnectionChange);
       window.removeEventListener("storage", handleConnectionChange);
     };
-  }, [createUser]); // Run only once to set up listeners
+  }, []); // Run only once to set up listeners
 
   return (
     <Link

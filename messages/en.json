@@ -31,6 +31,74 @@
         "december": "December"
     }       
 },
+  "tour": {
+    "welcome": {
+      "1": "Hey, welcome to Politikoz! I’m excited to show you how you can join monthly draws with prizes starting from 350 ADA and going up to 28K ADA.",
+      "2": "These draws, which we call Elections, are powered by the Cardano blockchain—so you can trust that every result is fair and transparent.",
+      "3": "Let’s get started! You can connect your wallet now to grab some free tickets, or just follow along and explore—no pressure."
+    },
+    "officeConnected": {
+      "1": "Great, you’re in your Office! This is where you can buy KOZ and swap them for tickets to participate in the Elections.",
+      "2": "Here, you’ll also find all the info about the current Election and the prizes up for grabs.",
+      "3": "Now that you’re set up, let’s take a look at your brand new tickets!"
+    },
+    "officeNotConnected": {
+      "1": "This is your Office—the hub where you’ll buy KOZ and swap for tickets when you’re ready.",
+      "2": "You can also check out details about the current Election and see what prizes are available.",
+      "3": "Let me show you how it all works, so you’ll know what to expect when you connect."
+    },
+    "myTicketsConnected": {
+      "1": "Awesome! You’ve just received some free tickets to help you get started on your journey.",
+      "2": "Remember, each ticket can only be used once: after it enters a draw, it’s discarded, so use them wisely.",
+      "3": "By default, all your tickets (except Frontman, which is saved for boosted Elections) are set to be used 100% in the next Election, making it easy to participate.",
+      "4": "If you want more control, you can adjust this anytime in Auto Link—for example, you might decide to use only 50% of your LAUNDERER tickets in the next draw."
+    },
+    "myTicketsNotConnected": {
+      "1": "Here’s how tickets work: each one can only be used once, and after it enters a draw, it’s gone.",
+      "2": "By default, all your tickets (except Frontman, which is saved for boosted Elections) will be set to participate 100% in the next Election.",
+      "3": "You’ll be able to change this anytime in Auto Link—maybe you’ll want to use only part of your LAUNDERER tickets in a draw, for example."
+    },
+    "buyKoz": {
+      "1": "Let’s talk about KOZ: you can buy KOZ to swap for Frontman tickets, which boost your chances in the next Election.",
+      "2": "Every KOZ you purchase also helps fill the current Season faster, bringing everyone closer to bigger prizes.",
+      "3a": "If you don’t have a Referral Code yet, no worries!",
+      "3b": "Join our Discord",
+      "3c": "to ask for one and get free tickets when you buy KOZ.",
+      "4": "We’re almost at the end of the tour—let’s check out how you can create your own party next!"
+    },
+    "createParty": {
+      "1": "Now, here’s where you can create a party and see all your Politikoz in one place.",
+      "2": "Parties let your Politikoz join Elections together and compete for the biggest prizes.",
+      "3": "Plus, when you create a party, you’ll get a Referral Code. Share it and both you and your friends get rewards when someone buys KOZ.",
+      "4": "And there’s more: the top 3 referrers win KOZ—1st place gets 14K, 2nd gets 7K, and 3rd gets 3K!"
+    },
+    "myPolitikozConnected": {
+      "1": "Each Politikoz you own gives you an eternal ticket—meaning you’ll have a chance to win ADA prizes in every Election, forever.",
+      "2a": "Want to grow your collection?",
+      "2b": "Visit JPG Store",
+      "2c": "to get yours and boost your chances even more!"
+    },
+    "myPolitikozNotConnected": {
+      "1": "Owning Politikoz means you’ll get an eternal ticket for every one you have, giving you a shot at ADA prizes in every Election.",
+      "2a": "Curious to see more?",
+      "2b": "Visit JPG Store",
+      "2c": "to explore and boost your chances!"
+    },
+    "stakePage": {
+      "1": "You can also stake your ADA with PLKOZ to earn ADA rewards, just like any other pool.",
+      "2": "And here’s a bonus: you’ll get FREE tickets to join our Elections for a chance to win even more ADA and boost your earnings.",
+      "3a": "Want to stay updated and never miss free gifts?",
+      "3b": "Follow us on X"
+    },
+    "ticketPolicyView": {
+      "1": "Staking your ADA with PLKOZ is a great way to earn ADA rewards while staying involved in the community.",
+      "2": "Plus, you’ll get FREE tickets to join our Elections for a chance to win even more ADA and boost your earnings.",
+      "3a": "Before we finish, here’s the ticket calculator—see how many free tickets you can get each month by staking with us!",
+     "3b": "Connect your wallet whenever you want to get your free welcome tickets.",
+      "3c": "And don’t forget to follow us on X for updates!"
+      }
+  },
+
 "AuthPage": {
    "tour": "Tour",
   "exploreWithoutConnecting": "Explore without connecting"     

@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import React, { useEffect, useState } from "react";
 import { useUserCandidates } from "@/hooks/useUserCandidates";
 import { ElectionGroup } from "@/types/UserCandidatesData";
+import Image from "next/image";
 
 const BASE_IMAGE_SIZE = 80;
 const MOBILE_IMAGE_SIZE = 60;
@@ -165,22 +166,24 @@ export default function UserCandidates() {
                       <div className="relative flex items-end" 
                         style={{ height: `${adjustedImageSize + (isMobile ? 10 : 20)}px` }}
                       >
-                        <img
+                        <Image
                           src={`/images/assets/${candidate.image}.png`}
                           alt={candidate.name}
+                          width={adjustedImageSize}
+                          height={adjustedImageSize}
                           className={`rounded-md transition-all duration-300 ${
-                            candidate.user ? (candidate.winningPosition
-                              ? "border-2 md:border-4 ring-2 md:ring-4 border-green-500 ring-green-600 shadow-xl"
-                              : "border-2 md:border-4 ring-2 md:ring-4 border-red-500 ring-red-600 shadow-xl")
-                            : ""
+                            candidate.user
+                              ? candidate.winningPosition
+                                ? "border-2 md:border-4 ring-2 md:ring-4 border-green-500 ring-green-600 shadow-xl"
+                                : "border-2 md:border-4 ring-2 md:ring-4 border-red-500 ring-red-600 shadow-xl"
+                              : ""
                           }`}
                           style={{
-                            width: `${adjustedImageSize}px`,
-                            height: `${adjustedImageSize}px`,
                             objectFit: "contain",
                             maxWidth: "100%",
-                            maxHeight: "100%"
+                            maxHeight: "100%",
                           }}
+                          priority={true}
                         />
                       </div>
                       

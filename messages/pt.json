@@ -35,6 +35,74 @@
   "tour": "Tour",
   "exploreWithoutConnecting": "Explorar sem conectar"
 },
+"tour": {
+  "welcome": {
+    "1": "Olá, bem-vindo ao Politikoz! Estou animado para te mostrar como participar de sorteios mensais com prêmios de 350 até 28.000 ADA.",
+    "2": "Esses sorteios, que chamamos de Eleições, são movidos pela blockchain Cardano—garantindo resultados justos e transparentes.",
+    "3": "Vamos começar! Você pode conectar sua carteira agora para ganhar ingressos grátis, ou apenas explorar—sem pressão."
+  },
+  "officeConnected": {
+    "1": "Ótimo, você está no seu Escritório! Aqui você pode comprar KOZ e trocá-los por ingressos para participar das Eleições.",
+    "2": "Aqui também você encontra todas as informações sobre a Eleição atual e os prêmios disponíveis.",
+    "3": "Agora que está tudo pronto, vamos ver seus novos ingressos!"
+  },
+  "officeNotConnected": {
+    "1": "Este é seu Escritório—o lugar onde você vai comprar KOZ e trocar por ingressos quando quiser.",
+    "2": "Você também pode ver detalhes sobre a Eleição atual e conferir os prêmios disponíveis.",
+    "3": "Vou te mostrar como tudo funciona, assim você já sabe o que esperar quando conectar."
+  },
+  "myTicketsConnected": {
+    "1": "Muito bom! Você acabou de receber alguns ingressos grátis para começar sua jornada.",
+    "2": "Lembre-se: cada ingresso só pode ser usado uma vez. Depois de participar de um sorteio, ele é descartado, então use com sabedoria.",
+    "3": "Por padrão, todos os seus ingressos (exceto Frontman, que é guardado para Eleições com boost) serão usados 100% na próxima Eleição, facilitando sua participação.",
+    "4": "Se quiser mais controle, você pode ajustar isso a qualquer momento no Auto Link—por exemplo, usar só 50% dos seus ingressos LAUNDERER no próximo sorteio."
+  },
+  "myTicketsNotConnected": {
+    "1": "Veja como funcionam os ingressos: cada um só pode ser usado uma vez e, depois de participar de um sorteio, é descartado.",
+    "2": "Por padrão, todos os seus ingressos (exceto Frontman, que é guardado para Eleições com boost) vão participar 100% da próxima Eleição.",
+    "3": "Você poderá mudar isso a qualquer momento no Auto Link—talvez queira usar só parte dos seus ingressos LAUNDERER, por exemplo."
+  },
+  "buyKoz": {
+    "1": "Vamos falar de KOZ: você pode comprar KOZ para trocar por ingressos Frontman, que aumentam suas chances na próxima Eleição.",
+    "2": "Cada KOZ que você compra também ajuda a preencher a Temporada atual mais rápido, aproximando todos de prêmios maiores.",
+    "3a": "Ainda não tem um Código de Indicação? Sem problemas!",
+    "3b": "Entre no nosso Discord",
+    "3c": "para pedir um e ganhar ingressos grátis ao comprar KOZ.",
+    "4": "Estamos quase no fim do tour—vamos ver como criar sua própria party!"
+  },
+  "createParty": {
+    "1": "Aqui você pode criar uma party e ver todos os seus Politikoz em um só lugar.",
+    "2": "As parties permitem que seus Politikoz participem juntos das Eleições e concorram aos maiores prêmios.",
+    "3": "Ao criar uma party, você recebe um Código de Indicação. Compartilhe e tanto você quanto seus amigos ganham recompensas quando alguém compra KOZ.",
+    "4": "E tem mais: os 3 maiores indicadores ganham KOZ—1º lugar leva 14K, 2º leva 7K e 3º leva 3K!"
+  },
+  "myPolitikozConnected": {
+    "1": "Cada Politikoz que você possui te dá um ingresso eterno—ou seja, você terá chance de ganhar ADA em toda Eleição, para sempre.",
+    "2a": "Quer aumentar sua coleção?",
+    "2b": "Visite a JPG Store",
+    "2c": "para garantir o seu e aumentar ainda mais suas chances!"
+  },
+  "myPolitikozNotConnected": {
+    "1": "Ter Politikoz significa ganhar um ingresso eterno para cada um, te dando chance de ganhar ADA em toda Eleição.",
+    "2a": "Quer saber mais?",
+    "2b": "Visite a JPG Store",
+    "2c": "para explorar e aumentar suas chances!"
+  },
+  "stakePage": {
+    "1": "Você também pode delegar sua ADA para a PLKOZ e ganhar recompensas, como em qualquer outro pool.",
+    "2": "E tem mais: você ganha ingressos GRÁTIS para participar das Eleições e aumentar seus ganhos.",
+    "3a": "Quer ficar por dentro e não perder brindes?",
+    "3b": "Siga a gente no X"
+  },
+  "ticketPolicyView": {
+  "1": "Delegar sua ADA para a PLKOZ é uma ótima forma de ganhar recompensas em ADA e participar da comunidade.",
+  "2": "Além disso, você ganha INGRESSOS GRÁTIS para participar das nossas Eleições e concorrer a ainda mais ADA.",
+  "3a": "Veja a calculadora de ingressos para descobrir quantos ingressos grátis você pode ganhar só por delegar na PLKOZ!",
+  "3b": "Se quiser participar, basta conectar sua carteira e fazer parte da nossa comunidade.",
+  "3c": "E não esqueça de seguir a gente no X!",
+  "4": "Obrigado por acompanhar o tour! Boa sorte e divirta-se com o Politikoz!"
+}
+},
     "NextElectionCountdown": {
         "season": "TEMPORADA {seasonNumber}",
         "days": "dias",

@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslations } from 'next-intl';
 import { usePolitikozListings } from '@/hooks/usePolitikozListings';
 import { ShoppingCartIcon } from '@heroicons/react/24/solid';
+import Image from "next/image";
 
 interface MarketListingsProps {
   cargo: string;
@@ -31,9 +32,11 @@ export default function MarketListings({ cargo }: MarketListingsProps) {
             className="bg-gray-700 rounded-lg overflow-hidden border-2 border-gray-600 hover:border-yellow-300 transition-colors"
           >
             <div className="aspect-square relative">
-              <img
+              <Image
                 src={`/images/assets/${formatAssetNumber(listing.name)}.png`}
                 alt={listing.name}
+                width={400}
+                height={400}
                 className="w-full h-full object-cover"
                 loading="lazy"
               />

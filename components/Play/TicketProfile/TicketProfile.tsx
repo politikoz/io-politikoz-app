@@ -67,7 +67,6 @@ export default function TicketProfile() {
   useEffect(() => {
     if (isTourActive) {
       setLocalTourActive(true);
-      console.log("Tour ativado no TicketProfile");
     }
   }, [isTourActive]);
 
@@ -76,12 +75,7 @@ export default function TicketProfile() {
       const connected = localStorage.getItem("connected");
       setTourSection(connected === "true" ? "myTicketsConnected" : "myTicketsNotConnected");
     }
-  }, []);
-
-  // Logging effect
-  useEffect(() => {
-    console.log("TicketProfile mounted", { isTourActive, localTourActive });
-  }, []);
+  }, []);  
 
   useEffect(() => {
     // Seleciona a aba "Auto Link" ao montar o componente

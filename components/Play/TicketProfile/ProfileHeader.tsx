@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import { useGovernanceData } from "@/hooks/useGovernanceData";
+import Image from "next/image";
 
 interface ProfileHeaderProps {
   cargo: string;
@@ -37,11 +38,14 @@ export default function ProfileHeader({ cargo }: ProfileHeaderProps) {
     <div className="flex items-start mt-4 space-x-4">
       {/* Imagem */}
       <div className="w-[120px] h-[120px] border-4 border-white bg-gray-600 shadow-[6px_6px_0px_black] overflow-hidden">
-        <img
+        <Image
           src={`/images/assets/${formattedCargo}.png`}
           alt={cargo}
+          width={120}
+          height={120}
           className="w-full h-full object-cover"
           style={{ imageRendering: "pixelated" }}
+          priority={true}
         />
       </div>
 

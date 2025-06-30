@@ -6,6 +6,7 @@ import { Navigation, Autoplay } from "swiper/modules";
 import { useTranslations } from "next-intl";
 import "swiper/css";
 import "swiper/css/navigation";
+import Image from "next/image";
 
 interface Trade {
   buyerAddress: string;
@@ -53,9 +54,11 @@ const Trades: React.FC<TradesProps> = ({ trades }) => {
               className="bg-[#2C2C2C] w-[160px] p-4 rounded-md shadow-lg flex-shrink-0"
             >
               <div className="relative w-full h-full mb-2 bg-[#555555] flex items-center justify-center text-[14px] text-gray-300">
-                <img
+                <Image
                   src={imageUrl}
                   alt={`Politikoz#${trade.name}`}
+                  width={160}
+                  height={160}
                   className="w-full h-full object-cover rounded-md"
                   style={{ imageRendering: "pixelated" }}
                 />

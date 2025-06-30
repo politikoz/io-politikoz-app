@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 const userKozBalance = 1000;
 const userAdaBalance = 500;
@@ -73,10 +74,13 @@ export default function BuyTickets() {
     <div className="p-4 sm:p-6 w-full max-w-md sm:max-w-lg lg:max-w-xl mx-auto bg-gray-900 text-white border-2 border-yellow-500 rounded-lg shadow-lg">
       {/* Descrição do Ticket com Imagem */}
       <div className="mb-4 p-3 bg-gray-800 border border-gray-700 rounded flex flex-col sm:flex-row items-center gap-4">
-        <img
+        <Image
           src="/images/assets/frontman.png"
           alt="Frontman Ticket"
+          width={96}
+          height={96}
           className="w-24 h-24 sm:w-21 sm:h-21 rounded border-2 border-yellow-400"
+          priority={true}
         />
         <div>
           <h3 className="text-lg font-bold text-yellow-300">Frontman Ticket</h3>
