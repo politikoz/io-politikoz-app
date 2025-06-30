@@ -95,12 +95,11 @@
     "3b": "Siga a gente no X"
   },
   "ticketPolicyView": {
-  "1": "Delegar sua ADA para a PLKOZ é uma ótima forma de ganhar recompensas em ADA e participar da comunidade.",
+  "1": "Fazer stake da sua ADA na PLKOZ é uma ótima forma de ganhar recompensas em ADA e ainda participar da comunidade.",
   "2": "Além disso, você ganha INGRESSOS GRÁTIS para participar das nossas Eleições e concorrer a ainda mais ADA.",
-  "3a": "Veja a calculadora de ingressos para descobrir quantos ingressos grátis você pode ganhar só por delegar na PLKOZ!",
-  "3b": "Se quiser participar, basta conectar sua carteira e fazer parte da nossa comunidade.",
-  "3c": "E não esqueça de seguir a gente no X!",
-  "4": "Obrigado por acompanhar o tour! Boa sorte e divirta-se com o Politikoz!"
+  "3a": "Antes de terminar, aqui está a calculadora de tickets—veja quantos ingressos grátis você pode ganhar por mês fazendo stake com a gente!",
+  "3b": "Conecte sua carteira quando quiser para garantir seus ingressos de boas-vindas.",
+  "3c": "E não esqueça de seguir a gente no X para novidades!"
 }
 },
     "NextElectionCountdown": {
