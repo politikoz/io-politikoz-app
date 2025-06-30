@@ -1,13 +1,17 @@
 import React from "react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/routing";
+import { useTour } from "@/contexts/TourContext";
 
 const JoinPolitikozTour: React.FC = () => {
   const t = useTranslations("JoinPolitikozTour");
   const router = useRouter();
+  const { activateTour } = useTour(); 
 
   const handleStartTour = () => {
-    null; // Replace with actual tour start logic
+    activateTour();
+    router.push("/play");
+    return;
   };
 
   return (
@@ -30,7 +34,7 @@ const JoinPolitikozTour: React.FC = () => {
                    hover:rotate-1"
         >
           <span className="text-lg">{t("startTourButton")}</span>
-          <div className="absolute -top-3 -right-3 bg-red-500 
+          <div className="absolute -top-8 -right-3 bg-red-500 
                         rounded-full px-3 py-1 text-xs font-pixel
                         border-2 border-white animate-pulse
                         group-hover:animate-bounce">

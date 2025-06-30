@@ -17,12 +17,17 @@ import PolitikozGrid from "./PolitikozGrid";
 import MarketListings from "./MarketListings";
 import { useTranslations } from "next-intl";
 import { usePolitikozData } from "@/hooks/usePolitikozData";
+import { useTour } from "@/contexts/TourContext";
+import TourManager from "@/components/Play/Tour/TourManager";
 
 export default function PolitikozProfileView() {
   // 1. All useState hooks
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isGridView, setIsGridView] = useState(false);
+  const { isTourActive } = useTour();
+  const [localTourActive, setLocalTourActive] = useState(false);
+  const [tourSection, setTourSection] = useState<"myPolitikozConnected" | "myPolitikozNotConnected">("myPolitikozNotConnected");
 
   // 2. Translations and data fetching
   const t = useTranslations("PolitikozProfile");
@@ -50,6 +55,17 @@ export default function PolitikozProfileView() {
   useEffect(() => {
     setCurrentIndex(0);
   }, [selectedIndex]);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const connected = localStorage.getItem("connected");
+      setTourSection(connected === "true" ? "myPolitikozConnected" : "myPolitikozNotConnected");
+    }
+  }, []);
+
+  useEffect(() => {
+    if (isTourActive) setLocalTourActive(true);
+  }, [isTourActive]);
 
   // 5. Handler functions
   const handleSelectPolitikoz = useCallback(
@@ -163,6 +179,18 @@ export default function PolitikozProfileView() {
           )}
         </div>
       </div>
+
+      {localTourActive && (
+        <div className="fixed inset-0 z-[100]">
+          <div className="absolute inset-0 bg-transparent pointer-events-auto"></div>
+          <div className="absolute bottom-32 sm:bottom-40 left-4 sm:left-10 pointer-events-auto">
+            <TourManager
+              section={tourSection}
+              onClose={() => setLocalTourActive(false)}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

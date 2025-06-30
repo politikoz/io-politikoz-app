@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "@/i18n/routing";
 import { useSearchParams } from "next/navigation";
 import MyOffice from "@/components/Play/InsideBuilding/MyOffice";
@@ -9,7 +9,6 @@ import ElectionInfo from "@/components/Play/ElectionInfo/ElectionInfo";
 import ElectionPrize from "@/components/Play/ElectionInfo/ElectionPrize";
 import ElectionResultsView from "../ElectionResult/ElectionResultsView";
 import TourManager from "../Tour/TourManager";
-import IncomeOutcome from "../IncomeOutcome/IncomeOutcome";
 import { SwapContainer } from "../SwapAdaToKoz/SwapContainer";
 import { useTour } from "@/contexts/TourContext";
 import { useTranslations } from "next-intl";
@@ -21,6 +20,9 @@ import AuditView from "../Audit/AuditView";
 export default function OfficeView() {
   const [selectedSection, setSelectedSection] = useState<null | string>(null);
   const [localTourActive, setLocalTourActive] = useState(false);
+  const [tourSection, setTourSection] = useState<
+    "officeConnected" | "officeNotConnected"
+  >("officeNotConnected");
   const { isTourActive, deactivateTour } = useTour();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -47,6 +49,16 @@ export default function OfficeView() {
     if (isTourActive) setLocalTourActive(true);
   }, [isTourActive]);
 
+  useEffect(() => {
+    // Só roda no client
+    if (typeof window !== "undefined") {
+      const connected = localStorage.getItem("connected");
+      setTourSection(
+        connected === "true" ? "officeConnected" : "officeNotConnected"
+      );
+    }
+  }, []);
+
   const handleSectionSelect = (section: string) => {
     if (section === "exit") {
       router.replace("/play");
@@ -72,7 +84,6 @@ export default function OfficeView() {
               >
                 {t("backToOffice")}
               </button>
-              {selectedSection === "income-outcome" && <IncomeOutcome />}
               {selectedSection === "my-tickets" && (
                 <TicketProfileContainer
                   onAuthError={() => setSelectedSection(null)}
@@ -90,15 +101,14 @@ export default function OfficeView() {
         </div>
       </div>
 
-      {localTourActive && (
+      {localTourActive && (selectedSection === null || selectedSection === "office") && (
         <div className="fixed inset-0 z-[100]">
           <div className="absolute inset-0 bg-transparent pointer-events-auto"></div>
           <div className="absolute bottom-32 sm:bottom-40 left-4 sm:left-10 pointer-events-auto">
             <TourManager
-              section="office"
+              section={tourSection}
               onClose={() => {
                 setLocalTourActive(false);
-                deactivateTour();
               }}
             />
           </div>

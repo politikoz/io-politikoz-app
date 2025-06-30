@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { useWalletContext } from "@/contexts/WalletContext";
+import { useTour } from "@/contexts/TourContext";
 import SwapHeader from "./SwapHeader";
 import SwapInput from "./SwapInput";
 import SwapSummary from "./SwapSummary";
@@ -15,6 +16,7 @@ import { useTiersDashboard } from '@/hooks/useTiersDashboard';
 import NextTierCountdown from "./NextTierCountdown";
 import AllTiersCompleted from "./AllTiersCompleted";
 import { useValidateReferralCode } from '@/hooks/useValidateReferralCode';
+import TourManager from "@/components/Play/Tour/TourManager";
 
 export default function SwapAdaToKoz() {
   const t = useTranslations("Swap");
@@ -34,6 +36,7 @@ export default function SwapAdaToKoz() {
   } = useSwapHistory();
   const { data: tiersDashboard, isLoading: isTiersDashboardLoading } = useTiersDashboard();
   const validateReferralMutation = useValidateReferralCode();
+  const { isTourActive } = useTour();
 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -45,6 +48,7 @@ export default function SwapAdaToKoz() {
   const [stakeAddress, setStakeAddress] = useState<string>('');
   const [walletBalance, setWalletBalance] = useState(0);
   const [shouldResetInput, setShouldResetInput] = useState(false);
+  const [localTourActive, setLocalTourActive] = useState(false);
   const isMounted = useRef(false);
   const MIN_KOZ_AMOUNT = 200;
   const [showHistory, setShowHistory] = useState(false);
@@ -346,6 +350,11 @@ export default function SwapAdaToKoz() {
     }
   }, [shouldResetInput]);
 
+  // Efeito para lidar com mudanças no estado do tour
+  useEffect(() => {
+    if (isTourActive) setLocalTourActive(true);
+  }, [isTourActive]);
+
   // Main return - update the conditional rendering
   return (
     <div className="p-4 sm:p-6 w-full max-w-md sm:max-w-lg lg:max-w-xl mx-auto bg-gray-900 text-white border-2 border-yellow-500 rounded-lg shadow-lg">
@@ -430,6 +439,18 @@ export default function SwapAdaToKoz() {
           isLoading={isHistoryLoading}
           onCancelSwap={handleCancelHistorySwap}
         />
+      )}
+
+      {localTourActive && (
+        <div className="fixed inset-0 z-[100]">
+          <div className="absolute inset-0 bg-transparent pointer-events-auto"></div>
+          <div className="absolute bottom-32 sm:bottom-40 left-4 sm:left-10 pointer-events-auto">
+            <TourManager
+              section="buyKoz"
+              onClose={() => setLocalTourActive(false)}
+            />
+          </div>
+        </div>
       )}
     </div>
   );

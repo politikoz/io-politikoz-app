@@ -1,12 +1,22 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
+import { useTour } from "@/contexts/TourContext";
+import TourManager from "../Tour/TourManager";
 
 const InsideBuilding: React.FC = () => {
   const t = useTranslations("InsideBuilding");
+  const [localTourActive, setLocalTourActive] = useState(false);
+  const { isTourActive } = useTour();
+
+  useEffect(() => {
+    if (isTourActive) {
+      setLocalTourActive(true);
+    }
+  }, [isTourActive]);
 
   return (
     <div className="relative w-full h-auto bg-[#43A4E7]"> {/* Fundo inicial adicionado */}
@@ -66,6 +76,21 @@ const InsideBuilding: React.FC = () => {
       >
         <span className="text-white text-[8px] font-pixel">{t("news")}</span>
       </Link>
+
+      {/* Tour overlay */}
+      {localTourActive && (
+        <div className="fixed inset-0 z-[100]">
+          <div className="absolute inset-0 bg-transparent pointer-events-auto"></div>
+          <div className="absolute bottom-32 sm:bottom-40 left-4 sm:left-10 pointer-events-auto">
+            <TourManager
+              section="welcome"
+              onClose={() => {
+                setLocalTourActive(false);
+              }}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

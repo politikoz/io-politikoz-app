@@ -13,6 +13,7 @@ import { useTranslations } from "next-intl";
 import PolitikozProfileContainer from "../PolitikozProfile/PolitikozProfileContainer";
 import PartyInfo from "./PartyInfo";
 import PartyButtons from "./PartyButtons";
+import { useSearchParams } from "next/navigation";
 
 export default function PartyView() {
   const [selectedSection, setSelectedSection] = useState<null | string>(null);
@@ -29,12 +30,30 @@ export default function PartyView() {
   const { getSession } = useAuth(); // Add this line
   const router = useRouter();
   const t = useTranslations("PartyView");
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     if (isTourActive) {
       setLocalTourActive(true);
     }
   }, [isTourActive]);
+
+  // Handle section from URL parameter and clean up URL
+  useEffect(() => {
+    const section = searchParams.get("section");
+    if (section) {
+      setSelectedSection(section);
+      // Clean up URL by using proper typed path
+      router.replace(
+        {
+          pathname: "/party",
+        },
+        {
+          scroll: false,
+        }
+      );
+    }
+  }, [searchParams, router]);
 
   const handleSectionSelect = useCallback((section: string) => {
     if (section === "exit") {
@@ -103,15 +122,14 @@ export default function PartyView() {
         </div>
       </div>
 
-      {localTourActive && (
+      {localTourActive && (selectedSection === null || selectedSection === "createParty") && (
         <div className="fixed inset-0 z-[90]"> {/* Ajustado para ficar abaixo dos modais de auth */}
           <div className="absolute inset-0 bg-transparent pointer-events-auto"></div>
           <div className="absolute bottom-32 sm:bottom-40 left-4 sm:left-10 pointer-events-auto">
             <TourManager
-              section="party"
+              section="createParty"
               onClose={() => {
-                setLocalTourActive(false);
-                deactivateTour();
+                setLocalTourActive(false);               
               }}
             />
           </div>

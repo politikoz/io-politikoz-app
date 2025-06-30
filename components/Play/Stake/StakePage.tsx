@@ -8,6 +8,8 @@ import StakeRewardCard from './StakeRewardCard';
 import { useWalletContext } from "@/contexts/WalletContext";
 import CollateralInfoModal from "./CollateralInfoModal";
 import { useTranslations } from "next-intl";
+import TourManager from "@/components/Play/Tour/TourManager";
+import { useTour } from "@/contexts/TourContext";
 
 
 type StakeStatus = 'idle' | 'loading' | 'success' | 'error';
@@ -45,6 +47,9 @@ export default function StakePage() {
     getCollateral
   } = useWalletContext();
   
+  const { isTourActive, deactivateTour } = useTour();
+  const [localTourActive, setLocalTourActive] = useState(false);
+
   const [status, setStatus] = useState<StakeStatus>('idle');
   const [error, setError] = useState<string | null>(null);
   const [ticketCalculation, setTicketCalculation] = useState<ReturnType<typeof calculateTickets> | null>(null);
@@ -138,6 +143,10 @@ export default function StakePage() {
       }
     }
   };
+
+  useEffect(() => {
+    if (isTourActive) setLocalTourActive(true);
+  }, [isTourActive]);
 
   if (!localStorage.getItem("walletName")) {
     return (
@@ -312,6 +321,21 @@ export default function StakePage() {
 
       {showCollateralInfo && (
         <CollateralInfoModal onClose={() => setShowCollateralInfo(false)} />
+      )}
+
+      {localTourActive && (
+        <div className="fixed inset-0 z-[100]">
+          <div className="absolute inset-0 bg-transparent pointer-events-auto"></div>
+          <div className="absolute bottom-32 sm:bottom-40 left-4 sm:left-10 pointer-events-auto">
+            <TourManager
+              section="stakePage"
+              onClose={() => {
+                setLocalTourActive(false);
+                deactivateTour();
+              }}
+            />
+          </div>
+        </div>
       )}
     </div>
   );

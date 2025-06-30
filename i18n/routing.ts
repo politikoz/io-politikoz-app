@@ -21,7 +21,7 @@ export const routing = defineRouting({
       ja: "/"
     },
     "/auth": {
-      en: "/auth",       
+      en: "/auth",             
       es: "/autenticar", 
       fr: "/authentifier",
       pt: "/autenticar", 
@@ -31,7 +31,19 @@ export const routing = defineRouting({
       no: "/autentisere", 
       fil: "/pagkilala",
       ja: "/認証"        // Japanese
-    },
+    },   
+    "/auth?origin=/office": {
+    en: "/auth?origin=/office",
+    es: "/autenticar?origin=/oficina",
+    fr: "/authentifier?origin=/bureau",
+    pt: "/autenticar?origin=/escritorio",
+    de: "/authentifizieren?origin=/büro",
+    it: "/autenticare?origin=/ufficio",
+    nl: "/authenticeren?origin=/kantoor",
+    no: "/autentisere?origin=/kontor",
+    fil: "/pagkilala?origin=/opisina",
+    ja: "/認証?origin=/オフィス"
+  },
     "/explore": {
         en: "/explore", // English
         es: "/explorar", // Español
@@ -79,7 +91,31 @@ export const routing = defineRouting({
         no: "/kontor",
         fil: "/opisina",
         ja: "/オフィス"    // Japanese
-      },
+      },    
+      "/office?section=buy-koz": {
+  en: "/office?section=buy-koz",
+  es: "/oficina?section=buy-koz",
+  fr: "/bureau?section=buy-koz",
+  pt: "/escritorio?section=buy-koz",
+  de: "/büro?section=buy-koz",
+  it: "/ufficio?section=buy-koz",
+  nl: "/kantoor?section=buy-koz",
+  no: "/kontor?section=buy-koz",
+  fil: "/opisina?section=buy-koz",
+  ja: "/オフィス?section=buy-koz"
+}, 
+"/office?section=my-tickets": {
+  en: "/office?section=my-tickets",
+  es: "/oficina?section=my-tickets",
+  fr: "/bureau?section=my-tickets",
+  pt: "/escritorio?section=my-tickets",
+  de: "/büro?section=my-tickets",
+  it: "/ufficio?section=my-tickets",
+  nl: "/kantoor?section=my-tickets",
+  no: "/kontor?section=my-tickets",
+  fil: "/opisina?section=my-tickets",
+  ja: "/オフィス?section=my-tickets"
+},
       "/party": {
         en: "/party",
         es: "/partido",
@@ -92,6 +128,18 @@ export const routing = defineRouting({
         fil: "/partido",
         ja: "/政党"        // Japanese
       },
+      "/party?section=my-politikoz": {
+  en: "/party?section=my-politikoz",
+  es: "/partido?section=my-politikoz",
+  fr: "/parti?section=my-politikoz",
+  pt: "/partido?section=my-politikoz",
+  de: "/partei?section=my-politikoz",
+  it: "/partito?section=my-politikoz",
+  nl: "/partij?section=my-politikoz",
+  no: "/parti?section=my-politikoz",
+  fil: "/partido?section=my-politikoz",
+  ja: "/政党?section=my-politikoz"
+},
       "/news": {
         "en": "/news",
         "es": "/noticiero",
@@ -116,6 +164,30 @@ export const routing = defineRouting({
         fil: "/labahan",
         ja: "/ランドリー"  // Japanese
       },
+      "/laundry?section=stake-plkoz": {
+  en: "/laundry?section=stake-plkoz",
+  es: "/lavanderia?section=stake-plkoz",
+  fr: "/buanderie?section=stake-plkoz",
+  pt: "/lavanderia?section=stake-plkoz",
+  de: "/wascherei?section=stake-plkoz",
+  it: "/lavanderia?section=stake-plkoz",
+  nl: "/wasserij?section=stake-plkoz",
+  no: "/vaskeri?section=stake-plkoz",
+  fil: "/labahan?section=stake-plkoz",
+  ja: "/ランドリー?section=stake-plkoz"
+},
+"/laundry?section=ticket-calculator": {
+  en: "/laundry?section=ticket-calculator",
+  es: "/lavanderia?section=ticket-calculator",
+  fr: "/buanderie?section=ticket-calculator",
+  pt: "/lavanderia?section=ticket-calculator",
+  de: "/wascherei?section=ticket-calculator",
+  it: "/lavanderia?section=ticket-calculator",
+  nl: "/wasserij?section=ticket-calculator",
+  no: "/vaskeri?section=ticket-calculator",
+  fil: "/labahan?section=ticket-calculator",
+  ja: "/ランドリー?section=ticket-calculator"
+},
     "/team": {
       en: "/team",
       es: "/equipo",

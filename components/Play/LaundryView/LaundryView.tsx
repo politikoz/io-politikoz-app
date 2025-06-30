@@ -23,19 +23,18 @@ export default function LaundryView() {
   // Handle section from URL parameter and clean up URL
   useEffect(() => {
     const section = searchParams.get("section");
-    if (section) {
+    if (section && selectedSection !== section) {
       setSelectedSection(section);
-      router.replace({
-        pathname: "/laundry",
-      }, { 
-        scroll: false 
-      });
+      // Limpa a URL apenas se necessário
+      if (window.location.search.includes("section=")) {
+        router.replace({ pathname: "/laundry" }, { scroll: false });
+      }
     }
-  }, [searchParams, router]);
+  }, [searchParams, router, selectedSection]);
 
   useEffect(() => {
-    if (isTourActive) setLocalTourActive(true);
-  }, [isTourActive]);
+  if (isTourActive && !localTourActive) setLocalTourActive(true);
+}, [isTourActive, localTourActive]);
 
   const handleSectionSelect = (section: string) => {
     if (section === "exit") {
@@ -49,7 +48,7 @@ export default function LaundryView() {
     <div className="flex flex-col flex-1 w-full bg-[#816346] relative">
       <div className="flex-1 w-full overflow-y-auto">
         <div className="w-full mx-auto px-0 lg:px-[120px] max-w-full lg:max-w-[1800px] flex flex-col items-center">
-          {(selectedSection === null || localTourActive) ? (
+          {selectedSection === null ? (
             <>
               <MyLaundry />
               <LaundryButtons onNavigate={handleSectionSelect} />
@@ -68,22 +67,7 @@ export default function LaundryView() {
             </div>
           )}
         </div>
-      </div>
-
-      {localTourActive && (
-        <div className="fixed inset-0 z-[100]">
-          <div className="absolute inset-0 bg-transparent pointer-events-auto"></div>
-          <div className="absolute bottom-32 sm:bottom-40 left-4 sm:left-10 pointer-events-auto">
-            <TourManager
-              section="laundry"
-              onClose={() => {
-                setLocalTourActive(false);
-                deactivateTour();
-              }}
-            />
-          </div>
-        </div>
-      )}
+      </div>    
     </div>
   );
 }

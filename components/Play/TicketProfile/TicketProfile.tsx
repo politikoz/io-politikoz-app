@@ -11,6 +11,8 @@ import SelectButtons from "./SelectButtons";
 import { useTicketData } from '@/hooks/useTicketData';
 import { tabs } from "./tabs";
 import AutoLinkConfig from "../AutoLink/AutoLinkConfig";
+import { useTour } from "@/contexts/TourContext";
+import TourManager from "../Tour/TourManager";
 
 export default function TicketProfile() {
   // 1. All useState hooks
@@ -18,6 +20,8 @@ export default function TicketProfile() {
   const [selectedTickets, setSelectedTickets] = useState<number[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const [localTourActive, setLocalTourActive] = useState(false); 
+  const [tourSection, setTourSection] = useState<"myTicketsConnected" | "myTicketsNotConnected">("myTicketsNotConnected");
 
   // 2. Constants and translations
   const itemsPerPage = 5;
@@ -25,6 +29,7 @@ export default function TicketProfile() {
 
   // 3. Data fetching
   const { data: tickets, isLoading, error } = useTicketData();
+  const { isTourActive } = useTour();
 
   // 4. All useMemo hooks
   const selectedTab = useMemo(() => tabs[selectedIndex], [selectedIndex]);
@@ -58,6 +63,33 @@ export default function TicketProfile() {
   useEffect(() => {
     setCurrentPage(1);
   }, [selectedIndex]);
+
+  useEffect(() => {
+    if (isTourActive) {
+      setLocalTourActive(true);
+      console.log("Tour ativado no TicketProfile");
+    }
+  }, [isTourActive]);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const connected = localStorage.getItem("connected");
+      setTourSection(connected === "true" ? "myTicketsConnected" : "myTicketsNotConnected");
+    }
+  }, []);
+
+  // Logging effect
+  useEffect(() => {
+    console.log("TicketProfile mounted", { isTourActive, localTourActive });
+  }, []);
+
+  useEffect(() => {
+    // Seleciona a aba "Auto Link" ao montar o componente
+    const autoLinkIndex = tabs.findIndex(tab => tab.name === "Auto Link");
+    if (autoLinkIndex !== -1) {
+      setSelectedIndex(autoLinkIndex);
+    }
+  }, []);
 
   // Loading state check - after hooks, before render
   if (isLoading || !tickets) {
@@ -150,6 +182,21 @@ export default function TicketProfile() {
           </div>
         </div>
       </div>
+
+      {/* Tour overlay */}
+      {localTourActive && (
+        <div className="fixed inset-0 z-[100]">
+          <div className="absolute inset-0 bg-transparent pointer-events-auto"></div>
+          <div className="absolute bottom-32 sm:bottom-40 left-4 sm:left-10 pointer-events-auto">
+            <TourManager
+              section={tourSection}
+              onClose={() => {
+                setLocalTourActive(false);
+              }}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
