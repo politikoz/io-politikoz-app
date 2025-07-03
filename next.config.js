@@ -1,6 +1,28 @@
 const createNextIntlPlugin = require('next-intl/plugin');
-
 const withNextIntl = createNextIntlPlugin();
+
+const securityHeaders = [
+  {
+    key: 'X-XSS-Protection',
+    value: '1; mode=block'
+  },
+  {
+    key: 'X-Frame-Options',
+    value: 'SAMEORIGIN'
+  },
+  {
+    key: 'X-Content-Type-Options',
+    value: 'nosniff'
+  },
+  {
+    key: 'Strict-Transport-Security',
+    value: 'max-age=31536000; includeSubDomains'
+  },
+  {
+    key: 'Referrer-Policy',
+    value: 'strict-origin-when-cross-origin'
+  }
+];
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -23,6 +45,16 @@ const nextConfig = {
   },
 
   reactStrictMode: true,
+
+  // Add security headers configuration
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: securityHeaders,
+      },
+    ];
+  },
 
   webpack: function (config, { isServer }) {
     // Adiciona suporte a experimentos do Webpack

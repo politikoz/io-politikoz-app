@@ -22,7 +22,7 @@ export function useChangePolitikozLuckyNumber() {
       const cleanedAssetNames = assetNames.map(name => name.replace('#', ''));
 
       // Let the api utility handle the authorization headers
-      const response = await api.put('/api/v1/party/politikoz/lucky-number', {
+      const response = await api.put('/proxy/party/politikoz-lucky-number', {
         assetNames: cleanedAssetNames,
         luckyNumber
       });

@@ -6,7 +6,7 @@ export function useElectedRoles() {
   return useQuery<ElectedRoles>({
     queryKey: ['electedRoles'],
     queryFn: async () => {
-      const response = await api.get<ElectedRoles>('/api/v1/office/elected-roles');
+      const response = await api.get<ElectedRoles>('/proxy/office/elected-roles');
       return response.data;
     },
     staleTime: 60 * 1000, // 1 minute

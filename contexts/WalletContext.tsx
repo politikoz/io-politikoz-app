@@ -297,7 +297,7 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
         // If the swap was successfully queued
         if (data.success) {
             // Update the status to PENDING since it's in the queue
-            await updateStatus(swapId, SwapStatus.QUEUED);
+            await updateStatus({ id: swapId, status: SwapStatus.QUEUED });
             return { 
                 success: true 
             };
@@ -377,7 +377,7 @@ export function WalletContextProvider({ children }: { children: ReactNode }) {
       const cancelTxHash = await wallet.submitTx(signedTx);
 
       // Update swap status to CANCELED using the provided swapId
-      await updateStatus(swapId, SwapStatus.CANCELED);
+      await updateStatus({ id: swapId, status: SwapStatus.CANCELED });
 
       return {
           success: true,

@@ -16,7 +16,7 @@ export function usePartyInfo() {
       if (!stakeAddress) return INITIAL_PARTY_INFO;
       
       const response = await api.get<PartyInfoResponse>(
-        `/api/v1/party/party-info?stakeAddress=${stakeAddress}`
+        `/proxy/party/party-info?stakeAddress=${stakeAddress}`
       );
       return response.data;
     },

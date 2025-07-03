@@ -6,7 +6,7 @@ export function useRoleTotals() {
   return useQuery({
     queryKey: ['roleTotals'],
     queryFn: async () => {
-      const response = await api.get<RoleTotalsResponse>('/api/v1/office/candidates/role-totals');
+      const response = await api.get<RoleTotalsResponse>('/proxy/office/role-totals');
       return response.data;
     },
     staleTime: 5 * 60 * 1000, // 5 minutes

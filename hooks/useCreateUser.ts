@@ -7,7 +7,7 @@ export function useCreateUser() {
   const createUserMutation = useMutation({
     mutationFn: async (stakeAddress: string) => {
       const response = await api.post<CreateUserResponse>(
-        `/api/v1/connect/connect?stakeAddress=${stakeAddress}`,
+        `/proxy/connect/connect?stakeAddress=${stakeAddress}`,
         {}
       );
       return response.data;

@@ -16,7 +16,7 @@ export function usePartyRankings() {
   } = useQuery<TierRankingDTO[]>({
     queryKey: ['partyRankings'],
     queryFn: async () => {
-      const response = await api.get<TierRankingDTO[]>('/api/v1/party/rankings-season');
+      const response = await api.get<TierRankingDTO[]>('/proxy/party/rankings-season');
       return response.data;
     },
     staleTime: 5 * 60 * 1000, // 5 minutos

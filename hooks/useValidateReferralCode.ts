@@ -12,7 +12,7 @@ export function useValidateReferralCode() {
     mutationFn: async ({ referralCode, stakeAddress }: ValidateReferralCodeParams) => {
       try {
         const response = await api.get<ReferralCodeValidationResult>(
-          `/api/v1/office/referral-code/validate?code=${referralCode}&stakeAddress=${stakeAddress}`
+          `/proxy/office/validate-referral-code?code=${referralCode}&stakeAddress=${stakeAddress}`
         );
 
         // Handle both boolean and object response

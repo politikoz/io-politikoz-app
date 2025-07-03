@@ -17,7 +17,7 @@ export function usePolitikozData() {
         return []; 
       }
 
-      const response = await api.get<Politikoz[]>(`/api/v1/party/list-politikoz`, {
+      const response = await api.get<Politikoz[]>(`/proxy/party/list-politikoz`, {
         params: { stakeAddress }
       });
       return response.data;

@@ -1,17 +1,17 @@
 import { useState } from 'react';
-import { SwapStatus } from '@/types/swap';
+import { SwapStatus, UpdateSwapStatusDTO } from '@/types/swap';
 import api from '@/app/lib/api';
 
 export function useSwapStatus() {
     const [isUpdating, setIsUpdating] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
-    const updateStatus = async (id: number, status: SwapStatus): Promise<boolean> => {
+    const updateStatus = async (payload: UpdateSwapStatusDTO): Promise<boolean> => {
         setIsUpdating(true);
         setError(null);
 
         try {
-            await api.put(`/api/v1/office/swap/${id}/status`, { status });
+            await api.put('/proxy/office/swap-status', payload);
             return true;
         } catch (err) {
             const message = err instanceof Error ? err.message : 'Failed to update swap status';

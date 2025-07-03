@@ -19,7 +19,7 @@ export function useChangeLuckyNumber() {
         throw new Error('Authentication required');
       }
 
-      const response = await api.put('/api/v1/office/tickets/lucky-number', {
+      const response = await api.put('/proxy/office/tickets-lucky-number', {
         ticketIds,
         luckyNumber
       });

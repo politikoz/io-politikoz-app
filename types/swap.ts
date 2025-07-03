@@ -27,5 +27,6 @@ export interface CreateSwapDTO {
 }
 
 export interface UpdateSwapStatusDTO {
+    id: number;
     status: SwapStatus;
 }

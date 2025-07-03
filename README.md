@@ -56,8 +56,6 @@ Open [http://localhost:3000](http://localhost:3000) to view the application.
 Required environment variables:
 ```bash
 NEXT_PUBLIC_BASE_URL=          # Application base URL
-NEXT_PUBLIC_API_URL=           # Backend API URL
-DISCORD_CLIENT_ID= # Discord OAuth client ID
 ENCRYPTION_KEY=    # Encryption key for sensitive data
 BECH32_POOL_ID=    # Cardano pool ID
 BLOCKFROST_API_KEY=# Blockfrost API key

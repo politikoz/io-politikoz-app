@@ -18,7 +18,7 @@ export function useUserGridView() {
       }
       
       const response = await api.get<UserGridViewResponse>(
-        `/api/v1/office/user-grid-view?stakeAddress=${stakeAddress}`
+        `/proxy/office/user-grid-view?stakeAddress=${stakeAddress}`
       );
       
       return response.data;

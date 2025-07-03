@@ -6,7 +6,7 @@ export function useHomePageData() {
   return useQuery<HomePageData>({
     queryKey: ['homePage'],
     queryFn: async () => {
-      const response = await api.get<HomePageData>('/api/v1/statistics/election');
+      const response = await api.get<HomePageData>('/proxy/statistics/election');
       return response.data;
     },
     initialData: INITIAL_HOMEPAGE_DATA,

@@ -6,7 +6,7 @@ export function useGovernanceData() {
   return useQuery({
     queryKey: ['governance'],
     queryFn: async () => {
-      const response = await api.get<GovernanceData>('/api/v1/governance');
+      const response = await api.get<GovernanceData>('/proxy/governance');
       return response.data;
     },
     initialData: INITIAL_GOVERNANCE_DATA, // Use initial data while loading

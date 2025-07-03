@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_SWAP_API_URL || 'http://localhost:3001', // Corrigido para usar a variável correta
+  baseURL: process.env.NEXT_PUBLIC_SWAP_API_URL || 'http://localhost:3001',
   timeout: 300000, // Aumentado para 5 minutos devido à natureza da operação
   headers: {
     'Content-Type': 'application/json',

@@ -19,7 +19,7 @@ export function useAutoLinkConfig() {
       if (!stakeAddress) throw new Error('No stake address found');
       
       const response = await api.get<AutoLinkAPIResponse>(
-        `/api/v1/office/tickets/config?stakeAddress=${stakeAddress}`
+        `/proxy/office/tickets-config?stakeAddress=${stakeAddress}`
       );
       return response.data;
     },
@@ -37,7 +37,7 @@ export function useAutoLinkConfig() {
         throw new Error('No stake address found');
       }
       
-      const response = await api.put('/api/v1/office/tickets/config', {
+      const response = await api.put('/proxy/office/tickets-config', {
         stakeAddress,
         config: updatedConfig
       });

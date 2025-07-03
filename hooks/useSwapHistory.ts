@@ -21,7 +21,7 @@ export function useSwapHistory({ enabled = false }: UseSwapHistoryProps = {}) {
                 throw new Error('No stake address available');
             }
 
-            const response = await api.get<SwapHistoryDTO[]>('/api/v1/office/swap-history', {
+            const response = await api.get<SwapHistoryDTO[]>('/proxy/office/swap-history', {
                 params: { stakeAddress }
             });
 

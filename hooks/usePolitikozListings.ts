@@ -10,7 +10,7 @@ export function usePolitikozListings(tabName: string, quantity: number = 4) {
       try {
 
         const response = await api.get<PolitikozListing[]>(
-          `/api/v1/party/listings?cargo=${tabName}&quantity=${quantity}`
+          `/proxy/party/listings?cargo=${tabName}&quantity=${quantity}`
         );
 
         return response.data;
