@@ -3,7 +3,8 @@ import { onCLS, onFCP, onLCP, onTTFB } from 'web-vitals';
 class FrontendMonitoring {
     private async sendMetrics(name: string, value: number, path?: string) {
         try {
-            await fetch('http://localhost:3001/metrics/frontend', {
+            const validatorUrl = process.env.NEXT_PUBLIC_VALIDATOR_API_URL || '';
+            await fetch(`${validatorUrl}/metrics/frontend`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ 
