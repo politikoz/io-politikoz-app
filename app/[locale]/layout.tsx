@@ -10,8 +10,7 @@ import { SupportedLocales } from "@/i18n/routing";
 import { ClientProviders } from '@/providers/ClientProviders';
 import ConsentBanner from "@/components/Legal/ConsentBanner";
 import GoogleAnalytics from '@/components/Analytics/GoogleAnalytics';
-import { useEffect } from 'react';
-import { monitoring } from '../lib/monitoring';
+import MonitoringInitializer from '@/components/Analytics/MonitoringInitializer';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -27,22 +26,17 @@ export default async function LocaleLayout({
   const resolvedParams = await params;
   const { locale } = resolvedParams;
   
-
   if (!routing.locales.includes(locale)) {
     notFound();
   }
 
   const messages = await getMessages({ locale });
 
-  useEffect(() => {
-    monitoring.initializeWebVitals();
-    monitoring.trackPageLoad();
-  }, []);
-
   return (
     <html lang={locale}>
       <body className="flex flex-col min-h-screen bg-gray-100 text-gray-900">
         <ClientProviders locale={locale} messages={messages}>
+          <MonitoringInitializer />
           <ConsentBanner />
           <Header />
           <main className="flex flex-col flex-1">
