@@ -10,6 +10,8 @@ import { SupportedLocales } from "@/i18n/routing";
 import { ClientProviders } from '@/providers/ClientProviders';
 import ConsentBanner from "@/components/Legal/ConsentBanner";
 import GoogleAnalytics from '@/components/Analytics/GoogleAnalytics';
+import { useEffect } from 'react';
+import { monitoring } from '../lib/monitoring';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -31,6 +33,11 @@ export default async function LocaleLayout({
   }
 
   const messages = await getMessages({ locale });
+
+  useEffect(() => {
+    monitoring.initializeWebVitals();
+    monitoring.trackPageLoad();
+  }, []);
 
   return (
     <html lang={locale}>
