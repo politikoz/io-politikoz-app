@@ -4,6 +4,7 @@ import { WalletProvider } from "@/providers/WalletProvider";
 import { MintButton } from "./MintButton";
 
 export function MintContainer() {
+  console.log("[MintContainer] Render");
   return (
     <WalletProvider>
       <div className="flex flex-col items-center justify-center p-8">

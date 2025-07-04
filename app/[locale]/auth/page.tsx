@@ -16,6 +16,7 @@ export default function AuthPage() {
   const [isConnected, setIsConnected] = useState(false);
 
   useEffect(() => {
+    console.log("[AuthPage] Mounted. origin:", origin, "displayParam:", displayParam);
     const checkConnection = () => {
       setIsConnected(localStorage.getItem("connected") === "true");
     };

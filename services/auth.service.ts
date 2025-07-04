@@ -2,6 +2,21 @@ import api from '@/app/lib/api';
 import { WalletAuthSession, SignaturePayload, AuthResponse, AuthRequestBody, SignatureNested } from '@/types/auth';
 import { DataSignature } from '@meshsdk/core';
 
+function generateRequestId() {
+    if (typeof window !== 'undefined' && window.crypto && window.crypto.randomUUID) {
+        return window.crypto.randomUUID();
+    }
+    if (typeof globalThis !== 'undefined' && globalThis.crypto && typeof globalThis.crypto.randomUUID === 'function') {
+        return globalThis.crypto.randomUUID();
+    }
+    // Fallback
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c: string) => {
+        const r = Math.random() * 16 | 0;
+        const v = c === 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
+}
+
 export class AuthService {
     private static readonly SESSION_DURATION = 60 * 60 * 1000; // 1 hour
     private static readonly COOKIE_NAME = 'auth_session';
@@ -18,7 +33,7 @@ export class AuthService {
             const payload: SignaturePayload = {
                 stakeAddress,
                 timestamp: Date.now(),
-                nonce: crypto.randomUUID()
+                nonce: generateRequestId()
             };
 
             const stringifiedPayload = JSON.stringify(payload, Object.keys(payload).sort());
