@@ -94,9 +94,9 @@ export default function ConnectWalletList() {
       {(connected || isLocalConnected) ? (
         <div className="flex flex-col items-center px-4 py-2 bg-gray-900 text-yellow-400 border-2 border-yellow-500 rounded-none shadow-pixel-art">
           <div className="flex items-center w-full mb-4">
-            {wallets.find((wallet) => wallet.name === (name || localWalletName))?.icon && (
+            {wallets.find((wallet: any) => wallet.name === (name || localWalletName))?.icon && (
               <Image
-                src={wallets.find((wallet) => wallet.name === (name || localWalletName))?.icon || ""}
+                src={wallets.find((wallet: any) => wallet.name === (name || localWalletName))?.icon || ""}
                 alt={(name || localWalletName) || "Connected Wallet"}
                 width={20}
                 height={20}
@@ -121,7 +121,7 @@ export default function ConnectWalletList() {
         </div>
       ) : (
         <>
-          {wallets.map((wallet) => (
+          {wallets.map((wallet: { name: string; icon?: string }) => (
             <div
               key={wallet.name}
               role="button"
