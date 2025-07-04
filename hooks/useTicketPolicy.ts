@@ -6,7 +6,7 @@ export function useTicketPolicy() {
   return useQuery({
     queryKey: ['ticketPolicy'],
     queryFn: async () => {
-      const response = await api.get<TicketPolicyData>('/proxy/laundry/ticket-configuration');
+      const response = await api.get<TicketPolicyData>('/laundry/ticket-configuration');
       return response.data;
     },
     initialData: INITIAL_TICKET_POLICY,  // Use as initial data

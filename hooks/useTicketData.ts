@@ -17,7 +17,7 @@ export function useTicketData() {
         // Retorna mock vazio se não conectado
         return [];
       }
-      const response = await api.get<Ticket[]>(`/proxy/office/tickets`, {
+      const response = await api.get<Ticket[]>(`/office/tickets`, {
         params: { stakeAddress }
       });
       return response.data;

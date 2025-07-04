@@ -37,7 +37,7 @@ function generateRequestId() {
 }
 
 const api = axios.create({
-    baseURL: process.env.NEXT_PUBLIC_VALIDATOR_API_URL, // Aponta para seu backend
+    baseURL: process.env.NEXT_PUBLIC_VALIDATOR_API_URL_AWS, // Aponta para seu backend
     timeout: 30000,
     headers: {
         'Content-Type': 'application/json',

@@ -23,7 +23,7 @@ export function useReleasePrisoner() {
       );
 
       const response = await api.put<ReleaseFromJailResponse>(
-        '/proxy/party/politikoz-release-from-jail', 
+        '/party/politikoz-release-from-jail', 
         {
           stakeAddress,
           assetNames: formattedAssetNames

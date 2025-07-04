@@ -15,7 +15,7 @@ export function usePartyStats() {
     return useQuery({
       queryKey: ['partyStats', stakeAddress],
       queryFn: async () => {
-        const response = await api.get<PartyStats[]>('/proxy/office/parties-stats');
+        const response = await api.get<PartyStats[]>('/office/parties-stats');
         return response.data;
       },
       select: (data) => {

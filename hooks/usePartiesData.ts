@@ -6,7 +6,7 @@ export function usePartiesData() {
   return useQuery({
     queryKey: ['parties'],
     queryFn: async () => {
-      const response = await api.get<Party[]>('/proxy/office/parties');
+      const response = await api.get<Party[]>('/office/parties');
       return response.data;
     },
     initialData: INITIAL_PARTIES_DATA,

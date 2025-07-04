@@ -6,7 +6,7 @@ export function useExploreData() {
   return useQuery({
     queryKey: ['explore'],
     queryFn: async () => {
-      const response = await api.get<ExploreData>('/proxy/explore');
+      const response = await api.get<ExploreData>('/explore');
       return response.data;
     },
     initialData: INITIAL_EXPLORE_DATA,// Show while loading

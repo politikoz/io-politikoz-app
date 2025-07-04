@@ -23,7 +23,7 @@ export function useCandidatesTable(filters: CandidatesTableFilters) {
       });
 
       const response = await api.get<CandidatesTableResponse>(
-        `/proxy/office/candidates-table?${params.toString()}`
+        `/office/candidates-table?${params.toString()}`
       );
 
       // If stakeAddress exists, mark candidates as user's

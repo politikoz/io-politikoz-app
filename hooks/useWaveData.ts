@@ -6,7 +6,7 @@ export function useWaveData() {
   return useQuery({
     queryKey: ['waves'],
     queryFn: async () => {
-      const response = await api.get<Wave[]>('/proxy/office/waves');
+      const response = await api.get<Wave[]>('/office/waves');
       return response.data;
     },
     initialData: INITIAL_WAVE_DATA,

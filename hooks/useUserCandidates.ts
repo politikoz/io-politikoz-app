@@ -18,7 +18,7 @@ export function useUserCandidates() {
       }
       
       const response = await api.get<ElectionGroup[]>(
-        `/proxy/office/user-candidates?stakeAddress=${stakeAddress}`
+        `/office/user-candidates?stakeAddress=${stakeAddress}`
       );
       
       // Wrap the response in the expected format

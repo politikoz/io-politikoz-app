@@ -6,7 +6,7 @@ export function useTiersDashboard() {
     return useQuery<TiersDashboard>({
         queryKey: ['tiersDashboard'],
         queryFn: async () => {
-            const response = await api.get<TiersDashboard>('/proxy/office/tiers-dashboard');
+            const response = await api.get<TiersDashboard>('/office/tiers-dashboard');
             return response.data;
         },
         staleTime: 60 * 1000, // Cache for 1 minute

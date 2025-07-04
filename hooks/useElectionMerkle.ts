@@ -12,7 +12,7 @@ export function useElectionMerkle() {
     queryKey: ['electionMerkle'],
     queryFn: async () => {
       const response = await api.get<ElectionMerkleDTO[]>(
-        '/proxy/audit/merkle'
+        '/audit/merkle'
       );
       return response.data;
     },

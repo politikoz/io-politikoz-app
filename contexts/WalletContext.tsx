@@ -4,7 +4,6 @@ import { useOfficeSwap } from '@/hooks/useOfficeSwap';
 import { useSwapStatus } from '@/hooks/useSwapStatus';
 import { SwapHistoryDTO, SwapStatus } from '@/types/swap';
 
-console.log('[WalletContext] Arquivo carregado');
 
 interface WalletContextType {
   isConnected: boolean;
@@ -42,7 +41,6 @@ interface WalletContextType {
 const WalletContext = createContext<WalletContextType | undefined>(undefined);
 
 export function WalletContextProvider({ children }: { children: ReactNode }) {
-  console.log('[WalletContextProvider] Render');
 
   const [isConnected, setIsConnected] = useState(false);
   const [balance, setBalance] = useState(0);

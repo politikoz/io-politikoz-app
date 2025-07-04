@@ -16,7 +16,7 @@ export function useTicketPurchaseHistory(stakeAddress: string | null) {
       
       try {
         const response = await api.get<TicketPurchaseHistoryDTO[]>(
-          `/proxy/office/ticket-purchases?stakeAddress=${stakeAddress}`
+          `/office/ticket-purchases?stakeAddress=${stakeAddress}`
         );
         return response.data;
       } catch (error: any) {

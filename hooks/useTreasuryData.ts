@@ -6,7 +6,7 @@ export function useTreasuryData() {
   return useQuery<TreasuryData>({
     queryKey: ['treasury'],
     queryFn: async () => {
-      const response = await api.get<TreasuryData>('/proxy/treasury');
+      const response = await api.get<TreasuryData>('/treasury');
       return response.data;
     },
     initialData: INITIAL_TREASURY_DATA,  // Use as initial data

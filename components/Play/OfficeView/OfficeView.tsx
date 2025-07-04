@@ -18,7 +18,6 @@ import { MintContainer } from "./MintContainer";
 import AuditView from "../Audit/AuditView";
 
 export default function OfficeView() {
-  console.log("[OfficeView] Render");
   const [selectedSection, setSelectedSection] = useState<null | string>(null);
   const [localTourActive, setLocalTourActive] = useState(false);
   const [tourSection, setTourSection] = useState<

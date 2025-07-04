@@ -11,7 +11,7 @@ export function useSwapStatus() {
         setError(null);
 
         try {
-            await api.put('/proxy/office/swap-status', payload);
+            await api.put('/office/swap-status', payload);
             return true;
         } catch (err) {
             const message = err instanceof Error ? err.message : 'Failed to update swap status';

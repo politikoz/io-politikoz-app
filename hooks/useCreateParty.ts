@@ -23,7 +23,7 @@ export function useCreateParty() {
       }
 
       try {
-        const response = await api.post<PartyInfoDTO>('/proxy/party/create', request);
+        const response = await api.post<PartyInfoDTO>('/party/create', request);
         return response.data;
       } catch (error: any) {
         // Transform errors into our custom error type

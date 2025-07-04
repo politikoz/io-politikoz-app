@@ -30,7 +30,6 @@ export default function ConnectToKozButton({
 
   // Initial connection check and user creation
   useEffect(() => {
-    console.log("[ConnectToKozButton] useEffect mount");
     const storedConnected = localStorage.getItem("connected") === "true";
     const storedWalletName = localStorage.getItem("walletName");
     const storedStakeAddress = localStorage.getItem("stakeAddress");

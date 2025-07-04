@@ -19,8 +19,6 @@ export default function ConnectToKoz({
   const router = useRouter();
   const t = useTranslations("ConnectToKoz");
 
-  console.log('[ConnectToKoz] Render', { originPage, originDisplay, locale });
-
   const handleBackToOrigin = () => {
     // Remove any existing locale prefix from originPage
     const cleanOriginPage = originPage.replace(/^\/[a-z]{2}\//, '');

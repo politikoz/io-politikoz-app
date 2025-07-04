@@ -28,7 +28,6 @@ function WalletConnectionManager({ children }: { children: ReactNode }) {
 }
 
 export function WalletProvider({ children }: { children: ReactNode }) {
-    console.log('[WalletProvider] loaded');
     return (
         <MeshProvider>
             <WalletContextProvider>

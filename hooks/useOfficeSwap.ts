@@ -11,7 +11,7 @@ export function useOfficeSwap() {
         setError(null);
 
         try {
-            const response = await api.post<SwapHistoryDTO>('/proxy/office/swap', data);
+            const response = await api.post<SwapHistoryDTO>('/office/swap', data);
             return response.data;
         } catch (err) {
             const message = err instanceof Error ? err.message : 'Failed to create swap';

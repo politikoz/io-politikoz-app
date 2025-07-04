@@ -18,7 +18,7 @@ export function useVerification(entryNumber?: string, electionId?: number) {
     queryKey: ['verification', entryNumber, electionId],
     queryFn: async () => {
       const response = await api.get<VerificationResponseDTO>(
-        `/proxy/audit/verify?entryNumber=${entryNumber}&electionId=${electionId}`
+        `/audit/verify?entryNumber=${entryNumber}&electionId=${electionId}`
       );
       return response.data;
     },

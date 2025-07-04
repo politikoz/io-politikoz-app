@@ -1,20 +1,16 @@
+import api from '@/app/lib/apiNode';
 import { onCLS, onFCP, onLCP, onTTFB } from 'web-vitals';
 
 class FrontendMonitoring {
     private async sendMetrics(name: string, value: number, path?: string) {
         try {
-            const validatorUrl = process.env.NEXT_PUBLIC_VALIDATOR_API_URL || '';
-            await fetch(`${validatorUrl}/metrics/frontend`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ 
-                    name, 
-                    value,
-                    path: path || (typeof window !== 'undefined' ? window.location.pathname : '/') 
-                })
+            await api.post('/metrics/frontend', { 
+                name, 
+                value,
+                path: path || (typeof window !== 'undefined' ? window.location.pathname : '/') 
             });
         } catch (error) {
-            console.error('Failed to send metrics:', error);
+            
         }
     }
 
@@ -45,8 +41,7 @@ class FrontendMonitoring {
     }
 
     public trackError(error: Error, componentName: string) {
-        this.sendMetrics('Error', 1, componentName);
-        console.error(`Error in ${componentName}:`, error);
+        this.sendMetrics('Error', 1, componentName);      
     }
 }
 

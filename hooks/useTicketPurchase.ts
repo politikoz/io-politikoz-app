@@ -6,7 +6,7 @@ export function useTicketPurchase() {
   const createPurchaseMutation = useMutation({
     mutationFn: async (purchaseData: CreateTicketPurchaseDTO) => {
       try {
-        await api.post('/proxy/office/ticket-purchase', purchaseData);
+        await api.post('/office/ticket-purchase', purchaseData);
         return { success: true };
       } catch (error: any) {
         const errorMessage = error.response?.data?.message || 
