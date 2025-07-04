@@ -1,6 +1,6 @@
 import api from '@/app/lib/api';
 import { WalletAuthSession, SignaturePayload, AuthResponse, AuthRequestBody, SignatureNested } from '@/types/auth';
-import { DataSignature } from '@meshsdk/core';
+import type { DataSignature } from '@meshsdk/core';
 
 function generateRequestId() {
     if (typeof window !== 'undefined' && window.crypto && window.crypto.randomUUID) {

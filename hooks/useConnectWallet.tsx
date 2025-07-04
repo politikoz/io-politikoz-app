@@ -1,11 +1,28 @@
 import { useState, useEffect } from "react";
-import { useWallet, useWalletList, useLovelace, useNetwork } from "@meshsdk/react";
 
 export function useConnectWallet() {
-  const { connect: meshConnect, disconnect: meshDisconnect, connected: meshConnected, name, wallet } = useWallet();
-  const wallets = useWalletList();
-  const lovelace = useLovelace() || "0";
-  const network = useNetwork();
+
+  const [meshHooks, setMeshHooks] = useState<any>(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      import("@meshsdk/react").then(mod => {
+        setMeshHooks({
+          useWallet: mod.useWallet,
+          useWalletList: mod.useWalletList,
+          useLovelace: mod.useLovelace,
+          useNetwork: mod.useNetwork,
+        });
+      });
+    }
+  }, []);
+
+  const meshWallet = meshHooks?.useWallet ? meshHooks.useWallet() : {};
+  const wallets = meshHooks?.useWalletList ? meshHooks.useWalletList() : [];
+  const lovelace = meshHooks?.useLovelace ? meshHooks.useLovelace() || "0" : "0";
+  const network = meshHooks?.useNetwork ? meshHooks.useNetwork() : undefined;
+
+  const { connect: meshConnect, disconnect: meshDisconnect, connected: meshConnected, name, wallet } = meshWallet;
 
   const [rewardAddress, setRewardAddress] = useState<string | null>(null);
   const [isConnected, setIsConnected] = useState(() => {

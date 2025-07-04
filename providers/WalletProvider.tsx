@@ -1,9 +1,14 @@
 'use client';
 
 import { ReactNode, useEffect } from 'react';
-import { MeshProvider } from "@meshsdk/react";
 import { WalletContextProvider } from "@/contexts/WalletContext";
 import { useWalletContext } from '@/contexts/WalletContext';
+import dynamic from 'next/dynamic';
+
+const MeshProvider = dynamic(
+  () => import('@meshsdk/react').then(mod => mod.MeshProvider),
+  { ssr: false }
+);
 
 function WalletConnectionManager({ children }: { children: ReactNode }) {
     const { connect, isConnected } = useWalletContext();
