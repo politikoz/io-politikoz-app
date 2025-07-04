@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { useRouter } from "@/i18n/routing";
 import MyLaundry from "@/components/Play/InsideBuilding/MyLaundry";
 import LaundryButtons from "@/components/Play/LaundryView/LaundryButtons";
-import TourManager from "../Tour/TourManager";
 import TicketPolicyView from "../TicketPolicy/TicketPolicyView";
 import ClaimKozPage from "../ClaimKoz/ClaimKozPage";
 import { useTour } from "@/contexts/TourContext";

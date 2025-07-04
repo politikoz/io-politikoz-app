@@ -1,14 +1,12 @@
-
-"use client";
-
-import LaundryView from "@/components/Play/LaundryView/LaundryView";
+import { Suspense } from "react";
+import LaundryViewClient from "./LaundryViewClient";
 
 export default function LaundryPage() {
-
   return (
     <div className="w-full h-full flex flex-col items-center">
-      <LaundryView />
+      <Suspense fallback={null}>
+        <LaundryViewClient />
+      </Suspense>
     </div>
   );
 }
-

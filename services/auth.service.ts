@@ -1,6 +1,6 @@
 import api from '@/app/lib/api';
 import { WalletAuthSession, SignaturePayload, AuthResponse, AuthRequestBody, SignatureNested } from '@/types/auth';
-import type { DataSignature } from '@meshsdk/core';
+import { DataSignature } from '@meshsdk/core';
 
 function generateRequestId() {
     if (typeof window !== 'undefined' && window.crypto && window.crypto.randomUUID) {
@@ -58,7 +58,7 @@ export class AuthService {
             };
 
             const response = await Promise.resolve()
-                .then(() => api.post<AuthResponse>('/api/v1/auth/wallet', requestBody))
+                .then(() => api.post<AuthResponse>('/proxy/auth/wallet', requestBody))
                 .catch(() => null);
                 
             if (!response?.data?.token) {
