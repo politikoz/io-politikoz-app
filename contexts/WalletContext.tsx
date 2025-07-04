@@ -7,6 +7,8 @@ import { useOfficeSwap } from '@/hooks/useOfficeSwap';
 import { useSwapStatus } from '@/hooks/useSwapStatus';
 import { SwapHistoryDTO, SwapStatus } from '@/types/swap';
 
+console.log('[WalletContext] Arquivo carregado');
+
 const BLOCKFROST_API_KEY = process.env.NEXT_PUBLIC_BLOCKFROST_API_KEY || '';
 const provider = new BlockfrostProvider(BLOCKFROST_API_KEY);
 
@@ -46,6 +48,7 @@ interface WalletContextType {
 const WalletContext = createContext<WalletContextType | undefined>(undefined);
 
 export function WalletContextProvider({ children }: { children: ReactNode }) {
+  console.log('[WalletContextProvider] Render');
   const { connect: meshConnect, disconnect: meshDisconnect, connected: meshConnected, wallet } = useWallet();
   const [isConnected, setIsConnected] = useState(false);
   const [balance, setBalance] = useState(0);
